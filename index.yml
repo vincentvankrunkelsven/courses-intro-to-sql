@@ -24,15 +24,15 @@ chapters:
           Explain the concept of a relational database, about SQL, and about
           queries. Give very simple example of a query: get a column from a
           database.
+      - type: NormalExercise
+        title: Your first SQL query
+        content: Content
       - type: MultipleChoiceExercise
         title: Title
         content: >-
           Which of the following is a relational database management system, or
           RDBMS? (SQL, PostgreSQL, OracleDB, Microsoft SQL server). SQL is the
           language, not the RDBMS!
-      - type: NormalExercise
-        title: Your first SQL query
-        content: Content
       - type: VideoExercise
         title: SELECT
         content: >
