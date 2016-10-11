@@ -15,19 +15,61 @@ course_description: |-
 programming_language: r
 chapters:
   - chapter_title: Introduction
-    chapter_description: |+
-      What is an RDBMS? most basic SELECT FROM call
-
+    chapter_description: |
+      Get to know relational database management systems. 
     exercises:
       - type: VideoExercise
         title: What is an RDBMS?
-        content: This is a template exercise.
+        content: >-
+          Explain the concept of a relational database, about SQL, and about
+          queries. Give very simple example of a query: get a column from a
+          database.
+      - type: MultipleChoiceExercise
+        title: Title
+        content: >-
+          Which of the following is a relational database management system, or
+          RDBMS? (SQL, PostgreSQL, OracleDB, Microsoft SQL server). SQL is the
+          language, not the RDBMS!
+      - type: NormalExercise
+        title: Your first SQL query
+        content: Content
       - type: VideoExercise
         title: SELECT
-        content: 'SELECT FROM, different selectors, and, or'
+        content: >
+          How to select a column, multiple columns, all columns, and how to use
+          aliases.
+
+          select a from x
+
+          select a, b from x
+
+          select * from x
+
+          select a as new_a, b as new_b from x
+      - type: NormalExercise
+        title: Select all columns
+        content: Content
+      - type: NormalExercise
+        title: Select multiple columns
+        content: Content
+      - type: NormalExercise
+        title: Using aliases
+        content: Content
       - type: VideoExercise
         title: SELECT (2)
-        content: 'COUNT, AVG, other ''summarizers'', DISTINCT'
+        content: 'COUNT, SUM, AVG, MIN, MAX, DISTINCT'
+      - type: NormalExercise
+        title: COUNT
+        content: Content
+      - type: NormalExercise
+        title: SUM and AVG
+        content: Content
+      - type: NormalExercise
+        title: MIN and MAX
+        content: Content
+      - type: NormalExercise
+        title: DISTINCT
+        content: Content
   - chapter_title: WHERE
     chapter_description: Description
     exercises:
@@ -36,24 +78,30 @@ chapters:
         content: |
           =, >, <, ...
           Single quotes for text values, no quotes for numerics
+        course_description: ''
       - type: VideoExercise
         title: Combining predicates
         content: 'AND, OR, NOT'
+        course_description: ''
       - type: VideoExercise
         title: Advanced predicates
         content: 'BETWEEN, LIKE, IN'
+        course_description: ''
   - chapter_title: GROUP BY / ORDER BY
     chapter_description: Description
     exercises:
       - type: VideoExercise
         title: GROUPING DATA
         content: '''single'' groups'
+        course_description: ''
       - type: VideoExercise
         title: ORDER BY
         content: Content
+        course_description: ''
       - type: VideoExercise
         title: Combining GROUP BY and ORDER BY
         content: Content
+        course_description: ''
   - chapter_title: Speed considerations
     chapter_description: |-
       Only return parts of results.
