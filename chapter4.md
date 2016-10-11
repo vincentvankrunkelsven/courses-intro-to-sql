@@ -1,5 +1,5 @@
 ---
-title: Speed considerations
-description: |-
-  Only return parts of results.
-  Tips and tricks to speed up SQL queries.
+title: Working with times and dates
+description: >-
+  Working with Dates is a painful part of working with relational databases as a
+  data scientist

@@ -109,11 +109,26 @@ chapters:
       - type: NormalExercise
         title: Basic predicates (2)
         content: Content
+      - type: MultipleChoiceExercise
+        title: Combining predicates (1)
+        content: Content
+      - type: NormalExercise
+        title: Combining predicates (2)
+        content: Content
       - type: VideoExercise
         title: Advanced predicates
         content: 'BETWEEN, LIKE, IN'
       - type: NormalExercise
-        title: Title
+        title: BETWEEN
+        content: Content
+      - type: NormalExercise
+        title: IN
+        content: Content
+      - type: NormalExercise
+        title: LIKE (1)
+        content: Content
+      - type: NormalExercise
+        title: LIKE (2)
         content: Content
       - type: VideoExercise
         title: SELECT + WHERE = MAGIC
@@ -121,21 +136,29 @@ chapters:
           Combine the WHERE clause with SELECT to answer more advanced problems
           (count the number of observations on the train y, what's the average
           age on passengers that go to Paris).
+      - type: MultipleChoiceExercise
+        title: Aggregate with basic predicate
+        content: Content
+      - type: NormalExercise
+        title: Aggregate with combined predicate
+        content: Content
+      - type: NormalExercise
+        title: Aggregate with advanced predicate
+        content: Content
   - chapter_title: GROUP BY / ORDER BY
     chapter_description: Description
     exercises:
       - type: VideoExercise
-        title: GROUPING DATA
+        title: GROUP BY
         content: '''single'' groups'
-        course_description: ''
       - type: VideoExercise
-        title: GROUPING DATA (2)
+        title: GROUP BY (2)
         content: Content
       - type: VideoExercise
         title: ORDER BY
         content: Content
-  - chapter_title: Speed considerations
-    chapter_description: |-
-      Only return parts of results.
-      Tips and tricks to speed up SQL queries.
+  - chapter_title: Working with times and dates
+    chapter_description: >-
+      Working with Dates is a painful part of working with relational databases
+      as a data scientist
     exercises: []
