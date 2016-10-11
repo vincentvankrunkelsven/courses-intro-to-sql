@@ -26,8 +26,8 @@ chapters:
           data analysis languages? You want the computation to be on the
           database side. When you've got the exact information you need, you can
           start your analyses in the tool of choice. Also interesting for real
-          time dashboarding/visualization. Give very simple example of a query:
-          get a column from a database.
+          time dashboarding/visualization. Be very clear about what SQL is, and
+          what it is not.
 
           Give example database: use DESCRIBE and basic SELECT statement as a
           first reconnaissance.
@@ -52,19 +52,22 @@ chapters:
           select * from x
 
           select a as new_a, b as new_b from x
-        course_description: ''
+
+
+          Also mention here that using SELECT or select does not matter. In
+          general, SQL is not case-sensitive when it comes to keywords, but it
+          does when it comes to table and column names!
       - type: NormalExercise
         title: Select all columns
-        content: Content
-        course_description: ''
+        content: Use the * to select all columns at once
       - type: NormalExercise
         title: Select multiple columns
-        content: Content
-        course_description: ''
+        content: >-
+          Seperate column names with commas to select multiple columns. The
+          order matters!
       - type: NormalExercise
         title: Using aliases
-        content: Content
-        course_description: ''
+        content: Use the 'as' thing to load in certain columns under certain aliases.
       - type: VideoExercise
         title: SELECT (2)
         content: 'COUNT, SUM, AVG, MIN, MAX, DISTINCT'

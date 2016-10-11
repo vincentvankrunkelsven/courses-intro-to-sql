@@ -3,14 +3,14 @@ title: Introduction
 description: |
   Get to know relational database management systems. 
 
---- type:VideoExercise lang:r xp: skills: key:71f89b2a36
+--- type:VideoExercise lang:r xp: skills: key:061c61bf9a
 ## What is an RDBMS? 
-Explain the concept of a relational database, about SQL, and about queries. But why use SQL in the first place, and not R/Python/other data analysis languages? You want the computation to be on the database side. When you've got the exact information you need, you can start your analyses in the tool of choice. Also interesting for real time dashboarding/visualization. Give very simple example of a query: get a column from a database.
+Explain the concept of a relational database, about SQL, and about queries. But why use SQL in the first place, and not R/Python/other data analysis languages? You want the computation to be on the database side. When you've got the exact information you need, you can start your analyses in the tool of choice. Also interesting for real time dashboarding/visualization. Be very clear about what SQL is, and what it is not.
 Give example database: use DESCRIBE and basic SELECT statement as a first reconnaissance.
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:1b191cc1d2
+--- type:NormalExercise lang:r xp: skills: key:2dce896f84
 ## A first date 
 Use DESCRIBE to figure out the different tables in the database.
 
@@ -38,7 +38,7 @@ Use DESCRIBE to figure out the different tables in the database.
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:b1b699df58
+--- type:NormalExercise lang:r xp: skills: key:ba71277784
 ## Your first SQL query 
 Very basic:
 select a from x
@@ -67,7 +67,7 @@ select a from x
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:4c52a06d49
+--- type:VideoExercise lang:r xp: skills: key:28e75f49b5
 ## SELECT 
 How to select a column, multiple columns, all columns, and how to use aliases.
 select a from x
@@ -75,12 +75,14 @@ select a, b from x
 select * from x
 select a as new_a, b as new_b from x
 
+Also mention here that using SELECT or select does not matter. In general, SQL is not case-sensitive when it comes to keywords, but it does when it comes to table and column names!
+
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:e87919dfea
+--- type:NormalExercise lang:r xp: skills: key:fed3e78adb
 ## Select all columns 
-Content
+Use the * to select all columns at once
 
 *** =instructions
 
@@ -106,9 +108,9 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:e297b066a6
+--- type:NormalExercise lang:r xp: skills: key:783880fc23
 ## Select multiple columns 
-Content
+Seperate column names with commas to select multiple columns. The order matters!
 
 *** =instructions
 
@@ -134,9 +136,9 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:c6b88c53e6
+--- type:NormalExercise lang:r xp: skills: key:909aaf8fe0
 ## Using aliases 
-Content
+Use the 'as' thing to load in certain columns under certain aliases.
 
 *** =instructions
 
@@ -162,13 +164,13 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:1196bfeba4
+--- type:VideoExercise lang:r xp: skills: key:3484f6e938
 ## SELECT (2) 
 COUNT, SUM, AVG, MIN, MAX, DISTINCT
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:3b7fc2f893
+--- type:NormalExercise lang:r xp: skills: key:43982013f2
 ## COUNT 
 Content
 
@@ -196,7 +198,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:727bc22114
+--- type:NormalExercise lang:r xp: skills: key:9d6561f7e8
 ## SUM and AVG 
 Content
 
@@ -224,7 +226,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:7fa70278c2
+--- type:NormalExercise lang:r xp: skills: key:8709702ad8
 ## MIN and MAX 
 Content
 
@@ -252,7 +254,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:e573cc159d
+--- type:NormalExercise lang:r xp: skills: key:a654e40551
 ## DISTINCT 
 Content
 
