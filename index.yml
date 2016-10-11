@@ -22,12 +22,15 @@ chapters:
       - type: VideoExercise
         title: What is an RDBMS?
         content: This is a template exercise.
+        course_description: ''
       - type: VideoExercise
         title: SELECT
         content: 'SELECT FROM, different selectors, and, or'
+        course_description: ''
       - type: VideoExercise
         title: SELECT (2)
         content: 'COUNT, AVG, other ''summarizers'', DISTINCT'
+        course_description: ''
   - chapter_title: WHERE
     chapter_description: Description
     exercises:
@@ -36,24 +39,30 @@ chapters:
         content: |
           =, >, <, ...
           Single quotes for text values, no quotes for numerics
+        course_description: ''
       - type: VideoExercise
         title: Combining predicates
         content: 'AND, OR, NOT'
+        course_description: ''
       - type: VideoExercise
         title: Advanced predicates
         content: 'BETWEEN, LIKE, IN'
+        course_description: ''
   - chapter_title: GROUP BY / ORDER BY
     chapter_description: Description
     exercises:
       - type: VideoExercise
         title: GROUPING DATA
         content: '''single'' groups'
+        course_description: ''
       - type: VideoExercise
         title: ORDER BY
         content: Content
+        course_description: ''
       - type: VideoExercise
         title: Combining GROUP BY and ORDER BY
         content: Content
+        course_description: ''
   - chapter_title: Speed considerations
     chapter_description: |-
       Only return parts of results.
