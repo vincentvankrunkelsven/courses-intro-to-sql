@@ -3,14 +3,14 @@ title: Introduction
 description: |
   Get to know relational database management systems. 
 
---- type:VideoExercise lang:r xp: skills: key:061c61bf9a
+--- type:VideoExercise lang:r xp: skills: key:49fdae3349
 ## What is an RDBMS? 
 Explain the concept of a relational database, about SQL, and about queries. But why use SQL in the first place, and not R/Python/other data analysis languages? You want the computation to be on the database side. When you've got the exact information you need, you can start your analyses in the tool of choice. Also interesting for real time dashboarding/visualization. Be very clear about what SQL is, and what it is not.
 Give example database: use DESCRIBE and basic SELECT statement as a first reconnaissance.
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:2dce896f84
+--- type:NormalExercise lang:r xp: skills: key:568c854f4c
 ## A first date 
 Use DESCRIBE to figure out the different tables in the database.
 
@@ -38,7 +38,7 @@ Use DESCRIBE to figure out the different tables in the database.
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:ba71277784
+--- type:NormalExercise lang:r xp: skills: key:f787316f4a
 ## Your first SQL query 
 Very basic:
 select a from x
@@ -67,7 +67,7 @@ select a from x
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:28e75f49b5
+--- type:VideoExercise lang:r xp: skills: key:1d2f928571
 ## SELECT 
 How to select a column, multiple columns, all columns, and how to use aliases.
 select a from x
@@ -80,7 +80,7 @@ Also mention here that using SELECT or select does not matter. In general, SQL i
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:fed3e78adb
+--- type:NormalExercise lang:r xp: skills: key:11cb6d9477
 ## Select all columns 
 Use the * to select all columns at once
 
@@ -108,7 +108,7 @@ Use the * to select all columns at once
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:783880fc23
+--- type:NormalExercise lang:r xp: skills: key:25bc8be00e
 ## Select multiple columns 
 Seperate column names with commas to select multiple columns. The order matters!
 
@@ -136,7 +136,7 @@ Seperate column names with commas to select multiple columns. The order matters!
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:909aaf8fe0
+--- type:NormalExercise lang:r xp: skills: key:856c96af51
 ## Using aliases 
 Use the 'as' thing to load in certain columns under certain aliases.
 
@@ -164,15 +164,15 @@ Use the 'as' thing to load in certain columns under certain aliases.
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:3484f6e938
+--- type:VideoExercise lang:r xp: skills: key:0f1ee82229
 ## SELECT (2) 
-COUNT, SUM, AVG, MIN, MAX, DISTINCT
+COUNT, SUM, AVG, MIN, MAX, DISTINCT to get a first idea about aggregates of your data.
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:43982013f2
+--- type:NormalExercise lang:r xp: skills: key:b3db5a06a5
 ## COUNT 
-Content
+SELECT COUNT(*) FROM posts (to count the total number of posts)
 
 *** =instructions
 
@@ -198,9 +198,9 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:9d6561f7e8
+--- type:NormalExercise lang:r xp: skills: key:b1e053a8b8
 ## SUM and AVG 
-Content
+SELECT AVG(age) FROM readers
 
 *** =instructions
 
@@ -226,9 +226,9 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:8709702ad8
+--- type:NormalExercise lang:r xp: skills: key:ca6588d98e
 ## MIN and MAX 
-Content
+SELECT MAX(published_at) FROM posts to get the most recent post that was launched
 
 *** =instructions
 
@@ -254,9 +254,10 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:a654e40551
+--- type:NormalExercise lang:r xp: skills: key:d79dd47c6d
 ## DISTINCT 
-Content
+Number of distinct users that read something:
+SELECT COUNT(DISTINCT user_id) FROM reads
 
 *** =instructions
 

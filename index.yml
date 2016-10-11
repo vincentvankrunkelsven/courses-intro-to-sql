@@ -70,24 +70,25 @@ chapters:
         content: Use the 'as' thing to load in certain columns under certain aliases.
       - type: VideoExercise
         title: SELECT (2)
-        content: 'COUNT, SUM, AVG, MIN, MAX, DISTINCT'
-        course_description: ''
+        content: >-
+          COUNT, SUM, AVG, MIN, MAX, DISTINCT to get a first idea about
+          aggregates of your data.
       - type: NormalExercise
         title: COUNT
-        content: Content
-        course_description: ''
+        content: SELECT COUNT(*) FROM posts (to count the total number of posts)
       - type: NormalExercise
         title: SUM and AVG
-        content: Content
-        course_description: ''
+        content: SELECT AVG(age) FROM readers
       - type: NormalExercise
         title: MIN and MAX
-        content: Content
-        course_description: ''
+        content: >-
+          SELECT MAX(published_at) FROM posts to get the most recent post that
+          was launched
       - type: NormalExercise
         title: DISTINCT
-        content: Content
-        course_description: ''
+        content: |-
+          Number of distinct users that read something:
+          SELECT COUNT(DISTINCT user_id) FROM reads
   - chapter_title: WHERE
     chapter_description: Description
     exercises:
