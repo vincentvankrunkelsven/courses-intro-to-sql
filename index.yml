@@ -99,12 +99,15 @@ chapters:
       the observations.
     exercises:
       - type: VideoExercise
-        title: Selecting observations and combining predicates
+        title: WHERE predicates
         content: |
           =, >, <, ... - AND, OR, NOT
           Single quotes for text values, no quotes for numerics
       - type: NormalExercise
-        title: Equality
+        title: Basic predicates (1)
+        content: 'Use =, >, <'
+      - type: NormalExercise
+        title: Basic predicates (2)
         content: Content
       - type: VideoExercise
         title: Advanced predicates
@@ -126,13 +129,11 @@ chapters:
         content: '''single'' groups'
         course_description: ''
       - type: VideoExercise
+        title: GROUPING DATA (2)
+        content: Content
+      - type: VideoExercise
         title: ORDER BY
         content: Content
-        course_description: ''
-      - type: VideoExercise
-        title: Combining GROUP BY and ORDER BY
-        content: Content
-        course_description: ''
   - chapter_title: Speed considerations
     chapter_description: |-
       Only return parts of results.

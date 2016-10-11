@@ -4,14 +4,14 @@ description: >
   Get to know relational database management systems, and get to know the SELECT
   statement.
 
---- type:VideoExercise lang:r xp: skills: key:c770dc75ca
+--- type:VideoExercise lang:r xp: skills: key:fcaab60ac8
 ## What is an RDBMS? 
 Explain the concept of a relational database, about SQL, and about queries. But why use SQL in the first place, and not R/Python/other data analysis languages? You want the computation to be on the database side. When you've got the exact information you need, you can start your analyses in the tool of choice. Also interesting for real time dashboarding/visualization. Be very clear about what SQL is, and what it is not. We won't talk about updating SQL, we're data scientist, not data engineers.
 Give example database: use DESCRIBE and basic SELECT statement as a first reconnaissance.
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:f858df63c5
+--- type:NormalExercise lang:r xp: skills: key:a354a60059
 ## A first date 
 Use DESCRIBE to figure out the different tables in the database.
 
@@ -39,7 +39,7 @@ Use DESCRIBE to figure out the different tables in the database.
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:08ea889c45
+--- type:NormalExercise lang:r xp: skills: key:ec8ebe45fa
 ## Your first SQL query 
 Very basic:
 select a from x
@@ -68,7 +68,7 @@ select a from x
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:198fdede34
+--- type:VideoExercise lang:r xp: skills: key:7d4aecc27b
 ## SELECT 
 How to select a column, multiple columns, all columns, and how to use aliases.
 select a from x
@@ -81,7 +81,7 @@ Also mention here that using SELECT or select does not matter. In general, SQL i
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:4b6fc7c138
+--- type:NormalExercise lang:r xp: skills: key:551ead7b99
 ## Select all columns 
 Use the * to select all columns at once
 
@@ -109,7 +109,7 @@ Use the * to select all columns at once
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:13e65ba895
+--- type:NormalExercise lang:r xp: skills: key:5cd9f82621
 ## Select multiple columns 
 Separate column names with commas to select multiple columns. The order matters!
 
@@ -137,7 +137,7 @@ Separate column names with commas to select multiple columns. The order matters!
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:775f334479
+--- type:NormalExercise lang:r xp: skills: key:86cac59a30
 ## Using aliases 
 Use the 'as' thing to load in certain columns under certain aliases.
 
@@ -165,13 +165,13 @@ Use the 'as' thing to load in certain columns under certain aliases.
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:20728fc50d
+--- type:VideoExercise lang:r xp: skills: key:06699032c2
 ## SELECT (2) 
 COUNT, SUM, AVG, MIN, MAX, DISTINCT to get a first idea about aggregates of your data.
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:8c981ba21a
+--- type:NormalExercise lang:r xp: skills: key:40801d97e3
 ## COUNT 
 SELECT COUNT(*) FROM posts (to count the total number of posts)
 
@@ -199,7 +199,7 @@ SELECT COUNT(*) FROM posts (to count the total number of posts)
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:fc13f42390
+--- type:NormalExercise lang:r xp: skills: key:07bf8f3d66
 ## SUM and AVG 
 SELECT AVG(age) FROM readers
 
@@ -227,7 +227,7 @@ SELECT AVG(age) FROM readers
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:51151a2883
+--- type:NormalExercise lang:r xp: skills: key:1ca06f6ced
 ## MIN and MAX 
 SELECT MAX(published_at) FROM posts to get the most recent post that was launched
 
@@ -255,7 +255,7 @@ SELECT MAX(published_at) FROM posts to get the most recent post that was launche
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:a7b0035199
+--- type:NormalExercise lang:r xp: skills: key:ac6399cc86
 ## DISTINCT 
 Number of distinct users that read something:
 SELECT COUNT(DISTINCT user_id) FROM reads

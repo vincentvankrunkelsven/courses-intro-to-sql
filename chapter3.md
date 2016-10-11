@@ -2,20 +2,20 @@
 title: GROUP BY / ORDER BY
 description: Description
 
---- type:VideoExercise lang:r xp: skills: key:b0296dbab4
+--- type:VideoExercise lang:r xp: skills: key:7c409cb5a9
 ## GROUPING DATA 
 'single' groups
 
 *** =video_link
 
---- type:VideoExercise lang:r xp: skills: key:8d058bacc4
-## ORDER BY 
+--- type:VideoExercise lang:r xp: skills: key:0018790030
+## GROUPING DATA (2) 
 Content
 
 *** =video_link
 
---- type:VideoExercise lang:r xp: skills: key:3d42a6003f
-## Combining GROUP BY and ORDER BY 
+--- type:VideoExercise lang:r xp: skills: key:dea2a72428
+## ORDER BY 
 Content
 
 *** =video_link
