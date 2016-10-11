@@ -15,8 +15,9 @@ course_description: |-
 programming_language: r
 chapters:
   - chapter_title: Introduction
-    chapter_description: |
-      Get to know relational database management systems. 
+    chapter_description: >
+      Get to know relational database management systems, and get to know the
+      SELECT statement.
     exercises:
       - type: VideoExercise
         title: What is an RDBMS?
@@ -63,7 +64,7 @@ chapters:
       - type: NormalExercise
         title: Select multiple columns
         content: >-
-          Seperate column names with commas to select multiple columns. The
+          Separate column names with commas to select multiple columns. The
           order matters!
       - type: NormalExercise
         title: Using aliases
