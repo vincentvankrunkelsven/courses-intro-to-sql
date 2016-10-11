@@ -1,10 +1,61 @@
-course_title: Template R Course
-course_description: This is a template course.
+course_title: Intro to SQL for Data Science
+course_description: |-
+  Dataset for videos:
+
+  trains: id, origin, destination, departed, arrived
+  train_rides: train_id, passenger_id
+  passengers: id, name, age, background
+
+  Dataset for exercises:
+
+  authors: first name, last name, background
+  posts: author_id, title, published_at
+  reads: user_id, post_id, duration
+  users: name, age, background
 programming_language: r
 chapters:
-  - chapter_title: Template Chapter
-    chapter_description: This is a template chapter.
+  - chapter_title: Introduction
+    chapter_description: |+
+      What is an RDBMS? most basic SELECT FROM call
+
     exercises:
-      - type: NormalExercise
-        title: Template exercise
+      - type: VideoExercise
+        title: What is an RDBMS?
         content: This is a template exercise.
+      - type: VideoExercise
+        title: SELECT
+        content: 'SELECT FROM, different selectors, and, or'
+      - type: VideoExercise
+        title: SELECT (2)
+        content: 'COUNT, AVG, other ''summarizers'', DISTINCT'
+  - chapter_title: WHERE
+    chapter_description: Description
+    exercises:
+      - type: VideoExercise
+        title: Selecting observations
+        content: |
+          =, >, <, ...
+          Single quotes for text values, no quotes for numerics
+      - type: VideoExercise
+        title: Combining predicates
+        content: 'AND, OR, NOT'
+      - type: VideoExercise
+        title: Advanced predicates
+        content: 'BETWEEN, LIKE, IN'
+  - chapter_title: GROUP BY / ORDER BY
+    chapter_description: Description
+    exercises:
+      - type: VideoExercise
+        title: GROUPING DATA
+        content: '''single'' groups'
+      - type: VideoExercise
+        title: ORDER BY
+        content: Content
+      - type: VideoExercise
+        title: Combining GROUP BY and ORDER BY
+        content: Content
+  - chapter_title: Speed considerations
+    chapter_description: |-
+      Only return parts of results.
+      Tips and tricks to speed up SQL queries.
+    exercises: []

@@ -1,0 +1,15 @@
+title: Intro to SQL for Data Science
+description: |-
+  Dataset for videos:
+
+  trains: id, origin, destination, departed, arrived
+  train_rides: train_id, passenger_id
+  passengers: id, name, age, background
+
+  Dataset for exercises:
+
+  authors: first name, last name, background
+  posts: author_id, title, published_at
+  reads: user_id, post_id, duration
+  users: name, age, background
+programming_language: r
