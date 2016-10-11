@@ -6,7 +6,7 @@ description: >-
   specificity to the variables or columns, WHERE provides the same thing for the
   observations.
 
---- type:VideoExercise lang:r xp: skills: key:d57cc6ba88
+--- type:VideoExercise lang:r xp: skills: key:c2d6aaa339
 ## WHERE predicates 
 =, >, <, ... - AND, OR, NOT
 Single quotes for text values, no quotes for numerics
@@ -14,7 +14,7 @@ Single quotes for text values, no quotes for numerics
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:d8efc0a74b
+--- type:NormalExercise lang:r xp: skills: key:66aadc4eb2
 ## Basic predicates (1) 
 Use =, >, <
 
@@ -42,7 +42,7 @@ Use =, >, <
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:f3286a08de
+--- type:NormalExercise lang:r xp: skills: key:263791187e
 ## Basic predicates (2) 
 Content
 
@@ -70,7 +70,7 @@ Content
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp: skills: key:526a57a640
+--- type:MultipleChoiceExercise lang:r xp: skills: key:c1d6394485
 ## Combining predicates (1) 
 Content
 
@@ -88,7 +88,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:d5f0b5200c
+--- type:NormalExercise lang:r xp: skills: key:6be96d183d
 ## Combining predicates (2) 
 Content
 
@@ -116,13 +116,13 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:50f2aa7542
+--- type:VideoExercise lang:r xp: skills: key:5a103df092
 ## Advanced predicates 
 BETWEEN, LIKE, IN
 
 *** =video_link
 
---- type:NormalExercise lang:r xp: skills: key:ba3787304d
+--- type:NormalExercise lang:r xp: skills: key:e5bb97c015
 ## BETWEEN 
 Content
 
@@ -150,7 +150,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:829114868d
+--- type:NormalExercise lang:r xp: skills: key:00e4180746
 ## IN 
 Content
 
@@ -178,7 +178,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:77f4a14558
+--- type:NormalExercise lang:r xp: skills: key:81ef74c8b0
 ## LIKE (1) 
 Content
 
@@ -206,7 +206,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:4104df044d
+--- type:NormalExercise lang:r xp: skills: key:32ba0bb1bd
 ## LIKE (2) 
 Content
 
@@ -234,13 +234,13 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp: skills: key:6e8c6732f8
-## SELECT + WHERE = MAGIC 
+--- type:VideoExercise lang:r xp: skills: key:d0a2980068
+## Combine SELECT and WHERE 
 Combine the WHERE clause with SELECT to answer more advanced problems (count the number of observations on the train y, what's the average age on passengers that go to Paris).
 
 *** =video_link
 
---- type:MultipleChoiceExercise lang:r xp: skills: key:61cd91eb03
+--- type:MultipleChoiceExercise lang:r xp: skills: key:77a0ad415d
 ## Aggregate with basic predicate 
 Content
 
@@ -258,7 +258,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:7bbf27f6bd
+--- type:NormalExercise lang:r xp: skills: key:8089d52a1d
 ## Aggregate with combined predicate 
 Content
 
@@ -286,7 +286,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp: skills: key:2366fa2aab
+--- type:NormalExercise lang:r xp: skills: key:8ed1fd64d0
 ## Aggregate with advanced predicate 
 Content
 

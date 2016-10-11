@@ -33,14 +33,17 @@ chapters:
 
           Give example database: use DESCRIBE and basic SELECT statement as a
           first reconnaissance.
+        course_description: ''
       - type: NormalExercise
         title: A first date
         content: Use DESCRIBE to figure out the different tables in the database.
+        course_description: ''
       - type: NormalExercise
         title: Your first SQL query
         content: |-
           Very basic:
           select a from x
+        course_description: ''
       - type: VideoExercise
         title: SELECT
         content: >
@@ -59,38 +62,47 @@ chapters:
           general, SQL is not case-sensitive when it comes to keywords, but it
           does when it comes to table and column names! We will use uppercase,
           to separate the SQL reserverd words from column and table names.
+        course_description: ''
       - type: NormalExercise
         title: Select all columns
         content: Use the * to select all columns at once
+        course_description: ''
       - type: NormalExercise
         title: Select multiple columns
         content: >-
           Separate column names with commas to select multiple columns. The
           order matters!
+        course_description: ''
       - type: NormalExercise
         title: Using aliases
         content: Use the 'as' thing to load in certain columns under certain aliases.
+        course_description: ''
       - type: VideoExercise
         title: SELECT (2)
         content: >-
           COUNT, SUM, AVG, MIN, MAX, DISTINCT to get a first idea about
           aggregates of your data.
+        course_description: ''
       - type: NormalExercise
         title: COUNT
         content: SELECT COUNT(*) FROM posts (to count the total number of posts)
+        course_description: ''
       - type: NormalExercise
         title: SUM and AVG
         content: SELECT AVG(age) FROM readers
+        course_description: ''
       - type: NormalExercise
         title: MIN and MAX
         content: >-
           SELECT MAX(published_at) FROM posts to get the most recent post that
           was launched
+        course_description: ''
       - type: NormalExercise
         title: DISTINCT
         content: |-
           Number of distinct users that read something:
           SELECT COUNT(DISTINCT user_id) FROM reads
+        course_description: ''
   - chapter_title: WHERE
     chapter_description: >-
       With the WHERE statement, you can become very specific about which
@@ -103,59 +115,99 @@ chapters:
         content: |
           =, >, <, ... - AND, OR, NOT
           Single quotes for text values, no quotes for numerics
+        course_description: ''
       - type: NormalExercise
         title: Basic predicates (1)
         content: 'Use =, >, <'
+        course_description: ''
       - type: NormalExercise
         title: Basic predicates (2)
         content: Content
+        course_description: ''
       - type: MultipleChoiceExercise
         title: Combining predicates (1)
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: Combining predicates (2)
         content: Content
+        course_description: ''
       - type: VideoExercise
         title: Advanced predicates
         content: 'BETWEEN, LIKE, IN'
+        course_description: ''
       - type: NormalExercise
         title: BETWEEN
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: IN
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: LIKE (1)
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: LIKE (2)
         content: Content
+        course_description: ''
       - type: VideoExercise
         title: Combine SELECT and WHERE
         content: >-
           Combine the WHERE clause with SELECT to answer more advanced problems
           (count the number of observations on the train y, what's the average
           age on passengers that go to Paris).
+        course_description: ''
       - type: MultipleChoiceExercise
         title: Aggregate with basic predicate
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: Aggregate with combined predicate
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: Aggregate with advanced predicate
         content: Content
+        course_description: ''
   - chapter_title: GROUP BY / ORDER BY
     chapter_description: Description
     exercises:
       - type: VideoExercise
         title: GROUP BY
         content: '''single'' groups'
+      - type: NormalExercise
+        title: Grouped Count (1)
+        content: COUNT with GROUP BY
+      - type: NormalExercise
+        title: Grouped Count (2)
+        content: COUNT with GROUP BY with more advanced thing to group by GROUP BY
       - type: VideoExercise
         title: GROUP BY (2)
+        content: '''double'' groups: two GROUP BY''s and corresponding aggregators. '
+      - type: MultipleChoiceExercise
+        title: Advanced GROUP BY (1)
+        content: Content
+      - type: NormalExercise
+        title: Advanced GROUP BY (2)
+        content: Content
+      - type: NormalExercise
+        title: Advanced GROUP BY (3)
         content: Content
       - type: VideoExercise
         title: ORDER BY
+        content: >-
+          Talk about single order by, reversed order by, and two variables to
+          order by (second one is the 'tie breaker')
+      - type: NormalExercise
+        title: ORDER BY
+        content: Content
+      - type: NormalExercise
+        title: Change the order
+        content: Content
+      - type: NormalExercise
+        title: ORDER BY multiple columns
         content: Content
   - chapter_title: Working with times and dates
     chapter_description: >-
