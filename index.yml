@@ -55,10 +55,10 @@ chapters:
 
           select a as new_a, b as new_b from x
 
-
           Also mention here that using SELECT or select does not matter. In
           general, SQL is not case-sensitive when it comes to keywords, but it
-          does when it comes to table and column names!
+          does when it comes to table and column names! We will use uppercase,
+          to separate the SQL reserverd words from column and table names.
       - type: NormalExercise
         title: Select all columns
         content: Use the * to select all columns at once
@@ -131,7 +131,7 @@ chapters:
         title: LIKE (2)
         content: Content
       - type: VideoExercise
-        title: SELECT + WHERE = MAGIC
+        title: Combine SELECT and WHERE
         content: >-
           Combine the WHERE clause with SELECT to answer more advanced problems
           (count the number of observations on the train y, what's the average
