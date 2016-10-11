@@ -28,7 +28,8 @@ chapters:
           database side. When you've got the exact information you need, you can
           start your analyses in the tool of choice. Also interesting for real
           time dashboarding/visualization. Be very clear about what SQL is, and
-          what it is not.
+          what it is not. We won't talk about updating SQL, we're data
+          scientist, not data engineers.
 
           Give example database: use DESCRIBE and basic SELECT statement as a
           first reconnaissance.
@@ -91,22 +92,32 @@ chapters:
           Number of distinct users that read something:
           SELECT COUNT(DISTINCT user_id) FROM reads
   - chapter_title: WHERE
-    chapter_description: Description
+    chapter_description: >-
+      With the WHERE statement, you can become very specific about which
+      observations you want to pull out of your database. SELECT provides
+      specificity to the variables or columns, WHERE provides the same thing for
+      the observations.
     exercises:
       - type: VideoExercise
-        title: Selecting observations
+        title: Selecting observations and combining predicates
         content: |
-          =, >, <, ...
+          =, >, <, ... - AND, OR, NOT
           Single quotes for text values, no quotes for numerics
-        course_description: ''
-      - type: VideoExercise
-        title: Combining predicates
-        content: 'AND, OR, NOT'
-        course_description: ''
+      - type: NormalExercise
+        title: Equality
+        content: Content
       - type: VideoExercise
         title: Advanced predicates
         content: 'BETWEEN, LIKE, IN'
-        course_description: ''
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: VideoExercise
+        title: SELECT + WHERE = MAGIC
+        content: >-
+          Combine the WHERE clause with SELECT to answer more advanced problems
+          (count the number of observations on the train y, what's the average
+          age on passengers that go to Paris).
   - chapter_title: GROUP BY / ORDER BY
     chapter_description: Description
     exercises:
