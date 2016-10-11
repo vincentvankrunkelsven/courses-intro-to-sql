@@ -2,7 +2,7 @@
 title: WHERE
 description: Description
 
---- type:VideoExercise lang:r xp: skills: key:c75673ef0d
+--- type:VideoExercise lang:r xp: skills: key:f3f02f7973
 ## Selecting observations 
 =, >, <, ...
 Single quotes for text values, no quotes for numerics
@@ -10,13 +10,13 @@ Single quotes for text values, no quotes for numerics
 
 *** =video_link
 
---- type:VideoExercise lang:r xp: skills: key:4d9a2425c5
+--- type:VideoExercise lang:r xp: skills: key:d0049e31ee
 ## Combining predicates 
 AND, OR, NOT
 
 *** =video_link
 
---- type:VideoExercise lang:r xp: skills: key:8228c9bb4a
+--- type:VideoExercise lang:r xp: skills: key:bb456c4861
 ## Advanced predicates 
 BETWEEN, LIKE, IN
 

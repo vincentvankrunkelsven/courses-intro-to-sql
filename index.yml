@@ -22,17 +22,23 @@ chapters:
         title: What is an RDBMS?
         content: >-
           Explain the concept of a relational database, about SQL, and about
-          queries. Give very simple example of a query: get a column from a
-          database.
+          queries. But why use SQL in the first place, and not R/Python/other
+          data analysis languages? You want the computation to be on the
+          database side. When you've got the exact information you need, you can
+          start your analyses in the tool of choice. Also interesting for real
+          time dashboarding/visualization. Give very simple example of a query:
+          get a column from a database.
+
+          Give example database: use DESCRIBE and basic SELECT statement as a
+          first reconnaissance.
+      - type: NormalExercise
+        title: A first date
+        content: Use DESCRIBE to figure out the different tables in the database.
       - type: NormalExercise
         title: Your first SQL query
-        content: Content
-      - type: MultipleChoiceExercise
-        title: Title
-        content: >-
-          Which of the following is a relational database management system, or
-          RDBMS? (SQL, PostgreSQL, OracleDB, Microsoft SQL server). SQL is the
-          language, not the RDBMS!
+        content: |-
+          Very basic:
+          select a from x
       - type: VideoExercise
         title: SELECT
         content: >
@@ -46,30 +52,39 @@ chapters:
           select * from x
 
           select a as new_a, b as new_b from x
+        course_description: ''
       - type: NormalExercise
         title: Select all columns
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: Select multiple columns
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: Using aliases
         content: Content
+        course_description: ''
       - type: VideoExercise
         title: SELECT (2)
         content: 'COUNT, SUM, AVG, MIN, MAX, DISTINCT'
+        course_description: ''
       - type: NormalExercise
         title: COUNT
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: SUM and AVG
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: MIN and MAX
         content: Content
+        course_description: ''
       - type: NormalExercise
         title: DISTINCT
         content: Content
+        course_description: ''
   - chapter_title: WHERE
     chapter_description: Description
     exercises:
