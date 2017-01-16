@@ -2,7 +2,7 @@
 
 ## Description
 
-Much of the world's data, including everything from electronic medical records to customer transaction histories, are stored in organized collections of tables called *relational databases*. To be an effective data scientist, you must know how to interact with these databases using a language called SQL (pronounced *ess-que-ell*, or *sequel*). This course teaches you everything you need to know to begin working with databases today!
+Much of the world's data, including everything from electronic medical records to customer transaction histories, is stored in organized collections of tables called *relational databases*. To be an effective data scientist, you must know how to interact with these databases using a language called SQL (pronounced *ess-que-ell*, or *sequel*). This course teaches you everything you need to know to begin working with databases today!
 
 ## Learning objectives
 
