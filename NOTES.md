@@ -32,7 +32,6 @@
 * GROUP BY combined with aggregate functions - very powerful...
 * HAVING as a way to filter groups (important!)
 * Combine with WHERE [as well](https://www.dropbox.com/s/k1jg5fj55h4akae/Screenshot%202017-01-16%2016.48.04.png?dl=0)
-* 
 
 INTERESTING TAKEAWAYS
 
