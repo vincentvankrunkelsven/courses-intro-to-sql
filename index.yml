@@ -74,7 +74,10 @@ chapters:
         content: MIN and MAX of numeric column. Embedded MCE to interpret result
   - chapter_title: Filtering rows
     chapter_description: Description
-    exercises: []
+    exercises:
+      - type: VideoExercise
+        title: Filter rows with WHERE
+        content: Content
   - chapter_title: Sorting and grouping
     chapter_description: Description
     exercises: []
