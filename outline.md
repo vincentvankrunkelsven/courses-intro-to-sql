@@ -40,6 +40,9 @@
   * Single column
   * Multiple columns
   * DESC
+* GROUP BY
+  * Single column
+  * Multiple columns
 * GROUP BY + ORDER BY
 * GROUP BY + aggregate functions
 
