@@ -90,8 +90,8 @@ chapters:
       - type: NormalExercise
         title: Filter for multiple conditions
         content: >-
-          Same as above, but incorporate AND, OR. Finish with MCE: which
-          statement is equivalent to BETWEEN? Combination of >= and <=
+          Same as above, but incorporate AND, OR. Recall something from chapter
+          1, like DISTINCT or aggregate functions?
       - type: VideoExercise
         title: More advanced filtering
         content: |-
@@ -100,7 +100,9 @@ chapters:
           * IS NULL, IS NOT NULL
       - type: NormalExercise
         title: Title
-        content: Content
+        content: >-
+          Finish with MCE: which statement is equivalent to BETWEEN? Combination
+          of >= and <=
       - type: NormalExercise
         title: Title
         content: Content

@@ -2,7 +2,7 @@
 title: Filtering rows
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:ef91679e47
+--- type:VideoExercise lang:r xp:50 skills:1 key:bb9b8294ed
 ## Filter rows with WHERE
 
 * WHERE
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:0ee671ee00
+--- type:NormalExercise lang:r xp:100 skills:1 key:b21e6df6c6
 ## Filter for a single condition
 
 Practice filtering for numeric and text values. Start with = and <>, then move to inequalities
@@ -45,10 +45,10 @@ Practice filtering for numeric and text values. Start with = and <>, then move t
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cb7b504860
+--- type:NormalExercise lang:r xp:100 skills:1 key:7ff674a3a2
 ## Filter for multiple conditions
 
-Same as above, but incorporate AND, OR. Finish with MCE: which statement is equivalent to BETWEEN? Combination of >= and <=
+Same as above, but incorporate AND, OR. Recall something from chapter 1, like DISTINCT or aggregate functions?
 
 *** =instructions
 
@@ -74,7 +74,7 @@ Same as above, but incorporate AND, OR. Finish with MCE: which statement is equi
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:b5efaeaa34
+--- type:VideoExercise lang:r xp:50 skills:1 key:b44a54a41d
 ## More advanced filtering
 
 * BETWEEN (compare to >= AND <= )
@@ -87,7 +87,36 @@ Same as above, but incorporate AND, OR. Finish with MCE: which statement is equi
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:85273a0357
+--- type:NormalExercise lang:r xp:100 skills:1 key:2bdcae636b
+## Title
+
+Finish with MCE: which statement is equivalent to BETWEEN? Combination of >= and <=
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:c0cdc9ff08
 ## Title
 
 Content
@@ -116,36 +145,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bd8773e96c
-## Title
-
-Content
-
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
---- type:VideoExercise lang:r xp:50 skills:1 key:eb4c451225
+--- type:VideoExercise lang:r xp:50 skills:1 key:744d852d21
 ## Search for patterns with LIKE
 
 * LIKE
@@ -157,7 +157,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3b0412e591
+--- type:NormalExercise lang:r xp:100 skills:1 key:97a4e2fcab
 ## Title
 
 Content
@@ -186,7 +186,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:93615d6c0f
+--- type:NormalExercise lang:r xp:100 skills:1 key:e72308c547
 ## Title
 
 Content
@@ -215,7 +215,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:6037a2d0d5
+--- type:VideoExercise lang:r xp:50 skills:1 key:3085fe7c38
 ## Simple subqueries
 
 Content
@@ -226,7 +226,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3faa74f5f8
+--- type:NormalExercise lang:r xp:100 skills:1 key:bb7a19ff89
 ## Title
 
 Content
@@ -255,7 +255,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:e9952f80c2
+--- type:NormalExercise lang:r xp:100 skills:1 key:037a76de21
 ## Title
 
 Content
