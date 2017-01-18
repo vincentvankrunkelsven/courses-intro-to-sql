@@ -2,10 +2,22 @@
 title: Selecting and summarizing columns
 description: This is a template chapter.
 
---- type:VideoExercise lang:r xp:50 skills:1 key:098eabb180
+--- type:VideoExercise lang:r xp:50 skills:1 key:53e4b55ad4
 ## Introduction
 
-Content
+* Motivating example (case study preview)
+* Why not just use R/Python/etc? Memory, speed, etc.
+* Database vocabulary (in context of example)
+  * Database
+  * Tables
+  * Columns & rows (a.k.a. records)
+  * Fields (informal = cells)
+* Basic SQL syntax
+  * Not case-sensitive
+  * End statement with semicolon
+  * Stylistic conventions (?)
+* SELECT
+* DISTINCT
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -13,7 +25,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:9b7d5e5c60
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:79e82273e3
 ## Why use relational databases?
 
 Q: Which of the following is NOT a good reason to use relational databases?
@@ -33,10 +45,10 @@ A: They are good at handling unstructured data
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:be495706c3
+--- type:NormalExercise lang:r xp:100 skills:1 key:bde296bcfd
 ## Simple SELECT statements
 
-Single column, multiple columns, all columns (*). Order matters!
+Single column, multiple columns, all columns (*). Order matters! Finish with embedded MCE asking for specific value from last query
 
 *** =instructions
 
@@ -62,8 +74,39 @@ Single column, multiple columns, all columns (*). Order matters!
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9a295d6e88
-## Select the correct SELECT
+--- type:NormalExercise lang:r xp:100 skills:1 key:19a57fa0f4
+## Combine SELECT with DISTINCT
+
+Select all distinct values of column_name with SELECT DISTINCT. Follow with embedded MCE to test interpretation
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a1796562dd
+## Select the proper SELECT
+
+(Test for style and syntax)
 
 Q: Which of the following is the proper way to select the column_name column from the table_name table?
 A: SELECT column_name FROM table_name;
@@ -77,22 +120,12 @@ A: SELECT column_name FROM table_name;
 
 ```
 
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
 *** =sct
 ```{r}
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:513763ceb9
+--- type:VideoExercise lang:r xp:50 skills:1 key:d5e6dffef3
 ## Aggregate functions
 
 * COUNT (both COUNT(*) and COUNT(column_name))
@@ -107,7 +140,7 @@ A: SELECT column_name FROM table_name;
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9111147ed8
+--- type:NormalExercise lang:r xp:100 skills:1 key:10e4924271
 ## COUNT
 
 COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs, COUNT(DISTINCT column_name)
@@ -136,73 +169,10 @@ COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs, COUNT(DISTINCT column_
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6ff1d4adc9
-## SUM, AVG, MIN, and MAX
+--- type:NormalExercise lang:r xp:100 skills:1 key:704b2425f4
+## SUM and AVG
 
-Content
-
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
---- type:VideoExercise lang:r xp:50 skills:1 key:6c88a3104b
-## DISTINCT and AS
-
-* DISTINCT
-* Aliases with AS
-  * Column aliases for controlling display, easier reference (will come in handy later)
-  * Can also create table aliases, helpful when working with multiple tables (not relevant here)
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c4d843b9b6
-## The details of DISTINCT
-
-Q: Which of the following will return the most records?
-A: <The SELECT statement that uses DISTINCT on a single column>
-
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:1b3631cd35
-## Combine COUNT and DISTINCT
-
-COUNT(DISTINCT column_name), etc.
+Find SUM and AVG of numeric column. Embedded MCE to interpret result
 
 *** =instructions
 
@@ -228,10 +198,10 @@ COUNT(DISTINCT column_name), etc.
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ca0893b74e
-## Create aliases with AS
+--- type:NormalExercise lang:r xp:100 skills:1 key:5d5080dadb
+## MIN and MAX
 
-Column aliases for more control over display, e.g. COUNT(column_name) AS n_something
+MIN and MAX of numeric column. Embedded MCE to interpret result
 
 *** =instructions
 

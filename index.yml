@@ -7,7 +7,20 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Introduction
-        content: Content
+        content: |-
+          * Motivating example (case study preview)
+          * Why not just use R/Python/etc? Memory, speed, etc.
+          * Database vocabulary (in context of example)
+            * Database
+            * Tables
+            * Columns & rows (a.k.a. records)
+            * Fields (informal = cells)
+          * Basic SQL syntax
+            * Not case-sensitive
+            * End statement with semicolon
+            * Stylistic conventions (?)
+          * SELECT
+          * DISTINCT
       - type: MultipleChoiceExercise
         title: Why use relational databases?
         content: >-
@@ -17,10 +30,20 @@ chapters:
           A: They are good at handling unstructured data
       - type: NormalExercise
         title: Simple SELECT statements
-        content: 'Single column, multiple columns, all columns (*). Order matters!'
-      - type: NormalExercise
-        title: Select the correct SELECT
         content: >-
+          Single column, multiple columns, all columns (*). Order matters!
+          Finish with embedded MCE asking for specific value from last query
+      - type: NormalExercise
+        title: Combine SELECT with DISTINCT
+        content: >-
+          Select all distinct values of column_name with SELECT DISTINCT. Follow
+          with embedded MCE to test interpretation
+      - type: MultipleChoiceExercise
+        title: Select the proper SELECT
+        content: >-
+          (Test for style and syntax)
+
+
           Q: Which of the following is the proper way to select the column_name
           column from the table_name table?
 
@@ -39,28 +62,11 @@ chapters:
           COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs,
           COUNT(DISTINCT column_name)
       - type: NormalExercise
-        title: 'SUM, AVG, MIN, and MAX'
-        content: Content
-      - type: VideoExercise
-        title: DISTINCT and AS
-        content: |-
-          * DISTINCT
-          * Aliases with AS
-            * Column aliases for controlling display, easier reference (will come in handy later)
-            * Can also create table aliases, helpful when working with multiple tables (not relevant here)
-      - type: MultipleChoiceExercise
-        title: The details of DISTINCT
-        content: |-
-          Q: Which of the following will return the most records?
-          A: <The SELECT statement that uses DISTINCT on a single column>
+        title: SUM and AVG
+        content: Find SUM and AVG of numeric column. Embedded MCE to interpret result
       - type: NormalExercise
-        title: Combine COUNT and DISTINCT
-        content: 'COUNT(DISTINCT column_name), etc.'
-      - type: NormalExercise
-        title: Create aliases with AS
-        content: >-
-          Column aliases for more control over display, e.g. COUNT(column_name)
-          AS n_something
+        title: MIN and MAX
+        content: MIN and MAX of numeric column. Embedded MCE to interpret result
   - chapter_title: Filtering rows
     chapter_description: Description
     exercises: []
