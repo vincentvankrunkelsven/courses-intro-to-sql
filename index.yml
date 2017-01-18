@@ -108,19 +108,26 @@ chapters:
         title: Stuck somewhere IN BETWEEN
         content: Practice filtering with BETWEEN and IN
       - type: NormalExercise
-        title: Title
-        content: Content
+        title: Manage missingness
+        content: >-
+          Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT,
+          and/or other concepts from earlier
       - type: VideoExercise
         title: Search for patterns with LIKE
         content: |-
           * LIKE
           * Wildcards: %, _, [charlist], [!charlist]
       - type: NormalExercise
-        title: Title
-        content: Content
+        title: LIKE it or NOT
+        content: >-
+          Practice with some simple pattern matching using LIKE with % and _.
+          Then combine with NOT.
       - type: NormalExercise
-        title: Title
-        content: Content
+        title: Pattern matching mania
+        content: >-
+          Practice with LIKE some more, using more advanced wildcards: sets and
+          ranges of characters. Use negation (!) as well. Finish with embedded
+          MCE for interpretation
       - type: VideoExercise
         title: Simple subqueries
         content: Content

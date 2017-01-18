@@ -2,7 +2,7 @@
 title: Filtering rows
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:8d4feaa1bf
+--- type:VideoExercise lang:r xp:50 skills:1 key:83d0ed5848
 ## Filter rows with WHERE
 
 * WHERE
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:b8e85bbd1a
+--- type:NormalExercise lang:r xp:100 skills:1 key:f2aaa7d624
 ## Filter for a single condition
 
 Practice filtering for numeric and text values. Start with = and <>, then move to inequalities
@@ -45,7 +45,7 @@ Practice filtering for numeric and text values. Start with = and <>, then move t
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:826653c0d2
+--- type:NormalExercise lang:r xp:100 skills:1 key:8e97f3e696
 ## Filter for multiple conditions
 
 Same as above, but incorporate AND, OR. Recall something from chapter 1, like DISTINCT or aggregate functions? Do at least one >= AND <= for comparison to BETWEEN in later exercise
@@ -74,7 +74,7 @@ Same as above, but incorporate AND, OR. Recall something from chapter 1, like DI
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:6e436500e6
+--- type:VideoExercise lang:r xp:50 skills:1 key:e3af82cfd2
 ## More advanced filtering
 
 * BETWEEN (compare to >= AND <= )
@@ -87,7 +87,7 @@ Same as above, but incorporate AND, OR. Recall something from chapter 1, like DI
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c237d71a21
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c821fd5bf5
 ## Look familiar?
 
 Give students a SELECT statement using BETWEEN and have them select an equivalent statement using >= AND <=
@@ -106,7 +106,7 @@ Give students a SELECT statement using BETWEEN and have them select an equivalen
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ab13bbf4bc
+--- type:NormalExercise lang:r xp:100 skills:1 key:92ae1c6f6d
 ## Stuck somewhere IN BETWEEN
 
 Practice filtering with BETWEEN and IN
@@ -135,10 +135,10 @@ Practice filtering with BETWEEN and IN
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:fecdf51eb3
-## Title
+--- type:NormalExercise lang:r xp:100 skills:1 key:dae620caf0
+## Manage missingness
 
-Content
+Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT, and/or other concepts from earlier
 
 *** =instructions
 
@@ -164,7 +164,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:0d18f95ff6
+--- type:VideoExercise lang:r xp:50 skills:1 key:f1a18f3e40
 ## Search for patterns with LIKE
 
 * LIKE
@@ -176,39 +176,10 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6c5ad20fe5
-## Title
+--- type:NormalExercise lang:r xp:100 skills:1 key:fcce25111c
+## LIKE it or NOT
 
-Content
-
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:d9cd673a9d
-## Title
-
-Content
+Practice with some simple pattern matching using LIKE with % and _. Then combine with NOT.
 
 *** =instructions
 
@@ -234,7 +205,36 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:e5e265753e
+--- type:NormalExercise lang:r xp:100 skills:1 key:a959c5cbf9
+## Pattern matching mania
+
+Practice with LIKE some more, using more advanced wildcards: sets and ranges of characters. Use negation (!) as well. Finish with embedded MCE for interpretation
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:5d2ea34dea
 ## Simple subqueries
 
 Content
@@ -245,7 +245,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:09e62f4b08
+--- type:NormalExercise lang:r xp:100 skills:1 key:5e0082aeac
 ## Title
 
 Content
@@ -274,7 +274,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c3720687ce
+--- type:NormalExercise lang:r xp:100 skills:1 key:e64d900a47
 ## Title
 
 Content
