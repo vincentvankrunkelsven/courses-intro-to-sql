@@ -2,7 +2,7 @@
 title: Filtering rows
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:bb9b8294ed
+--- type:VideoExercise lang:r xp:50 skills:1 key:8d4feaa1bf
 ## Filter rows with WHERE
 
 * WHERE
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:b21e6df6c6
+--- type:NormalExercise lang:r xp:100 skills:1 key:b8e85bbd1a
 ## Filter for a single condition
 
 Practice filtering for numeric and text values. Start with = and <>, then move to inequalities
@@ -45,10 +45,10 @@ Practice filtering for numeric and text values. Start with = and <>, then move t
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:7ff674a3a2
+--- type:NormalExercise lang:r xp:100 skills:1 key:826653c0d2
 ## Filter for multiple conditions
 
-Same as above, but incorporate AND, OR. Recall something from chapter 1, like DISTINCT or aggregate functions?
+Same as above, but incorporate AND, OR. Recall something from chapter 1, like DISTINCT or aggregate functions? Do at least one >= AND <= for comparison to BETWEEN in later exercise
 
 *** =instructions
 
@@ -74,7 +74,7 @@ Same as above, but incorporate AND, OR. Recall something from chapter 1, like DI
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:b44a54a41d
+--- type:VideoExercise lang:r xp:50 skills:1 key:6e436500e6
 ## More advanced filtering
 
 * BETWEEN (compare to >= AND <= )
@@ -87,10 +87,29 @@ Same as above, but incorporate AND, OR. Recall something from chapter 1, like DI
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:2bdcae636b
-## Title
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c237d71a21
+## Look familiar?
 
-Finish with MCE: which statement is equivalent to BETWEEN? Combination of >= and <=
+Give students a SELECT statement using BETWEEN and have them select an equivalent statement using >= AND <=
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:NormalExercise lang:r xp:100 skills:1 key:ab13bbf4bc
+## Stuck somewhere IN BETWEEN
+
+Practice filtering with BETWEEN and IN
 
 *** =instructions
 
@@ -116,7 +135,7 @@ Finish with MCE: which statement is equivalent to BETWEEN? Combination of >= and
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c0cdc9ff08
+--- type:NormalExercise lang:r xp:100 skills:1 key:fecdf51eb3
 ## Title
 
 Content
@@ -145,7 +164,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:744d852d21
+--- type:VideoExercise lang:r xp:50 skills:1 key:0d18f95ff6
 ## Search for patterns with LIKE
 
 * LIKE
@@ -157,7 +176,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:97a4e2fcab
+--- type:NormalExercise lang:r xp:100 skills:1 key:6c5ad20fe5
 ## Title
 
 Content
@@ -186,7 +205,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:e72308c547
+--- type:NormalExercise lang:r xp:100 skills:1 key:d9cd673a9d
 ## Title
 
 Content
@@ -215,7 +234,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:3085fe7c38
+--- type:VideoExercise lang:r xp:50 skills:1 key:e5e265753e
 ## Simple subqueries
 
 Content
@@ -226,7 +245,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bb7a19ff89
+--- type:NormalExercise lang:r xp:100 skills:1 key:09e62f4b08
 ## Title
 
 Content
@@ -255,7 +274,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:037a76de21
+--- type:NormalExercise lang:r xp:100 skills:1 key:c3720687ce
 ## Title
 
 Content

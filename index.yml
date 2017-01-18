@@ -91,18 +91,22 @@ chapters:
         title: Filter for multiple conditions
         content: >-
           Same as above, but incorporate AND, OR. Recall something from chapter
-          1, like DISTINCT or aggregate functions?
+          1, like DISTINCT or aggregate functions? Do at least one >= AND <= for
+          comparison to BETWEEN in later exercise
       - type: VideoExercise
         title: More advanced filtering
         content: |-
           * BETWEEN (compare to >= AND <= )
           * IN (compare to = AND = )
           * IS NULL, IS NOT NULL
-      - type: NormalExercise
-        title: Title
+      - type: MultipleChoiceExercise
+        title: Look familiar?
         content: >-
-          Finish with MCE: which statement is equivalent to BETWEEN? Combination
-          of >= and <=
+          Give students a SELECT statement using BETWEEN and have them select an
+          equivalent statement using >= AND <=
+      - type: NormalExercise
+        title: Stuck somewhere IN BETWEEN
+        content: Practice filtering with BETWEEN and IN
       - type: NormalExercise
         title: Title
         content: Content
