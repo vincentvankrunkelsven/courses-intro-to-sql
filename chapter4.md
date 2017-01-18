@@ -2,7 +2,7 @@
 title: 'Case study: New York City bike share'
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:6d3c33e2c3
+--- type:VideoExercise lang:r xp:50 skills:1 key:38730fcbfe
 ## Introduction to the data
 
 Content
@@ -13,7 +13,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:15e86b3ade
+--- type:VideoExercise lang:r xp:50 skills:1 key:fe9cfb6ec5
 ## Check-in 1
 
 Content
@@ -24,7 +24,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:24b81f4b37
+--- type:VideoExercise lang:r xp:50 skills:1 key:1704fba575
 ## Check-in 2
 
 Content
@@ -35,7 +35,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:970197e980
+--- type:VideoExercise lang:r xp:50 skills:1 key:a31af6c03f
 ## Summary
 
 Content

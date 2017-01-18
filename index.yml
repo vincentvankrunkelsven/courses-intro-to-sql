@@ -157,20 +157,65 @@ chapters:
             * Single column
             * Multiple columns
             * DESC
+      - type: NormalExercise
+        title: Sort by a single column
+        content: Content
+      - type: NormalExercise
+        title: Sort by multiple columns
+        content: Content
       - type: VideoExercise
         title: Get started with GROUP BY
-        content: |-
+        content: >-
           * GROUP BY
             * Single column
             * Multiple columns
           * Combine with ORDER BY
+
+          * Introduce column aliases via AS as a convenient shorthand. Will
+          become even more useful later in chapter
+      - type: MultipleChoiceExercise
+        title: Everything in its right place
+        content: >-
+          Q: Which of the following sorts column1 in ascending order within each
+          level of column2?
+
+          A:
+
+          SELECT column1 AS c1, column2 AS c2
+
+          FROM table_name
+
+          GROUP BY c1
+
+          ORDER BY c2;
+      - type: NormalExercise
+        title: Sort within groups
+        content: Content
       - type: VideoExercise
         title: Combine GROUP BY with aggregate functions
         content: >-
           * Unleash the full power of GROUP BY and aggregate functions by
           combining them to perform operations within groups
 
-          * Examples covering COUNT, SUM, AVG, MIN, MAX and DISTINCT
+          * Examples covering grouped COUNT, SUM, AVG
+      - type: NormalExercise
+        title: Compute group extremes
+        content: Content
+      - type: NormalExercise
+        title: Sort by group averages
+        content: Content
+      - type: VideoExercise
+        title: Filtering with aggregate functions
+        content: |-
+          * WHERE keyword cannot be used with aggregate functions
+          * HAVING
+          * Walk through several examples (this is not easy)
+      - type: NormalExercise
+        title: HAVING patience
+        content: Content
+      - type: NormalExercise
+        title: Combine HAVING with ORDER BY
+        content: Content
   - chapter_title: 'Case study: New York City bike share'
     chapter_description: Description
     exercises:
