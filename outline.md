@@ -3,6 +3,7 @@
 ## Chapter 1: Selecting and summarizing columns
 
 * Motivating example (case study preview)
+* Why not just use R/Python/etc? Memory, speed, etc.
 * Database vocabulary (in context of example)
   * Database
   * Tables
