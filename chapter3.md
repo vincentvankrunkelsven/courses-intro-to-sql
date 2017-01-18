@@ -2,7 +2,7 @@
 title: Sorting and grouping
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:03509aadc7
+--- type:VideoExercise lang:r xp:50 skills:1 key:c15a5600f2
 ## Sort with ORDER BY
 
 * ORDER BY
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3062ce5e23
+--- type:NormalExercise lang:r xp:100 skills:1 key:628a6f28d6
 ## Sort by a single column
 
 Content
@@ -45,7 +45,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f2d8443322
+--- type:NormalExercise lang:r xp:100 skills:1 key:ae5e8ca2b9
 ## Sort by multiple columns
 
 Content
@@ -74,7 +74,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:d81afafe81
+--- type:VideoExercise lang:r xp:50 skills:1 key:57c33b9151
 ## Get started with GROUP BY
 
 * GROUP BY
@@ -89,7 +89,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:55e5f730c2
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6686f423d1
 ## Everything in its right place
 
 Q: Which of the following sorts column1 in ascending order within each level of column2?
@@ -113,7 +113,7 @@ ORDER BY c2;
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:00be43d281
+--- type:NormalExercise lang:r xp:100 skills:1 key:040b7dfa62
 ## Sort within groups
 
 Content
@@ -142,7 +142,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:ee3079f381
+--- type:VideoExercise lang:r xp:50 skills:1 key:a057db9447
 ## Combine GROUP BY with aggregate functions
 
 * Unleash the full power of GROUP BY and aggregate functions by combining them to perform operations within groups
@@ -154,7 +154,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:11103c6026
+--- type:NormalExercise lang:r xp:100 skills:1 key:c2fd4fe7b4
 ## Compute group extremes
 
 Content
@@ -183,7 +183,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:56b13d3b09
+--- type:NormalExercise lang:r xp:100 skills:1 key:3e95bb0c1a
 ## Sort by group averages
 
 Content
@@ -212,7 +212,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:d5441db7a7
+--- type:VideoExercise lang:r xp:50 skills:1 key:398a4f9077
 ## Filtering with aggregate functions
 
 * WHERE keyword cannot be used with aggregate functions
@@ -225,7 +225,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ed6d25e630
+--- type:NormalExercise lang:r xp:100 skills:1 key:0c66b9db07
 ## HAVING patience
 
 Content
@@ -254,7 +254,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:836dfbc325
+--- type:NormalExercise lang:r xp:100 skills:1 key:4cddd01f8e
 ## Combine HAVING with ORDER BY
 
 Content

@@ -222,11 +222,32 @@ chapters:
       - type: VideoExercise
         title: Introduction to the data
         content: Content
+      - type: MultipleChoiceExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
       - type: VideoExercise
         title: Check-in 1
         content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
       - type: VideoExercise
         title: Check-in 2
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
         content: Content
       - type: VideoExercise
         title: Summary
