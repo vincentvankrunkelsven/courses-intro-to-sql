@@ -14,14 +14,14 @@
   * End statement with semicolon
   * Stylistic conventions (?)
 * SELECT
-* Aliases with AS
+* DISTINCT
 * Aggregate functions
   * COUNT (both COUNT(*) and COUNT(column_name))
   * SUM
   * AVG
   * MIN
   * MAX
-* DISTINCT
+* Column aliases with AS (?)
 
 ## Chapter 2: Filtering rows
 
