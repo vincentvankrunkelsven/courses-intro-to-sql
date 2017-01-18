@@ -2,7 +2,7 @@
 title: Selecting and summarizing columns
 description: This is a template chapter.
 
---- type:VideoExercise lang:r xp:50 skills:1 key:53e4b55ad4
+--- type:VideoExercise lang:r xp:50 skills:1 key:64ff68a325
 ## Introduction
 
 * Motivating example (case study preview)
@@ -25,7 +25,7 @@ description: This is a template chapter.
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:79e82273e3
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:de8dbf5bf8
 ## Why use relational databases?
 
 Q: Which of the following is NOT a good reason to use relational databases?
@@ -45,7 +45,7 @@ A: They are good at handling unstructured data
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bde296bcfd
+--- type:NormalExercise lang:r xp:100 skills:1 key:661b6ddb10
 ## Simple SELECT statements
 
 Single column, multiple columns, all columns (*). Order matters! Finish with embedded MCE asking for specific value from last query
@@ -74,10 +74,10 @@ Single column, multiple columns, all columns (*). Order matters! Finish with emb
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:19a57fa0f4
+--- type:NormalExercise lang:r xp:100 skills:1 key:8208a2dae5
 ## Combine SELECT with DISTINCT
 
-Select all distinct values of column_name with SELECT DISTINCT. Follow with embedded MCE to test interpretation
+Select all distinct values of column_name with SELECT DISTINCT. Repeat with multiple columns. Follow with embedded MCE to test interpretation
 
 *** =instructions
 
@@ -103,13 +103,15 @@ Select all distinct values of column_name with SELECT DISTINCT. Follow with embe
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a1796562dd
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:84d3c0d1c2
 ## Select the proper SELECT
 
 (Test for style and syntax)
 
-Q: Which of the following is the proper way to select the column_name column from the table_name table?
-A: SELECT column_name FROM table_name;
+Q: Which of the following is the proper way to select all distinct values of column_name from the table_name table?
+A: 
+SELECT DISTINCT column_name
+FROM table_name;
 
 *** =instructions
 
@@ -125,10 +127,11 @@ A: SELECT column_name FROM table_name;
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:d5e6dffef3
+--- type:VideoExercise lang:r xp:50 skills:1 key:945c2cc764
 ## Aggregate functions
 
-* COUNT (both COUNT(*) and COUNT(column_name))
+* Difference between COUNT(*) and COUNT(column_name)
+* Combining COUNT with DISTINCT
 * SUM
 * AVG
 * MIN
@@ -140,7 +143,7 @@ A: SELECT column_name FROM table_name;
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:10e4924271
+--- type:NormalExercise lang:r xp:100 skills:1 key:4bb2ee2af8
 ## COUNT
 
 COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs, COUNT(DISTINCT column_name)
@@ -169,7 +172,7 @@ COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs, COUNT(DISTINCT column_
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:704b2425f4
+--- type:NormalExercise lang:r xp:100 skills:1 key:caa1f5fd76
 ## SUM and AVG
 
 Find SUM and AVG of numeric column. Embedded MCE to interpret result
@@ -198,7 +201,7 @@ Find SUM and AVG of numeric column. Embedded MCE to interpret result
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:5d5080dadb
+--- type:NormalExercise lang:r xp:100 skills:1 key:6ec7fbf49b
 ## MIN and MAX
 
 MIN and MAX of numeric column. Embedded MCE to interpret result

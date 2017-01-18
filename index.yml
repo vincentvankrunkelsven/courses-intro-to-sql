@@ -36,22 +36,27 @@ chapters:
       - type: NormalExercise
         title: Combine SELECT with DISTINCT
         content: >-
-          Select all distinct values of column_name with SELECT DISTINCT. Follow
-          with embedded MCE to test interpretation
+          Select all distinct values of column_name with SELECT DISTINCT. Repeat
+          with multiple columns. Follow with embedded MCE to test interpretation
       - type: MultipleChoiceExercise
         title: Select the proper SELECT
         content: >-
           (Test for style and syntax)
 
 
-          Q: Which of the following is the proper way to select the column_name
-          column from the table_name table?
+          Q: Which of the following is the proper way to select all distinct
+          values of column_name from the table_name table?
 
-          A: SELECT column_name FROM table_name;
+          A: 
+
+          SELECT DISTINCT column_name
+
+          FROM table_name;
       - type: VideoExercise
         title: Aggregate functions
         content: |-
-          * COUNT (both COUNT(*) and COUNT(column_name))
+          * Difference between COUNT(*) and COUNT(column_name)
+          * Combining COUNT with DISTINCT
           * SUM
           * AVG
           * MIN
