@@ -173,4 +173,16 @@ chapters:
           * Examples covering COUNT, SUM, AVG, MIN, MAX and DISTINCT
   - chapter_title: 'Case study: New York City bike share'
     chapter_description: Description
-    exercises: []
+    exercises:
+      - type: VideoExercise
+        title: Introduction to the data
+        content: Content
+      - type: VideoExercise
+        title: Check-in 1
+        content: Content
+      - type: VideoExercise
+        title: Check-in 2
+        content: Content
+      - type: VideoExercise
+        title: Summary
+        content: Content
