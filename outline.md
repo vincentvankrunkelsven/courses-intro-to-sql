@@ -46,7 +46,7 @@
 * GROUP BY + ORDER BY
 * GROUP BY + aggregate functions
 
-## Chapter 4: Putting it all together
+## Chapter 4: Case study: New York City bike share
 
 * Introduce Citi Bike database and narrative (urban planning research)
 * Disclaimer: dates are tricky (removed times for simplicity)
