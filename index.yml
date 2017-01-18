@@ -5,9 +5,39 @@ chapters:
   - chapter_title: Selecting and summarizing columns
     chapter_description: This is a template chapter.
     exercises:
+      - type: VideoExercise
+        title: Introduction
+        content: Content
+      - type: MultipleChoiceExercise
+        title: Why use relational databases?
+        content: >-
+          Q: Which of the following is NOT a good reason to use relational
+          databases?
+
+          A: They are good at handling unstructured data
       - type: NormalExercise
-        title: Template exercise
-        content: This is a template exercise.
+        title: Simple SELECT statements
+        content: >-
+          Single column, multiple columns, all columns (*). Order matters when
+          selecting columns
+      - type: VideoExercise
+        title: Aggregate functions
+        content: |-
+          * Aggregate functions
+            * COUNT (both COUNT(*) and COUNT(column_name))
+            * SUM
+            * AVG
+            * MIN
+            * MAX
+          * DISTINCT
+      - type: NormalExercise
+        title: COUNT
+        content: >-
+          COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs,
+          COUNT(DISTINCT column_name)
+      - type: NormalExercise
+        title: Creating aliases with AS
+        content: Column aliases for more control over display
   - chapter_title: Filtering rows
     chapter_description: Description
     exercises: []
