@@ -2,7 +2,7 @@
 title: Filtering rows
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:907fc130e9
+--- type:VideoExercise lang:r xp:50 skills:1 key:4725d47592
 ## Filter rows with WHERE
 
 * WHERE
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:a1d1bbbec8
+--- type:VideoExercise lang:r xp:50 skills:1 key:7c4bd8a1ac
 ## More advanced filtering
 
 * BETWEEN (compare to >= AND <= )
@@ -29,7 +29,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:2699424b6c
+--- type:VideoExercise lang:r xp:50 skills:1 key:ed10eff955
 ## Search for patterns with LIKE
 
 * LIKE
@@ -41,7 +41,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:5e0c8a2140
+--- type:VideoExercise lang:r xp:50 skills:1 key:7778cdd8d2
 ## Simple subqueries
 
 Content

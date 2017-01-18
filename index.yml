@@ -98,7 +98,28 @@ chapters:
         content: Content
   - chapter_title: Sorting and grouping
     chapter_description: Description
-    exercises: []
+    exercises:
+      - type: VideoExercise
+        title: Sort with ORDER BY
+        content: |-
+          * ORDER BY
+            * Single column
+            * Multiple columns
+            * DESC
+      - type: VideoExercise
+        title: Get started with GROUP BY
+        content: |-
+          * GROUP BY
+            * Single column
+            * Multiple columns
+          * Combine with ORDER BY
+      - type: VideoExercise
+        title: Combine GROUP BY with aggregate functions
+        content: >-
+          * Unleash the full power of GROUP BY and aggregate functions by
+          combining them to perform operations within groups
+
+          * Examples covering COUNT, SUM, AVG, MIN, MAX and DISTINCT
   - chapter_title: 'Case study: New York City bike share'
     chapter_description: Description
     exercises: []
