@@ -2,7 +2,7 @@
 title: Sorting and grouping
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:33a7a25814
+--- type:VideoExercise lang:r xp:50 skills:1 key:f1c8c7f7c8
 ## Sort with ORDER BY
 
 * ORDER BY
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:9759432030
+--- type:VideoExercise lang:r xp:50 skills:1 key:f3b4c9646f
 ## Get started with GROUP BY
 
 * GROUP BY
@@ -30,7 +30,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:VideoExercise lang:r xp:50 skills:1 key:22b1de020c
+--- type:VideoExercise lang:r xp:50 skills:1 key:8424bbdd73
 ## Combine GROUP BY with aggregate functions
 
 * Unleash the full power of GROUP BY and aggregate functions by combining them to perform operations within groups

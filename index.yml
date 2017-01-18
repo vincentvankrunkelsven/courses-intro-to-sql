@@ -81,20 +81,48 @@ chapters:
           * WHERE
           * Filtering numeric vs. text values
           * Basic comparison operators: =, <>, <, <=, >, >=
-          * Logical operators: AND, OR, NOT
+          * Multiple conditions with AND, OR
+      - type: NormalExercise
+        title: Filter for a single condition
+        content: >-
+          Practice filtering for numeric and text values. Start with = and <>,
+          then move to inequalities
+      - type: NormalExercise
+        title: Filter for multiple conditions
+        content: >-
+          Same as above, but incorporate AND, OR. Finish with MCE: which
+          statement is equivalent to BETWEEN? Combination of >= and <=
       - type: VideoExercise
         title: More advanced filtering
         content: |-
           * BETWEEN (compare to >= AND <= )
           * IN (compare to = AND = )
           * IS NULL, IS NOT NULL
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
       - type: VideoExercise
         title: Search for patterns with LIKE
         content: |-
           * LIKE
           * Wildcards: %, _, [charlist], [!charlist]
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
       - type: VideoExercise
         title: Simple subqueries
+        content: Content
+      - type: NormalExercise
+        title: Title
+        content: Content
+      - type: NormalExercise
+        title: Title
         content: Content
   - chapter_title: Sorting and grouping
     chapter_description: Description
