@@ -2,7 +2,7 @@
 title: Selecting and summarizing columns
 description: This is a template chapter.
 
---- type:VideoExercise lang:r xp:50 skills:1 key:cc22206553
+--- type:VideoExercise lang:r xp:50 skills:1 key:d9f1c956cf
 ## Introduction
 
 * Motivating example (case study preview)
@@ -25,7 +25,7 @@ description: This is a template chapter.
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4d42d3e116
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:58eb247452
 ## Why use relational databases?
 
 Q: Which of the following is NOT a good reason to use relational databases?
@@ -45,7 +45,7 @@ A: They are good at handling unstructured data
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ab724352f9
+--- type:NormalExercise lang:r xp:100 skills:1 key:d8f5672aef
 ## Simple SELECT statements
 
 Single column, multiple columns, all columns (*). Order matters! Finish with embedded MCE asking for specific value from last query
@@ -74,7 +74,7 @@ Single column, multiple columns, all columns (*). Order matters! Finish with emb
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ef0d40f77a
+--- type:NormalExercise lang:r xp:100 skills:1 key:d933bc87ae
 ## Combine SELECT with DISTINCT
 
 Select all distinct values of column_name with SELECT DISTINCT. Repeat with multiple columns. Follow with embedded MCE to test interpretation
@@ -103,7 +103,7 @@ Select all distinct values of column_name with SELECT DISTINCT. Repeat with mult
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:334077e0cf
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:bd33cba682
 ## Select the proper SELECT
 
 (Test for style and syntax)
@@ -127,7 +127,7 @@ FROM table_name;
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:a91aa0b04b
+--- type:VideoExercise lang:r xp:50 skills:1 key:deff91d7d8
 ## Aggregate functions
 
 * Difference between COUNT(*) and COUNT(column_name)
@@ -143,7 +143,7 @@ FROM table_name;
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ee8a7e7da1
+--- type:NormalExercise lang:r xp:100 skills:1 key:03e9e0b38a
 ## COUNT
 
 COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs, COUNT(DISTINCT column_name)
@@ -172,7 +172,7 @@ COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs, COUNT(DISTINCT column_
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:fe4dd04634
+--- type:NormalExercise lang:r xp:100 skills:1 key:9acb2b055c
 ## SUM and AVG
 
 Find SUM and AVG of numeric column. Embedded MCE to interpret result
@@ -201,7 +201,7 @@ Find SUM and AVG of numeric column. Embedded MCE to interpret result
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:4ea2f4aa5b
+--- type:NormalExercise lang:r xp:100 skills:1 key:86aaf30bb7
 ## MIN and MAX
 
 MIN and MAX of numeric column. Embedded MCE to interpret result
