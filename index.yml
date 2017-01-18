@@ -77,6 +77,24 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Filter rows with WHERE
+        content: |-
+          * WHERE
+          * Filtering numeric vs. text values
+          * Basic comparison operators: =, <>, <, <=, >, >=
+          * Logical operators: AND, OR, NOT
+      - type: VideoExercise
+        title: More advanced filtering
+        content: |-
+          * BETWEEN (compare to >= AND <= )
+          * IN (compare to = AND = )
+          * IS NULL, IS NOT NULL
+      - type: VideoExercise
+        title: Search for patterns with LIKE
+        content: |-
+          * LIKE
+          * Wildcards: %, _, [charlist], [!charlist]
+      - type: VideoExercise
+        title: Simple subqueries
         content: Content
   - chapter_title: Sorting and grouping
     chapter_description: Description
