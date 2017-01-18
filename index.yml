@@ -212,16 +212,34 @@ chapters:
         content: 'Compute group averages, then sort by the averages'
       - type: VideoExercise
         title: Filtering with aggregate functions
-        content: |-
-          * WHERE keyword cannot be used with aggregate functions
-          * HAVING
-          * Walk through several examples (this is not easy)
+        content: >-
+          * WHERE keyword cannot be used to filter results from aggregate
+          functions
+
+          * Enter HAVING
+
+          * Walk through several examples (this is not intuitive)
+
+          * Can't use aliases in the HAVING clause since evaluated before the
+          SELECT clause
+
+          * Brief discussion of order of operations (note to self: should this
+          come sooner in the course?)
+      - type: NormalExercise
+        title: Order of operations
+        content: >-
+          Check understanding of the order of operations, i.e. HAVING executes
+          before SELECT, so alias is not helpful here
       - type: NormalExercise
         title: HAVING patience
-        content: Content
+        content: >-
+          Compute group values, then filter for values above/below a certain
+          threshold using HAVING
       - type: NormalExercise
         title: Combine HAVING with ORDER BY
-        content: Content
+        content: >-
+          Same as above, plus sort results by same group values. Note you can
+          refer to the column alias in the ORDER BY since it's executed last
   - chapter_title: 'Case study: New York City bike share'
     chapter_description: Description
     exercises:
@@ -229,22 +247,22 @@ chapters:
         title: Introduction to the data
         content: Content
       - type: MultipleChoiceExercise
-        title: Title
+        title: Title 2
         content: Content
       - type: NormalExercise
-        title: Title
+        title: Title 3
         content: Content
       - type: NormalExercise
-        title: Title
+        title: Title 4
         content: Content
       - type: VideoExercise
         title: Check-in 1
         content: Content
       - type: NormalExercise
-        title: Title
+        title: Title 5
         content: Content
       - type: NormalExercise
-        title: Title
+        title: Title 6
         content: Content
       - type: VideoExercise
         title: Check-in 2
