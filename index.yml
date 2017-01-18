@@ -2,9 +2,18 @@ course_title: Intro to SQL for Data Science
 course_description: Course description here.
 programming_language: r
 chapters:
-  - chapter_title: Template Chapter
+  - chapter_title: Selecting and summarizing columns
     chapter_description: This is a template chapter.
     exercises:
       - type: NormalExercise
         title: Template exercise
         content: This is a template exercise.
+  - chapter_title: Filtering rows
+    chapter_description: Description
+    exercises: []
+  - chapter_title: Sorting and grouping
+    chapter_description: Description
+    exercises: []
+  - chapter_title: 'Case study: New York City bike share'
+    chapter_description: Description
+    exercises: []
