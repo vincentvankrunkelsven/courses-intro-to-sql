@@ -2,7 +2,7 @@
 title: 'Case study: New York City bike share'
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:86bf632b2b
+--- type:VideoExercise lang:r xp:50 skills:1 key:1e0784e09b
 ## Introduction to the data
 
 Content
@@ -13,7 +13,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:c54e9cd8a0
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:f0f51352eb
 ## Title
 
 Content
@@ -32,36 +32,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:75088a39d4
-## Title
-
-Content
-
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:c4bd20a103
+--- type:NormalExercise lang:r xp:100 skills:1 key:d89f17f1d8
 ## Title
 
 Content
@@ -90,7 +61,36 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:25a5d7f03a
+--- type:NormalExercise lang:r xp:100 skills:1 key:4864a23753
+## Title
+
+Content
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:15793119e7
 ## Check-in 1
 
 Content
@@ -101,7 +101,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3d9463f065
+--- type:NormalExercise lang:r xp:100 skills:1 key:c38e505bac
 ## Title
 
 Content
@@ -130,7 +130,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:2f5f2ba3a4
+--- type:NormalExercise lang:r xp:100 skills:1 key:eb8f69b1fa
 ## Title
 
 Content
@@ -159,7 +159,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:cf02a2cc20
+--- type:VideoExercise lang:r xp:50 skills:1 key:70e7b7315d
 ## Check-in 2
 
 Content
@@ -170,39 +170,15 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:75d4da6473
-## Title
+--- type:NormalExercise lang:r xp:100 skills:1 key:69272a74f3
+## Average trip duration by starting station
 
-Content
+Compute the average trip duration by starting station and order the result by station id: 
 
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{r}
-
-```
-
-*** =sample_code
-```{r}
-
-```
-
-*** =solution
-```{r}
-
-```
-
-*** =sct
-```{r}
-
-```
-
---- type:NormalExercise lang:r xp:100 skills:1 key:bc8a747ea1
-## Title
-
-Content
+SELECT start_station_id AS station, AVG(duration) AS seconds 
+FROM trips 
+GROUP BY station 
+ORDER BY station;
 
 *** =instructions
 
@@ -228,7 +204,42 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:813ae70312
+--- type:NormalExercise lang:r xp:100 skills:1 key:d1d32709ac
+## Again, but only the longest
+
+Takes us to a station out in Bed-Stuy, Brooklyn!
+
+SELECT start_station_id AS station, AVG(duration) AS seconds 
+FROM trips 
+GROUP BY station 
+HAVING AVG(duration) > 2000
+ORDER BY seconds DESC;
+
+*** =instructions
+
+*** =hint
+
+*** =pre_exercise_code
+```{r}
+
+```
+
+*** =sample_code
+```{r}
+
+```
+
+*** =solution
+```{r}
+
+```
+
+*** =sct
+```{r}
+
+```
+
+--- type:VideoExercise lang:r xp:50 skills:1 key:7b7232ea66
 ## Summary
 
 Content

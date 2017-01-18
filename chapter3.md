@@ -2,7 +2,7 @@
 title: Sorting and grouping
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:c15a5600f2
+--- type:VideoExercise lang:r xp:50 skills:1 key:202c65c2f7
 ## Sort with ORDER BY
 
 * ORDER BY
@@ -16,10 +16,10 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:628a6f28d6
+--- type:NormalExercise lang:r xp:100 skills:1 key:8ee3754ce0
 ## Sort by a single column
 
-Content
+Use ORDER BY on one column at a time, with and without DESC
 
 *** =instructions
 
@@ -45,10 +45,10 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ae5e8ca2b9
+--- type:NormalExercise lang:r xp:100 skills:1 key:b188642852
 ## Sort by multiple columns
 
-Content
+Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE to interpret single value from last result
 
 *** =instructions
 
@@ -74,7 +74,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:57c33b9151
+--- type:VideoExercise lang:r xp:50 skills:1 key:5257ccf6a2
 ## Get started with GROUP BY
 
 * GROUP BY
@@ -89,7 +89,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:6686f423d1
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d50d14646f
 ## Everything in its right place
 
 Q: Which of the following sorts column1 in ascending order within each level of column2?
@@ -113,10 +113,10 @@ ORDER BY c2;
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:040b7dfa62
+--- type:NormalExercise lang:r xp:100 skills:1 key:55599e8acd
 ## Sort within groups
 
-Content
+Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE at end to interpret last result
 
 *** =instructions
 
@@ -142,7 +142,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:a057db9447
+--- type:VideoExercise lang:r xp:50 skills:1 key:c87be43c26
 ## Combine GROUP BY with aggregate functions
 
 * Unleash the full power of GROUP BY and aggregate functions by combining them to perform operations within groups
@@ -154,10 +154,10 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c2fd4fe7b4
+--- type:NormalExercise lang:r xp:100 skills:1 key:909839d3c8
 ## Compute group extremes
 
-Content
+Combine GROUP BY with MIN and MAX to compute the extreme values within each group for a couple of variables
 
 *** =instructions
 
@@ -183,10 +183,10 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3e95bb0c1a
+--- type:NormalExercise lang:r xp:100 skills:1 key:1bddabdab6
 ## Sort by group averages
 
-Content
+Compute group averages, then sort by the averages
 
 *** =instructions
 
@@ -212,7 +212,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:398a4f9077
+--- type:VideoExercise lang:r xp:50 skills:1 key:bdb1ebe87d
 ## Filtering with aggregate functions
 
 * WHERE keyword cannot be used with aggregate functions
@@ -225,7 +225,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:0c66b9db07
+--- type:NormalExercise lang:r xp:100 skills:1 key:2e3d05e947
 ## HAVING patience
 
 Content
@@ -254,7 +254,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:4cddd01f8e
+--- type:NormalExercise lang:r xp:100 skills:1 key:a98b86006b
 ## Combine HAVING with ORDER BY
 
 Content

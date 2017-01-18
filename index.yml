@@ -159,10 +159,12 @@ chapters:
             * DESC
       - type: NormalExercise
         title: Sort by a single column
-        content: Content
+        content: 'Use ORDER BY on one column at a time, with and without DESC'
       - type: NormalExercise
         title: Sort by multiple columns
-        content: Content
+        content: >-
+          Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE
+          to interpret single value from last result
       - type: VideoExercise
         title: Get started with GROUP BY
         content: >-
@@ -190,7 +192,9 @@ chapters:
           ORDER BY c2;
       - type: NormalExercise
         title: Sort within groups
-        content: Content
+        content: >-
+          Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE
+          at end to interpret last result
       - type: VideoExercise
         title: Combine GROUP BY with aggregate functions
         content: >-
@@ -200,10 +204,12 @@ chapters:
           * Examples covering grouped COUNT, SUM, AVG
       - type: NormalExercise
         title: Compute group extremes
-        content: Content
+        content: >-
+          Combine GROUP BY with MIN and MAX to compute the extreme values within
+          each group for a couple of variables
       - type: NormalExercise
         title: Sort by group averages
-        content: Content
+        content: 'Compute group averages, then sort by the averages'
       - type: VideoExercise
         title: Filtering with aggregate functions
         content: |-
@@ -244,11 +250,29 @@ chapters:
         title: Check-in 2
         content: Content
       - type: NormalExercise
-        title: Title
-        content: Content
+        title: Average trip duration by starting station
+        content: >-
+          Compute the average trip duration by starting station and order the
+          result by station id: 
+
+
+          SELECT start_station_id AS station, AVG(duration) AS seconds 
+
+          FROM trips 
+
+          GROUP BY station 
+
+          ORDER BY station;
       - type: NormalExercise
-        title: Title
-        content: Content
+        title: 'Again, but only the longest'
+        content: |-
+          Takes us to a station out in Bed-Stuy, Brooklyn!
+
+          SELECT start_station_id AS station, AVG(duration) AS seconds 
+          FROM trips 
+          GROUP BY station 
+          HAVING AVG(duration) > 2000
+          ORDER BY seconds DESC;
       - type: VideoExercise
         title: Summary
         content: Content
