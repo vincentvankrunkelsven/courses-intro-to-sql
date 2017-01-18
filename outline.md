@@ -9,7 +9,10 @@
   * Tables
   * Columns & rows (a.k.a. records)
   * Fields (informal = cells)
-* Basic SQL syntax (e.g. end statement with semicolon)
+* Basic SQL syntax
+  * Not case-sensitive
+  * End statement with semicolon
+  * Stylistic conventions (?)
 * SELECT
 * Aliases with AS
 * Aggregate functions
