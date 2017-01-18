@@ -11,6 +11,7 @@
   * Fields (informal = cells)
 * Basic SQL syntax (e.g. end statement with semicolon)
 * SELECT
+* Aliases with AS
 * Aggregate functions
   * COUNT (both COUNT(*) and COUNT(column_name))
   * SUM
