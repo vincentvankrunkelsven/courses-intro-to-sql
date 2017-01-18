@@ -27,11 +27,13 @@
 
 * WHERE
 * Filtering numeric vs. text values
-* Operators
-  * =, <>, <, >, <=, >=
-  * BETWEEN, LIKE, IN
-  * IS NULL, IS NOT NULL
-* Multiple conditions (AND & OR)
+* Basic comparison operators: =, <>, <, <=, >, >=
+* Logical operators: AND, OR, NOT
+* BETWEEN (compare to >= AND <= )
+* IN (compare to = AND = )
+* IS NULL, IS NOT NULL
+* LIKE
+* Wildcards: %, _, [charlist], [!charlist]
 * Simple subqueries (teaser for joins)
 
 ## Chapter 3: Sorting and grouping
