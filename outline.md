@@ -28,7 +28,7 @@
 * WHERE
 * Filtering numeric vs. text values
 * Basic comparison operators: =, <>, <, <=, >, >=
-* Logical operators: AND, OR, NOT
+* Multiple conditions with AND, OR
 * BETWEEN (compare to >= AND <= )
 * IN (compare to = AND = )
 * IS NULL, IS NOT NULL
@@ -47,6 +47,7 @@
   * Multiple columns
 * GROUP BY + ORDER BY
 * GROUP BY + aggregate functions
+* Filtering based on results from aggregate functions (HAVING)
 
 ## Chapter 4: Case study: New York City bike share
 
