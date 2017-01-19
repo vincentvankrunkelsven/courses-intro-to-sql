@@ -77,10 +77,220 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Filter rows with WHERE
-        content: Content
+        content: |-
+          * WHERE
+          * Filtering numeric vs. text values
+          * Basic comparison operators: =, <>, <, <=, >, >=
+          * Multiple conditions with AND, OR
+      - type: NormalExercise
+        title: Filter for a single condition
+        content: >-
+          Practice filtering for numeric and text values. Start with = and <>,
+          then move to inequalities
+      - type: NormalExercise
+        title: Filter for multiple conditions
+        content: >-
+          Same as above, but incorporate AND, OR. Recall something from chapter
+          1, like DISTINCT or aggregate functions? Do at least one >= AND <= for
+          comparison to BETWEEN in later exercise
+      - type: VideoExercise
+        title: More advanced filtering
+        content: |-
+          * BETWEEN (compare to >= AND <= )
+          * IN (compare to = AND = )
+          * IS NULL, IS NOT NULL
+      - type: MultipleChoiceExercise
+        title: Look familiar?
+        content: >-
+          Give students a SELECT statement using BETWEEN and have them select an
+          equivalent statement using >= AND <=
+      - type: NormalExercise
+        title: Stuck somewhere IN BETWEEN
+        content: Practice filtering with BETWEEN and IN
+      - type: NormalExercise
+        title: Manage missingness
+        content: >-
+          Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT,
+          and/or other concepts from earlier
+      - type: VideoExercise
+        title: Search for patterns with LIKE
+        content: |-
+          * LIKE
+          * Wildcards: %, _, [charlist], [!charlist]
+      - type: NormalExercise
+        title: LIKE it or NOT
+        content: >-
+          Practice with some simple pattern matching using LIKE with % and _.
+          Then combine with NOT.
+      - type: NormalExercise
+        title: Pattern matching mania
+        content: >-
+          Practice with LIKE some more, using more advanced wildcards: sets and
+          ranges of characters. Use negation (!) as well. Finish with embedded
+          MCE for interpretation
+      - type: VideoExercise
+        title: Simple subqueries
+        content: >-
+          Introduce subqueries as a convenient way to filter on values that
+          aren't readily available in the table of interest. These values may be
+          the result of a second filtering operation on the same table, or they
+          may come from a different table entirely. Use as teaser for future
+          course covering joins. We will only cover very simple examples here
+      - type: NormalExercise
+        title: Single table subqueries
+        content: >-
+          Perform a couple of subqueries using information from only one table.
+          Finish with embedded MCE to drill home motivation
+      - type: NormalExercise
+        title: Two table subqueries
+        content: >-
+          Perform some two table subqueries (i.e. use values from another table
+          to filter this table). Finish again with an MCE to interpret the
+          results
   - chapter_title: Sorting and grouping
     chapter_description: Description
-    exercises: []
+    exercises:
+      - type: VideoExercise
+        title: Sort with ORDER BY
+        content: |-
+          * ORDER BY
+            * Single column
+            * Multiple columns
+            * DESC
+      - type: NormalExercise
+        title: Sort by a single column
+        content: 'Use ORDER BY on one column at a time, with and without DESC'
+      - type: NormalExercise
+        title: Sort by multiple columns
+        content: >-
+          Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE
+          to interpret single value from last result
+      - type: VideoExercise
+        title: Get started with GROUP BY
+        content: >-
+          * GROUP BY
+            * Single column
+            * Multiple columns
+          * Combine with ORDER BY
+
+          * Introduce column aliases via AS as a convenient shorthand. Will
+          become even more useful later in chapter
+      - type: MultipleChoiceExercise
+        title: Everything in its right place
+        content: >-
+          Q: Which of the following sorts column1 in ascending order within each
+          level of column2?
+
+          A:
+
+          SELECT column1 AS c1, column2 AS c2
+
+          FROM table_name
+
+          GROUP BY c1
+
+          ORDER BY c2;
+      - type: NormalExercise
+        title: Sort within groups
+        content: >-
+          Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE
+          at end to interpret last result
+      - type: VideoExercise
+        title: Combine GROUP BY with aggregate functions
+        content: >-
+          * Unleash the full power of GROUP BY and aggregate functions by
+          combining them to perform operations within groups
+
+          * Examples covering grouped COUNT, SUM, AVG
+      - type: NormalExercise
+        title: Compute group extremes
+        content: >-
+          Combine GROUP BY with MIN and MAX to compute the extreme values within
+          each group for a couple of variables
+      - type: NormalExercise
+        title: Sort by group averages
+        content: 'Compute group averages, then sort by the averages'
+      - type: VideoExercise
+        title: Filtering with aggregate functions
+        content: >-
+          * WHERE keyword cannot be used to filter results from aggregate
+          functions
+
+          * Enter HAVING
+
+          * Walk through several examples (this is not intuitive)
+
+          * Can't use aliases in the HAVING clause since evaluated before the
+          SELECT clause
+
+          * Brief discussion of order of operations (note to self: should this
+          come sooner in the course?)
+      - type: NormalExercise
+        title: Order of operations
+        content: >-
+          Check understanding of the order of operations, i.e. HAVING executes
+          before SELECT, so alias is not helpful here
+      - type: NormalExercise
+        title: HAVING patience
+        content: >-
+          Compute group values, then filter for values above/below a certain
+          threshold using HAVING
+      - type: NormalExercise
+        title: Combine HAVING with ORDER BY
+        content: >-
+          Same as above, plus sort results by same group values. Note you can
+          refer to the column alias in the ORDER BY since it's executed last
   - chapter_title: 'Case study: New York City bike share'
     chapter_description: Description
-    exercises: []
+    exercises:
+      - type: VideoExercise
+        title: Introduction to the data
+        content: Content
+      - type: MultipleChoiceExercise
+        title: Title 2
+        content: Content
+      - type: NormalExercise
+        title: Title 3
+        content: Content
+      - type: NormalExercise
+        title: Title 4
+        content: Content
+      - type: VideoExercise
+        title: Check-in 1
+        content: Content
+      - type: NormalExercise
+        title: Title 6
+        content: Content
+      - type: NormalExercise
+        title: Title 7
+        content: Content
+      - type: VideoExercise
+        title: Check-in 2
+        content: Content
+      - type: NormalExercise
+        title: Average trip duration by starting station
+        content: >-
+          Compute the average trip duration by starting station and order the
+          result by station id: 
+
+
+          SELECT start_station_id AS station, AVG(duration) AS seconds 
+
+          FROM trips 
+
+          GROUP BY station 
+
+          ORDER BY station;
+      - type: NormalExercise
+        title: 'Again, but only the longest'
+        content: |-
+          Takes us to a station out in Bed-Stuy, Brooklyn!
+
+          SELECT start_station_id AS station, AVG(duration) AS seconds 
+          FROM trips 
+          GROUP BY station 
+          HAVING AVG(duration) > 2000
+          ORDER BY seconds DESC;
+      - type: VideoExercise
+        title: Summary
+        content: Content
