@@ -20,15 +20,15 @@ customers <- data_frame(
 )
 customers$age[4] <- NA
 
-# products_transactions: transaction_id, product_id
-products_transactions <- data_frame(
-  transaction_id = rep(1:10, c(2, 1, 4, 1, 1, 3, 2, 5, 2, 1)),
-  product_id = sample(products$id, length(transaction_id), replace = TRUE)
+# product_sales: sale_id, product_id
+product_sales <- data_frame(
+  sale_id = rep(1:10, c(2, 1, 4, 1, 1, 3, 2, 5, 2, 1)),
+  product_id = sample(products$id, length(sale_id), replace = TRUE)
 ) %>%
-  arrange(transaction_id, product_id)
+  arrange(sale_id, product_id)
 
-# transactions: id, date, amount, customer_id
-transactions <- data_frame(
+# sales: id, date, amount, customer_id, payment_type, amount
+sales <- data_frame(
   id = 1:10,
   date = c("5/22/16", "6/12/16", "6/12/16", "7/25/16", "8/1/16",
            "8/4/16", "8/8/16", "8/16/16", "9/6/16", "9/20/16"),
@@ -37,23 +37,23 @@ transactions <- data_frame(
 )
 
 # temp table, to be removed
-amounts_paid <- products_transactions %>%
+amounts_paid <- product_sales %>%
   inner_join(products, by = c("product_id" = "id")) %>%
-  group_by(transaction_id) %>%
+  group_by(sale_id) %>%
   summarize(n_products = n(),
             amount = sum(price)
   )
 
-# add amount column to transactions
-transactions <- transactions %>%
-  inner_join(amounts_paid, by = c("id" = "transaction_id"))
+# add amount column to sales
+sales <- sales %>%
+  inner_join(amounts_paid, by = c("id" = "sale_id"))
 
 # save to csv
 path <- "data/raw/"
 write_csv(customers, file.path(path, "customers.csv"))
 write_csv(products, file.path(path, "products.csv"))
-write_csv(transactions, file.path(path, "transactions.csv"))
-write_csv(products_transactions, file.path(path, "products_transactions.csv"))
+write_csv(sales, file.path(path, "sales.csv"))
+write_csv(product_sales, file.path(path, "product_sales.csv"))
 
 # remove cruft
 rm(amounts_paid)
