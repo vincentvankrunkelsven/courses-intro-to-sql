@@ -1,5 +1,5 @@
 id,date,customer_id,payment_type,n_products,amount
-1,5/22/16,2,Credit,2,24.939999999999998
+1,5/22/16,2,Credit,2,24.94
 2,6/12/16,5,Credit,1,14.95
 3,6/12/16,4,Credit,4,42.36
 4,7/25/16,1,Cash,1,99.0
@@ -7,5 +7,5 @@ id,date,customer_id,payment_type,n_products,amount
 6,8/4/16,5,Credit,3,35.53
 7,8/8/16,2,Credit,2,21.18
 8,8/16/16,4,Credit,5,254.57
-9,9/6/16,1,Credit,2,44.980000000000004
+9,9/6/16,1,Credit,2,44.98
 10,9/20/16,7,Credit,1,34.99

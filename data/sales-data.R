@@ -41,7 +41,7 @@ amounts_paid <- product_sales %>%
   inner_join(products, by = c("product_id" = "id")) %>%
   group_by(sale_id) %>%
   summarize(n_products = n(),
-            amount = sum(price)
+            amount = round(sum(price), 2)
   )
 
 # add amount column to sales
