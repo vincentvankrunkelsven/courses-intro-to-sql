@@ -7,19 +7,28 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Introduction
-        content: |-
+        content: >-
           * Motivating example (case study preview)
-          * Why not just use R/Python/etc? Memory, speed, etc.
-          * Database vocabulary (in context of example)
-            * Database
-            * Tables
-            * Columns & rows (a.k.a. records)
-            * Fields (informal = cells)
+
+          * Why not just use R/Python/etc?
+            * Memory
+            * Speed
+            * Centralization
+            * Access control
+            * DMBS tools
+            * ...?
+          * Database vocabulary (in context of example; make spreadsheet
+          analogies)
+            * Database (~ spreadsheet)
+            * Tables (~ worksheet)
+            * Columns & records (a.k.a. records) (~ columns & rows)
+            * Fields (~ cells)
           * Basic SQL syntax
             * Not case-sensitive
             * End statement with semicolon
             * Stylistic conventions (?)
           * SELECT
+
           * DISTINCT
       - type: MultipleChoiceExercise
         title: Why use relational databases?
@@ -225,7 +234,7 @@ chapters:
 
           * Brief discussion of order of operations (note to self: should this
           come sooner in the course?)
-      - type: NormalExercise
+      - type: MultipleChoiceExercise
         title: Order of operations
         content: >-
           Check understanding of the order of operations, i.e. HAVING executes

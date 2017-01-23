@@ -2,7 +2,7 @@
 title: 'Case study: New York City bike share'
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:333c0ba9a3
+--- type:VideoExercise lang:r xp:50 skills:1 key:5b4ce51e37
 ## Introduction to the data
 
 Content
@@ -13,7 +13,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:ad7c4bc741
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:819bb0d530
 ## Title 2
 
 Content
@@ -32,7 +32,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:fa72d87675
+--- type:NormalExercise lang:r xp:100 skills:1 key:c5f3a23138
 ## Title 3
 
 Content
@@ -61,7 +61,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a5183a6344
+--- type:NormalExercise lang:r xp:100 skills:1 key:388f27afc8
 ## Title 4
 
 Content
@@ -90,7 +90,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:6c6a80ca96
+--- type:VideoExercise lang:r xp:50 skills:1 key:33621f5280
 ## Check-in 1
 
 Content
@@ -101,7 +101,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:0e3f8373ee
+--- type:NormalExercise lang:r xp:100 skills:1 key:a03bc2635f
 ## Title 6
 
 Content
@@ -130,7 +130,7 @@ Content
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:286aef1ae8
+--- type:NormalExercise lang:r xp:100 skills:1 key:22fcdf6a7f
 ## Title 7
 
 Content
@@ -159,7 +159,7 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:4d49745945
+--- type:VideoExercise lang:r xp:50 skills:1 key:277914eed4
 ## Check-in 2
 
 Content
@@ -170,7 +170,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c22f61aaca
+--- type:NormalExercise lang:r xp:100 skills:1 key:d859f73158
 ## Average trip duration by starting station
 
 Compute the average trip duration by starting station and order the result by station id: 
@@ -204,7 +204,7 @@ ORDER BY station;
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:da8e117fb7
+--- type:NormalExercise lang:r xp:100 skills:1 key:bf216d79a4
 ## Again, but only the longest
 
 Takes us to a station out in Bed-Stuy, Brooklyn!
@@ -239,7 +239,7 @@ ORDER BY seconds DESC;
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:09d7f72f14
+--- type:VideoExercise lang:r xp:50 skills:1 key:bb898bdba2
 ## Summary
 
 Content
