@@ -3,12 +3,18 @@
 ## Chapter 1: Selecting and summarizing columns
 
 * Motivating example (case study preview)
-* Why not just use R/Python/etc? Memory, speed, etc.
-* Database vocabulary (in context of example)
-  * Database
-  * Tables
-  * Columns & rows (a.k.a. records)
-  * Fields (informal = cells)
+* Why not just use R/Python/etc?
+  * Memory
+  * Speed
+  * Centralization
+  * Access control
+  * DMBS tools
+  * ...?
+* Database vocabulary (in context of example; make spreadsheet analogies)
+  * Database (~ spreadsheet)
+  * Tables (~ worksheet)
+  * Columns & records (a.k.a. records) (~ columns & rows)
+  * Fields (~ cells)
 * Basic SQL syntax
   * Not case-sensitive
   * End statement with semicolon
