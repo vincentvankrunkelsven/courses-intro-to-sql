@@ -2,7 +2,7 @@
 title: Selecting and summarizing columns
 description: This is a template chapter.
 
---- type:VideoExercise lang:r xp:50 skills:1 key:3e970f768b
+--- type:VideoExercise lang:r xp:50 skills:1 key:b499f3c90c
 ## Introduction
 
 * Motivating example (case study preview)
@@ -31,7 +31,7 @@ description: This is a template chapter.
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:35ac5d28c7
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:354726fdc8
 ## Why use relational databases?
 
 Q: Which of the following is NOT a good reason to use relational databases?
@@ -51,7 +51,7 @@ A: They are good at handling unstructured data
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:329710f634
+--- type:NormalExercise lang:r xp:100 skills:1 key:a4fc15083e
 ## Simple SELECT statements
 
 Single column, multiple columns, all columns (*). Order matters! Finish with embedded MCE asking for specific value from last query
@@ -80,7 +80,7 @@ Single column, multiple columns, all columns (*). Order matters! Finish with emb
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ba6d88954a
+--- type:NormalExercise lang:r xp:100 skills:1 key:a40c1befd8
 ## Combine SELECT with DISTINCT
 
 Select all distinct values of column_name with SELECT DISTINCT. Repeat with multiple columns. Follow with embedded MCE to test interpretation
@@ -109,7 +109,7 @@ Select all distinct values of column_name with SELECT DISTINCT. Repeat with mult
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4fb81f18b4
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:30e2933bf2
 ## Select the proper SELECT
 
 (Test for style and syntax)
@@ -133,7 +133,7 @@ FROM reads;
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:c52bfdf232
+--- type:VideoExercise lang:r xp:50 skills:1 key:35d0a26eb9
 ## Aggregate functions
 
 * Difference between COUNT(*) and COUNT(column_name)
@@ -149,7 +149,7 @@ FROM reads;
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c6d8fe45c9
+--- type:NormalExercise lang:r xp:100 skills:1 key:13088c319c
 ## COUNT
 
 COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs
@@ -178,10 +178,10 @@ COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f3dea635ec
+--- type:NormalExercise lang:r xp:100 skills:1 key:3d44598aed
 ## Combine COUNT with DISTINCT
 
-COUNT(DISTINCT column_name)
+A couple useful examples of COUNT(DISTINCT column_name)
 
 *** =instructions
 
@@ -207,10 +207,10 @@ COUNT(DISTINCT column_name)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ff98f7f3da
+--- type:NormalExercise lang:r xp:100 skills:1 key:7bbc04d229
 ## Fun with aggregate functions
 
-AVE, MIN, MAX, SUM on numeric columns
+Use AVE, MIN, MAX, SUM on numeric columns
 
 *** =instructions
 
@@ -236,7 +236,7 @@ AVE, MIN, MAX, SUM on numeric columns
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:413ec106e4
+--- type:VideoExercise lang:r xp:50 skills:1 key:6bc5fdab72
 ## Simple math in SQL
 
 * Doing basic arithmetic on columns (+, -, *, /, %)
@@ -249,10 +249,10 @@ AVE, MIN, MAX, SUM on numeric columns
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:db86d092a0
+--- type:NormalExercise lang:r xp:100 skills:1 key:3b748ab10d
 ## From seconds to minutes
 
-Compute AVG and SUM of reading time in minutes instead of seconds, using aliases to name resulting columns. Do the same, but round one of the columns to nearest integer
+Compute AVG and SUM of reading time in minutes instead of seconds, using aliases to name resulting columns. Do the same, but ROUND one of the columns to nearest integer
 
 *** =instructions
 
@@ -278,7 +278,7 @@ Compute AVG and SUM of reading time in minutes instead of seconds, using aliases
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:5a7f6bdd0e
+--- type:NormalExercise lang:r xp:100 skills:1 key:8cbb27d7a8
 ## How long have you been here?
 
 First return all columns from the authors table, then add a column which gives the number of years each author has been writing for the blog (i.e. 2017 - year_joined)

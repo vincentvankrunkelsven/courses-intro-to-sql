@@ -85,10 +85,10 @@ chapters:
         content: 'COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs'
       - type: NormalExercise
         title: Combine COUNT with DISTINCT
-        content: COUNT(DISTINCT column_name)
+        content: A couple useful examples of COUNT(DISTINCT column_name)
       - type: NormalExercise
         title: Fun with aggregate functions
-        content: 'AVE, MIN, MAX, SUM on numeric columns'
+        content: 'Use AVE, MIN, MAX, SUM on numeric columns'
       - type: VideoExercise
         title: Simple math in SQL
         content: >-
@@ -102,7 +102,7 @@ chapters:
         title: From seconds to minutes
         content: >-
           Compute AVG and SUM of reading time in minutes instead of seconds,
-          using aliases to name resulting columns. Do the same, but round one of
+          using aliases to name resulting columns. Do the same, but ROUND one of
           the columns to nearest integer
       - type: NormalExercise
         title: How long have you been here?
