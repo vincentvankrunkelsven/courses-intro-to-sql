@@ -292,7 +292,14 @@ chapters:
           exercises
       - type: NormalExercise
         title: 'When it rains, it pours'
-        content: Content
+        content: >
+          * How many days saw more than 1/2 inch of precipitation?
+
+          * How many days did it *rain* more than 1/2 inch? (Need to use LIKE to
+          partial match for "Rain" on events column)
+
+          * How many days did it rain between 1/2 and 1 inches, with cloud cover
+          greater than 6?
       - type: NormalExercise
         title: Title 7
         content: Content
