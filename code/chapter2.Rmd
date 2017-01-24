@@ -1,0 +1,84 @@
+---
+title: Chapter 2 - Code
+output: html_notebook
+---
+
+```{r setup}
+library(RPostgreSQL)
+db <- dbConnect(dbDriver("PostgreSQL"), dbname = "blog", host = "localhost")
+knitr::opts_chunk$set(connection = "db")
+```
+
+---
+
+```{sql}
+SELECT *
+FROM users
+WHERE username = 'sporty88';
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE username <> 'sporty88';
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE id = 9;
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE age > 21;
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE age >= 21;
+```
+
+---
+
+Select all records from `reads` where a user read the first blog post (`id` = 1) *before* January 20?
+
+```{sql}
+SELECT *
+FROM reads
+WHERE date_read <= '2017-01-19'
+AND post_id = 1;
+```
+
+Return all posts launched between 2017-01-15 and 2017-01-21. (You'll see an easier way to do this shortly!)
+
+```{sql}
+SELECT *
+FROM posts
+WHERE date_posted >= '2017-01-15'
+AND date_posted <= '2017-01-21';
+```
+
+Return all posts launched before 2017-01-05 or after 2017-01-21.
+
+```{sql}
+SELECT *
+FROM posts
+WHERE date_posted < '2017-01-15'
+OR date_posted > '2017-01-21';
+```
+
+Now incorporate an aggregate function to COUNT the number of posts satisfying these conditions.
+
+```{sql}
+SELECT COUNT(*)
+FROM posts
+WHERE date_posted < '2017-01-15'
+OR date_posted > '2017-01-21';
+```
+
+---
+
+
