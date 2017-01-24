@@ -2,7 +2,7 @@
 title: 'Case study: New York City bike share'
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:864b907518
+--- type:VideoExercise lang:r xp:50 skills:1 key:95a02647f2
 ## Introduction to the data
 
 * Intro Citi Bike database: trips, stations, weather
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:1b206471b3
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:aeffbbd6ee
 ## How many records?
 
 How many records are in the stations, trips, and weather tables, respectively? 498, 9937968, 365 (numbers may change if/when we subset the data to e.g. summer only)
@@ -35,7 +35,7 @@ How many records are in the stations, trips, and weather tables, respectively? 4
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3c2266e0c9
+--- type:NormalExercise lang:r xp:100 skills:1 key:d1364b703a
 ## Preview the tables
 
 SELECT some columns from weather, then from stations, then from weather. But intro LIMIT for the last, since we don't want to retrieve all records from such a huge table
@@ -64,7 +64,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:7547687507
+--- type:NormalExercise lang:r xp:100 skills:1 key:24b25f8bad
 ## Explore the data
 
 * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
@@ -95,10 +95,10 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:822f468237
+--- type:VideoExercise lang:r xp:50 skills:1 key:54c3410c20
 ## Refresher: filtering rows
 
-* Quick review of chapter 2 concepts
+* Quick review of chapter 2 concepts (filtering rows)
 * Pose some interested questions to be answered in the following exercises
 
 *** =video_link
@@ -107,12 +107,12 @@ SELECT some columns from weather, then from stations, then from weather. But int
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:a44807416e
+--- type:NormalExercise lang:r xp:100 skills:1 key:fa3248d236
 ## When it rains, it pours
 
 * How many days saw more than 1/2 inch of precipitation?
 * How many days did it *rain* more than 1/2 inch? (Need to use LIKE to partial match for "Rain" on events column)
-* How many days did it rain between 1/2 and 1 inches, with cloud cover greater than 6?
+* How many days did it rain BETWEEN 1/2 and 1 inches, with cloud cover greater than 6?
 
 
 *** =instructions
@@ -139,10 +139,21 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c3e0c6b4d2
-## Title 7
+--- type:NormalExercise lang:r xp:100 skills:1 key:3e3ad8bb28
+## Does rain affect rides?
 
-Content
+* What's the average trip length?
+* What's the average trip length on days with more than 1/2 inch of rain? (use start_date)
+
+SELECT AVG(duration) 
+FROM trips 
+WHERE start_date IN (
+  SELECT date 
+  FROM weather 
+  WHERE precipitation_in > 0.5
+);
+
+* Finish with multiple choice to interpret result
 
 *** =instructions
 
@@ -168,10 +179,11 @@ Content
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:a23f3dfb6a
+--- type:VideoExercise lang:r xp:50 skills:1 key:c2f80aea33
 ## Refresher: sorting and grouping
 
-Content
+* Refresher of chapter 3 concepts (sorting and grouping)
+* Pose some interesting questions to be answered in following exercises
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -179,7 +191,7 @@ Content
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:3909c7470f
+--- type:NormalExercise lang:r xp:100 skills:1 key:d792e28129
 ## Average trip duration by starting station
 
 Compute the average trip duration by starting station and order the result by station id: 
@@ -213,7 +225,7 @@ ORDER BY station;
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:841b1f1138
+--- type:NormalExercise lang:r xp:100 skills:1 key:91a278ba12
 ## Again, but only the longest
 
 Takes us to a station out in Bed-Stuy, Brooklyn!
@@ -248,7 +260,7 @@ ORDER BY seconds DESC;
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:4910531535
+--- type:VideoExercise lang:r xp:50 skills:1 key:9e8fed7345
 ## Summary
 
 Content

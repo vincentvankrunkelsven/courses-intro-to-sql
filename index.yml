@@ -286,7 +286,7 @@ chapters:
       - type: VideoExercise
         title: 'Refresher: filtering rows'
         content: >-
-          * Quick review of chapter 2 concepts
+          * Quick review of chapter 2 concepts (filtering rows)
 
           * Pose some interested questions to be answered in the following
           exercises
@@ -298,14 +298,36 @@ chapters:
           * How many days did it *rain* more than 1/2 inch? (Need to use LIKE to
           partial match for "Rain" on events column)
 
-          * How many days did it rain between 1/2 and 1 inches, with cloud cover
+          * How many days did it rain BETWEEN 1/2 and 1 inches, with cloud cover
           greater than 6?
       - type: NormalExercise
-        title: Title 7
-        content: Content
+        title: Does rain affect rides?
+        content: >-
+          * What's the average trip length?
+
+          * What's the average trip length on days with more than 1/2 inch of
+          rain? (use start_date)
+
+
+          SELECT AVG(duration) 
+
+          FROM trips 
+
+          WHERE start_date IN (
+            SELECT date 
+            FROM weather 
+            WHERE precipitation_in > 0.5
+          );
+
+
+          * Finish with multiple choice to interpret result
       - type: VideoExercise
         title: 'Refresher: sorting and grouping'
-        content: Content
+        content: >-
+          * Refresher of chapter 3 concepts (sorting and grouping)
+
+          * Pose some interesting questions to be answered in following
+          exercises
       - type: NormalExercise
         title: Average trip duration by starting station
         content: >-
