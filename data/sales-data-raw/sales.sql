@@ -1,6 +1,6 @@
 CREATE TABLE sales (
   id                    INTEGER     PRIMARY KEY,
-  date                  DATE,
+  date_sold             DATE,
   customer_id           INTEGER,
   product_id            INTEGER,
   payment_type          VARCHAR

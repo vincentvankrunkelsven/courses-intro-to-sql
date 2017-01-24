@@ -7,7 +7,7 @@ CREATE TABLE authors (
 
 CREATE TABLE posts (
   id                    INTEGER     PRIMARY KEY,
-  date                  DATE,
+  date_posted           DATE,
   author_id             INTEGER,
   title                 VARCHAR
 );
@@ -22,7 +22,7 @@ CREATE TABLE users (
 
 CREATE TABLE reads (
   id                    INTEGER     PRIMARY KEY,
-  date                  DATE,
+  date_read             DATE,
   user_id               INTEGER,
   post_id               INTEGER,
   duration              INTEGER
