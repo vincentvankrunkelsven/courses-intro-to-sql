@@ -254,27 +254,50 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Introduction to the data
-        content: Content
+        content: >-
+          * Intro Citi Bike database: trips, stations, weather
+
+          * Part of an urban planning committee trying to understand biking
+          habits in NYC
+
+          * Will be exploring a number of questions, practicing your SQL skills
+          along the way
+
+          * Quick refresher of chapter 1 concepts (SELECT, DISTINCT, aggregate
+          functions)
       - type: MultipleChoiceExercise
-        title: Title 2
-        content: Content
+        title: How many records?
+        content: >-
+          How many records are in the stations, trips, and weather tables,
+          respectively? 498, 9937968, 365 (numbers may change if/when we subset
+          the data to e.g. summer only)
       - type: NormalExercise
-        title: Title 3
-        content: Content
+        title: Preview the tables
+        content: >-
+          SELECT some columns from weather, then from stations, then from
+          weather. But intro LIMIT for the last, since we don't want to retrieve
+          all records from such a huge table
       - type: NormalExercise
-        title: Title 4
-        content: Content
+        title: Explore the data
+        content: |-
+          * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
+          * Minimum, average, and maximum trip lengths (in seconds, minutes)?
+          * Minimum, average, and maximum mean_temp_f?
       - type: VideoExercise
-        title: Check-in 1
-        content: Content
+        title: 'Refresher: filtering rows'
+        content: >-
+          * Quick review of chapter 2 concepts
+
+          * Pose some interested questions to be answered in the following
+          exercises
       - type: NormalExercise
-        title: Title 6
+        title: 'When it rains, it pours'
         content: Content
       - type: NormalExercise
         title: Title 7
         content: Content
       - type: VideoExercise
-        title: Check-in 2
+        title: 'Refresher: sorting and grouping'
         content: Content
       - type: NormalExercise
         title: Average trip duration by starting station

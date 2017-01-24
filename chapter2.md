@@ -2,7 +2,7 @@
 title: Filtering rows
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:7aed14031e
+--- type:VideoExercise lang:r xp:50 skills:1 key:fe66199930
 ## Filter rows with WHERE
 
 * WHERE
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c8125fb5ad
+--- type:NormalExercise lang:r xp:100 skills:1 key:68c9af2297
 ## Filter for a single condition
 
 Practice filtering for numeric and text values. Start with = and <>, then move to inequalities
@@ -45,7 +45,7 @@ Practice filtering for numeric and text values. Start with = and <>, then move t
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f62afdc0ef
+--- type:NormalExercise lang:r xp:100 skills:1 key:39fdf7087d
 ## Filter for multiple conditions
 
 Same as above, but incorporate AND, OR. Recall something from chapter 1, like DISTINCT or aggregate functions? Do at least one >= AND <= for comparison to BETWEEN in later exercise
@@ -74,7 +74,7 @@ Same as above, but incorporate AND, OR. Recall something from chapter 1, like DI
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:029f9ecc46
+--- type:VideoExercise lang:r xp:50 skills:1 key:9a86388c83
 ## More advanced filtering
 
 * BETWEEN (compare to >= AND <= )
@@ -87,7 +87,7 @@ Same as above, but incorporate AND, OR. Recall something from chapter 1, like DI
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:f9def20551
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4ddd687dd3
 ## Look familiar?
 
 Give students a SELECT statement using BETWEEN and have them select an equivalent statement using >= AND <=
@@ -106,7 +106,7 @@ Give students a SELECT statement using BETWEEN and have them select an equivalen
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:fbf5d0167d
+--- type:NormalExercise lang:r xp:100 skills:1 key:c3fd41247d
 ## Stuck somewhere IN BETWEEN
 
 Practice filtering with BETWEEN and IN
@@ -135,7 +135,7 @@ Practice filtering with BETWEEN and IN
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8badabebd5
+--- type:NormalExercise lang:r xp:100 skills:1 key:6186c2d1c7
 ## Manage missingness
 
 Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT, and/or other concepts from earlier
@@ -164,7 +164,7 @@ Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT, and/or othe
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:9ffa10f98d
+--- type:VideoExercise lang:r xp:50 skills:1 key:734a49c68a
 ## Search for patterns with LIKE
 
 * LIKE
@@ -176,7 +176,7 @@ Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT, and/or othe
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6b243a7980
+--- type:NormalExercise lang:r xp:100 skills:1 key:1019e49b34
 ## LIKE it or NOT
 
 Practice with some simple pattern matching using LIKE with % and _. Then combine with NOT.
@@ -205,7 +205,7 @@ Practice with some simple pattern matching using LIKE with % and _. Then combine
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8be04e8293
+--- type:NormalExercise lang:r xp:100 skills:1 key:1436f4c195
 ## Pattern matching mania
 
 Practice with LIKE some more, using more advanced wildcards: sets and ranges of characters. Use negation (!) as well. Finish with embedded MCE for interpretation
@@ -234,7 +234,7 @@ Practice with LIKE some more, using more advanced wildcards: sets and ranges of 
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:a21d119b7a
+--- type:VideoExercise lang:r xp:50 skills:1 key:e632ec8446
 ## Simple subqueries
 
 Introduce subqueries as a convenient way to filter on values that aren't readily available in the table of interest. These values may be the result of a second filtering operation on the same table, or they may come from a different table entirely. Use as teaser for future course covering joins. We will only cover very simple examples here
@@ -245,7 +245,7 @@ Introduce subqueries as a convenient way to filter on values that aren't readily
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:9af0536756
+--- type:NormalExercise lang:r xp:100 skills:1 key:f47a2a8cb7
 ## Single table subqueries
 
 Perform a couple of subqueries using information from only one table. Finish with embedded MCE to drill home motivation
@@ -274,7 +274,7 @@ Perform a couple of subqueries using information from only one table. Finish wit
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6098f7cc72
+--- type:NormalExercise lang:r xp:100 skills:1 key:ec880faa63
 ## Two table subqueries
 
 Perform some two table subqueries (i.e. use values from another table to filter this table). Finish again with an MCE to interpret the results
