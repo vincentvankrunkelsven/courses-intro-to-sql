@@ -137,15 +137,3 @@ FROM authors;
 SELECT *, 2017 - year_joined AS years_writing
 FROM authors;
 ```
-
-
-
-
-
-
-
-
-
-
-
-
