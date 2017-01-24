@@ -9,18 +9,20 @@ db <- dbConnect(dbDriver("PostgreSQL"), dbname = "blog", host = "localhost")
 knitr::opts_chunk$set(connection = "db")
 ```
 
+---
+
 ```{sql}
 SELECT title
 FROM posts;
 ```
 
 ```{sql}
-SELECT date, title
+SELECT date_posted, title
 FROM posts;
 ```
 
 ```{sql}
-SELECT title, date
+SELECT title, date_posted
 FROM posts;
 ```
 
@@ -28,6 +30,8 @@ FROM posts;
 SELECT * 
 FROM posts;
 ```
+
+---
 
 ```{sql}
 SELECT *
@@ -48,20 +52,97 @@ SELECT DISTINCT user_id, post_id
 FROM reads;
 ```
 
+---
+
 Which of the following queries returns a list of every date on which at least one person read a blog post?
 
 ```{sql}
-SELECT DISTINCT date
+SELECT DISTINCT date_read
+FROM reads;
+```
+
+---
+
+```{sql}
+SELECT *
+FROM users;
+```
+
+```{sql}
+SELECT COUNT(*)
+FROM users;
+```
+
+```{sql}
+SELECT COUNT(username)
+FROM users;
+```
+
+```{sql}
+SELECT COUNT(age)
+FROM users;
+```
+
+---
+
+```{sql}
+SELECT COUNT(DISTINCT status)
+FROM users;
+```
+
+Cleaner answer to previous question about how many dates one or more posts were read:
+
+```{sql}
+SELECT COUNT(DISTINCT date_read)
+FROM reads;
+```
+
+---
+
+```{sql}
+SELECT AVG(duration)
 FROM reads;
 ```
 
 ```{sql}
-SELECT * FROM posts;
+SELECT AVG(duration), MIN(duration), MAX(duration), SUM(duration)
+FROM reads;
+```
+
+---
+
+```{sql}
+SELECT AVG(duration)/60, SUM(duration)/60
+FROM reads;
 ```
 
 ```{sql}
-
+SELECT AVG(duration)/60 AS avg_mins, SUM(duration)/60 AS total_mins
+FROM reads;
 ```
+
+```{sql}
+SELECT ROUND(AVG(duration)/60) AS avg_mins, SUM(duration)/60 AS total_mins
+FROM reads;
+```
+
+---
+
+```{sql}
+SELECT *
+FROM authors;
+```
+
+```{sql}
+SELECT *, 2017 - year_joined AS years_writing
+FROM authors;
+```
+
+
+
+
+
+
 
 
 
