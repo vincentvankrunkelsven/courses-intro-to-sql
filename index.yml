@@ -63,14 +63,14 @@ chapters:
           (Test for style and syntax)
 
 
-          Q: Which of the following is the proper way to select all distinct
-          values of column_name from the table_name table?
+          Q: Which of the following queries returns a list of every date on
+          which at least one person read a blog post?
 
           A: 
 
-          SELECT DISTINCT column_name
+          SELECT DISTINCT date
 
-          FROM table_name;
+          FROM reads;
       - type: VideoExercise
         title: Aggregate functions
         content: |-
@@ -82,15 +82,34 @@ chapters:
           * MAX
       - type: NormalExercise
         title: COUNT
+        content: 'COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs'
+      - type: NormalExercise
+        title: Combine COUNT with DISTINCT
+        content: COUNT(DISTINCT column_name)
+      - type: NormalExercise
+        title: Fun with aggregate functions
+        content: 'AVE, MIN, MAX, SUM on numeric columns'
+      - type: VideoExercise
+        title: Simple math in SQL
         content: >-
-          COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs,
-          COUNT(DISTINCT column_name)
+          * Doing basic arithmetic on columns (+, -, *, /, %)
+
+          * Introduce column aliases via AS as a way to name columns in query
+          result. Will become even more useful later in the course
+
+          * ROUND, FLOOR, CEILING
       - type: NormalExercise
-        title: SUM and AVG
-        content: Find SUM and AVG of numeric column. Embedded MCE to interpret result
+        title: From seconds to minutes
+        content: >-
+          Compute AVG and SUM of reading time in minutes instead of seconds,
+          using aliases to name resulting columns. Do the same, but round one of
+          the columns to nearest integer
       - type: NormalExercise
-        title: MIN and MAX
-        content: MIN and MAX of numeric column. Embedded MCE to interpret result
+        title: How long have you been here?
+        content: >-
+          First return all columns from the authors table, then add a column
+          which gives the number of years each author has been writing for the
+          blog (i.e. 2017 - year_joined)
   - chapter_title: Filtering rows
     chapter_description: Description
     exercises:
@@ -186,14 +205,12 @@ chapters:
           to interpret single value from last result
       - type: VideoExercise
         title: Get started with GROUP BY
-        content: >-
+        content: |-
           * GROUP BY
             * Single column
             * Multiple columns
           * Combine with ORDER BY
-
-          * Introduce column aliases via AS as a convenient shorthand. Will
-          become even more useful later in chapter
+          * Column aliasing refresher, use with ORDER BY
       - type: MultipleChoiceExercise
         title: Everything in its right place
         content: >-
