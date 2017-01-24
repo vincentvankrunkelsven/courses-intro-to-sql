@@ -1,9 +1,9 @@
 id,date,author_id,title
-1,2017-01-10,3.0,US National Parks in a Nutshell
-2,2017-01-11,5.0,A Whirlwind Tour of Massachusetts
-3,2017-01-18,1.0,Crab Feasts in Baltimore
-4,2017-01-20,2.0,A Beginners Guide to the Rocky Mountains
-5,2017-01-21,2.0,Hiking the Rockies (Part 1)
-6,2017-01-23,2.0,Hiking the Rockies (Part 2)
-7,2017-01-26,4.0,A Wine-Lover's Guide to Napa Valley
-8,2017-01-28,1.0,This Year's Most Affordable Getaways
+1,2017-01-10,3,US National Parks in a Nutshell
+2,2017-01-11,5,A Whirlwind Tour of Massachusetts
+3,2017-01-18,1,Crab Feasts in Baltimore
+4,2017-01-20,2,A Beginners Guide to the Rocky Mountains
+5,2017-01-21,2,Hiking the Rockies (Part 1)
+6,2017-01-23,2,Hiking the Rockies (Part 2)
+7,2017-01-26,4,A Wine-Lover's Guide to Napa Valley
+8,2017-01-28,1,This Year's Most Affordable Getaways

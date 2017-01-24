@@ -1,31 +1,40 @@
-CREATE TABLE sales (
+CREATE TABLE authors (
+  id                    INTEGER     PRIMARY KEY,
+  first_name            VARCHAR,
+  last_name             VARCHAR,
+  year_joined           INTEGER
+);
+
+CREATE TABLE posts (
   id                    INTEGER     PRIMARY KEY,
   date                  DATE,
-  customer_id           INTEGER,
-  product_id            INTEGER,
-  payment_type          VARCHAR
+  author_id             INTEGER,
+  title                 VARCHAR
 );
 
-CREATE TABLE products (
+CREATE TABLE users (
   id                    INTEGER     PRIMARY KEY,
-  name                  VARCHAR,
-  price                 NUMERIC,
-  mfr                   VARCHAR
-);
-
-CREATE TABLE customers (
-  id                    INTEGER     PRIMARY KEY,
-  name                  VARCHAR,
+  username              VARCHAR,
   age                   INTEGER,
-  state                 CHAR(2)
+  trip_planned          VARCHAR,
+  status                VARCHAR
+);
+
+CREATE TABLE reads (
+  id                    INTEGER     PRIMARY KEY,
+  date                  DATE,
+  user_id               INTEGER,
+  post_id               INTEGER,
+  duration              INTEGER
 );
 
 -- Copy over data from CSVs
-\copy sales FROM 'data/sales-data-raw/sales.csv' DELIMITER ',' CSV HEADER;
-\copy products FROM 'data/sales-data-raw/products.csv' DELIMITER ',' CSV HEADER;
-\copy customers FROM 'data/sales-data-raw/customers.csv' DELIMITER ',' CSV HEADER;
+\copy authors FROM 'data/blog-data-raw/authors.csv' DELIMITER ',' CSV HEADER;
+\copy posts FROM 'data/blog-data-raw/posts.csv' DELIMITER ',' CSV HEADER;
+\copy users FROM 'data/blog-data-raw/users.csv' DELIMITER ',' CSV HEADER;
+\copy reads FROM 'data/blog-data-raw/reads.csv' DELIMITER ',' CSV HEADER;
 
 /*
-createdb sales
-psql sales < data/sales-data-raw/sales.sql
+createdb blog
+psql blog < data/blog-data-raw/blog.sql
 */

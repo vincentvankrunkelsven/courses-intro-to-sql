@@ -7,7 +7,7 @@ authors <- data_frame(
   id = 1:5,
   first_name = c("Donna", "Lisa", "Shai", "Talia", "Frank"),
   last_name = c("White", "Smith", "Waters", "Francis", "Davis"),
-  year_joined = c(2012, 2014, 2014, 2016, 2017)
+  year_joined = as.integer(c(2012, 2014, 2014, 2016, 2017))
 )
 
 # users: id, username, age, status
@@ -40,7 +40,7 @@ some_titles <- c(
 posts <- data_frame(
   id = 1:8,
   date = some_dates,
-  author_id = c(3, 5, 1, 2, 2, 2, 4, 1),
+  author_id = as.integer(c(3, 5, 1, 2, 2, 2, 4, 1)),
   title = some_titles
 )
 
@@ -59,6 +59,7 @@ reads <- data_frame(
   bind_cols(data_frame(id = 1:nrow(.))) %>%
   select(id, date:duration)
 reads$duration[c(8, 13, 20)] <- c(12033, 3303, 7799)
+reads$duration <- as.integer(reads$duration)
 
 # write csvs
 path <- "data/blog-data-raw/"
