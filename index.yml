@@ -72,7 +72,7 @@ chapters:
 
           A: 
 
-          SELECT DISTINCT date
+          SELECT DISTINCT date_read
 
           FROM reads;
       - type: VideoExercise
@@ -92,7 +92,7 @@ chapters:
         content: A couple useful examples of COUNT(DISTINCT column_name)
       - type: NormalExercise
         title: Fun with aggregate functions
-        content: 'Use AVE, MIN, MAX, SUM on numeric columns'
+        content: 'Use AVE, MIN, MAX, SUM on duration column from reads table'
       - type: VideoExercise
         title: Simple math in SQL
         content: >-
@@ -215,8 +215,8 @@ chapters:
       - type: NormalExercise
         title: Sort by multiple columns
         content: >-
-          Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE
-          to interpret single value from last result
+          Use  ORDER BY on multiple columns. Make "tiebreaker" analogy. Embed
+          MCE to interpret single value from last result
       - type: VideoExercise
         title: Get started with GROUP BY
         content: |-
