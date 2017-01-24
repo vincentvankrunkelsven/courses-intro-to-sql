@@ -331,14 +331,15 @@ chapters:
       - type: NormalExercise
         title: Most popular times to ride?
         content: >-
-          * Compute the total number of trips started each month. 
-
-          * MCE: in which month is ridership highest?
+          * Compute the total number of trips started each month
 
           * Compare ridership on weekdays vs weekends (use DATE_PART('dow',
           ...))
 
           * Average daily rides on national holidays vs. non-holidays?
+
+          * Which of the following is NOT a correct interpretation of these
+          results? (evaluate interpretation of last 3 results)
       - type: NormalExercise
         title: Most and least popular routes?
         content: >-
@@ -353,7 +354,7 @@ chapters:
         title: Average trip duration by starting station
         content: >-
           Compute the average trip duration by starting station and order the
-          result by station id: 
+          result by station id:
 
 
           SELECT start_station_id AS station, AVG(duration) AS seconds 
