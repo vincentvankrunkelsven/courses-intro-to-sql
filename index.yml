@@ -329,6 +329,12 @@ chapters:
           * Pose some interesting questions to be answered in following
           exercises
       - type: NormalExercise
+        title: Most popular routes?
+        content: >-
+          Count total number of trips within each combination of
+          start_station_id and end_station_id, then sort in descending order
+          (need to LIMIT result?)
+      - type: NormalExercise
         title: Average trip duration by starting station
         content: >-
           Compute the average trip duration by starting station and order the
@@ -341,17 +347,27 @@ chapters:
 
           GROUP BY station 
 
-          ORDER BY station;
-      - type: NormalExercise
-        title: 'Again, but only the longest'
-        content: |-
-          Takes us to a station out in Bed-Stuy, Brooklyn!
+          ORDER BY station
+
+
+          ---
+
+
+          Again, but only the longest trips:
+
 
           SELECT start_station_id AS station, AVG(duration) AS seconds 
+
           FROM trips 
+
           GROUP BY station 
+
           HAVING AVG(duration) > 2000
+
           ORDER BY seconds DESC;
+
+
+          Takes us to a station out in Bed-Stuy, Brooklyn!
       - type: VideoExercise
         title: Summary
-        content: Content
+        content: Summarize what was learned from the case study and the course overall

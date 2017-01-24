@@ -2,7 +2,7 @@
 title: Sorting and grouping
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:9ec5e08d6b
+--- type:VideoExercise lang:r xp:50 skills:1 key:2ef5f39509
 ## Sort with ORDER BY
 
 * ORDER BY
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:2af1505b74
+--- type:NormalExercise lang:r xp:100 skills:1 key:1dc2058627
 ## Sort by a single column
 
 Use ORDER BY on one column at a time, with and without DESC
@@ -45,7 +45,7 @@ Use ORDER BY on one column at a time, with and without DESC
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bed33a090c
+--- type:NormalExercise lang:r xp:100 skills:1 key:ec486ec9f8
 ## Sort by multiple columns
 
 Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE to interpret single value from last result
@@ -74,7 +74,7 @@ Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE to interpr
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:31f4b9f854
+--- type:VideoExercise lang:r xp:50 skills:1 key:6127e4830d
 ## Get started with GROUP BY
 
 * GROUP BY
@@ -89,7 +89,7 @@ Use  ORDER BY on multiple columns. Make tiebreaker analogy. Embed MCE to interpr
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:df869caaa6
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:208bf46131
 ## Everything in its right place
 
 Q: Which of the following sorts column1 in ascending order within each level of column2?
@@ -113,7 +113,7 @@ ORDER BY c2;
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:aa56618dc3
+--- type:NormalExercise lang:r xp:100 skills:1 key:278608072e
 ## Sort within groups
 
 Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE at end to interpret last result
@@ -142,7 +142,7 @@ Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE at end to
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:48ce176f7c
+--- type:VideoExercise lang:r xp:50 skills:1 key:c852aef5b4
 ## Combine GROUP BY with aggregate functions
 
 * Unleash the full power of GROUP BY and aggregate functions by combining them to perform operations within groups
@@ -154,7 +154,7 @@ Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE at end to
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:5f14923ed3
+--- type:NormalExercise lang:r xp:100 skills:1 key:e899a580a6
 ## Compute group extremes
 
 Combine GROUP BY with MIN and MAX to compute the extreme values within each group for a couple of variables
@@ -183,7 +183,7 @@ Combine GROUP BY with MIN and MAX to compute the extreme values within each grou
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:5994d68b0d
+--- type:NormalExercise lang:r xp:100 skills:1 key:df11c600f3
 ## Sort by group averages
 
 Compute group averages, then sort by the averages
@@ -212,7 +212,7 @@ Compute group averages, then sort by the averages
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:5b6b98507a
+--- type:VideoExercise lang:r xp:50 skills:1 key:14c344df79
 ## Filtering with aggregate functions
 
 * WHERE keyword cannot be used to filter results from aggregate functions
@@ -227,7 +227,7 @@ Compute group averages, then sort by the averages
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:d2e7324628
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:68604f54af
 ## Order of operations
 
 Check understanding of the order of operations, i.e. HAVING executes before SELECT, so alias is not helpful here
@@ -246,7 +246,7 @@ Check understanding of the order of operations, i.e. HAVING executes before SELE
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:bdebdcb90c
+--- type:NormalExercise lang:r xp:100 skills:1 key:91f7058008
 ## HAVING patience
 
 Compute group values, then filter for values above/below a certain threshold using HAVING
@@ -275,7 +275,7 @@ Compute group values, then filter for values above/below a certain threshold usi
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:088a70903a
+--- type:NormalExercise lang:r xp:100 skills:1 key:0bf502d325
 ## Combine HAVING with ORDER BY
 
 Same as above, plus sort results by same group values. Note you can refer to the column alias in the ORDER BY since it's executed last
