@@ -8,7 +8,7 @@ products <- data_frame(
   name = c("Flashlight", "Tent", "Stove", "Sleeping bag", "Water bottle", "Skillet"),
   price = c(9.99, 97, 34.95, 75, 9.99, 10.59),
   mfr = c("The Great Outdoors", "Pyramid Co.", "Kitchen Supplies, Inc.",
-          "The Great Outdoors", "CGM", "The Great Outdoors")
+          "The Great Outdoors", "CGM INCORPORATED", "The Great Outdoors")
 )
 
 # customers: id, first_name, last_name, age, state
