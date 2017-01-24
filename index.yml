@@ -281,7 +281,7 @@ chapters:
         title: Explore the data
         content: |-
           * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
-          * Minimum, average, and maximum trip lengths (in seconds, minutes)?
+          * Minimum, average, and maximum trip durations (in seconds, minutes)?
           * Minimum, average, and maximum mean_temp_f?
       - type: VideoExercise
         title: 'Refresher: filtering rows'
@@ -329,11 +329,26 @@ chapters:
           * Pose some interesting questions to be answered in following
           exercises
       - type: NormalExercise
-        title: Most popular routes?
+        title: Most popular times to ride?
         content: >-
-          Count total number of trips within each combination of
-          start_station_id and end_station_id, then sort in descending order
-          (need to LIMIT result?)
+          * Compute the total number of trips started each month. 
+
+          * MCE: in which month is ridership highest?
+
+          * Compare ridership on weekdays vs weekends (use DATE_PART('dow',
+          ...))
+
+          * Average daily rides on national holidays vs. non-holidays?
+      - type: NormalExercise
+        title: Most and least popular routes?
+        content: >-
+          * Count the total number of trips within each combination of
+          start_station_id and end_station_id (need to LIMIT result?)
+
+          * Then sort in both ascending and descending order
+
+          * Are these routes particularly short or long relative to other
+          routes?
       - type: NormalExercise
         title: Average trip duration by starting station
         content: >-
