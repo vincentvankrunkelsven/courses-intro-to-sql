@@ -81,4 +81,70 @@ OR date_posted > '2017-01-21';
 
 ---
 
+```{sql}
+SELECT *
+FROM users
+WHERE age BETWEEN 30 AND 40;
+```
+
+Which of the following is equivilent to the query above?
+
+```{sql}
+SELECT *
+FROM users
+WHERE age >= 30
+AND age <= 40;
+```
+
+---
+
+Select all records from reads where duration is between 200 and 500.
+
+```{sql}
+SELECT *
+FROM reads
+WHERE duration BETWEEN 200 AND 500;
+```
+
+Select all records from reads where duration is between 200 and 500 or greater than 800.
+
+```{sql}
+SELECT *
+FROM reads
+WHERE duration BETWEEN 200 AND 500
+OR duration > 800;
+```
+
+Use IN to select all records from reads where post_id is 3, 6, or 8.
+
+```{sql}
+SELECT * FROM reads
+WHERE post_id IN (3, 6, 8);
+```
+
+Use a combination of BETWEEN and IN to select all records from reads where post_id is 3, 6, or 8 and duration is between 400 and 600.
+
+```{sql}
+SELECT * FROM reads
+WHERE post_id IN (3, 6, 8)
+AND duration BETWEEN 400 AND 600;
+```
+
+---
+
+Manage missingness...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
