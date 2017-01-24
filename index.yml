@@ -13,7 +13,11 @@ course_description: |-
 programming_language: r
 chapters:
   - chapter_title: Selecting and summarizing columns
-    chapter_description: This is a template chapter.
+    chapter_description: >-
+      This chapter provides a brief introduction to working with relational
+      databases. You'll learn about their structure, how to talk about them
+      using database lingo, and how to begin an analysis by using simple SQL
+      commands to select and summarize columns from database tables.
     exercises:
       - type: VideoExercise
         title: Introduction
@@ -111,7 +115,12 @@ chapters:
           which gives the number of years each author has been writing for the
           blog (i.e. 2017 - year_joined)
   - chapter_title: Filtering rows
-    chapter_description: Description
+    chapter_description: >-
+      This chapter builds on the first by teaching you not only how to select
+      and summarize columns of interest, but to filter tables for records
+      satisfying some criteria of interest. You'll learn how to use basic
+      comparison operators, combine multiple criteria, match patterns in text,
+      and much more.
     exercises:
       - type: VideoExercise
         title: Filter rows with WHERE
@@ -186,7 +195,12 @@ chapters:
           to filter this table). Finish again with an MCE to interpret the
           results
   - chapter_title: Sorting and grouping
-    chapter_description: Description
+    chapter_description: >-
+      Now that you've learned how to select the rows and columns you're most
+      interested in, you'll take your analyses to the next level by learning how
+      to sort and group tables by variables of interest. In particular, you'll
+      see how to combine GROUP BY with aggregate functions like SUM and AVG to
+      summarize your data within groups—a very powerful paradigm!
     exercises:
       - type: VideoExercise
         title: Sort with ORDER BY
@@ -277,7 +291,13 @@ chapters:
           Same as above, plus sort results by same group values. Note you can
           refer to the column alias in the ORDER BY since it's executed last
   - chapter_title: 'Case study: New York City bike share'
-    chapter_description: Description
+    chapter_description: >-
+      This chapter gives you an opportunity to apply everything you've learned
+      in the first three chapters to real-world data! You'll be working with a
+      database that contains information on millions of individual bike share
+      trips in New York City in 2016, along with the stations the bikes belong
+      to, and daily weather metrics recorded from Central Park of the same time
+      period.
     exercises:
       - type: VideoExercise
         title: Introduction to the data

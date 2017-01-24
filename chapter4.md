@@ -1,8 +1,13 @@
 ---
 title: 'Case study: New York City bike share'
-description: Description
+description: >-
+  This chapter gives you an opportunity to apply everything you've learned in
+  the first three chapters to real-world data! You'll be working with a database
+  that contains information on millions of individual bike share trips in New
+  York City in 2016, along with the stations the bikes belong to, and daily
+  weather metrics recorded from Central Park of the same time period.
 
---- type:VideoExercise lang:r xp:50 skills:1 key:b8a7fb0462
+--- type:VideoExercise lang:r xp:50 skills:1 key:7b920ec85c
 ## Introduction to the data
 
 * Intro Citi Bike database: trips, stations, weather
@@ -16,7 +21,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:a0c96f7811
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:f5d0bee2dc
 ## How many records?
 
 How many records are in the stations, trips, and weather tables, respectively? 498, 9937968, 365 (numbers may change if/when we subset the data to e.g. summer only)
@@ -35,7 +40,7 @@ How many records are in the stations, trips, and weather tables, respectively? 4
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f3814fadad
+--- type:NormalExercise lang:r xp:100 skills:1 key:fe6fac56b2
 ## Preview the tables
 
 SELECT some columns from weather, then from stations, then from weather. But intro LIMIT for the last, since we don't want to retrieve all records from such a huge table
@@ -64,7 +69,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:5f5ac7301d
+--- type:NormalExercise lang:r xp:100 skills:1 key:e19f25e27d
 ## Explore the data
 
 * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
@@ -95,7 +100,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:05d60793c8
+--- type:VideoExercise lang:r xp:50 skills:1 key:80571fe0f7
 ## Refresher: filtering rows
 
 * Quick review of chapter 2 concepts (filtering rows)
@@ -107,7 +112,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8b575b47e9
+--- type:NormalExercise lang:r xp:100 skills:1 key:66124209a4
 ## When it rains, it pours
 
 * How many days saw more than 1/2 inch of precipitation?
@@ -139,7 +144,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8e1a039f63
+--- type:NormalExercise lang:r xp:100 skills:1 key:e3fd66ca04
 ## Does rain affect rides?
 
 * What's the average trip length?
@@ -179,7 +184,7 @@ WHERE start_date IN (
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:82cc5a6c05
+--- type:VideoExercise lang:r xp:50 skills:1 key:e539ec21f7
 ## Refresher: sorting and grouping
 
 * Refresher of chapter 3 concepts (sorting and grouping)
@@ -191,7 +196,7 @@ WHERE start_date IN (
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:b7b75d2d30
+--- type:NormalExercise lang:r xp:100 skills:1 key:6abc8376a2
 ## Most popular times to ride?
 
 * Compute the total number of trips started each month
@@ -223,7 +228,7 @@ WHERE start_date IN (
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:43709e39a1
+--- type:NormalExercise lang:r xp:100 skills:1 key:4e2059feb2
 ## Most and least popular routes?
 
 * Count the total number of trips within each combination of start_station_id and end_station_id (need to LIMIT result?)
@@ -254,7 +259,7 @@ WHERE start_date IN (
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:532c023bc3
+--- type:NormalExercise lang:r xp:100 skills:1 key:35ba287d1b
 ## Average trip duration by starting station
 
 Compute the average trip duration by starting station and order the result by station id:
@@ -300,7 +305,7 @@ Takes us to a station out in Bed-Stuy, Brooklyn!
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:0bdb1e34d1
+--- type:VideoExercise lang:r xp:50 skills:1 key:c45686ed16
 ## Summary
 
 Summarize what was learned from the case study and the course overall
