@@ -7,19 +7,28 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Introduction
-        content: |-
+        content: >-
           * Motivating example (case study preview)
-          * Why not just use R/Python/etc? Memory, speed, etc.
-          * Database vocabulary (in context of example)
-            * Database
-            * Tables
-            * Columns & rows (a.k.a. records)
-            * Fields (informal = cells)
+
+          * Why not just use R/Python/etc?
+            * Memory
+            * Speed
+            * Centralization
+            * Access control
+            * DMBS tools
+            * ...?
+          * Database vocabulary (in context of example; make spreadsheet
+          analogies)
+            * Database (~ spreadsheet)
+            * Tables (~ worksheet)
+            * Columns & records (a.k.a. records) (~ columns & rows)
+            * Fields (~ cells)
           * Basic SQL syntax
             * Not case-sensitive
             * End statement with semicolon
             * Stylistic conventions (?)
           * SELECT
+
           * DISTINCT
       - type: MultipleChoiceExercise
         title: Why use relational databases?
@@ -225,7 +234,7 @@ chapters:
 
           * Brief discussion of order of operations (note to self: should this
           come sooner in the course?)
-      - type: NormalExercise
+      - type: MultipleChoiceExercise
         title: Order of operations
         content: >-
           Check understanding of the order of operations, i.e. HAVING executes
@@ -245,33 +254,107 @@ chapters:
     exercises:
       - type: VideoExercise
         title: Introduction to the data
-        content: Content
+        content: >-
+          * Intro Citi Bike database: trips, stations, weather
+
+          * Part of an urban planning committee trying to understand biking
+          habits in NYC
+
+          * Will be exploring a number of questions, practicing your SQL skills
+          along the way
+
+          * Quick refresher of chapter 1 concepts (SELECT, DISTINCT, aggregate
+          functions)
       - type: MultipleChoiceExercise
-        title: Title 2
-        content: Content
+        title: How many records?
+        content: >-
+          How many records are in the stations, trips, and weather tables,
+          respectively? 498, 9937968, 365 (numbers may change if/when we subset
+          the data to e.g. summer only)
       - type: NormalExercise
-        title: Title 3
-        content: Content
+        title: Preview the tables
+        content: >-
+          SELECT some columns from weather, then from stations, then from
+          weather. But intro LIMIT for the last, since we don't want to retrieve
+          all records from such a huge table
       - type: NormalExercise
-        title: Title 4
-        content: Content
+        title: Explore the data
+        content: |-
+          * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
+          * Minimum, average, and maximum trip durations (in seconds, minutes)?
+          * Minimum, average, and maximum mean_temp_f?
       - type: VideoExercise
-        title: Check-in 1
-        content: Content
+        title: 'Refresher: filtering rows'
+        content: >-
+          * Quick review of chapter 2 concepts (filtering rows)
+
+          * Pose some interested questions to be answered in the following
+          exercises
       - type: NormalExercise
-        title: Title 6
-        content: Content
+        title: 'When it rains, it pours'
+        content: >
+          * How many days saw more than 1/2 inch of precipitation?
+
+          * How many days did it *rain* more than 1/2 inch? (Need to use LIKE to
+          partial match for "Rain" on events column)
+
+          * How many days did it rain BETWEEN 1/2 and 1 inches, with cloud cover
+          greater than 6?
       - type: NormalExercise
-        title: Title 7
-        content: Content
+        title: Does rain affect rides?
+        content: >-
+          * What's the average trip length?
+
+          * What's the average trip length on days with more than 1/2 inch of
+          rain? (use start_date)
+
+
+          SELECT AVG(duration) 
+
+          FROM trips 
+
+          WHERE start_date IN (
+            SELECT date 
+            FROM weather 
+            WHERE precipitation_in > 0.5
+          );
+
+
+          * Finish with multiple choice to interpret result
       - type: VideoExercise
-        title: Check-in 2
-        content: Content
+        title: 'Refresher: sorting and grouping'
+        content: >-
+          * Refresher of chapter 3 concepts (sorting and grouping)
+
+          * Pose some interesting questions to be answered in following
+          exercises
+      - type: NormalExercise
+        title: Most popular times to ride?
+        content: >-
+          * Compute the total number of trips started each month
+
+          * Compare ridership on weekdays vs weekends (use DATE_PART('dow',
+          ...))
+
+          * Average daily rides on national holidays vs. non-holidays?
+
+          * Which of the following is NOT a correct interpretation of these
+          results? (evaluate interpretation of last 3 results)
+      - type: NormalExercise
+        title: Most and least popular routes?
+        content: >-
+          * Count the total number of trips within each combination of
+          start_station_id and end_station_id (need to LIMIT result?)
+
+          * Then sort in both ascending and descending order
+
+          * Are these routes particularly short or long relative to other
+          routes?
       - type: NormalExercise
         title: Average trip duration by starting station
         content: >-
           Compute the average trip duration by starting station and order the
-          result by station id: 
+          result by station id:
 
 
           SELECT start_station_id AS station, AVG(duration) AS seconds 
@@ -280,17 +363,27 @@ chapters:
 
           GROUP BY station 
 
-          ORDER BY station;
-      - type: NormalExercise
-        title: 'Again, but only the longest'
-        content: |-
-          Takes us to a station out in Bed-Stuy, Brooklyn!
+          ORDER BY station
+
+
+          ---
+
+
+          Again, but only the longest trips:
+
 
           SELECT start_station_id AS station, AVG(duration) AS seconds 
+
           FROM trips 
+
           GROUP BY station 
+
           HAVING AVG(duration) > 2000
+
           ORDER BY seconds DESC;
+
+
+          Takes us to a station out in Bed-Stuy, Brooklyn!
       - type: VideoExercise
         title: Summary
-        content: Content
+        content: Summarize what was learned from the case study and the course overall
