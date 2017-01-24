@@ -13,8 +13,8 @@ authors <- data_frame(
 # users: id, username, age, status
 users <- data_frame(
   id = 1:10,
-  user_name = c("tomcat12", "braveheart", "cbh1223", "nevermind99", "sporty88",
-                "datalover", "avidreader", "xfactor99", "rsquared", "noname"),
+  username = c("tomcat12", "braveheart", "cbh1223", "nevermind99", "sporty88",
+               "datalover", "avidreader", "xfactor99", "rsquared", "noname"),
   age = sample(18:55, 10, replace = TRUE),
   trip_planned = sample(c("Yes", "No"), 10, replace = TRUE),
   status = sample(c("Free", "Paid"), 10, replace = TRUE)

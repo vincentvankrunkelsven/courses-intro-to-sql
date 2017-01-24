@@ -1,4 +1,4 @@
-id,user_name,age,trip_planned,status
+id,username,age,trip_planned,status
 1,tomcat12,54,No,Paid
 2,braveheart,,,Free
 3,cbh1223,21,No,Paid
