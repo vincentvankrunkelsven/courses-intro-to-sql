@@ -16,9 +16,11 @@ users <- data_frame(
   user_name = c("tomcat12", "braveheart", "cbh1223", "nevermind99", "sporty88",
                 "datalover", "avidreader", "xfactor99", "rsquared", "noname"),
   age = sample(18:55, 10, replace = TRUE),
+  trip_planned = sample(c("Yes", "No"), 10, replace = TRUE),
   status = sample(c("Free", "Paid"), 10, replace = TRUE)
 )
 users$age[users$status == "Free"] <- NA
+users$trip_planned[users$status == "Free"] <- NA
 
 some_dates <- seq.Date(as.Date("2017-01-01"), as.Date("2017-01-31"), by = "day") %>%
   sample(8, replace = TRUE) %>%
@@ -42,21 +44,20 @@ posts <- data_frame(
   title = some_titles
 )
 
-some_more_dates <- seq.Date(as.Date("2017-01-01"), as.Date("2017-01-31"), by = "day") %>%
-  sample(40, replace = TRUE) %>%
+some_more_dates <- seq.Date(as.Date("2017-01-01"), as.Date("2017-02-28"), by = "day") %>%
+  sample(35, replace = TRUE) %>%
   sort()
 
 # reads: id, date, user_id, post_id, duration
 reads <- data_frame(
-  id = 1:40,
   date = some_more_dates,
-  user_id = sample(users$id, 40, replace = TRUE),
-  post_id = sample(posts$id, 40, replace = TRUE),
-  duration = sample(40:600, 40, replace = TRUE)
+  user_id = sample(users$id, 35, replace = TRUE),
+  post_id = sample(posts$id, 35, replace = TRUE),
+  duration = sample(30:600, 35, replace = TRUE)
 ) %>% inner_join(posts %>% select(id, date_posted = date), by = c("post_id" = "id")) %>%
   filter(date > date_posted) %>%
   select(-date_posted)
-reads$duration[c(8, 13)] <- c(12033, 3303)
+reads$duration[c(8, 13, 20)] <- c(12033, 3303, 7799)
 
 # write csvs
 path <- "data/blog-data-raw/"
