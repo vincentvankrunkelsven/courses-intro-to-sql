@@ -56,7 +56,8 @@ reads <- data_frame(
   duration = sample(30:600, 35, replace = TRUE)
 ) %>% inner_join(posts %>% select(id, date_posted = date), by = c("post_id" = "id")) %>%
   filter(date > date_posted) %>%
-  select(-date_posted)
+  bind_cols(data_frame(id = 1:nrow(.))) %>%
+  select(id, date:duration)
 reads$duration[c(8, 13, 20)] <- c(12033, 3303, 7799)
 
 # write csvs
