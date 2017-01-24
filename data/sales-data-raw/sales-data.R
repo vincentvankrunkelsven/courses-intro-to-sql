@@ -31,7 +31,7 @@ sales <- data_frame(
 )
 
 # save to csv
-path <- "data/raw/"
+path <- "data/sales-data-raw/"
 write_csv(customers, file.path(path, "customers.csv"))
 write_csv(products, file.path(path, "products.csv"))
 write_csv(sales, file.path(path, "sales.csv"))
