@@ -18,7 +18,7 @@ customers <- data_frame(
   age = sample(21:70, 7),
   state = c("MA", "NY", "NY", "MD", "AZ", "CA", "NY")
 )
-customers$age[c(1, 4)] <- NA
+customers$age[c(1, 4)] <- ""
 
 # sales: id, date, amount, customer_id, payment_type, amount
 sales <- data_frame(

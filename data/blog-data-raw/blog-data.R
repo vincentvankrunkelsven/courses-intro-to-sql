@@ -19,8 +19,8 @@ users <- data_frame(
   trip_planned = sample(c("Yes", "No"), 10, replace = TRUE),
   status = sample(c("Free", "Paid"), 10, replace = TRUE)
 )
-users$age[users$status == "Free"] <- NA
-users$trip_planned[users$status == "Free"] <- NA
+users$age[users$status == "Free"] <- ""
+users$trip_planned[users$status == "Free"] <- ""
 
 some_dates <- seq.Date(as.Date("2017-01-01"), as.Date("2017-01-31"), by = "day") %>%
   sample(8, replace = TRUE) %>%
