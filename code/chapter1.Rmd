@@ -1,0 +1,70 @@
+---
+title: Chapter 1 - Code
+output: html_notebook
+---
+
+```{r setup}
+library(RPostgreSQL)
+db <- dbConnect(dbDriver("PostgreSQL"), dbname = "blog", host = "localhost")
+knitr::opts_chunk$set(connection = "db")
+```
+
+```{sql}
+SELECT title
+FROM posts;
+```
+
+```{sql}
+SELECT date, title
+FROM posts;
+```
+
+```{sql}
+SELECT title, date
+FROM posts;
+```
+
+```{sql}
+SELECT * 
+FROM posts;
+```
+
+```{sql}
+SELECT *
+FROM reads;
+```
+
+Did every user read at least one post? (Will see an easier way to answer this question later.)
+
+```{sql}
+SELECT DISTINCT user_id
+FROM reads;
+```
+
+Did anyone reread a post?
+
+```{sql}
+SELECT DISTINCT user_id, post_id
+FROM reads;
+```
+
+Which of the following queries returns a list of every date on which at least one person read a blog post?
+
+```{sql}
+SELECT DISTINCT date
+FROM reads;
+```
+
+```{sql}
+SELECT * FROM posts;
+```
+
+```{sql}
+
+```
+
+
+
+
+
+
