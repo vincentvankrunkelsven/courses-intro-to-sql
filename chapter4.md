@@ -2,7 +2,7 @@
 title: 'Case study: New York City bike share'
 description: Description
 
---- type:VideoExercise lang:r xp:50 skills:1 key:54852c8336
+--- type:VideoExercise lang:r xp:50 skills:1 key:b912bfcd13
 ## Introduction to the data
 
 * Intro Citi Bike database: trips, stations, weather
@@ -16,7 +16,7 @@ description: Description
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:e7dc58a68a
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:4485fa8b0d
 ## How many records?
 
 How many records are in the stations, trips, and weather tables, respectively? 498, 9937968, 365 (numbers may change if/when we subset the data to e.g. summer only)
@@ -35,7 +35,7 @@ How many records are in the stations, trips, and weather tables, respectively? 4
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:e05d76bfef
+--- type:NormalExercise lang:r xp:100 skills:1 key:ea171acfaa
 ## Preview the tables
 
 SELECT some columns from weather, then from stations, then from weather. But intro LIMIT for the last, since we don't want to retrieve all records from such a huge table
@@ -64,7 +64,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:c4cdef7a84
+--- type:NormalExercise lang:r xp:100 skills:1 key:011c5a9e95
 ## Explore the data
 
 * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
@@ -95,7 +95,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:9f2b47c71d
+--- type:VideoExercise lang:r xp:50 skills:1 key:953e321984
 ## Refresher: filtering rows
 
 * Quick review of chapter 2 concepts (filtering rows)
@@ -107,7 +107,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:cd167da0e5
+--- type:NormalExercise lang:r xp:100 skills:1 key:b344f5d810
 ## When it rains, it pours
 
 * How many days saw more than 1/2 inch of precipitation?
@@ -139,7 +139,7 @@ SELECT some columns from weather, then from stations, then from weather. But int
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:48a599b7f3
+--- type:NormalExercise lang:r xp:100 skills:1 key:af11771cab
 ## Does rain affect rides?
 
 * What's the average trip length?
@@ -179,7 +179,7 @@ WHERE start_date IN (
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:02cb2bd63d
+--- type:VideoExercise lang:r xp:50 skills:1 key:71cfffd0bd
 ## Refresher: sorting and grouping
 
 * Refresher of chapter 3 concepts (sorting and grouping)
@@ -191,7 +191,7 @@ WHERE start_date IN (
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:88961ac93e
+--- type:NormalExercise lang:r xp:100 skills:1 key:aa0c31e750
 ## Most popular times to ride?
 
 * Compute the total number of trips started each month
@@ -223,7 +223,7 @@ WHERE start_date IN (
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:5e8a9178ba
+--- type:NormalExercise lang:r xp:100 skills:1 key:dd55afbc2d
 ## Most and least popular routes?
 
 * Count the total number of trips within each combination of start_station_id and end_station_id (need to LIMIT result?)
@@ -254,7 +254,7 @@ WHERE start_date IN (
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:b9562e865c
+--- type:NormalExercise lang:r xp:100 skills:1 key:7ea5019ca3
 ## Average trip duration by starting station
 
 Compute the average trip duration by starting station and order the result by station id:
@@ -300,7 +300,7 @@ Takes us to a station out in Bed-Stuy, Brooklyn!
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:3357cbb217
+--- type:VideoExercise lang:r xp:50 skills:1 key:1959390a56
 ## Summary
 
 Summarize what was learned from the case study and the course overall
