@@ -6,7 +6,7 @@ set.seed(8234)
 products <- data_frame(
   id = 1:6,
   name = c("Flashlight", "Tent", "Stove", "Sleeping bag", "Water bottle", "Skillet"),
-  price = c(14.95, 99, 34.99, 75, 9.99, 10.59),
+  price = c(9.99, 97, 34.95, 75, 9.99, 10.59),
   mfr = c("The Great Outdoors", "Pyramid Co.", "Kitchen Supplies, Inc.",
           "The Great Outdoors", "CGM", "The Great Outdoors")
 )
