@@ -20,10 +20,10 @@ customers <- data_frame(
 )
 customers$age[c(1, 4)] <- ""
 
-# sales: id, date, customer_id, product_id, payment_type
+# sales: id, date_sold, customer_id, product_id, payment_type
 sales <- data_frame(
   id = 1:10,
-  date = c("5/22/16", "6/12/16", "6/12/16", "7/25/16", "8/1/16",
+  date_sold = c("5/22/16", "6/12/16", "6/12/16", "7/25/16", "8/1/16",
            "8/4/16", "8/8/16", "8/16/16", "9/6/16", "9/20/16"),
   customer_id = sample(customers$id, 10, replace = TRUE),
   product_id = sample(products$id, 10, replace = TRUE),

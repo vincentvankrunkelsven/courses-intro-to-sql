@@ -1,4 +1,4 @@
-id,date,customer_id,product_id,payment_type
+id,date_sold,customer_id,product_id,payment_type
 1,5/22/16,1,1,Cash
 2,6/12/16,2,3,Credit
 3,6/12/16,6,1,Credit

@@ -1,4 +1,4 @@
-id,date,user_id,post_id,duration
+id,date_read,user_id,post_id,duration
 1,2017-01-14,1,2,553
 2,2017-01-15,10,1,583
 3,2017-01-16,1,1,424

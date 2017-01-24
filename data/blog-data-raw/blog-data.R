@@ -36,10 +36,10 @@ some_titles <- c(
   "This Year's Most Affordable Getaways"
 )
 
-# posts: id, date, author_id, title
+# posts: id, date_posted, author_id, title
 posts <- data_frame(
   id = 1:8,
-  date = some_dates,
+  date_posted = some_dates,
   author_id = as.integer(c(3, 5, 1, 2, 2, 2, 4, 1)),
   title = some_titles
 )
@@ -48,16 +48,16 @@ some_more_dates <- seq.Date(as.Date("2017-01-01"), as.Date("2017-02-28"), by = "
   sample(35, replace = TRUE) %>%
   sort()
 
-# reads: id, date, user_id, post_id, duration
+# reads: id, date_read, user_id, post_id, duration
 reads <- data_frame(
-  date = some_more_dates,
+  date_read = some_more_dates,
   user_id = sample(users$id, 35, replace = TRUE),
   post_id = sample(posts$id, 35, replace = TRUE),
   duration = sample(30:600, 35, replace = TRUE)
-) %>% inner_join(posts %>% select(id, date_posted = date), by = c("post_id" = "id")) %>%
-  filter(date > date_posted) %>%
+) %>% inner_join(posts %>% select(id, date_posted), by = c("post_id" = "id")) %>%
+  filter(date_read > date_posted) %>%
   bind_cols(data_frame(id = 1:nrow(.))) %>%
-  select(id, date:duration)
+  select(id, date_read:duration)
 reads$duration[c(8, 13, 20)] <- c(12033, 3303, 7799)
 reads$duration <- as.integer(reads$duration)
 

@@ -1,4 +1,4 @@
-id,date,author_id,title
+id,date_posted,author_id,title
 1,2017-01-10,3,US National Parks in a Nutshell
 2,2017-01-11,5,A Whirlwind Tour of Massachusetts
 3,2017-01-18,1,Crab Feasts in Baltimore
