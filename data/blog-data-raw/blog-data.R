@@ -10,7 +10,7 @@ authors <- data_frame(
   year_joined = as.integer(c(2012, 2014, 2014, 2016, 2017))
 )
 
-# users: id, username, age, status
+# users: id, username, age, trip_planned, status
 users <- data_frame(
   id = 1:10,
   username = c("tomcat12", "braveheart", "cbh1223", "nevermind99", "sporty88",

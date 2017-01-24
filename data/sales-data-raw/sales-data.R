@@ -11,7 +11,7 @@ products <- data_frame(
           "The Great Outdoors", "CGM INCORPORATED", "The Great Outdoors")
 )
 
-# customers: id, first_name, last_name, age, state
+# customers: id, name, age, state
 customers <- data_frame(
   id = 1:7,
   name = c("Lore", "Tom", "Hugo", "Yashas", "Nicole", "Richie", "Sumedh"),
@@ -20,7 +20,7 @@ customers <- data_frame(
 )
 customers$age[c(1, 4)] <- ""
 
-# sales: id, date, amount, customer_id, payment_type, amount
+# sales: id, date, customer_id, product_id, payment_type
 sales <- data_frame(
   id = 1:10,
   date = c("5/22/16", "6/12/16", "6/12/16", "7/25/16", "8/1/16",
