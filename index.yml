@@ -161,10 +161,15 @@ chapters:
           and/or other concepts from earlier
       - type: VideoExercise
         title: Pattern matching
-        content: |-
+        content: >-
           * LIKE
+
           * Wildcards (%, _)
+
           * Very simple regular expressions (~, [a-z], [0-9], +, *)
+
+          * Caveat that some of these more advanced features may vary between
+          DBMS
       - type: NormalExercise
         title: LIKE it or NOT
         content: >-

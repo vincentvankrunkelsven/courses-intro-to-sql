@@ -6,7 +6,7 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
---- type:VideoExercise lang:r xp:50 skills:1 key:83f2fde2ff
+--- type:VideoExercise lang:r xp:50 skills:1 key:87628c7158
 ## Introduction
 
 * Motivating example (case study preview)
@@ -35,7 +35,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:67d0ffdb03
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:9c51c83c8f
 ## Why use relational databases?
 
 Q: Which of the following is NOT a good reason to use relational databases?
@@ -55,7 +55,7 @@ A: They are good at handling unstructured data
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:8ae51b60b1
+--- type:NormalExercise lang:r xp:100 skills:1 key:5097b77d6d
 ## Simple SELECT statements
 
 Single column, multiple columns, all columns (*). Order matters! Finish with embedded MCE asking for specific value from last query
@@ -84,7 +84,7 @@ Single column, multiple columns, all columns (*). Order matters! Finish with emb
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ee7749bf3e
+--- type:NormalExercise lang:r xp:100 skills:1 key:1e7987fe63
 ## Combine SELECT with DISTINCT
 
 Select all distinct values of column_name with SELECT DISTINCT. Repeat with multiple columns. Follow with embedded MCE to test interpretation
@@ -113,7 +113,7 @@ Select all distinct values of column_name with SELECT DISTINCT. Repeat with mult
 
 ```
 
---- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:2fbc92b848
+--- type:MultipleChoiceExercise lang:r xp:50 skills:1 key:bb6de2e9dc
 ## Select the proper SELECT
 
 (Test for style and syntax)
@@ -137,7 +137,7 @@ FROM reads;
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:4809980956
+--- type:VideoExercise lang:r xp:50 skills:1 key:3c728365e8
 ## Aggregate functions
 
 * Difference between COUNT(*) and COUNT(column_name)
@@ -153,7 +153,7 @@ FROM reads;
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:6090772281
+--- type:NormalExercise lang:r xp:100 skills:1 key:c248602d45
 ## COUNT
 
 COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs
@@ -182,7 +182,7 @@ COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:e03136446b
+--- type:NormalExercise lang:r xp:100 skills:1 key:47ec35d1d2
 ## Combine COUNT with DISTINCT
 
 A couple useful examples of COUNT(DISTINCT column_name)
@@ -211,7 +211,7 @@ A couple useful examples of COUNT(DISTINCT column_name)
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:db6a79da7c
+--- type:NormalExercise lang:r xp:100 skills:1 key:1f7616d87f
 ## Fun with aggregate functions
 
 Use AVE, MIN, MAX, SUM on duration column from reads table
@@ -240,7 +240,7 @@ Use AVE, MIN, MAX, SUM on duration column from reads table
 
 ```
 
---- type:VideoExercise lang:r xp:50 skills:1 key:383149ae40
+--- type:VideoExercise lang:r xp:50 skills:1 key:5a9ab25254
 ## Simple math in SQL
 
 * Doing basic arithmetic on columns (+, -, *, /, %)
@@ -253,7 +253,7 @@ Use AVE, MIN, MAX, SUM on duration column from reads table
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:r xp:100 skills:1 key:f6f5a43b51
+--- type:NormalExercise lang:r xp:100 skills:1 key:5e4bb9813a
 ## From seconds to minutes
 
 Compute AVG and SUM of reading time in minutes instead of seconds, using aliases to name resulting columns. Do the same, but ROUND one of the columns to nearest integer
@@ -282,7 +282,7 @@ Compute AVG and SUM of reading time in minutes instead of seconds, using aliases
 
 ```
 
---- type:NormalExercise lang:r xp:100 skills:1 key:ad60c70738
+--- type:NormalExercise lang:r xp:100 skills:1 key:18719cd405
 ## How long have you been here?
 
 First return all columns from the authors table, then add a column which gives the number of years each author has been writing for the blog (i.e. 2017 - year_joined)
