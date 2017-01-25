@@ -21,6 +21,7 @@ users <- data_frame(
 )
 users$age[users$status == "Free"] <- ""
 users$trip_planned[users$status == "Free"] <- ""
+users$trip_planned[8] <- ""
 
 some_dates <- seq.Date(as.Date("2017-01-01"), as.Date("2017-01-31"), by = "day") %>%
   sample(8, replace = TRUE) %>%
