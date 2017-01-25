@@ -118,32 +118,116 @@ OR duration > 800;
 Use IN to select all records from reads where post_id is 3, 6, or 8.
 
 ```{sql}
-SELECT * FROM reads
+SELECT * 
+FROM reads
 WHERE post_id IN (3, 6, 8);
 ```
 
 Use a combination of BETWEEN and IN to select all records from reads where post_id is 3, 6, or 8 and duration is between 400 and 600.
 
 ```{sql}
-SELECT * FROM reads
+SELECT * 
+FROM reads
 WHERE post_id IN (3, 6, 8)
 AND duration BETWEEN 400 AND 600;
 ```
 
 ---
 
-Manage missingness...
+```{sql}
+SELECT *
+FROM users;
+```
 
+Which users didn't respond to the trip_planned survey question?
 
+```{sql}
+SELECT *
+FROM users
+WHERE trip_planned IS NOT NULL;
+```
 
+Which users didn't provide their age in the survey?
 
+```{sql}
+SELECT *
+FROM users
+WHERE age IS NOT NULL;
+```
 
+Are these the same people? Did any users provide an answer to the trip_planned question, but not their age?
 
+```{sql}
+SELECT *
+FROM users
+WHERE age IS NOT NULL
+AND trip_planned IS NULL;
+```
 
+Count the number of users who didn't provide an answer to either question, but are `Paid` subscribers?
 
+```{sql}
+SELECT COUNT(*)
+FROM users
+WHERE age IS NULL
+AND trip_planned IS NULL;
+```
 
+---
 
+```{sql}
+SELECT *
+FROM posts
+WHERE title LIKE '%Rocky Mountains%';
+```
 
+```{sql}
+SELECT *
+FROM posts
+WHERE title LIKE '%Rock%';
+```
+
+```{sql}
+SELECT *
+FROM posts
+WHERE title NOT LIKE '%Rock%'
+AND title NOT LIKE '%Napa%';
+```
+
+```{sql}
+SELECT *
+FROM posts
+WHERE title NOT LIKE '%Rock%'
+AND date_posted > '2017-01-23';
+```
+
+---
+
+```{sql}
+SELECT *
+FROM users
+WHERE username ~ '[r-z]';
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE username ~ '^[r-z]';
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE username ~ '[0-9]$';
+```
+
+```{sql}
+SELECT *
+FROM users
+WHERE username ~ '^[r-z].*[0-9]+$';
+```
+
+---
 
 
 
