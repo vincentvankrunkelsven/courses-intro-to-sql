@@ -157,7 +157,7 @@ chapters:
       - type: NormalExercise
         title: Manage missingness
         content: >-
-          Practice with IN NULL and IS NOT NULL. Combine with COUNT, DISTINCT,
+          Practice with IS NULL and IS NOT NULL. Combine with COUNT, DISTINCT,
           and/or other concepts from earlier
       - type: VideoExercise
         title: Search for patterns with LIKE
