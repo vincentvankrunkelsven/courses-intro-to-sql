@@ -160,21 +160,21 @@ chapters:
           Practice with IS NULL and IS NOT NULL. Combine with COUNT, DISTINCT,
           and/or other concepts from earlier
       - type: VideoExercise
-        title: Search for patterns with LIKE
+        title: Pattern matching
         content: |-
           * LIKE
-          * Wildcards: %, _, [charlist], [!charlist]
+          * Wildcards (%, _)
+          * Very simple regular expressions (~, [a-z], [0-9], +, *)
       - type: NormalExercise
         title: LIKE it or NOT
         content: >-
           Practice with some simple pattern matching using LIKE with % and _.
           Then combine with NOT.
       - type: NormalExercise
-        title: Pattern matching mania
+        title: Regular expressions round-up
         content: >-
-          Practice with LIKE some more, using more advanced wildcards: sets and
-          ranges of characters. Use negation (!) as well. Finish with embedded
-          MCE for interpretation
+          Practice using simple regular expressions to locate usernames in the
+          users table. Finish with embedded MCE for interpretation
       - type: VideoExercise
         title: Simple subqueries
         content: >-
