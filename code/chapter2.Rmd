@@ -241,10 +241,6 @@ Average reading time, ignoring outliers (likely due to users leaving tabs open)?
 ```{sql}
 SELECT AVG(duration)
 FROM reads
-WHERE id IN (
-  SELECT id
-  FROM reads
-  WHERE duration < 1000
-);
+WHERE duration < 1000;
 ```
 
