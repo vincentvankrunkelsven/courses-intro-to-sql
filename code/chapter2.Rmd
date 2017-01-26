@@ -229,6 +229,22 @@ WHERE username ~ '^[r-z].*[0-9]+$';
 
 ---
 
+Average reading time per article?
 
+```{sql}
+SELECT AVG(duration)
+FROM reads;
+```
 
+Average reading time, ignoring outliers (likely due to users leaving tabs open)?
+
+```{sql}
+SELECT AVG(duration)
+FROM reads
+WHERE id IN (
+  SELECT id
+  FROM reads
+  WHERE duration < 1000
+);
+```
 
