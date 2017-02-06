@@ -10,4 +10,4 @@ description: |-
   * users: id, username, age, trip_planned, status
   * posts: id, date, author_id, title
   * reads: id, date, user_id, post_id, duration
-programming_language: r
+programming_language: sql
