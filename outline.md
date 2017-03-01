@@ -8,7 +8,7 @@
   * Speed
   * Centralization
   * Access control
-  * DMBS tools
+  * DBMS tools
   * ...?
 * Database vocabulary (in context of example; make spreadsheet analogies)
   * Database (~ spreadsheet)
