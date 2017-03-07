@@ -30,6 +30,6 @@ CREATE TABLE countries (
 \copy countries FROM 'data/olympics/countries.csv' DELIMITER ',' CSV HEADER;
 
 /*
-createdb films
-psql films < data/olympics/films.sql
+createdb olympics
+psql olympics < data/olympics/olympics.sql
 */
