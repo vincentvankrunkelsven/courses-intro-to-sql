@@ -20,11 +20,11 @@ CREATE TABLE directors (
 );
 
 -- Copy over data from CSVs
-\copy films FROM 'data/sf-data-raw/films.csv' DELIMITER ',' CSV HEADER;
-\copy locations FROM 'data/sf-data-raw/locations.csv' DELIMITER ',' CSV HEADER;
-\copy directors FROM 'data/sf-data-raw/directors.csv' DELIMITER ',' CSV HEADER;
+\copy films FROM 'data/films-raw/films.csv' DELIMITER ',' CSV HEADER;
+\copy locations FROM 'data/films-raw/locations.csv' DELIMITER ',' CSV HEADER;
+\copy directors FROM 'data/films-raw/directors.csv' DELIMITER ',' CSV HEADER;
 
 /*
 createdb films
-psql films < data/sf-data-raw/films.sql
+psql films < data/films-raw/films.sql
 */
