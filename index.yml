@@ -1,16 +1,6 @@
 course_title: Intro to SQL for Data Science
-course_description: |-
-  'sales' database for use in videos:
-  * products: id, name, price, mfr
-  * customers: id, name, age, state
-  * sales: id, date, customer_id, product_id, payment_type
-
-  'blog' database for use in exercises:
-  * authors: id, first_name, last_name, year_joined
-  * users: id, username, age, trip_planned, status
-  * posts: id, date, author_id, title
-  * reads: id, date, user_id, post_id, duration
-programming_language: r
+course_description: Course description here.
+programming_language: sql
 chapters:
   - chapter_title: Selecting and summarizing columns
     chapter_description: >-
@@ -70,7 +60,7 @@ chapters:
           Q: Which of the following queries returns a list of every date on
           which at least one person read a blog post?
 
-          A: 
+          A:
 
           SELECT DISTINCT date_read
 
@@ -361,13 +351,13 @@ chapters:
           rain? (use start_date)
 
 
-          SELECT AVG(duration) 
+          SELECT AVG(duration)
 
-          FROM trips 
+          FROM trips
 
           WHERE start_date IN (
-            SELECT date 
-            FROM weather 
+            SELECT date
+            FROM weather
             WHERE precipitation_in > 0.5
           );
 
@@ -409,11 +399,11 @@ chapters:
           result by station id:
 
 
-          SELECT start_station_id AS station, AVG(duration) AS seconds 
+          SELECT start_station_id AS station, AVG(duration) AS seconds
 
-          FROM trips 
+          FROM trips
 
-          GROUP BY station 
+          GROUP BY station
 
           ORDER BY station
 
@@ -424,11 +414,11 @@ chapters:
           Again, but only the longest trips:
 
 
-          SELECT start_station_id AS station, AVG(duration) AS seconds 
+          SELECT start_station_id AS station, AVG(duration) AS seconds
 
-          FROM trips 
+          FROM trips
 
-          GROUP BY station 
+          GROUP BY station
 
           HAVING AVG(duration) > 2000
 
