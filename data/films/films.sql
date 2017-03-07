@@ -3,7 +3,9 @@ CREATE TABLE films (
   title                 VARCHAR,
   release_year          INTEGER,
   distributor           VARCHAR,
-  lead_actor            VARCHAR,
+  actor1                VARCHAR,
+  actor2                VARCHAR,
+  actor3                VARCHAR,
   director_id           INTEGER
 );
 
@@ -16,15 +18,16 @@ CREATE TABLE locations (
 CREATE TABLE directors (
   id                    INTEGER     PRIMARY KEY,
   name                  VARCHAR,
-  date_of_birth         DATE
+  date_of_birth         DATE,
+  date_of_death         DATE
 );
 
 -- Copy over data from CSVs
-\copy films FROM 'data/films-raw/films.csv' DELIMITER ',' CSV HEADER;
-\copy locations FROM 'data/films-raw/locations.csv' DELIMITER ',' CSV HEADER;
-\copy directors FROM 'data/films-raw/directors.csv' DELIMITER ',' CSV HEADER;
+\copy films FROM 'data/films/films.csv' DELIMITER ',' CSV HEADER;
+\copy locations FROM 'data/films/locations.csv' DELIMITER ',' CSV HEADER;
+\copy directors FROM 'data/films/directors.csv' DELIMITER ',' CSV HEADER;
 
 /*
 createdb films
-psql films < data/films-raw/films.sql
+psql films < data/films/films.sql
 */
