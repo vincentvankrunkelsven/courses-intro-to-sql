@@ -2,13 +2,13 @@ CREATE TABLE athletes (
   id                    INTEGER     PRIMARY KEY,
   name                  VARCHAR,
   gender                CHAR(1),
-  nationality           CHAR(1)
+  nationality           CHAR(3)
 );
 
 CREATE TABLE editions (
   id                    INTEGER     PRIMARY KEY,
   year                  INTEGER,
-  location              VARCHAR
+  city                  VARCHAR
 );
 
 CREATE TABLE events (
@@ -19,7 +19,7 @@ CREATE TABLE events (
 );
 
 CREATE TABLE countries (
-  id                    INTEGER     PRIMARY KEY,
+  id                    CHAR(3)     PRIMARY KEY,
   country               VARCHAR
 );
 

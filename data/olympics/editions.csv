@@ -1,1 +1,27 @@
-﻿id,year,location1,1896,Athens2,1900,Paris3,1904,St Louis4,1908,London5,1912,Stockholm6,1920,Antwerp7,1924,Paris8,1928,Amsterdam9,1932,Los Angeles10,1936,Berlin11,1948,London12,1952,Helsinki13,1956,Melbourne / Stockholm14,1960,Rome15,1964,Tokyo16,1968,Mexico17,1972,Munich18,1976,Montreal19,1980,Moscow20,1984,Los Angeles21,1988,Seoul22,1992,Barcelona23,1996,Atlanta24,2000,Sydney25,2004,Athens26,2008,Beijing
+id,year,city
+1,1896,Athens
+2,1900,Paris
+3,1904,St Louis
+4,1908,London
+5,1912,Stockholm
+6,1920,Antwerp
+7,1924,Paris
+8,1928,Amsterdam
+9,1932,Los Angeles
+10,1936,Berlin
+11,1948,London
+12,1952,Helsinki
+13,1956,Melbourne / Stockholm
+14,1960,Rome
+15,1964,Tokyo
+16,1968,Mexico
+17,1972,Munich
+18,1976,Montreal
+19,1980,Moscow
+20,1984,Los Angeles
+21,1988,Seoul
+22,1992,Barcelona
+23,1996,Atlanta
+24,2000,Sydney
+25,2004,Athens
+26,2008,Beijing
