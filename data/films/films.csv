@@ -1,4 +1,4 @@
-film_id,title,release_year,distributor,director,running_time_minutes,budget_millions,box_office_millions
+id,title,release_year,distributor,director,running_time_minutes,budget_millions,box_office_millions
 1,180,2011,,Jayendra,,25,30
 2,24 Hours on Craigslist,2005,Zealot Pictures,Michael Ferris Gibson,82,,
 3,40 Days and 40 Nights,2002,Miramax Films,Michael Lehmann,96,17,95.1
