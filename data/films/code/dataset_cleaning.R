@@ -89,6 +89,9 @@ gthr <- gthr[complete.cases(gthr),]
 cast_list <- merge(x=gthr, y=actors, all.x=TRUE) %>%
   select(2, 3) %>%
    arrange(film_id)
+
+cast_list$id <- c(1:nrow(cast_list))
+cast_list <- select(cast_list, 3, 1, 2)
 write_csv(cast_list, path = "casts.csv")
 
 # populate films.csv

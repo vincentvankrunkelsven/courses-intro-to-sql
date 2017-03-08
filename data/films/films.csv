@@ -178,102 +178,100 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 177,San Andreas,2015,Warner Bros.,Brad Peyton,114,110,474
 178,San Francisco,1936,Metro-Goldwyn Mayer,W.S. Van Dyke,,,
 179,Sausalito,2000,,Andrew Lau,,,
-180,Sense8,2015,Netflix,The Wachowskis,136,16,134.99
-181,Sense8 - Season 2,2016,Netflix,Wachowski Siblings,,,
-182,Serendipity,2001,Miramax Home Entertainment,Peter Chelsom,91,28,77.52
-183,Serial,1980,Paramount Pictures,Bill Persky,,,
-184,Seven Girlfriends,1999,Lions Gate Films Home Entertainment,Paul Lazarus,,,
-185,Shadow of the Thin Man,1941,Metro-Goldwyn Mayer,W.S. Van Dyke,97,,
-186,Shattered,1991,Metro-Goldwyn-Mayer,Wolfgang Petersen,94,6,2.9
-187,Shoot the Moon,1982,Metro-Goldwyn-Mayer (MGM),Alan Parker,124,12.00,9.22
-188,Sister Act,1992,Buena Vista Pictures,Emile Ardolino,100,31,231.6
-189,Sister Act 2: Back in the Habit,1993,Buena Vista Pictures,Bill Duke,107,38,57.3
-190,"Smile Again, Jenny Lee",2015,,Carlo Caldana,,,
-191,Sneakers,1992,Universal Pictures,Phil Alden Robinson,126,35,105.23
-192,So I Married an Axe Murderer,1993,TriStar Pictures,Thomas Schlamme,93,20,11.59
-193,Sphere,1998,Warner brothers Pictures,Barry Levinson,129,,50.1
-194,Star Trek II : The Wrath of Khan,1982,Paramount Pictures,Nicholas Meyer,112,11.2,97
-195,Star Trek IV: The Voyage Home,1986,Paramount Pictures,Leonard Nimoy,122,21,133
-196,Star Trek VI: The Undiscovered Country,1991,Paramount Pictures,Nicholas Meyer,110,27,96.9
-197,Steve Jobs,2015,Universal Pictures,Danny Boyle,122,30,34.4
-198,Stigmata,1999,Metro-Goldwyn Mayer Distributing,Rupert Wainwright,103,29,89.4
-199,Street Music,1981,Specialty Films,Jenny Bowen,93,,
-200,Sudden Fear,1952,RKO Pictures,David Miller,110,,1.65
-201,Sudden Impact,1983,Warner Bros. Pictures,Clint Eastwood,117,22,
-202,Summertime,2015,,Gabriele Muccino,105,4.8,2.2
-203,Superman,1978,Warner Bros. Pictures,Richard Donner,,,
-204,Susan Slade,1961,Warner Bros. Pictures,Delmer Daves,116,,
-205,Sweet November,2001,Warner Bros. Pictures,Pat O'Connor,120,40,65.75
-206,Swing,2003,Crazy Dreams Entertainment,Martin Guigui,,,
-207,Swingin' Along,1961,Twentieth Century Fox Film Corporation,Charles Barton,,,
-208,Take the Money and Run,1969,Cinerama Releasing Corporation,Woody Allen,85,1.53,3.04
-209,Terminator - Genisys,2015,Paramount Pictures,Alan Taylor,126,124.9,440.6
-210,The Assassination of Richard Nixon,2004,THINKFilm,Niels Mueller,95,,4.4
-211,The Bachelor,1999,New Line Cinema,Gary Sinyor,,,
-212,The Birds,1963,Universal Pictures,Alfred Hitchcock,119,3.3,11.4
-213,The Bridge,2006,IFC Films,Eric Steel,134,22,182
-214,The Caine Mutiny,1954,Columbia Pictures,Edward Dmytryk,124,2,21.8
-215,The Californians,2005,Fabrication Films,Jonathan Parker,87,0.50,
-216,The Candidate,1972,Warner Bros. Pictures,Michael Ritchie,109,,
-217,The Competition,1980,American Broadcasting Company (ABC),Joel Oliansky,125,,14.3
-218,The Conversation,1974,Paramount Pictures,Francis Ford Coppola,113,1.6,4.4
-219,The Core,2003,Paramount Pictures,John Amiel,135,85,74
-220,The Dead Pool,1988,Warner Bros. Pictures,Buddy Van Horn,91,31,37.90
-221,The Diary of a Teenage Girl,2015,Sony Pictures Classics,Marielle Heller,102,2,2.2
-222,The Doctor,1991,Buena Vista Pictures,Randa Haines,,,
-223,The Doors,1991,TriStar Pictures,Oliver Stone,140,38,34.4
-224,The Enforcer,1976,Warner Bros. Pictures,James Fargo,96,9,46.24
-225,The Fan,1996,Columbia TriStar,Tony Scott,90,1,
-226,The Fog of War,2003,Sony Pictures Classics,Errol Morris,107,,5
-227,The Game,1997,Polygram Filmed Entertainment,David Fincher,128,,109.4
-228,The Graduate,1967,Embassy Pictures Corporation,Mike Nichols,94,,
-229,The House on Telegraph Hill,1951,Twentieth Century Fox Film Corp.,Robert Wise,93,,
-230,The Internship,2013,Twentieth Century Fox Film Corporation,Shawn Levy,119,58,93
-231,The Jazz Singer,1927,Warner Bros. Pictures,Alan Crosland,115,,27.12
-232,The Lady from Shanghai,1947,Columbia Pictures,Orson Welles,87,,0.56
-233,The Last of the Gladiators,1988,Evel Videos,Martin Jay Sadoff,,,
-234,The Laughing Policeman,1973,American Broadcasting Company (ABC),Stuart Rosenberg,112,2.28,1.75
-235,The Lineup,1958,Columbia Pictures,Don Siegel,86,,
-236,The Love Bug,1968,Buena Vista Distribution,Robert Stevenson,88,,
-237,The Maltese Falcon,1941,Warner Bros. Pictures,John Huston,101,0.38,
-238,The Master,2012,Weinstein Company,Paul Thomas Anderson,137,32,28.3
-239,The Matrix,1999,Warner Bros. Pictures,The Wachowski Brothers,136,63,463.5
-240,The Net,1995,Columbia Pictures,Irwin Winkler,115,22,
-241,The Nightmare Before Christmas,1993,Buena Vista Pictures,Henry Selick,76,18,76.2
-242,The Organization,1971,United Artists,Don Medford,106,,
-243,The Other Sister,1999,Buena Vista Pictures,Garry Marshall,130,35,27.8
-244,The Parent Trap,1998,Buena Vista Pictures,Nancy Meyers,128,15,83.9
-245,The Presidio,1988,Paramount Pictures,Peter Hyams,97,,20.04
-246,The Princess Diaries,2001,Buena Vista Pictures,Garry Marshall,115,26,165.3
-247,The Pursuit of Happyness,2006,Columbia Pictures,Steven Conrad,93,,
-248,The Right Stuff,1983,The Ladd Company,Philip Kaufman,192,27,21.1
-249,The Rock,1996,Buena Vista Pictures,Michael Bay,108,40,46.7
-250,The Sweetest Thing,2002,Columbia Pictures,Roger Kumble,90,43,68.70
-251,The Ten Commandments,1956,Paramount Pictures,Cecil B. DeMille,220,13,122.7
-252,The Times of Harvey Milk,1984,TC Films International,Rob Epstein,90,,0.03
-253,The Towering Inferno,1974,Twentieth Century - Fox,John Guillermin,165,14.3,139.7
-254,The Wedding Planner,2001,Sony Pictures Entertainment,Adam Shankman,103,35,94.73
-255,The Woman In Red,1984,MGM Home Entertainment,Gene Wilder,87,,25.31
-256,The Zodiac,2005,THINKFilm,Alexander Bulkley,97,1,0.09
-257,They Call Me MISTER Tibbs,1970,United Artists,Gordon Douglas,108,,2.35
-258,Thief of Hearts,1984,Paramount Pictures,Douglas Day Stewart,105,,10.40
-259,Time After Time,1979,Columbia Broadcasting System (CBS),Nicholas Meyer,112,,13.00
-260,Tin Cup,1996,Warner Bros. Pictures,Ron Shelton,135,45,75.85
-261,To the Ends of the Earth,1948,Columbia Pictures,Robert Stevenson,109,,1.7
-262,True Believer,1989,Columbia Pictures,Joseph Ruben,108,,8.7
-263,Tucker: The Man and His Dream,1988,Paramount Pictures,Francis Ford Coppola,110,24,19.7
-264,Tweek City,2005,Maverick Entertainment Group,Eric G. Johnson,,,
-265,Twisted,2004,Paramount Pictures,Philip Kaufman,,,
-266,Under the Tuscan Sun,2003,Buena Vista Pictures,Audrey Wells,113,18,58.9
-267,Until the End of the World,1991,Warner Bros. Pictures,Wim Wenders,158,23,0.75
-268,Vegas in Space,1992,MCA/Universal Home Video,Phillip R. Ford,85,,
-269,Vertigo,1958,Paramount Pictures,Alfred Hitchcock,128,2.5,7.3
-270,What Dreams May Come,1998,Polygram Filmed Entertainment,Vincent Ward,113,85,71.3
-271,What the Bleep Do We Know,2004,Samuel Goldwyn Films,William Arntz,109,,16.00
-272,What's Up Doc?,1972,Warner Bros. Pictures,Peter Bogdanovich,94,4,66.00
-273,When a Man Loves a Woman,1994,Buena Vista Pictures,Luis Mandoki,126,,50.0
-274,When We Rise,2017,Amercian Broadcasting Company,Gus Van Sant,8,,
-275,Woman on the Run,1950,Universal Pictures,Norman Foster,77,,
-276,Woman on Top,2000,Fox Searchlight Pictures,Fina Torres,91,8,10.2
-277,"Yours, Mine and Ours",1968,United Artists,Melville Shavelson,111,2.5,25.91
-278,Zodiac,2007,Paramount Pictures,David Fincher,158,65,84.8
+180,Serendipity,2001,Miramax Home Entertainment,Peter Chelsom,91,28,77.52
+181,Serial,1980,Paramount Pictures,Bill Persky,,,
+182,Seven Girlfriends,1999,Lions Gate Films Home Entertainment,Paul Lazarus,,,
+183,Shadow of the Thin Man,1941,Metro-Goldwyn Mayer,W.S. Van Dyke,97,,
+184,Shattered,1991,Metro-Goldwyn-Mayer,Wolfgang Petersen,94,6,2.9
+185,Shoot the Moon,1982,Metro-Goldwyn-Mayer (MGM),Alan Parker,124,12.00,9.22
+186,Sister Act,1992,Buena Vista Pictures,Emile Ardolino,100,31,231.6
+187,Sister Act 2: Back in the Habit,1993,Buena Vista Pictures,Bill Duke,107,38,57.3
+188,"Smile Again, Jenny Lee",2015,,Carlo Caldana,,,
+189,Sneakers,1992,Universal Pictures,Phil Alden Robinson,126,35,105.23
+190,So I Married an Axe Murderer,1993,TriStar Pictures,Thomas Schlamme,93,20,11.59
+191,Sphere,1998,Warner brothers Pictures,Barry Levinson,129,,50.1
+192,Star Trek II : The Wrath of Khan,1982,Paramount Pictures,Nicholas Meyer,112,11.2,97
+193,Star Trek IV: The Voyage Home,1986,Paramount Pictures,Leonard Nimoy,122,21,133
+194,Star Trek VI: The Undiscovered Country,1991,Paramount Pictures,Nicholas Meyer,110,27,96.9
+195,Steve Jobs,2015,Universal Pictures,Danny Boyle,122,30,34.4
+196,Stigmata,1999,Metro-Goldwyn Mayer Distributing,Rupert Wainwright,103,29,89.4
+197,Street Music,1981,Specialty Films,Jenny Bowen,93,,
+198,Sudden Fear,1952,RKO Pictures,David Miller,110,,1.65
+199,Sudden Impact,1983,Warner Bros. Pictures,Clint Eastwood,117,22,
+200,Summertime,2015,,Gabriele Muccino,105,4.8,2.2
+201,Superman,1978,Warner Bros. Pictures,Richard Donner,,,
+202,Susan Slade,1961,Warner Bros. Pictures,Delmer Daves,116,,
+203,Sweet November,2001,Warner Bros. Pictures,Pat O'Connor,120,40,65.75
+204,Swing,2003,Crazy Dreams Entertainment,Martin Guigui,,,
+205,Swingin' Along,1961,Twentieth Century Fox Film Corporation,Charles Barton,,,
+206,Take the Money and Run,1969,Cinerama Releasing Corporation,Woody Allen,85,1.53,3.04
+207,Terminator - Genisys,2015,Paramount Pictures,Alan Taylor,126,124.9,440.6
+208,The Assassination of Richard Nixon,2004,THINKFilm,Niels Mueller,95,,4.4
+209,The Bachelor,1999,New Line Cinema,Gary Sinyor,,,
+210,The Birds,1963,Universal Pictures,Alfred Hitchcock,119,3.3,11.4
+211,The Bridge,2006,IFC Films,Eric Steel,134,22,182
+212,The Caine Mutiny,1954,Columbia Pictures,Edward Dmytryk,124,2,21.8
+213,The Californians,2005,Fabrication Films,Jonathan Parker,87,0.50,
+214,The Candidate,1972,Warner Bros. Pictures,Michael Ritchie,109,,
+215,The Competition,1980,American Broadcasting Company (ABC),Joel Oliansky,125,,14.3
+216,The Conversation,1974,Paramount Pictures,Francis Ford Coppola,113,1.6,4.4
+217,The Core,2003,Paramount Pictures,John Amiel,135,85,74
+218,The Dead Pool,1988,Warner Bros. Pictures,Buddy Van Horn,91,31,37.90
+219,The Diary of a Teenage Girl,2015,Sony Pictures Classics,Marielle Heller,102,2,2.2
+220,The Doctor,1991,Buena Vista Pictures,Randa Haines,,,
+221,The Doors,1991,TriStar Pictures,Oliver Stone,140,38,34.4
+222,The Enforcer,1976,Warner Bros. Pictures,James Fargo,96,9,46.24
+223,The Fan,1996,Columbia TriStar,Tony Scott,90,1,
+224,The Fog of War,2003,Sony Pictures Classics,Errol Morris,107,,5
+225,The Game,1997,Polygram Filmed Entertainment,David Fincher,128,,109.4
+226,The Graduate,1967,Embassy Pictures Corporation,Mike Nichols,94,,
+227,The House on Telegraph Hill,1951,Twentieth Century Fox Film Corp.,Robert Wise,93,,
+228,The Internship,2013,Twentieth Century Fox Film Corporation,Shawn Levy,119,58,93
+229,The Jazz Singer,1927,Warner Bros. Pictures,Alan Crosland,115,,27.12
+230,The Lady from Shanghai,1947,Columbia Pictures,Orson Welles,87,,0.56
+231,The Last of the Gladiators,1988,Evel Videos,Martin Jay Sadoff,,,
+232,The Laughing Policeman,1973,American Broadcasting Company (ABC),Stuart Rosenberg,112,2.28,1.75
+233,The Lineup,1958,Columbia Pictures,Don Siegel,86,,
+234,The Love Bug,1968,Buena Vista Distribution,Robert Stevenson,88,,
+235,The Maltese Falcon,1941,Warner Bros. Pictures,John Huston,101,0.38,
+236,The Master,2012,Weinstein Company,Paul Thomas Anderson,137,32,28.3
+237,The Matrix,1999,Warner Bros. Pictures,The Wachowski Brothers,136,63,463.5
+238,The Net,1995,Columbia Pictures,Irwin Winkler,115,22,
+239,The Nightmare Before Christmas,1993,Buena Vista Pictures,Henry Selick,76,18,76.2
+240,The Organization,1971,United Artists,Don Medford,106,,
+241,The Other Sister,1999,Buena Vista Pictures,Garry Marshall,130,35,27.8
+242,The Parent Trap,1998,Buena Vista Pictures,Nancy Meyers,128,15,83.9
+243,The Presidio,1988,Paramount Pictures,Peter Hyams,97,,20.04
+244,The Princess Diaries,2001,Buena Vista Pictures,Garry Marshall,115,26,165.3
+245,The Pursuit of Happyness,2006,Columbia Pictures,Steven Conrad,93,,
+246,The Right Stuff,1983,The Ladd Company,Philip Kaufman,192,27,21.1
+247,The Rock,1996,Buena Vista Pictures,Michael Bay,108,40,46.7
+248,The Sweetest Thing,2002,Columbia Pictures,Roger Kumble,90,43,68.70
+249,The Ten Commandments,1956,Paramount Pictures,Cecil B. DeMille,220,13,122.7
+250,The Times of Harvey Milk,1984,TC Films International,Rob Epstein,90,,0.03
+251,The Towering Inferno,1974,Twentieth Century - Fox,John Guillermin,165,14.3,139.7
+252,The Wedding Planner,2001,Sony Pictures Entertainment,Adam Shankman,103,35,94.73
+253,The Woman In Red,1984,MGM Home Entertainment,Gene Wilder,87,,25.31
+254,The Zodiac,2005,THINKFilm,Alexander Bulkley,97,1,0.09
+255,They Call Me MISTER Tibbs,1970,United Artists,Gordon Douglas,108,,2.35
+256,Thief of Hearts,1984,Paramount Pictures,Douglas Day Stewart,105,,10.40
+257,Time After Time,1979,Columbia Broadcasting System (CBS),Nicholas Meyer,112,,13.00
+258,Tin Cup,1996,Warner Bros. Pictures,Ron Shelton,135,45,75.85
+259,To the Ends of the Earth,1948,Columbia Pictures,Robert Stevenson,109,,1.7
+260,True Believer,1989,Columbia Pictures,Joseph Ruben,108,,8.7
+261,Tucker: The Man and His Dream,1988,Paramount Pictures,Francis Ford Coppola,110,24,19.7
+262,Tweek City,2005,Maverick Entertainment Group,Eric G. Johnson,,,
+263,Twisted,2004,Paramount Pictures,Philip Kaufman,,,
+264,Under the Tuscan Sun,2003,Buena Vista Pictures,Audrey Wells,113,18,58.9
+265,Until the End of the World,1991,Warner Bros. Pictures,Wim Wenders,158,23,0.75
+266,Vegas in Space,1992,MCA/Universal Home Video,Phillip R. Ford,85,,
+267,Vertigo,1958,Paramount Pictures,Alfred Hitchcock,128,2.5,7.3
+268,What Dreams May Come,1998,Polygram Filmed Entertainment,Vincent Ward,113,85,71.3
+269,What the Bleep Do We Know,2004,Samuel Goldwyn Films,William Arntz,109,,16.00
+270,What's Up Doc?,1972,Warner Bros. Pictures,Peter Bogdanovich,94,4,66.00
+271,When a Man Loves a Woman,1994,Buena Vista Pictures,Luis Mandoki,126,,50.0
+272,When We Rise,2017,Amercian Broadcasting Company,Gus Van Sant,8,,
+273,Woman on the Run,1950,Universal Pictures,Norman Foster,77,,
+274,Woman on Top,2000,Fox Searchlight Pictures,Fina Torres,91,8,10.2
+275,"Yours, Mine and Ours",1968,United Artists,Melville Shavelson,111,2.5,25.91
+276,Zodiac,2007,Paramount Pictures,David Fincher,158,65,84.8
