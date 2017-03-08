@@ -8,7 +8,7 @@ library(data.table)
 library(tidyr)
 
 # read in data
-original <- read_csv('original_sf_dataset.csv')
+original <- read_csv('raw.csv')
 
 # make col headers lowercase, replace spaces
 names(original) <- str_replace(tolower(names(original)), ' ', '_')
@@ -83,11 +83,12 @@ gthr <- gather(film_actors, 'Actor 1', 'Actor 2', -1) %>%
 # only take non NAs
 gthr <- gthr[complete.cases(gthr),]
 
+# populate casts.csv
 # film_id, actor_id, actor so we remove actor name
 # if row in x but not in y, keep x
 cast_list <- merge(x=gthr, y=actors, all.x=TRUE) %>%
   select(2, 3) %>%
-  arrange(film_id)
+   arrange(film_id)
 write_csv(cast_list, path = "casts.csv")
 
 # populate films.csv

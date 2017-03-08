@@ -9,7 +9,7 @@ wiki = None
 
 def setup():
     """
-    Sets up global wikip object for Wikipedia lookups.
+    Sets up global wiki object for Wikipedia lookups.
     """
     global wiki
     wiki = WikiApi()
@@ -26,7 +26,18 @@ def wiki_search(term):
     global wiki
     base_url = 'https://en.wikipedia.org/wiki/'
     results = wiki.find(term)
-    return base_url + results[0] if results else ''
+    res = ''
+    if results:
+        res = results[0]
+
+    # force film result if ambiguous
+    for r in results:
+        if 'film' in r or '(film)' in r:
+            res = r
+
+    # print("wiki results --> {}".format(results))
+    # print("url ---> {}".format(res))
+    return base_url + res if res else ''
 
 def get_html(url):
     resp = requests.get(url)
@@ -62,10 +73,6 @@ def split(delimiters, string):
     """
     regexPattern = '|'.join(map(re.escape, delimiters))
     return re.split(regexPattern, string)
-
-def test():
-    setup()
-    print(get_wiki_info('elon musk', 'person', 'bday'))
 
 def get_wiki_info(title, kind, info):
     """
@@ -103,30 +110,17 @@ def get_wiki_info(title, kind, info):
                     if inner_table:
                         budget_string = inner_table.find_next_sibling('td').get_text()
                         if budget_string:
-                            temp = budget_string.split()
-
-                            if len(temp) == 1:
-                                # TODO: fix for weirdly formatted budgets
-                                return ''
-                            else:
-                                number = fix_millions(temp[0][1:])
-                                units = temp[1]
-                                return str(float(number) * 1000) if 'billion' in units else number
+                            number = fix_millions(budget_string)
+                            return number
 
                 elif info == 'box office':
                     inner_table = table.find('th', text='Box office')
                     if inner_table:
                         bo_string = inner_table.find_next_sibling('td').get_text()
+                        # print('bo string --> {}'.format(bo_string))
                         if bo_string:
-                            temp = bo_string.split()
-
-                            if len(temp) == 1:
-                                    # TODO: fix for weirdly formatted budgets
-                                    return ''
-                            else:
-                                number = fix_millions(temp[0][1:])
-                                units = temp[1]
-                                return str(number * 1000) if 'billion' in units else number
+                            number = fix_millions(bo_string)
+                            return number
 
                 elif info == 'running time':
                     inner_tables = table.find_all('th')
@@ -149,17 +143,56 @@ def get_wiki_info(title, kind, info):
                         return number
     return ''
 
-def fix_millions(number_string):
-    illegals = [',', '-', '-', '–']
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
-    for i in illegals:
-        if i in number_string:
-            return ''
+def fix_millions(number_chunk):
+    million = 1000000
+    temp = number_chunk.split()
 
-    number = float(number_string)
-    return number
+    # fix currency stuff, advance one at a time for currencies with multiple currency denoters
+    # we are not converting to USD --> unnecessary
+    number_string = temp[0][1:]
+    while not is_number(number_string[0]):
+        number_string = number_string[1:]
 
-def update_actors(input_file='actors.csv', output_file='horse.csv'):
+    if '[' in number_string:
+        number_string = number_string[:number_string.index('[')]
+
+    # catch everything else
+    if not is_number(number_string):
+        return ''
+
+    print("chunk --> {}".format(number_chunk))
+    print("string --> {}".format(number_string))
+    billions_flag = False
+
+    if len(temp) != 1:
+        units = temp[1]
+        if 'billlion' in units:
+            billions_flag = True
+            num = float(number_string)
+            return str('{0:.2f}'.format(num * 1000))
+
+    splitters = ['-', '-', '–']
+    # print("input ---> {}".format(number_string))
+
+    for s in splitters:
+        if s in number_string:
+            number_string = number_string[:number_string.index(s)]
+
+    if ',' in number_string:
+        number_string = number_string.replace(',', '')
+        num = float(number_string)
+        return str('{0:.2f}'.format(num / million))
+
+    return number_string
+
+def update_actors(input_file='../actors.csv', output_file='../actors.csv'):
     """
     Updates actor information after initial CSV file has been created.
     """
@@ -181,7 +214,7 @@ def update_actors(input_file='actors.csv', output_file='horse.csv'):
 
     print("Finished writing to file.")
 
-def update_films(input_file='films.csv', output_file='films.csv'):
+def update_films(input_file='../films.csv', output_file='../films.csv'):
     """
     Updates film information after initial CSV file has been created.
     """
@@ -266,4 +299,5 @@ if __name__ == "__main__":
     # can only run this after the initial CSVs have been populated
     setup()
     # update_actors()
-    # update_films()
+    # update_films(output_file='../testfilms.csv')
+    # test_film('Sudden Fear')

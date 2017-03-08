@@ -15,17 +15,9 @@ CREATE TABLE locations (
   fun_facts             VARCHAR
 );
 
-CREATE TABLE directors (
-  id                    INTEGER     PRIMARY KEY,
-  name                  VARCHAR,
-  date_of_birth         DATE,
-  date_of_death         DATE
-);
-
 -- Copy over data from CSVs
 \copy films FROM 'data/films/films.csv' DELIMITER ',' CSV HEADER;
 \copy locations FROM 'data/films/locations.csv' DELIMITER ',' CSV HEADER;
-\copy directors FROM 'data/films/directors.csv' DELIMITER ',' CSV HEADER;
 
 /*
 createdb films
