@@ -97,6 +97,9 @@ def get_wiki_info(title, kind, info):
     else:
         if kind == 'person':
             html = get_html(res)
+            # won't account for old wiki format of 'infobox vcard'
+            # and consequently for pages where 'bday' is not specified in a tag
+            # these tend to occur together
             strainer = SoupStrainer('table', attrs={'class':'infobox biography vcard'})
             table = BeautifulSoup(html, 'html.parser', parse_only=strainer)
 
@@ -269,12 +272,14 @@ def format_date(date):
     res = ''
 
     input_patterns = [
-        '%Y-%m-%d', # 1994-01-22
-        '%Y/%m/%d', # 1994/01/22
-        '%m-%d-%Y', # 01-22-1994
-        '%m-%d-%y', # 01-22-94
-        '%m/%d/%Y', # 01/22/1994
-        '%m/%d/%y'  # 01/22/94
+        '%Y-%m-%d',  # 1994-01-22
+        '%Y/%m/%d',  # 1994/01/22
+        '%m-%d-%Y',  # 01-22-1994
+        '%m-%d-%y',  # 01-22-94
+        '%m/%d/%Y',  # 01/22/1994
+        '%m/%d/%y',  # 01/22/94
+        '%b %d, %Y', # January 22, 1994
+        '%b %d %Y',  # January 22 1994
     ]
 
     output_pattern = '%Y-%m-%d' # ISO 8601 format
@@ -314,7 +319,9 @@ def test_film(title):
 if __name__ == "__main__":
     # can only run this after the initial CSVs have been populated
     setup()
-    # update_actors()
+    update_actors()
     # update_films(output_file='../testfilms.csv')
     update_films()
     # test_film('The Woman In Red')
+    # test_actor('Chevy Chase')
+    # test_actor('Elon Musk')
