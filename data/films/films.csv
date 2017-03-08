@@ -1,308 +1,277 @@
-film_id,title,release_year,distributor,director,running_time_mins,budget_millions,box_office_millions
-1,180,2011,,Jayendra,,,
+film_id,title,release_year,distributor,director,running_time_minutes,budget_millions,box_office_millions
+1,180,2011,,Jayendra,,25,30
 2,24 Hours on Craigslist,2005,Zealot Pictures,Michael Ferris Gibson,82,,
-3,40 Days and 40 Nights,2002,Miramax Films,Michael Lehmann,96,17.0,95.1
+3,40 Days and 40 Nights,2002,Miramax Films,Michael Lehmann,96,17,95.1
 4,48 Hours,1982,Paramount Pictures,Walter Hill,,,
-5,50 First Dates,2004,Columbia Pictures,Peter Segal,99,75.0,196.5
+5,50 First Dates,2004,Columbia Pictures,Peter Segal,99,75,196.5
 6,A Jitney Elopement,1915,General Film Company,Charles Chaplin,33,,
 7,A Night Full of Rain,1978,Warner Bros. Pictures,Lina Wertmuller,104,,
-8,A Smile Like Yours,1997,Paramount Pictures,Keith Samples,98,18.0,
-9,A View to a Kill,1985,MGM/UA Entertainment Company,John Glen,131,30.0,152.4
-10,About a Boy,2014,National Broadcasting Company,Mark J. Kunerth,,,
-11,After the Thin Man,1936,Metro-Goldwyn Mayer,W.S. Van Dyke,113,,
-12,Age of Adaline,2015,,Lee Toland Krieger,113,25.0,65.7
+8,A Smile Like Yours,1997,Paramount Pictures,Keith Samples,98,18,3.33
+9,A View to a Kill,1985,MGM/UA Entertainment Company,John Glen,131,30,152.4
+10,About a Boy,2014,National Broadcasting Company,Mark J. Kunerth,101,30,130.55
+11,After the Thin Man,1936,Metro-Goldwyn Mayer,W.S. Van Dyke,113,0.67,3.17
+12,Age of Adaline,2015,,Lee Toland Krieger,113,25,65.7
 13,Alcatraz,2012,Warner Bros. Television,J.J. Abrams,,,
-14,Alexander's Ragtime Band,1938,Twentieth Century Fox Film Corporation,Henry King,,,
+14,Alexander's Ragtime Band,1938,Twentieth Century Fox Film Corporation,Henry King,106,,3.6
 15,All About Eve,1950,Twentieth Century Fox Film Corp.,Joseph L. Mankiewicz,138,1.4,8.4
-16,American Graffiti,1973,Universal Pictures,George Lucas,112,,140.0
-17,American Yearbook,2004,N/A,Brian Ging,97,,
+16,American Graffiti,1973,Universal Pictures,George Lucas,112,0.78,140
+17,American Yearbook,2004,N/A,Brian Ging,97,0.50,
 18,Americana,2015,,Zachary Shedd,,,
-19,Another 48 Hours,1990,Paramount Pictures,Walter Hill,93,50.0,153.5
-20,Ant-Man,2015,Walt Disney Studios Motion Pictures,Peyton Reed,,,
-21,Around the Fire,1998,Ardustry Home Entertainment,John Jacobsen,,,
-22,Attack of the Killer Tomatoes,1978,NAI Entertainment,John DeBello,87,,
-23,Babies,2010,Focus Features,Thomas Balmes,,,
-24,Bar Rescue,2016,Spike,,,,
-25,Bar Rescue - Season 4 Ep 18,2015,Spike,,,,
-26,Bar Rescue - Season 4 Ep 21,2015,Spike,,,,
-27,Bar Rescue - Season 5 Ep 8,2016,Spike,,,,
-28,Barbary Coast,1935,United Artists,Howard Hawks,,,
-29,Basic Instinct,1992,TriStar Pictures,Paul Verhoeven,128,49.0,352.9
-30,Beaches,1988,Columbia Broadcasting System,Garry Marshall,,,
-31,Bedazzled,2000,Twentieth Century Fox Film Corp.,Harold Ramis,,,
-32,Bee Season,2005,Fox Searchlight Pictures,Scott McGehee,,,
-33,Bicentennial Man,1999,Buena Vista Pictures,Chris Columbus,,,
-34,Big Eyes,2014,Weinstein Company,Tim Burton,106,10.0,29.3
-35,Big Sur,2013,,Michael Polish,,,
-36,Big Trouble in Little China,1986,Twentieth Century Fox Film Corporation,John Carpenter,99,,11.1
-37,Birdman of Alcatraz,1962,United Artists,John Frankenheimer,,,
-38,Birth of the Dragon,2016,Kylin Pictures,George Nolfi,,,
-39,Blue Jasmine,2013,Sony Pictures Classics,Woody Allen,99,18.0,97.5
-40,Boys and Girls,2000,Dimension Films,Robert Iscove,,,
-41,Broken-A Modern Love Story,2010,,Ryan K. Whiting,,,
-42,"Budding Prospects, Pilot",2017,Amazon,Terry Zwigoff,,,
-43,Bullitt,1968,Warner Brothers,Peter Yates,113,5.5,42.3
-44,Burglar,1987,Warner Bros. Pictures,Hugh Wilson,,,
-45,By Hook or By Crook,2001,Artistic License,Harriet Dodge & Silas Howard,,,
-46,Can't Stop the Music,1980,Associated Film Distribution (AFD),Nancy Walker,124,20.0,2.0
-47,Cardinal X,2015,,Annie Wang,,,
-48,Casualties of War,1989,Columbia Pictures,Brian DePalma,113,22.5,
-49,Chan is Missing,1982,New Yorker Films,Wayne Wang,76,,
-50,Chance- Season 1 ep102,2016,HULU,Lenny Abrahamson,,,
-51,Chance- Season 1 ep103,2016,HULU,Michael Lehmann,,,
-52,Chance- Season 1 ep104,2016,HULU,Carl Franklin,,,
-53,Chance- Season 1 ep106,2016,HULU,Sara Gran,,,
-54,Chance- Season 1 ep107,2016,HULU,Alexandra Cunningham and Kem Nunn,,,
-55,Chance- Season 1 ep108,2016,HULU,Peter Elkoff and Victoria Morrow,,,
-56,Chance- Season 1 ep109,2016,HULU,Sara Gran and Pete Begler,,,
-57,Chance- Season 1 ep110,2016,HULU,Alexandra Cunningham and Kem Nunn,,,
-58,Chance - Season 1 ep105,2016,HULU,Victoria Morrow,,,
-59,Chance - Season 1 Pilot,2016,HULU,Lenny Abrahamson,,,
-60,Chance - Season 1ep105,2016,HULU,Victoria Morrow,,,
-61,Cherish,2002,Fine Line Features,Finn Taylor,,,
-62,Chu Chu and the Philly Flash,1981,Columbia Broadcasting System (CBS),David Lowell Rich,92,7.0,
-63,City of Angels,1998,Warner Bros. Pictures,Brad Silberling,,,
-64,Class Action,1991,Twentieth Century Fox Film Corp.,Michael Apted,,,
-65,Common Threads: Stories From the Quilt,1989,Direct Cinema Limited,Rob Epstein,,,
-66,Confessions of a Burning Man,2003,Windline Films,Paul Barnett,,,
-67,Copycat,1995,Warner Bros. Pictures,Jon Amiel,,,
-68,Crackers,1984,Universal Pictures,Louis Malle,,,
-69,CSI: NY- episode 903,2012,Columbia Broadcasting System,Vikki Williams,,,
-70,D.O.A,1950,United Artists,Rudolph Mate,,,
-71,Dark Passage,1947,Warner Bros. Pictures,Delmer Daves,,,
-72,Dawn of the Planet of the Apes,2014,Twentieth Century Fox,Matt Reeves,130,170.0,710.6
-73,Days of Wine and Roses,1962,Warner Bros. Pictures,Blake Edwards,,,
-74,Desperate Measures,1998,TriStar Pictures,Barbet Schroeder,,,
-75,Dim Sum: A Little Bit of Heart,1985,Orion Classics,Wayne Wang,88,,
-76,Dirty Harry,1971,Warner Brothers,Don Siegel,102,4.0,36.0
-77,Doctor Dolittle,1998,Twentieth Century Fox Film Cooperation,Betty Thomas,,,
-78,Dopamine,2003,Sundance Channel Home Entertainment,Mark Decena,,,
-79,Down Periscope,1996,Twentieth Century Fox Film Corp.,David S. Ward,93,31.0,
-80,Dr. Dolittle 2,2001,Twentieth Century Fox Film Corp.,Steve Carr,87,70.0,176.1
-81,Dream for an Insomniac,1996,Columbia TriStar Home Video,Tiffanie DeBartolo,,,
-82,Dream with the Fishes,1997,Sony Pictures Classics,Finn Taylor,97,,
-83,Dying Young,1991,Twentieth Century Fox Corporation,Joel Schumacher,114,26.0,
-84,Edtv,1999,MCA / Universal Pictures,Ron Howard,,,
-85,Escape From Alcatraz,1979,Paramount Pictures,Donald Siegel,,,
-86,Etruscan Smile,2017,TBD,Oded Binnun/ Michel Brezis,,,
-87,Experiment in Terror,1962,Columbia Pictures,Blake Edwards,123,,
-88,Faces of Death,1978,Aquarius Releasing,Conan Le Cilaire,104,,35.0
-89,Family Plot,1976,Universal Pictures,Alfred Hitchcock,121,4.5,13.2
-90,Fandom,2004,Cinequest Distribution,Nicholas Tucker,,,
-91,Fat Man and Little Boy,1989,Paramount Pictures,Roland Joffe,127,,
-92,Fathers' Day,1997,Columbia Broadcasting System,Ivan Reitman,,,
-93,Fearless,1993,Warner Bros. Pictures,Peter Weir,,,
-94,Final Analysis,1992,Warner Bros. Pictures,Phil Joanou,124,,28.6
-95,Flower Drum Song,1961,Universal Pictures,Henry Koster,,,
-96,Flubber,1997,Buena Vista Pictures,Les Mayfield,,,
-97,Forrest Gump,1994,Paramount Pictures,Robert Zemeckis,142,55.0,677.9
-98,Foul Play,1978,Paramount Pictures,Colin Higgins,,,
-99,Freebie and the Bean,1974,American Broadcasting Company (ABC),Richard Rush,113,,
-100,Gentleman Jim,1942,Warner Bros. Pictures,Raoul Walsh,,,
-101,George of the Jungle,1997,Buena Vista Pictures,Sam Weisman,30,,
-102,Getting Even with Dad,1994,Metro-Goldwyn-Mayer (MGM),Howard Dutch,104,30.0,
-103,GirlBoss,2017,Netflix,"Jamie Babbit, Amanda Brotchie, Steven K. Tsuchida, Christian Ditter, John Riggi",,,
-104,God is a Communist?* (show me heart universe),2010,,Jon Poznanter,,,
-105,Godzilla,2014,Warner Bros. Pictures,Gareth Edwards,,,
-106,Golden Gate,1994,The Samuel Goldwyn Company,John Madden,,,
-107,Good NeighborSam,1964,Columbia Pictures,David Swift,130,,
-108,Greed,1924,Metro-Goldwyn-Mayer (MGM),Eric von Stroheim,,,
-109,Groove,2000,Sony Pictures Classics,Greg Harrison,,,
-110,Guess Who's Coming to Dinner,1967,Columbia Pictures,Stanley Kramer,108,4.0,56.7
-111,Haiku Tunnel,2001,Sony Pictures Classics,Jakob Kornbluth & Josh Kornbluth,88,,
-112,Happy Gilmore,1996,Universal Pictures,Dennis Dugan,92,12.0,41.2
-113,Hard to Hold,1984,Universal Pictures,Larry Peerce,,,
-114,Harold and Maude,1971,Paramount Pictures,Hal Ashby,91,1.2,
-115,Heart and Souls,1993,Electric Parc,Tomas Gislason,104,,
-116,Heart Beat,1980,Orion Pictures Corporation,John Byrum,,,
-117,"Hello Frisco, Hello",1943,Twentieth Century Fox Film Corporation,Bruce Humberstone,99,,3.4
-118,Hemingway & Gelhorn,2011,Home Box Office (HBO),Philip Kaufman,154,14.0,
-119,Herbie Rides Again,1974,Buena Vista Distribution,Robert Stevenson,88,,
-120,Hereafter,2010,Warner Bros. Pictures,Clint Eastwood,,,
-121,High Anxiety,1977,Twentieth Century Fox Film Corporation,Carl Franklin,94,4.015,31.1
-122,High Crimes,2002,Twentieth Century Fox Film Corporation,Carl Franklin,115,42.0,63.8
-123,Homeward Bound II: Lost in San Francisco,1996,Buena Vista Pictures,David R. Ellis,89,,
-124,House of Sand and Fog,2003,DreamWorks Distribution,Vadim Perelman,,,
-125,How Stella Got Her Groove Back,1998,Twentieth Century Fox Film Corporation,Kevin Rodney Sullivan,124,20.0,
-126,Hulk,2003,Universal Pictures,Ang Lee,,,
-127,I's,2011,,Chris Edgette,,,
-128,I Am Michael,2015,,Justin Kelly,101,2.5,
-129,I Remember Mama,1948,RKO Radio Pictures,George Stevens,,,
-130,Indiana Jones and the Last Crusade,1989,Paramount Pictures,Steven Spielberg,128,55.4,474.2
-131,Innerspace,1987,Warner Bros. Pictures,Joe Dante,120,,
-132,Interview With The Vampire,1994,Geffen Pictures,Neil Jordan,,,
-133,Invasion of the Body Snatchers,1978,United Artists,Philip Kaufman,80,,3.0
-134,It Came From Beneath the Sea,1955,Columbia Pictures,Robert Gordon,79,,1.7
-135,Jack,1996,Buena Vista Pictures,Francis Ford Coppola,,,
-136,Jade,1995,Paramount Pictures,William Friedkin,,,
-137,Jagged Edge,1985,Columbia Pictures,Richard Marquand,,,
-138,James and the Giant Peach,1996,Walt Disney Studios Home Entertainment,Henry Selick,,,
-139,Joy Luck Club,1993,National Broadcasting Company (NBC),Wayne Wang,,,
-140,Julie and Jack,2003,Echelon Entertainment,James Nguyen,,,
-141,Junior,1994,Universal Pictures,Ivan Reitman,,,
-142,Just Like Heaven,2005,DreamWorks Distribution,Mark Waters,,,
-143,Just One Night,2000,First Look International,Alan Jacobs,,,
-144,Kamikaze Hearts,1986,Facets Multimedia Distribution,Juliet Bashore,,,
-145,Knife Fight,2013,Eagle Films,Bill Guttentag,,,
-146,Live Nude Girls Unite,2000,First Run Features,Vicky Funari,,,
-147,Looking,2014,Home Box Office (HBO),Andrew Haigh,30,,
-148,"Looking ""Special""",2016,HBO,Andrew Haigh,,,
-149,Looking Season 2 ep 202,2015,HBO,Andrew Haigh,,,
-150,Looking Season 2 ep 203,2015,HBO,Andrew Haigh,,,
-151,Looking Season 2 ep 204,2015,HBO,Andrew Haigh,,,
-152,Looking Season 2 ep 205,2015,HBO,Andrew Haigh,,,
-153,Looking Season 2 ep 206,2015,HBO,Andrew Haigh,,,
-154,Looking Season 2 ep 207,2015,HBO,Andrew Haigh,,,
-155,Looking Season 2 ep 208,2015,HBO,Andrew Haigh,,,
-156,Looking Season 2 ep 209,2015,HBO,Andrew Haigh,,,
-157,Looking Season 2 ep 210,2015,HBO,Andrew Haigh,,,
-158,Love & Taxes,2014,,Jacob Kornbluth,,,
-159,Magnum Force,1973,Warner Bros. Pictures,Ted Post,124,,
-160,Marnie,1964,Universal Pictures,Alfred Hitchcock,,,
-161,Maxie,1985,Orion Pictures Corporation,Paul Aaron,,,
-162,Memoirs of an Invisible Man,1992,Warner Bros. Pictures,John Carpenter,,,
-163,Metro,1997,Buena Vista Pictures,Thomas Carter,,,
-164,Midnight Lace,1960,Universal Pictures,David Miller,103,,
-165,Milk,2008,Focus Features,Gus Van Sant,,,
-166,Mission (aka City of Bars),2001,,Loren Marsh,,,
-167,Mona Lisa Smile,2003,Columbia Pictures,Mike Newell,117,65.0,141.3
-168,Mother,1996,Paramount Pictures,Albert Brooks,,,
-169,Mrs. Doubtfire,1993,Twentieth Century Fox Film Corporation,Chris Columbus,125,25.0,441.3
-170,"Murder in the First, Season 1",2014,Turner Network Television (TNT),Steven Bochcho,,,
-171,"Murder in the First, Season 2",2015,Turner Network Television (TNT),Steven Bochcho,,,
-172,"Murder in the First, Season 3",2016,Turner Network Television (TNT),Steven Bochcho,,,
-173,My Reality,2011,,Marcia Kimpton,22–24,,
-174,Need For Speed,2014,Walt Disney Studios Motion Pictures,Scott Waugh,,,
-175,Never Die Twice,2001,,Sean A.F. Scott,,,
-176,Night of Henna,2005,Illuminare Entertainment,Hassan Zee,,,
-177,Nina Takes a Lover,1994,Columbia TriStar Home Video,Alan Jacobs,,,
-178,Nine Months,1995,Twentieth Century Fox Film Corp.,Chris Columbus,103,,138.5
-179,Nine to Five,1980,Twentieth Century Fox Film Corporation,Colin Higgins,,,
-180,Nora Prentiss,1947,Warner Bros. Pictures,Vincent Sherman,111,,2.4
-181,On the Beach,1959,United Artists,Stanley Kramer,,,
-182,On the Road,2012,IFC Films & Sundance Selects,Walter Salles,,,
-183,Pacific Heights,1990,Twentieth Century Fox Film Corporation,John Schlesinger,,,
-184,Pal Joey,1957,Columbia Pictures,George Sidney,,,
-185,Panther,1995,PolyGram Video,Mario Van Peebles,,,
-186,Parks and Recreation,2014,"NBC Universal Media, LLC",Dean Holland,22,,
-187,Patch Adams,1998,Universal Pictures,Tom Shadyac,,,
-188,Patty Hearst,1988,Atlantic Releasing Corporation,Paul Schrader,,,
-189,Petulia,1968,Warner Brothers / Seven Arts,Richard Lester,105,,
-190,Phenomenon,1996,Buena Vista Pictures,Jon Turteltaub,,,
-191,"Play it Again, Sam",1972,Paramount Pictures,Herbert Ross,,,
-192,Playing Mona Lisa,2000,Buena Vista Pictures,Matthew Huffman,97,3.0,
-193,Pleasure of His Company,1961,Paramount Pictures,George Seaton,,,
-194,Point Blank,1967,Metro-Goldwyn Mayer,John Boorman,,,
-195,Pretty Woman,1990,Buena Vista Pictures,Garry Marshall,119,14.0,463.4
-196,Psych-Out,1968,American International Pictures (AIP),Richard Rush,82,,
-197,Pushing Dead,2016,TBD,Tom Brown,,,
-198,Quicksilver,1986,Columbia Pictures,Thomas Michael Donnelly,,,
-199,Quitters,2015,,Noah Pritzker,90,,
-200,Raising Cain,1992,Universal Pictures,Brian DePalma,91,12.0,
-201,Red Diaper Baby,2004,Sundance Channel,Doug Pray,,,
-202,Red Widow,2013,American Broadcasting Company (ABC),Alon Aranya,,,
-203,Rent,2005,Columbia Pictures,Chris Columbus,,,
-204,Rollerball,2002,MGM Home Entertainment,John McTiernan,,,
-205,Romeo Must Die,2000,Warner Bros. Pictures,Andrzej Bartkowiak,115,25.0,91.0
-206,San Andreas,2015,Warner Bros.,Brad Peyton,,,
-207,San Francisco,1936,Metro-Goldwyn Mayer,W.S. Van Dyke,,,
-208,Sausalito,2000,,Andrew Lau,,,
-209,Sense8,2015,Netflix,The Wachowskis,,,
-210,Sense8 - Season 2,2016,Netflix,Wachowski Siblings,,,
-211,Serendipity,2001,Miramax Home Entertainment,Peter Chelsom,,,
-212,Serial,1980,Paramount Pictures,Bill Persky,,,
-213,Seven Girlfriends,1999,Lions Gate Films Home Entertainment,Paul Lazarus,,,
-214,Shadow of the Thin Man,1941,Metro-Goldwyn Mayer,W.S. Van Dyke,97,,
-215,Shattered,1991,Metro-Goldwyn-Mayer,Wolfgang Petersen,,,
-216,Shoot the Moon,1982,Metro-Goldwyn-Mayer (MGM),Alan Parker,124,,
-217,Sister Act,1992,Buena Vista Pictures,Emile Ardolino,100,31.0,231.6
-218,Sister Act 2: Back in the Habit,1993,Buena Vista Pictures,Bill Duke,107,38.0,57.3
-219,"Smile Again, Jenny Lee",2015,,Carlo Caldana,,,
-220,Sneakers,1992,Universal Pictures,Phil Alden Robinson,,,
-221,So I Married an Axe Murderer,1993,TriStar Pictures,Thomas Schlamme,93,20.0,
-222,Sphere,1998,Warner brothers Pictures,Barry Levinson,,,
-223,Star Trek II : The Wrath of Khan,1982,Paramount Pictures,Nicholas Meyer,112,11.2,97.0
-224,Star Trek IV: The Voyage Home,1986,Paramount Pictures,Leonard Nimoy,122,21.0,133.0
-225,Star Trek VI: The Undiscovered Country,1991,Paramount Pictures,Nicholas Meyer,110,27.0,96.9
-226,Steve Jobs,2015,Universal Pictures,Danny Boyle,,,
-227,Stigmata,1999,Metro-Goldwyn Mayer Distributing,Rupert Wainwright,,,
-228,Street Music,1981,Specialty Films,Jenny Bowen,,,
-229,Sudden Fear,1952,RKO Pictures,David Miller,110,,1.65
-230,Sudden Impact,1983,Warner Bros. Pictures,Clint Eastwood,117,22.0,
-231,Summertime,2015,,Gabriele Muccino,,,
-232,Superman,1978,Warner Bros. Pictures,Richard Donner,,,
-233,Susan Slade,1961,Warner Bros. Pictures,Delmer Daves,116,,
-234,Sweet November,2001,Warner Bros. Pictures,Pat O'Connor,,,
-235,Swing,2003,Crazy Dreams Entertainment,Martin Guigui,,,
-236,Swingin' Along,1961,Twentieth Century Fox Film Corporation,Charles Barton,,,
-237,Take the Money and Run,1969,Cinerama Releasing Corporation,Woody Allen,85,,
-238,Terminator - Genisys,2015,Paramount Pictures,Alan Taylor,126,124.9,440.6
-239,The Assassination of Richard Nixon,2004,THINKFilm,Niels Mueller,95,,4.4
-240,The Bachelor,1999,New Line Cinema,Gary Sinyor,,,
-241,The Birds,1963,Universal Pictures,Alfred Hitchcock,,,
-242,The Bridge,2006,IFC Films,Eric Steel,,,
-243,The Caine Mutiny,1954,Columbia Pictures,Edward Dmytryk,,,
-244,The Californians,2005,Fabrication Films,Jonathan Parker,,,
-245,The Candidate,1972,Warner Bros. Pictures,Michael Ritchie,,,
-246,The Competition,1980,American Broadcasting Company (ABC),Joel Oliansky,,,
-247,The Conversation,1974,Paramount Pictures,Francis Ford Coppola,113,1.6,4.4
-248,The Core,2003,Paramount Pictures,John Amiel,135,85.0,74.0
-249,The Dead Pool,1988,Warner Bros. Pictures,Buddy Van Horn,91,31.0,
-250,The Diary of a Teenage Girl,2015,Sony Pictures Classics,Marielle Heller,102,2.0,2.2
-251,The Doctor,1991,Buena Vista Pictures,Randa Haines,,,
-252,The Doors,1991,TriStar Pictures,Oliver Stone,,,
-253,The Enforcer,1976,Warner Bros. Pictures,James Fargo,,,
-254,The Fan,1996,Columbia TriStar,Tony Scott,,,
-255,The Fog of War,2003,Sony Pictures Classics,Errol Morris,107,,5.0
-256,The Game,1997,Polygram Filmed Entertainment,David Fincher,,,
-257,The Graduate,1967,Embassy Pictures Corporation,Mike Nichols,105,3.0,104.9
-258,The House on Telegraph Hill,1951,Twentieth Century Fox Film Corp.,Robert Wise,93,,
-259,The Internship,2013,Twentieth Century Fox Film Corporation,Shawn Levy,119,58.0,93.0
-260,The Jazz Singer,1927,Warner Bros. Pictures,Alan Crosland,88,,7.6
-261,The Lady from Shanghai,1947,Columbia Pictures,Orson Welles,87,,
-262,The Last of the Gladiators,1988,Evel Videos,Martin Jay Sadoff,,,
-263,The Laughing Policeman,1973,American Broadcasting Company (ABC),Stuart Rosenberg,,,
-264,The Lineup,1958,Columbia Pictures,Don Siegel,,,
-265,The Love Bug,1968,Buena Vista Distribution,Robert Stevenson,108,5.0,
-266,The Maltese Falcon,1941,Warner Bros. Pictures,John Huston,,,
-267,The Master,2012,Weinstein Company,Paul Thomas Anderson,,,
-268,The Matrix,1999,Warner Bros. Pictures,The Wachowski Brothers,136,63.0,463.5
-269,The Net,1995,Columbia Pictures,Irwin Winkler,,,
-270,The Nightmare Before Christmas,1993,Buena Vista Pictures,Henry Selick,76,18.0,76.2
-271,The Organization,1971,United Artists,Don Medford,,,
-272,The Other Sister,1999,Buena Vista Pictures,Garry Marshall,130,35.0,27.8
-273,The Parent Trap,1998,Buena Vista Pictures,Nancy Meyers,,,
-274,The Presidio,1988,Paramount Pictures,Peter Hyams,97,,
-275,The Princess Diaries,2001,Buena Vista Pictures,Garry Marshall,,,
-276,The Pursuit of Happyness,2006,Columbia Pictures,Steven Conrad,117,55.0,307.1
-277,The Right Stuff,1983,The Ladd Company,Philip Kaufman,,,
-278,The Rock,1996,Buena Vista Pictures,Michael Bay,,,
-279,The Sweetest Thing,2002,Columbia Pictures,Roger Kumble,90,43.0,
-280,The Ten Commandments,1956,Paramount Pictures,Cecil B. DeMille,,,
-281,The Times of Harvey Milk,1984,TC Films International,Rob Epstein,90,,
-282,The Towering Inferno,1974,Twentieth Century - Fox,John Guillermin,165,14.3,139.7
-283,The Wedding Planner,2001,Sony Pictures Entertainment,Adam Shankman,103,35.0,
-284,The Woman In Red,1984,MGM Home Entertainment,Gene Wilder,,,
-285,The Zodiac,2005,THINKFilm,Alexander Bulkley,,,
-286,They Call Me MISTER Tibbs,1970,United Artists,Gordon Douglas,108,,
-287,Thief of Hearts,1984,Paramount Pictures,Douglas Day Stewart,105,,
-288,Time After Time,1979,Columbia Broadcasting System (CBS),Nicholas Meyer,,,
-289,Tin Cup,1996,Warner Bros. Pictures,Ron Shelton,135,45.0,
-290,To the Ends of the Earth,1948,Columbia Pictures,Robert Stevenson,,,
-291,True Believer,1989,Columbia Pictures,Joseph Ruben,,,
-292,Tucker: The Man and His Dream,1988,Paramount Pictures,Francis Ford Coppola,110,24.0,19.7
-293,Tweek City,2005,Maverick Entertainment Group,Eric G. Johnson,,,
-294,Twisted,2004,Paramount Pictures,Philip Kaufman,,,
-295,Under the Tuscan Sun,2003,Buena Vista Pictures,Audrey Wells,,,
-296,Until the End of the World,1991,Warner Bros. Pictures,Wim Wenders,158,23.0,
-297,Vegas in Space,1992,MCA/Universal Home Video,Phillip R. Ford,85,,
-298,Vertigo,1958,Paramount Pictures,Alfred Hitchcock,,,
-299,What's Up Doc?,1972,Warner Bros. Pictures,Peter Bogdanovich,,,
-300,What Dreams May Come,1998,Polygram Filmed Entertainment,Vincent Ward,,,
-301,What the Bleep Do We Know,2004,Samuel Goldwyn Films,William Arntz,109,,
-302,When a Man Loves a Woman,1994,Buena Vista Pictures,Luis Mandoki,,,
-303,When We Rise,2017,Amercian Broadcasting Company,Gus Van Sant,8,,
-304,Woman on the Run,1950,Universal Pictures,Norman Foster,77,,
-305,Woman on Top,2000,Fox Searchlight Pictures,Fina Torres,91,8.0,10.2
-306,"Yours, Mine and Ours",1968,United Artists,Melville Shavelson,,,
-307,Zodiac,2007,Paramount Pictures,David Fincher,,,
+19,Another 48 Hours,1990,Paramount Pictures,Walter Hill,93,50,153.5
+20,Ant Man,2015,Walt Disney Studios Motion Pictures,Peyton Reed,117,130,519.3
+21,Ant-Man,2015,Walt Disney Studios Motion Pictures,Peyton Reed,117,130,519.3
+22,Around the Fire,1998,Ardustry Home Entertainment,John Jacobsen,,,
+23,Attack of the Killer Tomatoes,1978,NAI Entertainment,John DeBello,87,0.10,0.57
+24,Babies,2010,Focus Features,Thomas Balmes,79,,
+25,Barbary Coast,1935,United Artists,Howard Hawks,90,1,
+26,Basic Instinct,1992,TriStar Pictures,Paul Verhoeven,128,49,352.9
+27,Beaches,1988,Columbia Broadcasting System,Garry Marshall,123,20,57
+28,Bedazzled,2000,Twentieth Century Fox Film Corp.,Harold Ramis,93,48,109
+29,Bee Season,2005,Fox Searchlight Pictures,Scott McGehee,104,14,6.86
+30,Bicentennial Man,1999,Buena Vista Pictures,Chris Columbus,132,100,87.4
+31,Big Eyes,2014,Weinstein Company,Tim Burton,106,10,29.3
+32,Big Sur,2013,,Michael Polish,73,,0.04
+33,Big Trouble in Little China,1986,Twentieth Century Fox Film Corporation,John Carpenter,99,,11.1
+34,Birdman of Alcatraz,1962,United Artists,John Frankenheimer,143,2.65,
+35,Birth of the Dragon,2016,Kylin Pictures,George Nolfi,,,
+36,Blue Jasmine,2013,Sony Pictures Classics,Woody Allen,99,18,97.5
+37,Boys and Girls,2000,Dimension Films,Robert Iscove,94,35,25.85
+38,Broken-A Modern Love Story,2010,,Ryan K. Whiting,,,
+39,Bullitt,1968,Warner Brothers,Peter Yates,113,5.5,42.3
+40,Burglar,1987,Warner Bros. Pictures,Hugh Wilson,103,,16.36
+41,By Hook or By Crook,2001,Artistic License,Harriet Dodge & Silas Howard,,,
+42,Can't Stop the Music,1980,Associated Film Distribution (AFD),Nancy Walker,124,20,2
+43,Cardinal X,2015,,Annie Wang,,,
+44,Casualties of War,1989,Columbia Pictures,Brian DePalma,113,22.5,18.67
+45,Chan is Missing,1982,New Yorker Films,Wayne Wang,76,0.02,
+46,Chance- Season 1 ep104,2016,HULU,Carl Franklin,,,
+47,Cherish,2002,Fine Line Features,Finn Taylor,,,
+48,Chu Chu and the Philly Flash,1981,Columbia Broadcasting System (CBS),David Lowell Rich,92,7,
+49,City of Angels,1998,Warner Bros. Pictures,Brad Silberling,114,55,198.7
+50,Class Action,1991,Twentieth Century Fox Film Corp.,Michael Apted,110,,28.28
+51,Common Threads: Stories From the Quilt,1989,Direct Cinema Limited,Rob Epstein,,,
+52,Confessions of a Burning Man,2003,Windline Films,Paul Barnett,,,
+53,Copycat,1995,Warner Bros. Pictures,Jon Amiel,123,20,32.05
+54,Crackers,1984,Universal Pictures,Louis Malle,91,,
+55,D.O.A,1950,United Artists,Rudolph Mate,83,,
+56,Dark Passage,1947,Warner Bros. Pictures,Delmer Daves,106,,3
+57,Dawn of the Planet of the Apes,2014,Twentieth Century Fox,Matt Reeves,130,170,710.6
+58,Days of Wine and Roses,1962,Warner Bros. Pictures,Blake Edwards,117,,8.12
+59,Desperate Measures,1998,TriStar Pictures,Barbet Schroeder,100,50,13.81
+60,Dim Sum: A Little Bit of Heart,1985,Orion Classics,Wayne Wang,88,,
+61,Dirty Harry,1971,Warner Brothers,Don Siegel,,,
+62,Doctor Dolittle,1998,Twentieth Century Fox Film Cooperation,Betty Thomas,152,17,9
+63,Dopamine,2003,Sundance Channel Home Entertainment,Mark Decena,,,
+64,Down Periscope,1996,Twentieth Century Fox Film Corp.,David S. Ward,93,31,37.55
+65,Dr. Dolittle 2,2001,Twentieth Century Fox Film Corp.,Steve Carr,85,70.5,294.4
+66,Dream for an Insomniac,1996,Columbia TriStar Home Video,Tiffanie DeBartolo,,,
+67,Dream with the Fishes,1997,Sony Pictures Classics,Finn Taylor,97,,
+68,Dying Young,1991,Twentieth Century Fox Corporation,Joel Schumacher,114,26,82.26
+69,Edtv,1999,MCA / Universal Pictures,Ron Howard,,,
+70,Escape From Alcatraz,1979,Paramount Pictures,Donald Siegel,112,8,43
+71,Etruscan Smile,2017,TBD,Oded Binnun/ Michel Brezis,,,
+72,Experiment in Terror,1962,Columbia Pictures,Blake Edwards,123,,
+73,Faces of Death,1978,Aquarius Releasing,Conan Le Cilaire,104,0.45,35
+74,Family Plot,1976,Universal Pictures,Alfred Hitchcock,127,,
+75,Fandom,2004,Cinequest Distribution,Nicholas Tucker,,,
+76,Fat Man and Little Boy,1989,Paramount Pictures,Roland Joffe,127,,3.56
+77,Fathers' Day,1997,Columbia Broadcasting System,Ivan Reitman,98,85,35.66
+78,Fearless,1993,Warner Bros. Pictures,Peter Weir,105,,68.1
+79,Final Analysis,1992,Warner Bros. Pictures,Phil Joanou,124,,28.6
+80,Flower Drum Song,1961,Universal Pictures,Henry Koster,132,4,5
+81,Flubber,1997,Buena Vista Pictures,Les Mayfield,93,80,178
+82,Forrest Gump,1994,Paramount Pictures,Robert Zemeckis,142,55,677.9
+83,Foul Play,1978,Paramount Pictures,Colin Higgins,116,,45.00
+84,Freebie and the Bean,1974,American Broadcasting Company (ABC),Richard Rush,113,,30.00
+85,Gentleman Jim,1942,Warner Bros. Pictures,Raoul Walsh,104,,2
+86,George of the Jungle,1997,Buena Vista Pictures,Sam Weisman,92,55,174.4
+87,Getting Even with Dad,1994,Metro-Goldwyn-Mayer (MGM),Howard Dutch,104,30,18.87
+88,GirlBoss,2017,Netflix,"Jamie Babbit, Amanda Brotchie, Steven K. Tsuchida, Christian Ditter, John Riggi",,,
+89,God is a Communist?* (show me heart universe),2010,,Jon Poznanter,,,
+90,Godzilla,2014,Warner Bros. Pictures,Gareth Edwards,123,160,529.1
+91,Golden Gate,1994,The Samuel Goldwyn Company,John Madden,,,
+92,Good NeighborSam,1964,Columbia Pictures,David Swift,130,,9.07
+93,Greed,1924,Metro-Goldwyn-Mayer (MGM),Eric von Stroheim,462,0.67,0.27
+94,Groove,2000,Sony Pictures Classics,Greg Harrison,,,
+95,Guess Who's Coming to Dinner,1967,Columbia Pictures,Stanley Kramer,108,4,56.7
+96,Haiku Tunnel,2001,Sony Pictures Classics,Jakob Kornbluth & Josh Kornbluth,88,,
+97,Happy Gilmore,1996,Universal Pictures,Dennis Dugan,92,12,41.2
+98,Hard to Hold,1984,Universal Pictures,Larry Peerce,93,,11.11
+99,Harold and Maude,1971,Paramount Pictures,Hal Ashby,91,1.2,
+100,Heart and Souls,1993,Electric Parc,Tomas Gislason,104,,16.58
+101,Heart Beat,1980,Orion Pictures Corporation,John Byrum,110,12,56
+102,"Hello Frisco, Hello",1943,Twentieth Century Fox Film Corporation,Bruce Humberstone,99,,3.4
+103,Hemingway & Gelhorn,2011,Home Box Office (HBO),Philip Kaufman,154,14,
+104,Herbie Rides Again,1974,Buena Vista Distribution,Robert Stevenson,88,,38.23
+105,Hereafter,2010,Warner Bros. Pictures,Clint Eastwood,129,50,105.2
+106,High Anxiety,1977,Twentieth Century Fox Film Corporation,Carl Franklin,94,4.015,31.1
+107,High Crimes,2002,Twentieth Century Fox Film Corporation,Carl Franklin,115,42,63.8
+108,Homeward Bound II: Lost in San Francisco,1996,Buena Vista Pictures,David R. Ellis,89,,32.77
+109,House of Sand and Fog,2003,DreamWorks Distribution,Vadim Perelman,124,16.5,16.94
+110,How Stella Got Her Groove Back,1998,Twentieth Century Fox Film Corporation,Kevin Rodney Sullivan,124,20,39.28
+111,Hulk,2003,Universal Pictures,Ang Lee,138,137,245.4
+112,I Am Michael,2015,,Justin Kelly,101,2.5,
+113,I Remember Mama,1948,RKO Radio Pictures,George Stevens,134,3.07,2.9
+114,I's,2011,,Chris Edgette,123,13,1.8
+115,Indiana Jones and the Last Crusade,1989,Paramount Pictures,Steven Spielberg,128,55.4,474.2
+116,Innerspace,1987,Warner Bros. Pictures,Joe Dante,120,,25.89
+117,Interview With The Vampire,1994,Geffen Pictures,Neil Jordan,122,60,223.7
+118,Invasion of the Body Snatchers,1978,United Artists,Philip Kaufman,115,3.5,24.95
+119,It Came From Beneath the Sea,1955,Columbia Pictures,Robert Gordon,79,0.15,1.7
+120,Jack,1996,Buena Vista Pictures,Francis Ford Coppola,,,
+121,Jade,1995,Paramount Pictures,William Friedkin,,,
+122,Jagged Edge,1985,Columbia Pictures,Richard Marquand,108,15,40.49
+123,James and the Giant Peach,1996,Walt Disney Studios Home Entertainment,Henry Selick,79,38,28.9
+124,Joy Luck Club,1993,National Broadcasting Company (NBC),Wayne Wang,139,10.5,32.90
+125,Julie and Jack,2003,Echelon Entertainment,James Nguyen,,,
+126,Junior,1994,Universal Pictures,Ivan Reitman,,,
+127,Just Like Heaven,2005,DreamWorks Distribution,Mark Waters,95,58,102.85
+128,Just One Night,2000,First Look International,Alan Jacobs,,,
+129,Kamikaze Hearts,1986,Facets Multimedia Distribution,Juliet Bashore,,,
+130,Knife Fight,2013,Eagle Films,Bill Guttentag,,,0.01
+131,Love & Taxes,2014,,Jacob Kornbluth,,,
+132,Magnum Force,1973,Warner Bros. Pictures,Ted Post,124,,39.77
+133,Marnie,1964,Universal Pictures,Alfred Hitchcock,130,3,7
+134,Maxie,1985,Orion Pictures Corporation,Paul Aaron,,,
+135,Memoirs of an Invisible Man,1992,Warner Bros. Pictures,John Carpenter,99,40,14.4
+136,Metro,1997,Buena Vista Pictures,Thomas Carter,153,0.10,0.01
+137,Midnight Lace,1960,Universal Pictures,David Miller,103,,
+138,Milk,2008,Focus Features,Gus Van Sant,128,20,54.6
+139,Mission (aka City of Bars),2001,,Loren Marsh,,,
+140,Mona Lisa Smile,2003,Columbia Pictures,Mike Newell,117,65,141.3
+141,Mother,1996,Paramount Pictures,Albert Brooks,,,
+142,Mrs. Doubtfire,1993,Twentieth Century Fox Film Corporation,Chris Columbus,125,25,441.3
+143,"Murder in the First, Season 1",2014,Turner Network Television (TNT),Steven Bochcho,,,
+144,My Reality,2011,,Marcia Kimpton,,,
+145,Need For Speed,2014,Walt Disney Studios Motion Pictures,Scott Waugh,130,65,203.3
+146,Never Die Twice,2001,,Sean A.F. Scott,,,
+147,Night of Henna,2005,Illuminare Entertainment,Hassan Zee,,,
+148,Nina Takes a Lover,1994,Columbia TriStar Home Video,Alan Jacobs,,,
+149,Nine Months,1995,Twentieth Century Fox Film Corp.,Chris Columbus,103,,138.5
+150,Nine to Five,1980,Twentieth Century Fox Film Corporation,Colin Higgins,110,10,103.3
+151,Nora Prentiss,1947,Warner Bros. Pictures,Vincent Sherman,111,,2.4
+152,On the Beach,1959,United Artists,Stanley Kramer,134,2.9,
+153,On the Road,2012,IFC Films & Sundance Selects,Walter Salles,137,25,8.8
+154,Pacific Heights,1990,Twentieth Century Fox Film Corporation,John Schlesinger,102,18,44.93
+155,Pal Joey,1957,Columbia Pictures,George Sidney,109,,4.7
+156,Panther,1995,PolyGram Video,Mario Van Peebles,,,
+157,Parks and Recreation,2014,"NBC Universal Media, LLC",Dean Holland,22,,
+158,Patch Adams,1998,Universal Pictures,Tom Shadyac,115,90,202.3
+159,Patty Hearst,1988,Atlantic Releasing Corporation,Paul Schrader,108,,1.22
+160,Petulia,1968,Warner Brothers / Seven Arts,Richard Lester,105,,1.60
+161,Phenomenon,1996,Buena Vista Pictures,Jon Turteltaub,123,32.00,152.04
+162,"Play it Again, Sam",1972,Paramount Pictures,Herbert Ross,85,,
+163,Playing Mona Lisa,2000,Buena Vista Pictures,Matthew Huffman,97,3,
+164,Pleasure of His Company,1961,Paramount Pictures,George Seaton,,,
+165,Point Blank,1967,Metro-Goldwyn Mayer,John Boorman,92,2.5,3.20
+166,Pretty Woman,1990,Buena Vista Pictures,Garry Marshall,119,14,463.4
+167,Psych-Out,1968,American International Pictures (AIP),Richard Rush,82,,
+168,Pushing Dead,2016,TBD,Tom Brown,,,
+169,Quicksilver,1986,Columbia Pictures,Thomas Michael Donnelly,105,,7.25
+170,Quitters,2015,,Noah Pritzker,90,,
+171,Raising Cain,1992,Universal Pictures,Brian DePalma,91,12,37.17
+172,Red Diaper Baby,2004,Sundance Channel,Doug Pray,,,
+173,Red Widow,2013,American Broadcasting Company (ABC),Alon Aranya,,,
+174,Rent,2005,Columbia Pictures,Chris Columbus,135,40,31.6
+175,Rollerball,2002,MGM Home Entertainment,John McTiernan,129,,30
+176,Romeo Must Die,2000,Warner Bros. Pictures,Andrzej Bartkowiak,115,25,91
+177,San Andreas,2015,Warner Bros.,Brad Peyton,114,110,474
+178,San Francisco,1936,Metro-Goldwyn Mayer,W.S. Van Dyke,,,
+179,Sausalito,2000,,Andrew Lau,,,
+180,Serendipity,2001,Miramax Home Entertainment,Peter Chelsom,91,28,77.52
+181,Serial,1980,Paramount Pictures,Bill Persky,,,
+182,Seven Girlfriends,1999,Lions Gate Films Home Entertainment,Paul Lazarus,,,
+183,Shadow of the Thin Man,1941,Metro-Goldwyn Mayer,W.S. Van Dyke,97,,
+184,Shattered,1991,Metro-Goldwyn-Mayer,Wolfgang Petersen,94,6,2.9
+185,Shoot the Moon,1982,Metro-Goldwyn-Mayer (MGM),Alan Parker,124,12.00,9.22
+186,Sister Act,1992,Buena Vista Pictures,Emile Ardolino,100,31,231.6
+187,Sister Act 2: Back in the Habit,1993,Buena Vista Pictures,Bill Duke,107,38,57.3
+188,"Smile Again, Jenny Lee",2015,,Carlo Caldana,,,
+189,Sneakers,1992,Universal Pictures,Phil Alden Robinson,126,35,105.23
+190,So I Married an Axe Murderer,1993,TriStar Pictures,Thomas Schlamme,93,20,11.59
+191,Sphere,1998,Warner brothers Pictures,Barry Levinson,129,,50.1
+192,Star Trek II : The Wrath of Khan,1982,Paramount Pictures,Nicholas Meyer,112,11.2,97
+193,Star Trek IV: The Voyage Home,1986,Paramount Pictures,Leonard Nimoy,122,21,133
+194,Star Trek VI: The Undiscovered Country,1991,Paramount Pictures,Nicholas Meyer,110,27,96.9
+195,Steve Jobs,2015,Universal Pictures,Danny Boyle,122,30,34.4
+196,Stigmata,1999,Metro-Goldwyn Mayer Distributing,Rupert Wainwright,103,29,89.4
+197,Street Music,1981,Specialty Films,Jenny Bowen,93,,
+198,Sudden Fear,1952,RKO Pictures,David Miller,110,,1.65
+199,Sudden Impact,1983,Warner Bros. Pictures,Clint Eastwood,117,22,
+200,Summertime,2015,,Gabriele Muccino,105,4.8,2.2
+201,Superman,1978,Warner Bros. Pictures,Richard Donner,,,
+202,Susan Slade,1961,Warner Bros. Pictures,Delmer Daves,116,,
+203,Sweet November,2001,Warner Bros. Pictures,Pat O'Connor,120,40,65.75
+204,Swing,2003,Crazy Dreams Entertainment,Martin Guigui,,,
+205,Swingin' Along,1961,Twentieth Century Fox Film Corporation,Charles Barton,,,
+206,Take the Money and Run,1969,Cinerama Releasing Corporation,Woody Allen,85,1.53,3.04
+207,Terminator - Genisys,2015,Paramount Pictures,Alan Taylor,126,124.9,440.6
+208,The Assassination of Richard Nixon,2004,THINKFilm,Niels Mueller,95,,4.4
+209,The Bachelor,1999,New Line Cinema,Gary Sinyor,,,
+210,The Birds,1963,Universal Pictures,Alfred Hitchcock,119,3.3,11.4
+211,The Bridge,2006,IFC Films,Eric Steel,134,22,182
+212,The Caine Mutiny,1954,Columbia Pictures,Edward Dmytryk,124,2,21.8
+213,The Californians,2005,Fabrication Films,Jonathan Parker,87,0.50,
+214,The Candidate,1972,Warner Bros. Pictures,Michael Ritchie,109,,
+215,The Competition,1980,American Broadcasting Company (ABC),Joel Oliansky,125,,14.3
+216,The Conversation,1974,Paramount Pictures,Francis Ford Coppola,113,1.6,4.4
+217,The Core,2003,Paramount Pictures,John Amiel,135,85,74
+218,The Dead Pool,1988,Warner Bros. Pictures,Buddy Van Horn,91,31,37.90
+219,The Diary of a Teenage Girl,2015,Sony Pictures Classics,Marielle Heller,102,2,2.2
+220,The Doctor,1991,Buena Vista Pictures,Randa Haines,,,
+221,The Doors,1991,TriStar Pictures,Oliver Stone,140,38,34.4
+222,The Enforcer,1976,Warner Bros. Pictures,James Fargo,96,9,46.24
+223,The Fan,1996,Columbia TriStar,Tony Scott,90,1,
+224,The Fog of War,2003,Sony Pictures Classics,Errol Morris,107,,5
+225,The Game,1997,Polygram Filmed Entertainment,David Fincher,128,,109.4
+226,The Graduate,1967,Embassy Pictures Corporation,Mike Nichols,94,,
+227,The House on Telegraph Hill,1951,Twentieth Century Fox Film Corp.,Robert Wise,93,,
+228,The Internship,2013,Twentieth Century Fox Film Corporation,Shawn Levy,119,58,93
+229,The Jazz Singer,1927,Warner Bros. Pictures,Alan Crosland,115,,27.12
+230,The Lady from Shanghai,1947,Columbia Pictures,Orson Welles,87,,0.56
+231,The Last of the Gladiators,1988,Evel Videos,Martin Jay Sadoff,,,
+232,The Laughing Policeman,1973,American Broadcasting Company (ABC),Stuart Rosenberg,112,2.28,1.75
+233,The Lineup,1958,Columbia Pictures,Don Siegel,86,,
+234,The Love Bug,1968,Buena Vista Distribution,Robert Stevenson,88,,
+235,The Maltese Falcon,1941,Warner Bros. Pictures,John Huston,101,0.38,
+236,The Master,2012,Weinstein Company,Paul Thomas Anderson,137,32,28.3
+237,The Matrix,1999,Warner Bros. Pictures,The Wachowski Brothers,136,63,463.5
+238,The Net,1995,Columbia Pictures,Irwin Winkler,115,22,
+239,The Nightmare Before Christmas,1993,Buena Vista Pictures,Henry Selick,76,18,76.2
+240,The Organization,1971,United Artists,Don Medford,106,,
+241,The Other Sister,1999,Buena Vista Pictures,Garry Marshall,130,35,27.8
+242,The Parent Trap,1998,Buena Vista Pictures,Nancy Meyers,128,15,83.9
+243,The Presidio,1988,Paramount Pictures,Peter Hyams,97,,20.04
+244,The Princess Diaries,2001,Buena Vista Pictures,Garry Marshall,115,26,165.3
+245,The Pursuit of Happyness,2006,Columbia Pictures,Steven Conrad,93,,
+246,The Right Stuff,1983,The Ladd Company,Philip Kaufman,192,27,21.1
+247,The Rock,1996,Buena Vista Pictures,Michael Bay,108,40,46.7
+248,The Sweetest Thing,2002,Columbia Pictures,Roger Kumble,90,43,68.70
+249,The Ten Commandments,1956,Paramount Pictures,Cecil B. DeMille,220,13,122.7
+250,The Times of Harvey Milk,1984,TC Films International,Rob Epstein,90,,0.03
+251,The Towering Inferno,1974,Twentieth Century - Fox,John Guillermin,165,14.3,139.7
+252,The Wedding Planner,2001,Sony Pictures Entertainment,Adam Shankman,103,35,94.73
+253,The Woman In Red,1984,MGM Home Entertainment,Gene Wilder,87,,25.31
+254,The Zodiac,2005,THINKFilm,Alexander Bulkley,97,1,0.09
+255,They Call Me MISTER Tibbs,1970,United Artists,Gordon Douglas,108,,2.35
+256,Thief of Hearts,1984,Paramount Pictures,Douglas Day Stewart,105,,10.40
+257,Time After Time,1979,Columbia Broadcasting System (CBS),Nicholas Meyer,112,,13.00
+258,Tin Cup,1996,Warner Bros. Pictures,Ron Shelton,135,45,75.85
+259,To the Ends of the Earth,1948,Columbia Pictures,Robert Stevenson,109,,1.7
+260,True Believer,1989,Columbia Pictures,Joseph Ruben,108,,8.7
+261,Tucker: The Man and His Dream,1988,Paramount Pictures,Francis Ford Coppola,110,24,19.7
+262,Tweek City,2005,Maverick Entertainment Group,Eric G. Johnson,,,
+263,Twisted,2004,Paramount Pictures,Philip Kaufman,,,
+264,Under the Tuscan Sun,2003,Buena Vista Pictures,Audrey Wells,113,18,58.9
+265,Until the End of the World,1991,Warner Bros. Pictures,Wim Wenders,158,23,0.75
+266,Vegas in Space,1992,MCA/Universal Home Video,Phillip R. Ford,85,,
+267,Vertigo,1958,Paramount Pictures,Alfred Hitchcock,128,2.5,7.3
+268,What Dreams May Come,1998,Polygram Filmed Entertainment,Vincent Ward,113,85,71.3
+269,What the Bleep Do We Know,2004,Samuel Goldwyn Films,William Arntz,109,,16.00
+270,What's Up Doc?,1972,Warner Bros. Pictures,Peter Bogdanovich,94,4,66.00
+271,When a Man Loves a Woman,1994,Buena Vista Pictures,Luis Mandoki,126,,50.0
+272,When We Rise,2017,Amercian Broadcasting Company,Gus Van Sant,8,,
+273,Woman on the Run,1950,Universal Pictures,Norman Foster,77,,
+274,Woman on Top,2000,Fox Searchlight Pictures,Fina Torres,91,8,10.2
+275,"Yours, Mine and Ours",1968,United Artists,Melville Shavelson,111,2.5,25.91
+276,Zodiac,2007,Paramount Pictures,David Fincher,158,65,84.8

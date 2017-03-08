@@ -3,10 +3,17 @@ CREATE TABLE films (
   title                 VARCHAR,
   release_year          INTEGER,
   distributor           VARCHAR,
-  actor1                VARCHAR,
-  actor2                VARCHAR,
-  actor3                VARCHAR,
-  director_id           INTEGER
+  director              VARCHAR,
+  running_time_minutes  INTEGER,
+  budget_millions       REAL,
+  box_office_millions   REAL
+);
+
+CREATE TABLE actors (
+  id                    INTEGER     PRIMARY KEY,
+  name                  VARCHAR,
+  dob                   DATE,
+  dod                   DATE
 );
 
 CREATE TABLE locations (
@@ -15,17 +22,21 @@ CREATE TABLE locations (
   fun_facts             VARCHAR
 );
 
-CREATE TABLE directors (
+-- will throw error: `(film_id)=(1) already exists`, as we have non unique rows for film_id
+-- to avoid, we use id as primary key as per:
+-- http://stackoverflow.com/questions/6895419/postgresql-error-duplicate-key-value-violates-unique-constraint
+
+CREATE TABLE casts (
   id                    INTEGER     PRIMARY KEY,
-  name                  VARCHAR,
-  date_of_birth         DATE,
-  date_of_death         DATE
+  film_id               INTEGER,
+  actor_id              INTEGER
 );
 
 -- Copy over data from CSVs
 \copy films FROM 'data/films/films.csv' DELIMITER ',' CSV HEADER;
+\copy actors FROM 'data/films/actors.csv' DELIMITER ',' CSV HEADER;
 \copy locations FROM 'data/films/locations.csv' DELIMITER ',' CSV HEADER;
-\copy directors FROM 'data/films/directors.csv' DELIMITER ',' CSV HEADER;
+\copy casts FROM 'data/films/casts.csv' DELIMITER ',' CSV HEADER;
 
 /*
 createdb films
