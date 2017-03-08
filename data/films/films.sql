@@ -22,9 +22,13 @@ CREATE TABLE locations (
   fun_facts             VARCHAR
 );
 
--- throwing error: (film_id)=(1) already exists.
+-- will throw error: `(film_id)=(1) already exists`, as we have non unique rows for film_id
+-- to avoid, we use id as primary key as per:
+-- http://stackoverflow.com/questions/6895419/postgresql-error-duplicate-key-value-violates-unique-constraint
+
 CREATE TABLE casts (
-  film_id               INTEGER      PRIMARY KEY,
+  id                    INTEGER     PRIMARY KEY,
+  film_id               INTEGER,
   actor_id              INTEGER
 );
 
@@ -32,7 +36,7 @@ CREATE TABLE casts (
 \copy films FROM 'data/films/films.csv' DELIMITER ',' CSV HEADER;
 \copy actors FROM 'data/films/actors.csv' DELIMITER ',' CSV HEADER;
 \copy locations FROM 'data/films/locations.csv' DELIMITER ',' CSV HEADER;
--- \copy casts FROM 'data/films/casts.csv' DELIMITER ',' CSV HEADER;
+\copy casts FROM 'data/films/casts.csv' DELIMITER ',' CSV HEADER;
 
 /*
 createdb films
