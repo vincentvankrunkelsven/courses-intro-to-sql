@@ -10,11 +10,11 @@ The role of a data scientist is to turn raw data into actionable insights. Much 
 
 * Learn the basic language and structure of relational databases
 * Select columns of interest from database tables
-* Filter for records matching specfic criteria
+* Filter for records matching specific criteria
 * Compute helpful quantities like counts and averages, both overall and within groups
 * Arrange data based on the values of certain columns
 * Apply everything you learn in a real-world case study
 
 ## Prerequisites
 
-* 
+*
