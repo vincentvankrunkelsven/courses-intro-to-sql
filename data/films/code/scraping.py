@@ -165,11 +165,24 @@ def is_number(s):
 def fix_millions(number_chunk):
     million = 1000000
     temp = [s.strip() for s in number_chunk.split()]
+
     # fix currency stuff, advance one at a time for currencies with multiple currency denoters
     # we are not converting to USD --> unnecessary
     number_string = temp[0][1:]
     while not is_number(number_string[0]):
         number_string = number_string[1:]
+
+    if '[' in number_string:
+        number_string = number_string[:number_string.index('[')]
+
+    # commas in number (we don't replace straight off cause we need to know when num has commas)
+    # e.g. $1000 million vs $1,000 vs $1 billion, $1 million vs $1.0 million
+    if ',' in number_string:
+        number_string = number_string.replace(',', '')
+        if is_number(number_string):
+                num = float(number_string)
+                print('num --> {}'.format(num))
+                return str('{0:.2f}'.format(num / million))
 
     # catch everything else
     if not is_number(number_string):
@@ -192,13 +205,6 @@ def fix_millions(number_chunk):
     for s in splitters:
         if s in number_string:
             number_string = number_string[:number_string.index(s)]
-
-    # commas in number
-    if ',' in number_string:
-        number_string = number_string.replace(',', '')
-        num = float(number_string)
-        print('num --> {}'.format(num))
-        return str('{0:.2f}'.format(num / million))
 
     return number_string
 
@@ -310,5 +316,5 @@ if __name__ == "__main__":
     setup()
     # update_actors()
     # update_films(output_file='../testfilms.csv')
-    # update_films()
-    test_film('The Zodiac')
+    update_films()
+    # test_film('The Woman In Red')
