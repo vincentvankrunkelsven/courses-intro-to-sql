@@ -20,7 +20,7 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 19,Another 48 Hours,1990,Paramount Pictures,Walter Hill,93,50,153.5
 20,Ant Man,2015,Walt Disney Studios Motion Pictures,Peyton Reed,117,130,519.3
 21,Ant-Man,2015,Walt Disney Studios Motion Pictures,Peyton Reed,117,130,519.3
-22,Around the Fire,1998,Ardustry Home Entertainment,John Jacobsen,N/A,N/A,N/A
+22,Around the Fire,1998,Ardustry Home Entertainment,John Jacobsen,,,
 23,Attack of the Killer Tomatoes,1978,NAI Entertainment,John DeBello,87,,
 24,Babies,2010,Focus Features,Thomas Balmes,79,,
 25,Barbary Coast,1935,United Artists,Howard Hawks,90,1,
@@ -36,7 +36,7 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 35,Birth of the Dragon,2016,Kylin Pictures,George Nolfi,,,
 36,Blue Jasmine,2013,Sony Pictures Classics,Woody Allen,99,18,97.5
 37,Boys and Girls,2000,Dimension Films,Robert Iscove,94,35,
-38,Broken-A Modern Love Story,2010,,Ryan K. Whiting,N/A,N/A,N/A
+38,Broken-A Modern Love Story,2010,,Ryan K. Whiting,,,
 39,Bullitt,1968,Warner Brothers,Peter Yates,113,5.5,42.3
 40,Burglar,1987,Warner Bros. Pictures,Hugh Wilson,103,,
 41,By Hook or By Crook,2001,Artistic License,Harriet Dodge & Silas Howard,,,
@@ -44,13 +44,13 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 43,Cardinal X,2015,,Annie Wang,,,
 44,Casualties of War,1989,Columbia Pictures,Brian DePalma,113,22.5,
 45,Chan is Missing,1982,New Yorker Films,Wayne Wang,76,,
-46,Chance- Season 1 ep104,2016,HULU,Carl Franklin,N/A,N/A,N/A
+46,Chance- Season 1 ep104,2016,HULU,Carl Franklin,,,
 47,Cherish,2002,Fine Line Features,Finn Taylor,,,
 48,Chu Chu and the Philly Flash,1981,Columbia Broadcasting System (CBS),David Lowell Rich,92,7,
 49,City of Angels,1998,Warner Bros. Pictures,Brad Silberling,114,55,198.7
 50,Class Action,1991,Twentieth Century Fox Film Corp.,Michael Apted,110,,
 51,Common Threads: Stories From the Quilt,1989,Direct Cinema Limited,Rob Epstein,,,
-52,Confessions of a Burning Man,2003,Windline Films,Paul Barnett,N/A,N/A,N/A
+52,Confessions of a Burning Man,2003,Windline Films,Paul Barnett,,,
 53,Copycat,1995,Warner Bros. Pictures,Jon Amiel,123,20,
 54,Crackers,1984,Universal Pictures,Louis Malle,91,,
 55,D.O.A,1950,United Artists,Rudolph Mate,83,,
@@ -87,7 +87,7 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 86,George of the Jungle,1997,Buena Vista Pictures,Sam Weisman,92,55,174.4
 87,Getting Even with Dad,1994,Metro-Goldwyn-Mayer (MGM),Howard Dutch,104,30,
 88,GirlBoss,2017,Netflix,"Jamie Babbit, Amanda Brotchie, Steven K. Tsuchida, Christian Ditter, John Riggi",,,
-89,God is a Communist?* (show me heart universe),2010,,Jon Poznanter,N/A,N/A,N/A
+89,God is a Communist?* (show me heart universe),2010,,Jon Poznanter,,,
 90,Godzilla,2014,Warner Bros. Pictures,Gareth Edwards,123,160,529.1
 91,Golden Gate,1994,The Samuel Goldwyn Company,John Madden,,,
 92,Good NeighborSam,1964,Columbia Pictures,David Swift,130,,
@@ -123,7 +123,7 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 122,Jagged Edge,1985,Columbia Pictures,Richard Marquand,108,15,
 123,James and the Giant Peach,1996,Walt Disney Studios Home Entertainment,Henry Selick,79,38,28.9
 124,Joy Luck Club,1993,National Broadcasting Company (NBC),Wayne Wang,139,10.5,
-125,Julie and Jack,2003,Echelon Entertainment,James Nguyen,N/A,N/A,N/A
+125,Julie and Jack,2003,Echelon Entertainment,James Nguyen,,,
 126,Junior,1994,Universal Pictures,Ivan Reitman,,,
 127,Just Like Heaven,2005,DreamWorks Distribution,Mark Waters,95,58,
 128,Just One Night,2000,First Look International,Alan Jacobs,,,
@@ -137,16 +137,16 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 136,Metro,1997,Buena Vista Pictures,Thomas Carter,153,,
 137,Midnight Lace,1960,Universal Pictures,David Miller,103,,
 138,Milk,2008,Focus Features,Gus Van Sant,128,20,54.6
-139,Mission (aka City of Bars),2001,,Loren Marsh,N/A,N/A,N/A
+139,Mission (aka City of Bars),2001,,Loren Marsh,,,
 140,Mona Lisa Smile,2003,Columbia Pictures,Mike Newell,117,65,141.3
 141,Mother,1996,Paramount Pictures,Albert Brooks,,,
 142,Mrs. Doubtfire,1993,Twentieth Century Fox Film Corporation,Chris Columbus,125,25,441.3
-143,"Murder in the First, Season 1",2014,Turner Network Television (TNT),Steven Bochcho,N/A,N/A,N/A
+143,"Murder in the First, Season 1",2014,Turner Network Television (TNT),Steven Bochcho,,,
 144,My Reality,2011,,Marcia Kimpton,,,
 145,Need For Speed,2014,Walt Disney Studios Motion Pictures,Scott Waugh,130,65,203.3
-146,Never Die Twice,2001,,Sean A.F. Scott,N/A,N/A,N/A
+146,Never Die Twice,2001,,Sean A.F. Scott,,,
 147,Night of Henna,2005,Illuminare Entertainment,Hassan Zee,,,
-148,Nina Takes a Lover,1994,Columbia TriStar Home Video,Alan Jacobs,N/A,N/A,N/A
+148,Nina Takes a Lover,1994,Columbia TriStar Home Video,Alan Jacobs,,,
 149,Nine Months,1995,Twentieth Century Fox Film Corp.,Chris Columbus,103,,138.5
 150,Nine to Five,1980,Twentieth Century Fox Film Corporation,Colin Higgins,110,10,103.3
 151,Nora Prentiss,1947,Warner Bros. Pictures,Vincent Sherman,111,,2.4
@@ -161,11 +161,11 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 160,Phenomenon,1996,Buena Vista Pictures,Jon Turteltaub,123,,
 161,"Play it Again, Sam",1972,Paramount Pictures,Herbert Ross,85,,
 162,Playing Mona Lisa,2000,Buena Vista Pictures,Matthew Huffman,97,3,
-163,Pleasure of His Company,1961,Paramount Pictures,George Seaton,N/A,N/A,N/A
+163,Pleasure of His Company,1961,Paramount Pictures,George Seaton,,,
 164,Point Blank,1967,Metro-Goldwyn Mayer,John Boorman,92,2.5,
 165,Pretty Woman,1990,Buena Vista Pictures,Garry Marshall,119,14,463.4
 166,Psych-Out,1968,American International Pictures (AIP),Richard Rush,82,,
-167,Pushing Dead,2016,TBD,Tom Brown,N/A,N/A,N/A
+167,Pushing Dead,2016,TBD,Tom Brown,,,
 168,Quicksilver,1986,Columbia Pictures,Thomas Michael Donnelly,105,,
 169,Quitters,2015,,Noah Pritzker,90,,
 170,Raising Cain,1992,Universal Pictures,Brian DePalma,91,12,
@@ -185,7 +185,7 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 184,Shoot the Moon,1982,Metro-Goldwyn-Mayer (MGM),Alan Parker,124,,
 185,Sister Act,1992,Buena Vista Pictures,Emile Ardolino,100,31,231.6
 186,Sister Act 2: Back in the Habit,1993,Buena Vista Pictures,Bill Duke,107,38,57.3
-187,"Smile Again, Jenny Lee",2015,,Carlo Caldana,N/A,N/A,N/A
+187,"Smile Again, Jenny Lee",2015,,Carlo Caldana,,,
 188,Sneakers,1992,Universal Pictures,Phil Alden Robinson,126,35,
 189,So I Married an Axe Murderer,1993,TriStar Pictures,Thomas Schlamme,93,20,
 190,Sphere,1998,Warner brothers Pictures,Barry Levinson,129,,50.1
@@ -228,7 +228,7 @@ film_id,title,release_year,distributor,director,running_time_minutes,budget_mill
 227,The Internship,2013,Twentieth Century Fox Film Corporation,Shawn Levy,119,58,93
 228,The Jazz Singer,1927,Warner Bros. Pictures,Alan Crosland,115,,
 229,The Lady from Shanghai,1947,Columbia Pictures,Orson Welles,87,,
-230,The Last of the Gladiators,1988,Evel Videos,Martin Jay Sadoff,N/A,N/A,N/A
+230,The Last of the Gladiators,1988,Evel Videos,Martin Jay Sadoff,,,
 231,The Laughing Policeman,1973,American Broadcasting Company (ABC),Stuart Rosenberg,112,,
 232,The Lineup,1958,Columbia Pictures,Don Siegel,86,,
 233,The Love Bug,1968,Buena Vista Distribution,Robert Stevenson,88,,

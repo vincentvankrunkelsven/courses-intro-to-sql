@@ -40,8 +40,8 @@ def wiki_search(term):
             # more relevant in case of same movie title in multiple years
             break
 
-    print("wiki results --> {}".format(results))
-    print("url ---> {}".format(res))
+    # print("wiki results --> {}".format(results))
+    # print("url ---> {}".format(res))
     return base_url + res if res else None
 
 def get_html(url):
@@ -90,9 +90,10 @@ def get_wiki_info(title, kind, info):
     """
     res = wiki_search(title)
 
-    # no wikipedia results, as opposed to just no info
     if res is None:
-        return 'N/A'
+        # just to count when no results as opposed to just no info for result
+        # return 'N/A'
+        return ''
     else:
         if kind == 'person':
             html = get_html(res)
@@ -163,16 +164,12 @@ def is_number(s):
 
 def fix_millions(number_chunk):
     million = 1000000
-    temp = number_chunk.split()
-
+    temp = [s.strip() for s in number_chunk.split()]
     # fix currency stuff, advance one at a time for currencies with multiple currency denoters
     # we are not converting to USD --> unnecessary
     number_string = temp[0][1:]
     while not is_number(number_string[0]):
         number_string = number_string[1:]
-
-    if '[' in number_string:
-        number_string = number_string[:number_string.index('[')]
 
     # catch everything else
     if not is_number(number_string):
@@ -196,9 +193,11 @@ def fix_millions(number_chunk):
         if s in number_string:
             number_string = number_string[:number_string.index(s)]
 
+    # commas in number
     if ',' in number_string:
         number_string = number_string.replace(',', '')
         num = float(number_string)
+        print('num --> {}'.format(num))
         return str('{0:.2f}'.format(num / million))
 
     return number_string
@@ -311,5 +310,5 @@ if __name__ == "__main__":
     setup()
     # update_actors()
     # update_films(output_file='../testfilms.csv')
-    update_films()
-    # test_film('Knife Fight')
+    # update_films()
+    test_film('The Zodiac')
