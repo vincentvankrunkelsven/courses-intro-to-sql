@@ -1,4 +1,4 @@
-actor_id,name,dob,dod
+id,name,date_of_birth,date_of_death
 1,Aaliyah,1979-01-16,2001-08-25
 2,Aaron Eckhart,1968-03-12,
 3,Aaron Paul,1979-08-27,
