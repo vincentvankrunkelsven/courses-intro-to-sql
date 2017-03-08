@@ -29,15 +29,20 @@ def wiki_search(term):
     res = ''
     if results:
         res = results[0]
+    else:
+        return None
 
     # force film result if ambiguous
     for r in results:
         if 'film' in r or '(film)' in r:
             res = r
+            # get the first one as displayed by wikipedia
+            # more relevant in case of same movie title in multiple years
+            break
 
-    # print("wiki results --> {}".format(results))
-    # print("url ---> {}".format(res))
-    return base_url + res if res else ''
+    print("wiki results --> {}".format(results))
+    print("url ---> {}".format(res))
+    return base_url + res if res else None
 
 def get_html(url):
     resp = requests.get(url)
@@ -85,7 +90,10 @@ def get_wiki_info(title, kind, info):
     """
     res = wiki_search(title)
 
-    if res:
+    # no wikipedia results, as opposed to just no info
+    if res is None:
+        return 'N/A'
+    else:
         if kind == 'person':
             html = get_html(res)
             strainer = SoupStrainer('table', attrs={'class':'infobox biography vcard'})
@@ -109,6 +117,7 @@ def get_wiki_info(title, kind, info):
                     inner_table = table.find('th', text='Budget')
                     if inner_table:
                         budget_string = inner_table.find_next_sibling('td').get_text()
+                        print('budget string --> {}'.format(budget_string))
                         if budget_string:
                             number = fix_millions(budget_string)
                             return number
@@ -117,7 +126,7 @@ def get_wiki_info(title, kind, info):
                     inner_table = table.find('th', text='Box office')
                     if inner_table:
                         bo_string = inner_table.find_next_sibling('td').get_text()
-                        # print('bo string --> {}'.format(bo_string))
+                        print('bo string --> {}'.format(bo_string))
                         if bo_string:
                             number = fix_millions(bo_string)
                             return number
@@ -129,6 +138,8 @@ def get_wiki_info(title, kind, info):
                         if 'Running time' in i.text:
                             run_string = i.parent.text
                             break
+
+                    print('run string --> {}'.format(run_string))
 
                     if run_string:
                         temp = run_string.split()
@@ -300,4 +311,5 @@ if __name__ == "__main__":
     setup()
     # update_actors()
     # update_films(output_file='../testfilms.csv')
-    # test_film('Sudden Fear')
+    update_films()
+    # test_film('Knife Fight')
