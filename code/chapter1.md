@@ -99,20 +99,6 @@ FROM films;
 - DIVISION
 - MODULO
 
-Get best box office of all films.
-```sql
-SELECT title, MAX(box_office_millions)
-AS highest_grossing
-FROM films;
-```
-
-Get best box office of all films.
-```sql
-SELECT title, MIN(box_office_millions)
-AS biggest_flop
-FROM films;
-```
-
 Get total number of unique dates.
 ```sql
 SELECT COUNT(DISTINCT date_of_birth) + COUNT(DISTINCT date_of_death)
