@@ -1,5 +1,5 @@
 # Selecting and summarizing columns
-###### Selecting Columns: SELECT, SELECT DISTINCT
+##### Selecting Columns: SELECT, SELECT DISTINCT
 - SELECT (single)
 - SELECT (multiple)
 - SELECT DISTINCT
@@ -34,7 +34,7 @@ SELECT DISTINCT distributor
 FROM films;
 ```
 
-###### Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
+##### Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
 - COUNT
 - COUNT DISTINCT
 - COUNT(column_name) vs COUNT(\*)
@@ -91,7 +91,7 @@ SELECT MAX(box_office_millions)
 FROM films;
 ```
 
-###### Basic Arithmetic: +, -, \*, /, %
+##### Basic Arithmetic: +, -, \*, /, %
 - AS
 - ADDITION
 - SUBTRACTION
@@ -141,7 +141,7 @@ AS result
 FROM films;
 ```
 
-###### Rounding Functions: ROUND, FLOOR, CEILING
+##### Rounding Functions: ROUND, FLOOR, CEILING
 - ROUND AVG
 - FLOOR AVG
 - CEILING AVG
