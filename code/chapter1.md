@@ -91,13 +91,13 @@ SELECT MAX(box_office_millions)
 FROM films;
 ```
 
-#### Basic Arithmetic: +, -, \*, /, %
+#### Aliasing and Basic Arithmetic: AS, +, -, \*, /, %
 - AS
-- ADDITION
-- SUBTRACTION
-- MULTIPLICATION
-- DIVISION
-- MODULO
+- +
+- -
+- *
+- /
+- %
 
 Get total number of unique dates.
 ```sql
@@ -110,6 +110,13 @@ Get the profit / loss for each movie where possible.
 ```sql
 SELECT title, box_office_millions - budget_millions
 AS profit_or_loss
+FROM films;
+```
+
+Get average runtime in hours.
+```sql
+SELECT AVG(run_time_mins) / 60
+AS run_time_hours  
 FROM films;
 ```
 
@@ -127,6 +134,13 @@ AS result
 FROM films;
 ```
 
+Number of years between oldest film and newest film.
+```sql
+SELECT MAX(release_year) - MIN(release_year)
+AS difference
+FROM films;
+```
+
 #### Rounding Functions: ROUND, FLOOR, CEILING
 - ROUND AVG
 - FLOOR AVG
@@ -135,16 +149,18 @@ FROM films;
 Get the rounded average runtime of all films.
 ```sql
 SELECT ROUND(AVG(run_time_mins))
+AS rounded_avg_run_time
 FROM films;
 ```
 
 Get the floored average runtime of all films.
 ```sql
 SELECT FLOOR(AVG(run_time_mins))
+AS floored_avg_run_time
 FROM films;
 ```
 
-Get the ceilinged average runtime of all films.
+Get the ceilinged(?) average runtime of all films.
 ```sql
 SELECT CEILING(AVG(run_time_mins))
 FROM films;
