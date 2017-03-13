@@ -244,7 +244,7 @@ def update_films(input_file='../films.csv', output_file='../films.csv'):
     f = open(output_file, 'w')
     writer = csv.writer(f)
 
-    header = header + ['running_time_minutes'] + ['budget_millions'] + ['box_office_millions']
+    header = header + ['running_time_minutes'] + ['budget_millions'] + ['box_office_millions'] + ['genres']
     writer.writerow(header)
 
     for row in rows:
