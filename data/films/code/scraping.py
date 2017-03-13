@@ -222,7 +222,7 @@ def update_actors(input_file='../actors.csv', output_file='../actors.csv'):
     f = open(output_file, 'w')
     writer = csv.writer(f)
 
-    header = header + ['dob'] + ['dod']
+    header = header + ['date_of_birth'] + ['date_of_death']
     writer.writerow(header)
 
     for row in rows:
@@ -256,8 +256,9 @@ def update_films(input_file='../films.csv', output_file='../films.csv'):
         running_time = get_wiki_info(title, 'film', 'running time')
         budget = get_wiki_info(title, 'film', 'budget')
         box_office = get_wiki_info(title, 'film', 'box office')
+        genres = get_genres(title)
+        new_row = [id_] + [title] + [release_year] + [distributor] + [director] + [running_time] + [budget] + [box_office] + [genres]
 
-        new_row = [id_] + [title] + [release_year] + [distributor] + [director] + [running_time] + [budget] + [box_office]
         print(new_row)
         writer.writerow(new_row)
 
@@ -297,7 +298,8 @@ def format_date(date):
 
     return res
 
-def get_genre(title):
+# TODO: genres --> genre
+def get_genres(title):
     global imdb
 
     res = imdb.search_for_title(title)
@@ -307,8 +309,10 @@ def get_genre(title):
         film = imdb.get_title_by_id(imdb_id)
         genres = film.genres
         if genres:
-            print genres
+            return genres
             # return genres[0]
+
+    return ''
 
 def test_actor(name):
     """
@@ -332,13 +336,21 @@ def test_film(title):
     print(get_wiki_info(title, 'film', 'budget'))
     print(get_wiki_info(title, 'film', 'box office'))
 
+def temp():
+    f = open('../films.csv')
+    reader = csv.reader(f)
+
+    for row in reader:
+        title = row[1]
+        get_genres(title)
+
 if __name__ == "__main__":
     # can only run this after the initial CSVs have been populated
     setup()
-    get_genre('the dark knight')
-    # update_actors()
+    # get_genre('the dark knight')
+    update_actors()
     # update_films(output_file='../testfilms.csv')
-    # update_films()
+    update_films()
     # test_film('The Woman In Red')
     # test_actor('Chevy Chase')
     # test_actor('Elon Musk')
