@@ -112,6 +112,21 @@ FROM films
 GROUP BY distributor;
 ```
 
+Get the highest box office take per director.
+```sql
+SELECT director, MAX(box_office_millions)
+FROM films
+GROUP BY director;
+```
+
+Get the bottom ten lowest box office take per director.
+```sql
+SELECT director, MAX(box_office_millions)
+FROM films
+GROUP BY director
+ORDER BY max DESC;
+```
+
 Get the average amount made by each distributor.
 ```sql
 SELECT distributor, SUM(box_office_millions)
@@ -126,7 +141,7 @@ FROM films
 GROUP BY distributor;
 ```
 
-[//]: # (here we have the problem of the majority of NULL being greater than 0 when using ORDER BY, i.e. not having enough data)
+** Note: here we have the problem of NULL being greater than 0 when using ORDER BY, i.e. not having enough data**
 Get the total amount made by the bottom ten distributors.
 ```sql
 SELECT distributor, sum(box_office_millions)
@@ -136,7 +151,7 @@ ORDER BY sum
 LIMIT 10;
 ```
 
-[//]: # (here again we have the problem of the majority of NULL being greater than 0 when using ORDER BY, i.e. not having enough data)
+**Note: here again we have the problem of the majority of NULL being greater than 0 when using ORDER BY, i.e. not having enough data**
 Get the total amount made by the bottom ten distributors.
 ```sql
 SELECT distributor, sum(budget_millions)
@@ -146,7 +161,6 @@ ORDER BY sum
 LIMIT 10;
 ```
 
-
 Get average box office earnings per year.
 ```sql
 SELECT release_year, AVG(box_office_millions)
@@ -155,7 +169,8 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Get lowest and highest box office earnings per year. **Note: 2016 data is incomplete.**
+**Note: Dates only go up to 2015**
+Get lowest and highest box office earnings per year.
 ```sql
 SELECT release_year, MIN(box_office_millions), MAX(box_office_millions)
 FROM films
@@ -170,4 +185,14 @@ FROM films
 WHERE release_year > 1990
 GROUP BY release_year
 HAVING AVG(budget_millions) > 60;
+```
+
+Get the name, average budget, average box office take of directors who have directed more than two films. Order by name, and get the top five. 
+```sql
+SELECT director, AVG(budget_millions) AS avg_budget, AVG(box_office_millions) as avg_box_office
+FROM films
+GROUP BY director
+HAVING COUNT(title) > 2;
+ORDER BY director
+LIMIT 5;
 ```
