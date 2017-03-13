@@ -1,18 +1,21 @@
 from bs4 import BeautifulSoup, SoupStrainer
 from wikiapi import WikiApi
 from datetime import datetime, timedelta
+from imdbpie import Imdb
 import requests
 import csv
 import re
 
 wiki = None
+imdb = None
 
 def setup():
     """
     Sets up global wiki object for Wikipedia lookups.
     """
-    global wiki
+    global wiki, imdb
     wiki = WikiApi()
+    imdb = Imdb(anonymize=True)
 
 def wiki_search(term):
     """
@@ -294,6 +297,19 @@ def format_date(date):
 
     return res
 
+def get_genre(title):
+    global imdb
+
+    res = imdb.search_for_title(title)
+
+    if res:
+        imdb_id = res[0]['imdb_id']
+        film = imdb.get_title_by_id(imdb_id)
+        genres = film.genres
+        if genres:
+            print genres
+            # return genres[0]
+
 def test_actor(name):
     """
     Test fetching info for a specific actor.
@@ -319,9 +335,10 @@ def test_film(title):
 if __name__ == "__main__":
     # can only run this after the initial CSVs have been populated
     setup()
-    update_actors()
+    get_genre('the dark knight')
+    # update_actors()
     # update_films(output_file='../testfilms.csv')
-    update_films()
+    # update_films()
     # test_film('The Woman In Red')
     # test_actor('Chevy Chase')
     # test_actor('Elon Musk')
