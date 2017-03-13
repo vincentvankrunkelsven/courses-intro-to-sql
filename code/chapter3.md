@@ -98,6 +98,55 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
+Get the total amount made by each distributor.
+```sql
+SELECT distributor, SUM(box_office_millions)
+FROM films
+GROUP BY distributor;
+```
+
+Get the total amount spent by each distributor.
+```sql
+SELECT distributor, SUM(box_office_millions)
+FROM films
+GROUP BY distributor;
+```
+
+Get the average amount made by each distributor.
+```sql
+SELECT distributor, SUM(box_office_millions)
+FROM films
+GROUP BY distributor;
+```
+
+Get the average amount spent by each distributor.
+```sql
+SELECT distributor, SUM(box_office_millions)
+FROM films
+GROUP BY distributor;
+```
+
+[//]: # (here we have the problem of the majority of NULL being greater than 0 when using ORDER BY, i.e. not having enough data)
+Get the total amount made by the bottom ten distributors.
+```sql
+SELECT distributor, sum(box_office_millions)
+FROM films
+GROUP BY distributor
+ORDER BY sum
+LIMIT 10;
+```
+
+[//]: # (here again we have the problem of the majority of NULL being greater than 0 when using ORDER BY, i.e. not having enough data)
+Get the total amount made by the bottom ten distributors.
+```sql
+SELECT distributor, sum(budget_millions)
+FROM films
+GROUP BY distributor
+ORDER BY sum
+LIMIT 10;
+```
+
+
 Get average box office earnings per year.
 ```sql
 SELECT release_year, AVG(box_office_millions)
@@ -106,7 +155,7 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Get lowest and highest box office earnings per year. **Note: 2016, 2017 data is incomplete.**
+Get lowest and highest box office earnings per year. **Note: 2016 data is incomplete.**
 ```sql
 SELECT release_year, MIN(box_office_millions), MAX(box_office_millions)
 FROM films

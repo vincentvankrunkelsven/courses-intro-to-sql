@@ -160,14 +160,6 @@ FROM actors
 WHERE name NOT LIKE 'A%';
 ```
 
-Get actors whose names start with letters between 'a' and 'f'.
-**NOTE: This is how to make this work in PostgreSQL; regex character range matching doesn't work the same as in regular SQL. Do we want to introduce this non-agnostic syntax? Could we use the regular SQL syntax to teach them the concept and just do a superficial test that they typed the range correctly?**
-```sql
-SELECT name
-FROM actors
-WHERE name SIMILAR TO '[A-F]%';
-```
-
 ###### Subqueries
 - Subqueries in one table
 - Subqueries in two tables
