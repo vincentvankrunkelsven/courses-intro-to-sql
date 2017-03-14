@@ -3,7 +3,7 @@ id,title,release_year,duration,gross,budget,country,certification,language,revie
 2,Pirates of the Caribbean: At World's End,2007,169,309404152,3e8,USA,PG-13,English,3975,Color
 3,Spectre,2015,148,200074175,245e6,UK,PG-13,English,2062,Color
 4,The Dark Knight Rises,2012,164,448130642,25e7,USA,PG-13,English,4451,Color
-5,Star Wars: Episode VII - The Force Awakens,2015,136,936627416,245e6,USA,PG-13,English,4740,Color
+5,Star Wars: Episode VII - The Force Awakens,,,,,,,,4740,
 6,John Carter,2012,132,73058679,2637e5,USA,PG-13,English,230,Color
 7,Spider-Man 3,2007,156,336530303,258e6,USA,PG-13,English,2661,Color
 8,Tangled,2010,100,200807262,26e7,USA,PG,English,4495,Color
@@ -5030,7 +5030,7 @@ id,title,release_year,duration,gross,budget,country,certification,language,revie
 5029,Tin Can Man,2007,83,,1e4,Ireland,,English,2377,Black and White
 5030,The Cure,1997,111,94596,1e6,Japan,,Japanese,1719,Color
 5031,On the Downlow,2004,84,,,USA,,English,129,Color
-5032,Sanctuary;  Quite a Conundrum,2012,82,,2e5,USA,,English,717,Color
+5032,Sanctuary; Quite a Conundrum,2012,82,,2e5,USA,,English,717,Color
 5033,Bang,1995,98,,,USA,,English,319,Color
 5034,Primer,2004,77,424760,7e3,USA,PG-13,English,716,Color
 5035,Cavite,2005,80,70071,7e3,Philippines,Not Rated,English,298,Color

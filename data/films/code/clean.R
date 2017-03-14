@@ -4,8 +4,10 @@ library(purrr)
 library(readr)
 library(stringr)
 
+options(scipen = 999)
+
 # read in initial data, set type as double to avoid error due to huge budgets in yen
-raw <- read_csv("raw.csv", col_types = cols(budget = col_double()))
+raw <- read_csv("../raw.csv", col_types = cols(budget = col_double()))
 # create unique film identifier
 raw$film_id <- c(1:nrow(raw))
 raw <- select(raw, film_id, 1:28)
@@ -121,7 +123,9 @@ names(people)[1] <- "id"
 rm(actor_1, actor_2, actor_3, actors, directors)
 
 # write tables to csv
-write_csv(roles, "roles.csv", na = "")
-write_csv(people, "people.csv", na = "")
-write_csv(reviews, "reviews.csv", na = "")
-write_csv(films, "films.csv", na = "")
+# write_csv(roles, "../roles.csv", na = "")
+# write_csv(people, "../people.csv", na = "")
+# write_csv(reviews, "../reviews.csv", na = "")
+write_csv(films, "../films.csv", na = "")
+# write.csv(films, "../horse.csv", na = "")
+
