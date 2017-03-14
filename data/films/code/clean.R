@@ -123,9 +123,7 @@ names(people)[1] <- "id"
 rm(actor_1, actor_2, actor_3, actors, directors)
 
 # write tables to csv
-# write_csv(roles, "../roles.csv", na = "")
-# write_csv(people, "../people.csv", na = "")
-# write_csv(reviews, "../reviews.csv", na = "")
+write_csv(roles, "../roles.csv", na = "")
+write_csv(people, "../people.csv", na = "")
+write_csv(reviews, "../reviews.csv", na = "")
 write.csv(films, "../films.csv", na = "", row.names=FALSE)
-# write.csv(films, "../horse.csv", na = "")
-
