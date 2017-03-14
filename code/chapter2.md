@@ -14,11 +14,11 @@ FROM films
 WHERE release_year = 2015;
 ```
 
-Get all actors born 1969-02-11.
+Get all people born 1969-02-11.
 ```sql
-SELECT name, date_of_birth
-FROM actors
-WHERE date_of_birth = '1969-02-11';
+SELECT name, birthdate
+FROM people
+WHERE birthdate = '1969-02-11';
 ```
 
 Get all films except those released in 2015, order them so we can see results.
@@ -96,67 +96,67 @@ WHERE release_year in (2000, 2015)
 ORDER BY release_year;
 ```
 
-Get average runtime for films released in 1992.
+Get average duration for films released in 1992.
 ```sql
-SELECT AVG(run_time_mins)
+SELECT AVG(duration)
 FROM films
 WHERE release_year = 1992;
 ```
 
-Get average runtime for films released in 2012.
+Get average duration for films released in 2012.
 ```sql
-SELECT AVG(run_time_mins)
+SELECT AVG(duration)
 FROM films
 WHERE release_year = 2012;
 ```
 
-Get the names of actors who are still alive.
+Get the names of people who are still alive.
 ```sql
 SELECT name
-FROM actors WHERE date_of_death IS NULL;
+FROM people WHERE deathdate IS NULL;
 ```
 
 Get the number of films made between 2000 and 2015 with budgets over $100 million.
 ```sql
-SELECT title, budget_millions
+SELECT title, budget
 FROM films
 WHERE release_year
 BETWEEN 2000 AND 2015
-AND budget_millions > 100;
+AND budget > 100;
 ```
 
-Get actors whose names begin with 'B'.
+Get people whose names begin with 'B'.
 ```sql
 SELECT name
-FROM actors
+FROM people
 WHERE name LIKE 'B%';
 ```
 
-Get actors whose names begin with 'Br'.
+Get people whose names begin with 'Br'.
 ```sql
 SELECT name
-FROM actors
+FROM people
 WHERE name LIKE 'B%';
 ```
 
-Get actors whose names have 'r' as the second letter.
+Get people whose names have 'r' as the second letter.
 ```sql
 SELECT name
-FROM actors
+FROM people
 WHERE name LIKE '_r%';
 ```
 
-Get actors whose names start with A, B or C, (redundantly) ordered.
+Get people whose names start with A, B or C, (redundantly) ordered.
 ```sql
 SELECT name
-FROM actors
+FROM people
 WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
 ORDER BY name;
 ```
-'Get actors whose names don't start with A.
+'Get people whose names don't start with A.
 ```sql
 SELECT name
-FROM actors
+FROM people
 WHERE name NOT LIKE 'A%';
 ```
 
