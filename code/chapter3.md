@@ -5,24 +5,24 @@
 - ORDER BY DESC (single)
 - ORDER BY DESC (multiple)
 
-Get actors, sort by name.
+Get people, sort by name.
 ```sql
 SELECT name
-FROM actors ORDER BY name;
+FROM people ORDER BY name;
 ```
 
-Get actors, sort by name.
+Get people, sort by name.
 ```sql
 SELECT name
-FROM actors
-ORDER BY date_of_birth;
+FROM people
+ORDER BY birthdate;
 ```
 
-Get actors, sort by date_of_birth, then name.
+Get people, sort by birthdate, then name.
 ```sql
-SELECT name, date_of_birth
-FROM actors
-ORDER BY date_of_birth, name;
+SELECT name, birthdate
+FROM people
+ORDER BY birthdate, name;
 ```
 
 Get films filmed in 2000 or 2015, in order of release, and alphabetically.
@@ -61,9 +61,9 @@ GROUP BY release_year;
 
 A PROPER GROUP BY ON MULTIPLE COLUMNS SHOULD GO HERE:
 ```sql
-SELECT title, release_year box_office_millions
+SELECT title, release_year gross
 FROM films
-GROUP BY title, release_year, box_office_millions;
+GROUP BY title, release_year, gross;
 ```
 
 Get count of films, group by release year then order by release year.
@@ -84,7 +84,7 @@ ORDER BY count;
 
 Get lowest box office earnings per year.
 ```sql
-SELECT release_year, MIN(box_office_millions)
+SELECT release_year, MIN(gross)
 FROM films
 GROUP BY release_year
 ORDER BY release_year;
@@ -92,87 +92,84 @@ ORDER BY release_year;
 
 Get highest box office earnings per year.
 ```sql
-SELECT release_year, MAX(box_office_millions)
+SELECT release_year, MAX(gross)
 FROM films
 GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Get the total amount made by each distributor.
+Get the total amount made in each language.
 ```sql
-SELECT distributor, SUM(box_office_millions)
+SELECT language, SUM(gross)
 FROM films
-GROUP BY distributor;
+GROUP BY language;
 ```
 
-Get the total amount spent by each distributor.
+Get the total amount spent by each country.
 ```sql
-SELECT distributor, SUM(box_office_millions)
+SELECT country, SUM(gross)
 FROM films
-GROUP BY distributor;
+GROUP BY country;
 ```
 
-Get the highest box office take per director.
+Get the highest box office take per country.
 ```sql
-SELECT director, MAX(box_office_millions)
+SELECT country, MAX(gross)
 FROM films
-GROUP BY director;
+GROUP BY country;
 ```
 
-Get the bottom ten lowest box office take per director.
+Get the bottom ten lowest box office take per country.
 ```sql
-SELECT director, MAX(box_office_millions)
+SELECT country, MAX(gross)
 FROM films
-GROUP BY director
+GROUP BY country
 ORDER BY max DESC;
 ```
 
-Get the average amount made by each distributor.
+Get the average amount made by each country.
 ```sql
-SELECT distributor, SUM(box_office_millions)
+SELECT country, SUM(gross)
 FROM films
-GROUP BY distributor;
+GROUP BY country;
 ```
 
-Get the average amount spent by each distributor.
+Get the average amount spent by each country.
 ```sql
-SELECT distributor, SUM(box_office_millions)
+SELECT country, SUM(gross)
 FROM films
-GROUP BY distributor;
+GROUP BY country;
 ```
 
-** Note: here we have the problem of NULL being greater than 0 when using ORDER BY, i.e. not having enough data**
-Get the total amount made by the bottom ten distributors.
+Get the total amount made by the bottom ten countries.
 ```sql
-SELECT distributor, sum(box_office_millions)
+SELECT country, sum(gross)
 FROM films
-GROUP BY distributor
+GROUP BY country
 ORDER BY sum
 LIMIT 10;
 ```
 
-**Note: here again we have the problem of the majority of NULL being greater than 0 when using ORDER BY, i.e. not having enough data**
 Get the total amount made by the bottom ten distributors.
 ```sql
-SELECT distributor, sum(budget_millions)
+SELECT country, sum(budget)
 FROM films
-GROUP BY distributor
+GROUP BY country
 ORDER BY sum
 LIMIT 10;
 ```
 
 Get average box office earnings per year.
 ```sql
-SELECT release_year, AVG(box_office_millions)
+SELECT release_year, AVG(gross)
 FROM films
 GROUP BY release_year
 ORDER BY release_year;
 ```
 
-**Note: Dates only go up to 2015**
 Get lowest and highest box office earnings per year.
 ```sql
-SELECT release_year, MIN(box_office_millions), MAX(box_office_millions)
+SELECT release_year, MIN(gross), MAX(gross)
 FROM films
 GROUP BY release_year
 ORDER BY release_year DESC;
@@ -180,19 +177,19 @@ ORDER BY release_year DESC;
 
 Get the average budget and average box office earnings for movies since 1990, but only if the average budget was greater than $60m in that year (Double check this).
 ```sql
-SELECT release_year, AVG(budget_millions) AS avg_budget, AVG(box_office_millions) as avg_box_office
+SELECT release_year, AVG(budget) AS avg_budget, AVG(gross) as avg_box_office
 FROM films
 WHERE release_year > 1990
 GROUP BY release_year
-HAVING AVG(budget_millions) > 60;
+HAVING AVG(budget) > 60;
 ```
 
-Get the name, average budget, average box office take of directors who have directed more than two films. Order by name, and get the top five. 
+Get the name, average budget, average box office take of countries who have made more than 10 films. Order by name, and get the top five.
 ```sql
-SELECT director, AVG(budget_millions) AS avg_budget, AVG(box_office_millions) as avg_box_office
+SELECT country, AVG(budget) AS avg_budget, AVG(gross) as avg_box_office
 FROM films
-GROUP BY director
-HAVING COUNT(title) > 2;
-ORDER BY director
+GROUP BY country
+HAVING COUNT(title) > 10;
+ORDER BY country
 LIMIT 5;
 ```
