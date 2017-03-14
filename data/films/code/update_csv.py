@@ -1,7 +1,7 @@
 import csv
 import scraping
 
-def update_people(input_csv='../people.csv', output_csv='../temppeople.csv'):
+def update_people(input_csv='../people.csv', output_csv='../people.csv'):
     f_in = open(input_csv, 'r')
     reader = csv.reader(f_in)
     header = reader.__next__()
@@ -19,7 +19,8 @@ def update_people(input_csv='../people.csv', output_csv='../temppeople.csv'):
         print(new_row)
         writer.writerow(new_row)
 
+def test_person(name):
+    print(scraping.get_life_events(name))
+
 if __name__== '__main__':
     update_people()
-
-# TODO: FIX INDEXES AND 0,,, IN PEOPLE.CSV
