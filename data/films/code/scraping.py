@@ -76,13 +76,16 @@ def format_date(date):
     return res
 
 def get_life_events(name):
-    imdb_id = imdb_person_search(name)
+    res = imdb_person_search(name)
 
-    if imdb_id:
-        url = IMDB_BASE + imdb_id
-        birth_date = format_date(get_imdb_birthdate(url))
-        death_date = format_date(get_imdb_deathdate(url))
-        return birth_date, death_date
-    return ''
+    if res:
+        imdb_id = res
+        print(imdb_id)
+        if imdb_id:
+            url = IMDB_BASE + imdb_id
+            birth_date = format_date(get_imdb_birthdate(url))
+            death_date = format_date(get_imdb_deathdate(url))
+            return birth_date, death_date
+    return '',''
 
 setup()
