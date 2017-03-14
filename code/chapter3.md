@@ -181,7 +181,7 @@ SELECT release_year, AVG(budget) AS avg_budget, AVG(gross) as avg_box_office
 FROM films
 WHERE release_year > 1990
 GROUP BY release_year
-HAVING AVG(budget) > 60;
+HAVING AVG(budget) > 60000000;
 ```
 
 Get the name, average budget, average box office take of countries who have made more than 10 films. Order by name, and get the top five.
