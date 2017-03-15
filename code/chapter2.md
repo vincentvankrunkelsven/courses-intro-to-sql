@@ -21,14 +21,6 @@ FROM people
 WHERE birthdate = '1969-02-11';
 ```
 
-Get all films except those released in 2015, order them so we can see results.
-```sql
-SELECT *
-FROM films
-WHERE release_year <> 2015
-ORDER BY release_year;
-```
-
 Get films released since 2000.
 ```sql
 SELECT title, release_year

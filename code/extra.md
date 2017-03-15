@@ -133,3 +133,15 @@ Film with least votes.
 Film with most facebook likes.
 ```sql
 ```
+
+Number of days worth of film time.
+```sql
+```
+
+The cost of a film per minute per film.
+```sql
+```
+
+The average cost of a film per minute.
+```sql
+```

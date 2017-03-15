@@ -10,13 +10,7 @@ SELECT name
 FROM people;
 ```
 
-Get all details about every person.
-```sql
-SELECT *
-FROM people;
-```
-
-Get every person name and their date of birth where possible.
+Get every person's name and their date of birth where possible.
 ```sql
 SELECT name, birthdate
 FROM people;
@@ -28,9 +22,45 @@ SELECT name, deathdate
 FROM people;
 ```
 
-Get all the unique film languages.
+Get everyone's name, date of birth, and date of death (where possible).
+```sql
+SELECT name, birthdate, deathdate
+FROM people;
+```
+
+Get all the films.
+```sql
+SELECT *
+FROM films;
+```
+
+Get all the different film languages.
 ```sql
 SELECT DISTINCT language
+FROM films;
+```
+
+Get the different types of film roles.
+```sql
+SELECT DISTINCT role
+FROM roles;
+```
+
+Get all the different IMDB scores.
+```sql
+SELECT DISTINCT imdb_score
+FROM reviews;
+```
+
+Get all the different certification categories.
+```sql
+SELECT DISTINCT certification
+FROM films;
+```
+
+Get all the different countries.
+```sql
+SELECT DISTINCT country
 FROM films;
 ```
 
@@ -43,49 +73,61 @@ FROM films;
 - MIN (single)
 - MAX (single)
 
-Count number of films.
+Count the number of films.
 ```sql
 SELECT COUNT(title)
 FROM films;
 ```
 
-Count number of unique languages.
+Count the number of unique languages.
 ```sql
 SELECT COUNT(DISTINCT language)
 FROM films;
 ```
 
-Count number of people.
+Count the number of unique countries.
+```sql
+SELECT COUNT(DISTINCT country)
+FROM films;
+```
+
+Count the total number of people.
 ```sql
 SELECT COUNT(*)
 FROM people;
 ```
 
-Count number of dead people.
+Count the number of dead people.
 ```sql
 SELECT COUNT(deathdate)
 FROM people;
 ```
 
-Get total budget for all films.
+Count the number of years the dataset covers.
+```sql
+SELECT COUNT(DISTINCT release_year)
+FROM films
+```
+
+Get the total amount spend on films.
 ```sql
 SELECT SUM(budget)
 FROM films;
 ```
 
-Get average duration of all films (v2).
+Get the average duration of all films (v2).
 ```sql
 SELECT AVG(duration)
 FROM films;
 ```
 
-Get worst box office of all films.
+Get worst box office performance out of all films.
 ```sql
 SELECT MIN(gross)
 FROM films;
 ```
 
-Get best box office of all films.
+Get best box office performance of all films.
 ```sql
 SELECT MAX(gross)
 FROM films;
@@ -93,11 +135,11 @@ FROM films;
 
 #### Aliasing and Basic Arithmetic: AS, +, -, \*, /, %
 - AS
-- +
-- -
-- *
-- /
-- %
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Modulo
 
 Get total number of unique dates.
 ```sql
@@ -113,10 +155,10 @@ AS profit_or_loss
 FROM films;
 ```
 
-Get average duration in hours.
+Get the average film duration in hours.
 ```sql
 SELECT AVG(duration) / 60
-AS run_time_hours  
+AS duration_hours  
 FROM films;
 ```
 
