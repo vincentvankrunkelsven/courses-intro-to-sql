@@ -176,6 +176,12 @@ AS result
 FROM films;
 ```
 
+Get the number of decades this dataset covers.
+```sql
+SELECT COUNT(DISTINCT release_year) / 10
+FROM films;
+```
+
 Number of years between oldest film and newest film.
 ```sql
 SELECT MAX(release_year) - MIN(release_year)
