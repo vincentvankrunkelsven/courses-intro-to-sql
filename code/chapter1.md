@@ -16,13 +16,13 @@ SELECT *
 FROM people;
 ```
 
-Get every person name and their date of birth where possible.
+Get every person's name and date of birth (if available).
 ```sql
 SELECT name, birthdate
 FROM people;
 ```
 
-Get every person name and their date of death where possible.
+Get every person's name and date of death (if relevant).
 ```sql
 SELECT name, deathdate
 FROM people;
@@ -106,10 +106,10 @@ AS total_unique_dates
 FROM people;
 ```
 
-Get the profit / loss for each movie where possible.
+Get the profit (or loss) for each movie, where possible.
 ```sql
 SELECT title, gross - budget
-AS profit_or_loss
+AS profit
 FROM films;
 ```
 
@@ -146,21 +146,21 @@ FROM films;
 - FLOOR AVG
 - CEILING AVG
 
-Get the rounded average duration of all films.
+Get the average duration of all films, rounded to the nearest minute.
 ```sql
 SELECT ROUND(AVG(duration))
 AS rounded_avg_run_time
 FROM films;
 ```
 
-Get the floored average duration of all films.
+Get the average duration of all films, rounded down to nearest minute.
 ```sql
 SELECT FLOOR(AVG(duration))
 AS floored_avg_run_time
 FROM films;
 ```
 
-Get the ceilinged(?) average duration of all films.
+Get the average duration of all films, rounded up to the nearest minute.
 ```sql
 SELECT CEILING(AVG(duration))
 FROM films;
