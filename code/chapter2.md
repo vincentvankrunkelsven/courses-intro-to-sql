@@ -107,13 +107,15 @@ Get average duration for films released in 2012.
 ```sql
 SELECT AVG(duration)
 FROM films
+AS average_duration
 WHERE release_year = 2012;
 ```
 
 Get the names of people who are still alive.
 ```sql
 SELECT name
-FROM people WHERE deathdate IS NULL;
+FROM people
+WHERE deathdate IS NULL;
 ```
 
 Get the number of films made between 2000 and 2015 with budgets over $100 million.
@@ -122,7 +124,7 @@ SELECT title, budget
 FROM films
 WHERE release_year
 BETWEEN 2000 AND 2015
-AND budget > 100;
+AND budget > 100000000;
 ```
 
 Get people whose names begin with 'B'.
