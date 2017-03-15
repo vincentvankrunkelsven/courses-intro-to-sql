@@ -122,7 +122,7 @@ FROM films;
 
 Get the percentage of dead people.
 ```sql
-SELECT COUNT(birthdate) * 100 / COUNT(*)
+SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
 FROM people;
 ```

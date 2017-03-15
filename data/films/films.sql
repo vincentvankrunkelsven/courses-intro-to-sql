@@ -15,8 +15,8 @@ CREATE TABLE films (
 CREATE TABLE people (
   id                    INTEGER     PRIMARY KEY,
   name                  VARCHAR,
-  dob                   DATE,
-  dod                   DATE
+  birthdate             DATE,
+  deathdate             DATE
 );
 
 CREATE TABLE reviews (
