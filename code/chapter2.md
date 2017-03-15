@@ -155,7 +155,7 @@ FROM people
 WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
 ORDER BY name;
 ```
-'Get people whose names don't start with A.
+Get people whose names don't start with A.
 ```sql
 SELECT name
 FROM people
