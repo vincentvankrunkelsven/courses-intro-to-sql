@@ -32,7 +32,7 @@ CREATE TABLE roles (
   id                    INTEGER     PRIMARY KEY,
   film_id               INTEGER,
   person_id             INTEGER,
-  roles                 VARCHAR
+  role                  VARCHAR
 );
 
 -- Copy over data from CSVs
