@@ -54,3 +54,32 @@ SELECT MAX(first_name || ' ' || last_name), count(*)
 FROM customer
 GROUP BY first_name
 ```
+
+######
+
+SELECT column-names
+  FROM table-name1
+ WHERE value IN (SELECT column-name
+                   FROM table-name2
+                  WHERE condition)
+
+SELECT column1 = (SELECT column-name FROM table-name WHERE condition),
+                         column-names
+                    FROM table-name
+                   WEHRE condition
+
+SELECT FirstName, LastName,
+                          OrderCount = (SELECT COUNT(O.Id) FROM [Order] O WHERE O.CustomerId = C.Id)
+                     FROM Customer C
+
+<!-- SELECT (SELECT r.id from reviews r WHERE r.num_votes = 11158)
+                     FROM films AS f;
+                    -->
+
+<!-- SELECT t.*
+                    FROM (
+                        SELECT SUM(points) AS total_points
+                        FROM sometable
+                        GROUP BY username
+                    ) t
+                    WHERE total_points > 25 -->
