@@ -1,10 +1,10 @@
-@@ -1,44 +0,0 @@
 CREATE TABLE films (
   id                    INTEGER     PRIMARY KEY,
   title                 VARCHAR,
   release_year          INTEGER,
   duration              INTEGER,
-  gross                 INTEGER,
+  gross                 BIGINT,
+  budget                BIGINT,
   country               VARCHAR,
   certification         VARCHAR,
   language              VARCHAR,
