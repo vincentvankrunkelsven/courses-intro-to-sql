@@ -88,14 +88,6 @@ FROM films
 WHERE release_year BETWEEN 2000 AND 2015;
 ```
 
-Get films released in 2000 or 2015, in order of release.
-```sql
-SELECT title, release_year
-FROM films
-WHERE release_year in (2000, 2015)
-ORDER BY release_year;
-```
-
 Get average duration for films released in 1992.
 ```sql
 SELECT AVG(duration)
@@ -148,13 +140,6 @@ FROM people
 WHERE name LIKE '_r%';
 ```
 
-Get people whose names start with A, B or C, (redundantly) ordered.
-```sql
-SELECT name
-FROM people
-WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
-ORDER BY name;
-```
 'Get people whose names don't start with A.
 ```sql
 SELECT name

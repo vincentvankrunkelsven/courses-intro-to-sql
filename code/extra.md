@@ -108,8 +108,10 @@ SELECT column-names
                     ) t
                     WHERE total_points > 25 -->
 
+###### HERE BE SUBQUERIES
+**Note: not really sure how to do some of these correctly, need to use review_id from films to get results from the reviews table.**
+
 Film with most reviews.
-**Note: not really sure how to do this, need to use review_id from films to get results from the reviews table.**
 ```sql
 SELECT res.* FROM (
   SELECT num_votes FROM reviews ORDER BY num_votes DESC
