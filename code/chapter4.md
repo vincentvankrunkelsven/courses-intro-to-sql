@@ -107,7 +107,8 @@ FROM weather
 WHERE events LIKE '%Snow';
 ```
 
-How many days was it cloudy? **Note we have days with 0 cloud cover, but also days with NULL cloud cover. So, should we include 'OR cloud_cover IS NULL here?'**
+**Note: we have days with 0 cloud cover, but also days with NULL cloud cover. So, should we include 'OR cloud_cover IS NULL here?'**
+How many days was it cloudy?
 ```sql
 SELECT COUNT(*)
 FROM weather

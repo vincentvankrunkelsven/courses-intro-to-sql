@@ -8,7 +8,7 @@ library(data.table)
 library(tidyr)
 
 # read in data
-original <- read_csv('raw.csv')
+original <- read_csv('raw/raw.csv')
 
 # make col headers lowercase, replace spaces
 names(original) <- str_replace(tolower(names(original)), ' ', '_')

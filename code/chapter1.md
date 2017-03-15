@@ -4,33 +4,33 @@
 - SELECT (multiple)
 - SELECT DISTINCT
 
-Get every actor name.
+Get every person's name.
 ```sql
 SELECT name
-FROM actors;
+FROM people;
 ```
 
-Get all details.
+Get all details about every person.
 ```sql
 SELECT *
-FROM actors;
+FROM people;
 ```
 
-Get every actor name and their date of birth where possible.
+Get every person name and their date of birth where possible.
 ```sql
-SELECT name, date_of_birth
-FROM actors;
+SELECT name, birthdate
+FROM people;
 ```
 
-Get every actor name and their date of death where possible.
+Get every person name and their date of death where possible.
 ```sql
-SELECT name, date_of_death
-FROM actors;
+SELECT name, deathdate
+FROM people;
 ```
 
-Get the names of unique distributors.
+Get all the unique film languages.
 ```sql
-SELECT DISTINCT distributor
+SELECT DISTINCT language
 FROM films;
 ```
 
@@ -43,51 +43,51 @@ FROM films;
 - MIN (single)
 - MAX (single)
 
-Count number of directors.
+Count number of films.
 ```sql
-SELECT COUNT(directors)
+SELECT COUNT(title)
 FROM films;
 ```
 
-Count number of unique directors.
+Count number of unique languages.
 ```sql
-SELECT COUNT(DISTINCT directors)
+SELECT COUNT(DISTINCT language)
 FROM films;
 ```
 
-Count number of rows in table / number of actors.
+Count number of people.
 ```sql
 SELECT COUNT(*)
-FROM actors;
+FROM people;
 ```
 
-Count number of dead actors.
+Count number of dead people.
 ```sql
-SELECT COUNT(date_of_death)
-FROM actors;
+SELECT COUNT(deathdate)
+FROM people;
 ```
 
 Get total budget for all films.
 ```sql
-SELECT SUM(budget_millions)
+SELECT SUM(budget)
 FROM films;
 ```
 
-Get average runtime of all films (v2).
+Get average duration of all films (v2).
 ```sql
-SELECT AVG(run_time_mins)
+SELECT AVG(duration)
 FROM films;
 ```
 
 Get worst box office of all films.
 ```sql
-SELECT MIN(box_office_millions)
+SELECT MIN(gross)
 FROM films;
 ```
 
 Get best box office of all films.
 ```sql
-SELECT MAX(box_office_millions)
+SELECT MAX(gross)
 FROM films;
 ```
 
@@ -101,35 +101,35 @@ FROM films;
 
 Get total number of unique dates.
 ```sql
-SELECT COUNT(DISTINCT date_of_birth) + COUNT(DISTINCT date_of_death)
+SELECT COUNT(DISTINCT birthdate) + COUNT(DISTINCT deathdate)
 AS total_unique_dates
-FROM actors;
+FROM people;
 ```
 
 Get the profit / loss for each movie where possible.
 ```sql
-SELECT title, box_office_millions - budget_millions
+SELECT title, gross - budget
 AS profit_or_loss
 FROM films;
 ```
 
-Get average runtime in hours.
+Get average duration in hours.
 ```sql
-SELECT AVG(run_time_mins) / 60
+SELECT AVG(duration) / 60
 AS run_time_hours  
 FROM films;
 ```
 
-Get the percentage of dead actors.
+Get the percentage of dead people.
 ```sql
-SELECT COUNT(date_of_birth) * 100 / COUNT(*)
+SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
-FROM actors;
+FROM people;
 ```
 
-Check if there's an even number of unique distributors. (0 = yes, 1 = no)
+Check if there's an even number of unique languages. (0 = yes, 1 = no)
 ```sql
-SELECT COUNT(DISTINCT distributor) % 2
+SELECT COUNT(DISTINCT language) % 2
 AS result
 FROM films;
 ```
@@ -146,22 +146,22 @@ FROM films;
 - FLOOR AVG
 - CEILING AVG
 
-Get the rounded average runtime of all films.
+Get the rounded average duration of all films.
 ```sql
-SELECT ROUND(AVG(run_time_mins))
+SELECT ROUND(AVG(duration))
 AS rounded_avg_run_time
 FROM films;
 ```
 
-Get the floored average runtime of all films.
+Get the floored average duration of all films.
 ```sql
-SELECT FLOOR(AVG(run_time_mins))
+SELECT FLOOR(AVG(duration))
 AS floored_avg_run_time
 FROM films;
 ```
 
-Get the ceilinged(?) average runtime of all films.
+Get the ceilinged(?) average duration of all films.
 ```sql
-SELECT CEILING(AVG(run_time_mins))
+SELECT CEILING(AVG(duration))
 FROM films;
 ```
