@@ -7,18 +7,18 @@
 - WHERE = x OR = y  
 - WHERE > x AND < y
 
-Get all films released in 2015.
+Get all films released in 2016.
 ```sql
 SELECT *
 FROM films
-WHERE release_year = 2015;
+WHERE release_year = 2016;
 ```
 
-Get all people born 1969-02-11.
+Get the name of the person born on November 11th, 1974.
 ```sql
 SELECT name, birthdate
 FROM people
-WHERE birthdate = '1969-02-11';
+WHERE birthdate = '1974-11-11';
 ```
 
 Get films released since 2000.
@@ -29,9 +29,23 @@ WHERE release_year > 2000;
 FROM films;
 ```
 
+Get the number of films released since 2000.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE release_year > 2000;
+```
+
 Get films released before 2000.
 ```sql
 SELECT title, release_year
+FROM films
+WHERE release_year < 2000;
+```
+
+Get the number of films released before 2000.
+```sql
+SELECT COUNT(*)
 FROM films
 WHERE release_year < 2000;
 ```
@@ -59,9 +73,16 @@ FROM films;
 - LIKE
 - NOT LIKE
 
-Get films released between 1990 and 2000.
+Get films released in the 90s.
 ```sql
 SELECT title, release_year
+FROM films
+WHERE release_year BETWEEN 1990 AND 2000;
+```
+
+Get the number of films released in the 90s.
+```sql
+SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
@@ -75,7 +96,7 @@ WHERE release_year IN(1990, 2000);
 
 Get the number of films released between 2000 and 2015.
 ```sql
-SELECT COUNT(release_year)
+SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 2000 AND 2015;
 ```
