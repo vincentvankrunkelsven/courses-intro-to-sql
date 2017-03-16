@@ -2,14 +2,12 @@ CREATE TABLE films (
   id                    INTEGER     PRIMARY KEY,
   title                 VARCHAR,
   release_year          INTEGER,
-  duration              INTEGER,
-  gross                 BIGINT,
-  budget                BIGINT,
   country               VARCHAR,
-  certification         VARCHAR,
+  duration              INTEGER,
   language              VARCHAR,
-  review_id             INTEGER,
-  color                 VARCHAR
+  certification         VARCHAR,
+  gross                 BIGINT,
+  budget                BIGINT
 );
 
 CREATE TABLE people (
@@ -21,6 +19,7 @@ CREATE TABLE people (
 
 CREATE TABLE reviews (
   id                    INTEGER     PRIMARY KEY,
+  film_id               INTEGER,
   num_user              INTEGER,
   num_critic            INTEGER,
   imdb_score            REAL,
@@ -44,5 +43,5 @@ CREATE TABLE roles (
 
 /*
 createdb films
-psql films < data/films/films.sql
+psql films < data/films/code/films.sql
 */

@@ -1,5 +1,5 @@
 # Filtering Rows
-###### Filtering: WHERE, =, <>, <, <=, >, >=, AND, OR
+## Filtering: WHERE, =, <>, <, <=, >, >=, AND, OR
 - WHERE =
 - WHERE <>
 - WHERE <=
@@ -7,13 +7,7 @@
 - WHERE = x OR = y  
 - WHERE > x AND < y
 
-Get all films released in 2016.
-```sql
-SELECT *
-FROM films
-WHERE release_year = 2016;
-```
-
+### EXERCISE: SIMPLE FILTERING WITH WHERE (STRINGS)
 Get all French language films.
 ```sql
 SELECT *
@@ -26,6 +20,27 @@ Get the name of the person born on November 11th, 1974.
 SELECT name, birthdate
 FROM people
 WHERE birthdate = '1974-11-11';
+```
+
+Get the number of Hindi movies.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE language = 'Hindi';
+```
+
+Get all movies with an R certification.
+```sql
+SELECT *
+FROM films
+WHERE certification = 'R';
+```
+
+Get all films released in 2016.
+```sql
+SELECT *
+FROM films
+WHERE release_year = 2016;
 ```
 
 Get the number of films released before 2000.
@@ -43,6 +58,7 @@ WHERE release_year > 2000;
 FROM films;
 ```
 
+### EXERCISE: WHERE AND
 Get all Spanish films released before 2000.
 ```sql
 SELECT title, release_year
@@ -59,20 +75,15 @@ WHERE release_year > 2000
 AND language = 'Spanish';
 ```
 
-Get the number of Hindi movies.
+Get average duration for films released in France in 1992.
 ```sql
-SELECT COUNT(*)
+SELECT AVG(duration)
 FROM films
-WHERE language = 'Hindi';
+WHERE release_year = 1992
+AND country = 'France';
 ```
 
-Get the number of movies with an R certification.
-```sql
-SELECT *
-FROM films
-WHERE certification = 'R';
-```
-
+### EXERCISE: WHERE AND, OR
 Get films released in 1990 or released in 2000 in English or Spanish.
 ```sql
 SELECT title, release_year
@@ -98,14 +109,23 @@ WHERE release_year >= 1990 AND release_year <= 2000;
 FROM films;
 ```
 
-###### Advanced Filtering: BETWEEN, IN, IS NULL, IS NOT NULL, LIKE, NOT LIKE
+Get average duration for films released in the UK or which were released in 2012.
+```sql
+SELECT AVG(duration)
+FROM films
+AS average_duration
+WHERE release_year = 2012
+OR COUNTRY = 'UK';
+```
+
+## Advanced Filtering: BETWEEN, IN, IS NULL, IS NOT NULL, LIKE, NOT LIKE
 - BETWEEN x AND y
-- WHERE n IN (x, y, z)
 - WHERE x IS NULL
 - WHERE x IS NOT NULL
 - LIKE
 - NOT LIKE
 
+### EXERCISE: BETWEEN
 Get films released in the 90s.
 ```sql
 SELECT title, release_year
@@ -120,46 +140,6 @@ FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
 
-Get films released in  in 1990 or released in 2000 that were longer than two hours.
-```sql
-SELECT title, release_year
-FROM films
-WHERE release_year IN(1990, 2000)
-AND duration > 120;
-```
-
-Get the number of films released between 2000 and 2015 that were longer than two hours.
-```sql
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 2000 AND 2015
-AND duration > 120;
-```
-
-Get average duration for films released in France in 1992.
-```sql
-SELECT AVG(duration)
-FROM films
-WHERE release_year = 1992
-AND country = 'France';
-```
-
-Get average duration for films released in the UK in 2012.
-```sql
-SELECT AVG(duration)
-FROM films
-AS average_duration
-WHERE release_year = 2012
-AND COUNTRY = 'UK';
-```
-
-Get the names of people who are still alive.
-```sql
-SELECT name
-FROM people
-WHERE deathdate IS NULL;
-```
-
 Get the number of films made between 2000 and 2015 with budgets over $100 million.
 ```sql
 SELECT title, budget
@@ -168,6 +148,34 @@ WHERE release_year
 BETWEEN 2000 AND 2015
 AND budget > 100000000;
 ```
+
+### EXERCISE: IN
+Get films released in  in 1990 or released in 2000 that were longer than two hours.
+```sql
+SELECT title, release_year
+FROM films
+WHERE release_year IN (1990, 2000)
+AND duration > 120;
+```
+
+### EXERCISE: BETWEEN AND AND
+Get the number of films released between 2000 and 2015 that were longer than two hours.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 2000 AND 2015
+AND duration > 120;
+```
+
+### EXERCISE: IS NULL
+Get the names of people who are still alive.
+```sql
+SELECT name
+FROM people
+WHERE deathdate IS NULL;
+```
+
+### EXERCISE: LIKE AND NOT LIKE
 
 Get people whose names begin with 'B'.
 ```sql
@@ -196,58 +204,3 @@ SELECT name
 FROM people
 WHERE name NOT LIKE 'A%';
 ```
-
-###### Subqueries
-- Subqueries in one table
-Get the title, duration and release year of the shortest film(s).
-```sql
-SELECT title, duration, release_year
-FROM films
-WHERE duration = (
-  SELECT MIN(duration) FROM films
-);
-```
-
-Get the title, duration and release year of the longest film(s).
-```sql
-SELECT title, duration, release_year
-FROM films
-WHERE duration = (
-  SELECT MAX(duration)
-  FROM films
-);
-```
-
-Get the title, release_year and box office take for the highest grossing film.
-```sql
-SELECT title, release_year, gross
-FROM films
-WHERE gross = (
-  SELECT MAX(gross)
-  FROM films
-);
-```
-
-Get the title, release_year and box office take for the lowest grossing film.
-```sql
-SELECT title, release_year, gross
-FROM films
-WHERE gross = (
-  SELECT MIN(gross)
-  FROM films
-);
-```
-
-Get the duration of the longest movie made in the USA.
-```sql
-SELECT title, duration
-FROM films
-WHERE duration = (
-  SELECT MAX(duration)
-  FROM films
-  WHERE country = 'USA'
-);
-```
-
-- Subqueries in two tables
-reviews stuff
