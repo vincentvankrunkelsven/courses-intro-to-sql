@@ -1,7 +1,6 @@
 # Sorting and Grouping
 ###### Sorting: ORDER BY
--
- (single)
+- (single)
 - ORDER BY (multiple)
 - ORDER BY DESC (single)
 - ORDER BY DESC (multiple)
@@ -125,7 +124,6 @@ ORDER BY release_year;
 ```
 
 Get details for the film with the lowest box office earnings per year.
-**Note: not really sure how to do this 'per year'.**
 ```sql
 SELECT release_year, title, gross
 FROM films
@@ -169,7 +167,7 @@ FROM films
 GROUP BY country;
 ```
 
-**Note for the following two, we will need to filter for non null, which might be more complex than it seems.**
+**Note for the following two, we will need to filter for non NULL, which might be more complex than it seems.**
 Get the highest box office take per country.
 ```sql
 SELECT country, MAX(gross)
@@ -244,4 +242,88 @@ GROUP BY country
 HAVING COUNT(title) > 10
 ORDER BY country
 LIMIT 5;
+```
+
+###### Some Extra Exercises
+Count of movies not rated.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE certification = 'Not Rated' OR certification IS NULL;
+```
+
+Count of movies not in English.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE language <> 'English';
+
+```
+
+Number of movies in black and white.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE color = 'Black and White';
+```
+
+Highest grossing per certification.
+```sql
+SELECT certification, MAX(gross)
+FROM films
+GROUP BY certification
+ORDER BY max DESC;
+```
+
+Count of films in each certification bracket.
+```sql
+SELECT certification, COUNT(title)
+FROM films
+GROUP BY certification
+ORDER BY count DESC;
+```
+
+Country with most R-Rated films.
+```sql
+SELECT country, COUNT(certification)
+FROM films
+WHERE certification = 'R'
+GROUP BY country
+ORDER BY count DESC;
+```
+
+Longest duration per year.
+```sql
+SELECT release_year, MAX(duration) AS max_duration
+FROM films
+GROUP BY release_year
+ORDER BY max_duration DESC;
+```
+
+Count of films made per country.
+```sql
+SELECT country, COUNT(title)
+FROM films
+GROUP BY country
+ORDER BY count DESC;
+```
+
+Count of user reviews vs critic reviews.
+```sql
+SELECT COUNT(num_user) AS count_users, COUNT(num_critic) AS count_critics
+FROM reviews;
+```
+
+Count of actors.
+```sql
+SELECT COUNT(*)
+FROM roles
+WHERE role = 'actor';
+```
+
+Count of directors.
+```sql
+SELECT COUNT(*)
+FROM roles
+WHERE role = 'director';
 ```

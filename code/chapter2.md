@@ -21,9 +21,6 @@ FROM films
 WHERE language = 'French';
 ```
 
-Get the duration of the longest movie made in the USA.
-
-
 Get the name of the person born on November 11th, 1974.
 ```sql
 SELECT name, birthdate
@@ -241,4 +238,16 @@ WHERE gross = (
 );
 ```
 
+Get the duration of the longest movie made in the USA.
+```sql
+SELECT title, duration
+FROM films
+WHERE duration = (
+  SELECT MAX(duration)
+  FROM films
+  WHERE country = 'USA'
+);
+```
+
 - Subqueries in two tables
+reviews stuff
