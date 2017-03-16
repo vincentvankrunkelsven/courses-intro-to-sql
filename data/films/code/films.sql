@@ -44,5 +44,5 @@ CREATE TABLE roles (
 
 /*
 createdb films
-psql films < data/films/films.sql
+psql films < data/films/code/films.sql
 */
