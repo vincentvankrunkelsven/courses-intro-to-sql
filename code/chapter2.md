@@ -240,4 +240,5 @@ WHERE gross = (
   FROM films
 );
 ```
+
 - Subqueries in two tables

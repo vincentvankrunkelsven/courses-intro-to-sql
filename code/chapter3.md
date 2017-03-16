@@ -12,42 +12,42 @@ SELECT name
 FROM people ORDER BY name;
 ```
 
-Get people, birthdate order by birthdate.
+Get people, in order of when they were born
 ```sql
-SELECT name, birthdate
+SELECT birthdate, name
 FROM people
 ORDER BY birthdate;
 ```
 
 Get people, sort by birthdate, then name.
 ```sql
-SELECT name, birthdate
+SELECT birthdate, name
 FROM people
 ORDER BY birthdate, name;
 ```
 
-Get films filmed in 2000 or 2015, in order of release, and alphabetically.
-```sql
-SELECT title, release_year
-FROM films
-WHERE release_year IN (2000, 2015)
-ORDER BY release_year, title;
-```
-
-Get films filmed between 2000 and 2015, in order of release, and alphabetically.
-```sql
-SELECT title, release_year
-FROM films
-WHERE release_year BETWEEN 2000 AND 2015
-ORDER BY release_year, title;
-```
-
-Get films released in 2000 or 2015, in order of release.
+Get films released in 2000 or 2015, in the order they were released.
 ```sql
 SELECT title, release_year
 FROM films
 WHERE release_year in (2000, 2015)
 ORDER BY release_year;
+```
+
+Get films from in 2000 or 2015, sorted in the order they were released, and how long they were.
+```sql
+SELECT release_year, duration, title
+FROM films
+WHERE release_year IN (2000, 2015)
+ORDER BY release_year, duration;
+```
+
+Get films between 2000 and 2015, sorted by certification and the year they were released.
+```sql
+SELECT certification, release_year, title
+FROM films
+WHERE release_year IN (2000, 2015)
+ORDER BY certification, release_year;
 ```
 
 Get all films except those released in 2015, order them so we can see results.
@@ -79,16 +79,17 @@ ORDER BY name;
 
 Get count of films made in each year.
 ```sql
-SELECT COUNT(release_year), release_year
+SELECT release_year, COUNT(release_year)
 FROM films
 GROUP BY release_year;
 ```
 
-A PROPER GROUP BY ON MULTIPLE COLUMNS SHOULD GO HERE:
+Get the most spent making a film for each year, for each country.
 ```sql
-SELECT title, release_year gross
+SELECT release_year, country, MAX(budget)
 FROM films
-GROUP BY title, release_year, gross;
+GROUP BY release_year, country
+ORDER BY release_year, country;
 ```
 
 Get count of films, group by release year then order by release year.
@@ -104,7 +105,7 @@ Get count of films released in each year, ordered by count, lowest to highest.
 SELECT release_year, COUNT(title) as films_released
 FROM films
 GROUP BY release_year
-ORDER BY count;
+ORDER BY release_year;
 ```
 
 Get count of films released in each year, ordered by count highest to lowest.
@@ -123,12 +124,35 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Get highest box office earnings per year.
+Get details for the film with the lowest box office earnings per year.
+**Note: not really sure how to do this 'per year'.**
 ```sql
-SELECT release_year, MAX(gross)
+SELECT release_year, title, gross
 FROM films
-GROUP BY release_year
-ORDER BY release_year;
+WHERE release_year IN (
+  SELECT release_year
+  FROM films
+  WHERE gross IN (
+    SELECT MIN(gross)
+    FROM films
+    GROUP BY release_year
+  )
+);
+```
+
+Get details for the film with the highest box office earnings per year.
+```sql
+SELECT release_year, title, gross
+FROM films
+WHERE release_year IN (
+  SELECT release_year
+  FROM films
+  WHERE gross IN (
+    SELECT MAX(gross)
+    FROM films
+    GROUP BY release_year
+  )
+);
 ```
 
 Get the total amount made in each language.
@@ -145,6 +169,7 @@ FROM films
 GROUP BY country;
 ```
 
+**Note for the following two, we will need to filter for non null, which might be more complex than it seems.**
 Get the highest box office take per country.
 ```sql
 SELECT country, MAX(gross)
@@ -154,10 +179,10 @@ GROUP BY country;
 
 Get the bottom ten lowest box office take per country.
 ```sql
-SELECT country, MAX(gross)
+SELECT country, MIN(gross)
 FROM films
 GROUP BY country
-ORDER BY max DESC;
+ORDER BY min DESC;
 ```
 
 Get the average amount made by each country.
@@ -185,7 +210,7 @@ ORDER BY sum
 LIMIT 10;
 ```
 
-Get rouhnded average box office earnings per year.
+Get rounded average box office earnings per year.
 ```sql
 SELECT release_year, ROUND(AVG(gross))
 FROM films
@@ -193,7 +218,7 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Get lowest and highest box office earnings per year. **Note: with this one, NULL release year still has some entries for min and max.**
+Get lowest and highest box office earnings per year.
 ```sql
 SELECT release_year, MIN(gross), MAX(gross)
 FROM films
