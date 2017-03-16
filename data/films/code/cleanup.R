@@ -122,12 +122,11 @@ films <- select(films,
                 language,
                 certification,
                 gross,
-                budget,
-                review_id)
+                budget)
 
 
 # Remove redundant columns and rename for desired output.
-reviews <- select(reviews, id = review_id, 3:7)
+reviews <- select(reviews, id = review_id, 2:7)
 names(people)[1] <- "id"
 rm(actor_1, actor_2, actor_3, actors, directors)
 
