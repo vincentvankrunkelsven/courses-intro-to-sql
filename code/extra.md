@@ -82,6 +82,8 @@ WHERE role = 'director';
 ```
 
 ###### HERE BE SUBQUERIES
+select title, duration, release_year from films where duration = (select min(duration) from films);
+
 **Note: not really sure how to do some of these correctly, need to use review_id from films to get results from the reviews table.**
 
 Film with most reviews.

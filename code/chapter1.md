@@ -4,7 +4,37 @@
 - SELECT (multiple)
 - SELECT DISTINCT
 
-Get every person's name.
+Get the title of every film.
+```sql
+SELECT title
+FROM films;
+```
+
+Get the title and release year of every film.
+```sql
+SELECT title, release_year
+FROM films;
+```
+
+Get the title and release year of every film.
+```sql
+SELECT title, release_year
+FROM films;
+```
+
+Get the title, release year and country for every film.
+```sql
+SELECT title, release_year, country
+FROM films;
+```
+
+Get all details for every film.
+```sql
+SELECT *
+FROM films;
+```
+
+Get the names of everyone involved in working on the films.
 ```sql
 SELECT name
 FROM people;
@@ -28,9 +58,9 @@ SELECT name, birthdate, deathdate
 FROM people;
 ```
 
-Get all the films.
+Get all the different countries.
 ```sql
-SELECT *
+SELECT DISTINCT country
 FROM films;
 ```
 
@@ -46,22 +76,16 @@ SELECT DISTINCT role
 FROM roles;
 ```
 
-Get all the different IMDB scores.
-```sql
-SELECT DISTINCT imdb_score
-FROM reviews;
-```
-
 Get all the different certification categories.
 ```sql
 SELECT DISTINCT certification
 FROM films;
 ```
 
-Get all the different countries.
+Get all the different IMDB scores - has any scored over 9.5?
 ```sql
-SELECT DISTINCT country
-FROM films;
+SELECT DISTINCT imdb_score
+FROM reviews;
 ```
 
 #### Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
@@ -73,10 +97,22 @@ FROM films;
 - MIN (single)
 - MAX (single)
 
-Count the number of films.
+Count the number of rows in the people table.
 ```sql
-SELECT COUNT(title)
-FROM films;
+SELECT COUNT(*)
+FROM people;
+```
+
+Count the number of birthdate entries in the people table.
+```sql
+SELECT COUNT(birthdate)
+FROM people;
+```
+
+Count the number of unique birthdate entries in the people table.
+```sql
+SELECT COUNT(DISTINCT birthdate)
+FROM people;
 ```
 
 Count the number of unique languages.
@@ -97,7 +133,7 @@ SELECT COUNT(*)
 FROM people;
 ```
 
-Count the number of dead people.
+Count the number of people who have died.
 ```sql
 SELECT COUNT(deathdate)
 FROM people;
@@ -109,28 +145,46 @@ SELECT COUNT(DISTINCT release_year)
 FROM films
 ```
 
-Get the total amount spend on films.
+Get the total duration of all films.
 ```sql
-SELECT SUM(budget)
+SELECT SUM(duration)
 FROM films;
 ```
 
-Get the average duration of all films (v2).
+Get the average duration of all films.
 ```sql
 SELECT AVG(duration)
 FROM films;
 ```
 
-Get worst box office performance out of all films.
+Get the duration of the shortest film.
 ```sql
-SELECT MIN(gross)
+SELECT MIN(duration)
 FROM films;
 ```
 
-Get best box office performance of all films.
+Get the amount made by the highest grossing film. **Note: even with currency stuff, it's Star Wars.**
 ```sql
 SELECT MAX(gross)
 FROM films;
+```
+
+Get the amount made by the lowest grossing film. **Note: http://www.imdb.com/title/tt1641841/?ref_=nv_sr_1 it's this, a movie from Thailand which cost $9,000,000 and made $162. USD Dollars.**
+```sql
+SELECT MIN(gross)
+From films;
+```
+
+Get both the lowest and highest grossing films, for comparision.
+```sql
+SELECT MIN(gross), MAX(gross)
+FROM films;
+```
+
+Get the highest number of Facebook likes for any film.
+```sql
+SELECT MAX(facebook_likes)
+FROM reviews;
 ```
 
 #### Aliasing and Basic Arithmetic: AS, +, -, \*, /, %
@@ -141,28 +195,27 @@ FROM films;
 - Division
 - Modulo
 
-Get total number of unique dates.
-```sql
-SELECT COUNT(DISTINCT birthdate) + COUNT(DISTINCT deathdate)
-AS total_unique_dates
-FROM people;
-```
-
 Get the profit (or loss) for each movie, where possible.
 ```sql
 SELECT title, gross - budget
-AS profit
+AS profit_or_loss
+FROM films;
+```
+
+Get the duration in hours for each film.
+```sql
+SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
 
 Get the average film duration in hours.
 ```sql
-SELECT AVG(duration) / 60
+SELECT AVG(duration) / 60.0
 AS duration_hours  
 FROM films;
 ```
 
-Get the percentage of dead people.
+Get the percentage of people who have died.
 ```sql
 SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
@@ -176,16 +229,17 @@ AS result
 FROM films;
 ```
 
-Get the number of decades this dataset covers.
-```sql
-SELECT COUNT(DISTINCT release_year) / 10
-FROM films;
-```
-
-Number of years between oldest film and newest film.
+Get the of years between the oldest film and newest film.
 ```sql
 SELECT MAX(release_year) - MIN(release_year)
 AS difference
+FROM films;
+```
+
+Get the number of decades this dataset covers.
+```sql
+SELECT (MAX(release_year) - MIN(release_year)) / 10
+AS number_of_decades
 FROM films;
 ```
 
