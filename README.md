@@ -17,4 +17,4 @@ The role of a data scientist is to turn raw data into actionable insights. Much 
 
 ## Prerequisites
 
-* None
+* All the courses

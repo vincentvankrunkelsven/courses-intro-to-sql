@@ -7,26 +7,18 @@
 - WHERE = x OR = y  
 - WHERE > x AND < y
 
-Get all films released in 2015.
+Get all films released in 2016.
 ```sql
 SELECT *
 FROM films
-WHERE release_year = 2015;
+WHERE release_year = 2016;
 ```
 
-Get all people born 1969-02-11.
+Get the name of the person born on November 11th, 1974.
 ```sql
 SELECT name, birthdate
 FROM people
-WHERE birthdate = '1969-02-11';
-```
-
-Get all films except those released in 2015, order them so we can see results.
-```sql
-SELECT *
-FROM films
-WHERE release_year <> 2015
-ORDER BY release_year;
+WHERE birthdate = '1974-11-11';
 ```
 
 Get films released since 2000.
@@ -37,9 +29,23 @@ WHERE release_year > 2000;
 FROM films;
 ```
 
+Get the number of films released since 2000.
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE release_year > 2000;
+```
+
 Get films released before 2000.
 ```sql
 SELECT title, release_year
+FROM films
+WHERE release_year < 2000;
+```
+
+Get the number of films released before 2000.
+```sql
+SELECT COUNT(*)
 FROM films
 WHERE release_year < 2000;
 ```
@@ -67,9 +73,16 @@ FROM films;
 - LIKE
 - NOT LIKE
 
-Get films released between 1990 and 2000.
+Get films released in the 90s.
 ```sql
 SELECT title, release_year
+FROM films
+WHERE release_year BETWEEN 1990 AND 2000;
+```
+
+Get the number of films released in the 90s.
+```sql
+SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
@@ -83,17 +96,9 @@ WHERE release_year IN(1990, 2000);
 
 Get the number of films released between 2000 and 2015.
 ```sql
-SELECT COUNT(release_year)
+SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 2000 AND 2015;
-```
-
-Get films released in 2000 or 2015, in order of release.
-```sql
-SELECT title, release_year
-FROM films
-WHERE release_year in (2000, 2015)
-ORDER BY release_year;
 ```
 
 Get average duration for films released in 1992.
@@ -148,14 +153,7 @@ FROM people
 WHERE name LIKE '_r%';
 ```
 
-Get people whose names start with A, B or C, (redundantly) ordered.
-```sql
-SELECT name
-FROM people
-WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
-ORDER BY name;
-```
-Get people whose names don't start with A.
+'Get people whose names don't start with A.
 ```sql
 SELECT name
 FROM people

@@ -1,6 +1,7 @@
 # Sorting and Grouping
 ###### Sorting: ORDER BY
-- ORDER BY (single)
+-
+ (single)
 - ORDER BY (multiple)
 - ORDER BY DESC (single)
 - ORDER BY DESC (multiple)
@@ -39,6 +40,30 @@ SELECT title, release_year
 FROM films
 WHERE release_year BETWEEN 2000 AND 2015
 ORDER BY release_year, title;
+```
+
+Get films released in 2000 or 2015, in order of release.
+```sql
+SELECT title, release_year
+FROM films
+WHERE release_year in (2000, 2015)
+ORDER BY release_year;
+```
+
+Get all films except those released in 2015, order them so we can see results.
+```sql
+SELECT *
+FROM films
+WHERE release_year <> 2015
+ORDER BY release_year;
+```
+
+Get people whose names start with A, B or C, (redundantly) ordered.
+```sql
+SELECT name
+FROM people
+WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
+ORDER BY name;
 ```
 
 ###### Grouping: GROUP BY, HAVING
