@@ -153,18 +153,7 @@ FROM people
 WHERE name LIKE '_r%';
 ```
 
-<<<<<<< HEAD
 'Get people whose names don't start with A.
-=======
-Get people whose names start with A, B or C, (redundantly) ordered.
-```sql
-SELECT name
-FROM people
-WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
-ORDER BY name;
-```
-Get people whose names don't start with A.
->>>>>>> master
 ```sql
 SELECT name
 FROM people
