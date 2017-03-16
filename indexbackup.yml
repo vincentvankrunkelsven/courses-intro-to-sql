@@ -1,0 +1,430 @@
+course_title: Intro to SQL for Data Science
+course_description: Course description here.
+programming_language: sql
+chapters:
+  - chapter_title: Selecting and summarizing columns
+    chapter_description: >-
+      This chapter provides a brief introduction to working with relational
+      databases. You'll learn about their structure, how to talk about them
+      using database lingo, and how to begin an analysis by using simple SQL
+      commands to select and summarize columns from database tables.
+    exercises:
+      - type: VideoExercise
+        title: Introduction
+        content: >-
+          * Motivating example (preview of Citi Bike case study.)
+
+          * Why not just use R/Python/etc?
+            * Memory
+            * Speed
+            * Centralization
+            * Access control
+            * DMBS tools
+            * Scalability
+          * Database vocabulary (in context of example; make spreadsheet
+          analogies)
+            * Database (~ spreadsheet)
+            * Tables (~ worksheet)
+            * Columns & records (a.k.a. records) (~ columns & rows)
+            * Fields (~ cells)
+          * Basic SQL syntax
+            * Not case-sensitive
+            * End statement with semicolon
+            * Stylistic conventions (?)
+          * SELECT
+          * DISTINCT
+      - type: MultipleChoiceExercise
+        title: Why use relational databases?
+        content: >-
+          Q: Which of the following is NOT a good reason to use relational
+          databases?
+
+          A: They are good at handling unstructured data
+      - type: NormalExercise
+        title: Simple SELECT statements
+        content: >-
+          Single column, multiple columns, all columns (*). Order matters!
+          Finish with embedded MCE asking for specific value from last query
+      - type: NormalExercise
+        title: Combine SELECT with DISTINCT
+        content: >-
+          Select all distinct values of column_name with SELECT DISTINCT. Repeat
+          with multiple columns. Follow with embedded MCE to test interpretation
+      - type: MultipleChoiceExercise
+        title: Select the proper SELECT
+        content: >-
+          (Test for style and syntax)
+
+
+          Q: Which of the following queries returns a list of every date on
+          which at least one person read a blog post?
+
+          A:
+
+          SELECT DISTINCT date_read
+
+          FROM reads;
+      - type: VideoExercise
+        title: Aggregate functions
+        content: |-
+          * Difference between COUNT(*) and COUNT(column_name)
+          * Combining COUNT with DISTINCT
+          * SUM
+          * AVG
+          * MIN
+          * MAX
+      - type: NormalExercise
+        title: COUNT
+        content: 'COUNT(*) counts NULLs, COUNT(column_name) excludes NULLs'
+      - type: NormalExercise
+        title: Combine COUNT with DISTINCT
+        content: A couple useful examples of COUNT(DISTINCT column_name)
+      - type: NormalExercise
+        title: Fun with aggregate functions
+        content: 'Use AVE, MIN, MAX, SUM on duration column from reads table'
+      - type: VideoExercise
+        title: Simple math in SQL
+        content: >-
+          * Doing basic arithmetic on columns (+, -, *, /, %)
+
+          * Introduce column aliases via AS as a way to name columns in query
+          result. Will become even more useful later in the course
+
+          * ROUND, FLOOR, CEILING
+      - type: NormalExercise
+        title: From seconds to minutes
+        content: >-
+          Compute AVG and SUM of reading time in minutes instead of seconds,
+          using aliases to name resulting columns. Do the same, but ROUND one of
+          the columns to nearest integer
+      - type: NormalExercise
+        title: How long have you been here?
+        content: >-
+          First return all columns from the authors table, then add a column
+          which gives the number of years each author has been writing for the
+          blog (i.e. 2017 - year_joined)
+  - chapter_title: Filtering rows
+    chapter_description: >-
+      This chapter builds on the first by teaching you not only how to select
+      and summarize columns of interest, but to filter tables for records
+      satisfying some criteria of interest. You'll learn how to use basic
+      comparison operators, combine multiple criteria, match patterns in text,
+      and much more.
+    exercises:
+      - type: VideoExercise
+        title: Filter rows with WHERE
+        content: |-
+          * WHERE
+          * Filtering numeric vs. text values
+          * Basic comparison operators: =, <>, <, <=, >, >=
+          * Multiple conditions with AND, OR
+      - type: NormalExercise
+        title: Filter for a single condition
+        content: >-
+          Practice filtering for numeric and text values. Start with = and <>,
+          then move to inequalities
+      - type: NormalExercise
+        title: Filter for multiple conditions
+        content: >-
+          Same as above, but incorporate AND, OR. Recall something from chapter
+          1, like DISTINCT or aggregate functions? Do at least one >= AND <= for
+          comparison to BETWEEN in later exercise
+      - type: VideoExercise
+        title: More advanced filtering
+        content: |-
+          * BETWEEN (compare to >= AND <= )
+          * IN (compare to = AND = )
+          * IS NULL, IS NOT NULL
+      - type: MultipleChoiceExercise
+        title: Look familiar?
+        content: >-
+          Give students a SELECT statement using BETWEEN and have them select an
+          equivalent statement using >= AND <=
+      - type: NormalExercise
+        title: Stuck somewhere IN BETWEEN
+        content: Practice filtering with BETWEEN and IN
+      - type: NormalExercise
+        title: Manage missingness
+        content: >-
+          Practice with IS NULL and IS NOT NULL. Combine with COUNT, DISTINCT,
+          and/or other concepts from earlier
+      - type: VideoExercise
+        title: Pattern matching
+        content: >-
+          * LIKE
+
+          * Wildcards (%, _)
+
+          * Very simple regular expressions (~, [a-z], [0-9], +, *)
+
+          * Caveat that some of these more advanced features may vary between
+          DBMS
+      - type: NormalExercise
+        title: LIKE it or NOT
+        content: >-
+          Practice with some simple pattern matching using LIKE with % and _.
+          Then combine with NOT.
+      - type: NormalExercise
+        title: Regular expressions round-up
+        content: >-
+          Practice using simple regular expressions to locate usernames in the
+          users table. Finish with embedded MCE for interpretation
+      - type: VideoExercise
+        title: Simple subqueries
+        content: >-
+          Introduce subqueries as a convenient way to filter on values that
+          aren't readily available in the table of interest. These values may be
+          the result of a second filtering operation on the same table, or they
+          may come from a different table entirely. Use as teaser for future
+          course covering joins. We will only cover very simple examples here
+      - type: NormalExercise
+        title: Single table subqueries
+        content: >-
+          Perform a couple of subqueries using information from only one table.
+          Finish with embedded MCE to drill home motivation
+      - type: NormalExercise
+        title: Two table subqueries
+        content: >-
+          Perform some two table subqueries (i.e. use values from another table
+          to filter this table). Finish again with an MCE to interpret the
+          results
+  - chapter_title: Sorting and grouping
+    chapter_description: >-
+      Now that you've learned how to select the rows and columns you're most
+      interested in, you'll take your analyses to the next level by learning how
+      to sort and group tables by variables of interest. In particular, you'll
+      see how to combine GROUP BY with aggregate functions like SUM and AVG to
+      summarize your data within groups—a very powerful paradigm!
+    exercises:
+      - type: VideoExercise
+        title: Sort with ORDER BY
+        content: |-
+          * ORDER BY
+            * Single column
+            * Multiple columns
+            * DESC
+      - type: NormalExercise
+        title: Sort by a single column
+        content: 'Use ORDER BY on one column at a time, with and without DESC'
+      - type: NormalExercise
+        title: Sort by multiple columns
+        content: >-
+          Use  ORDER BY on multiple columns. Make "tiebreaker" analogy. Embed
+          MCE to interpret single value from last result
+      - type: VideoExercise
+        title: Get started with GROUP BY
+        content: |-
+          * GROUP BY
+            * Single column
+            * Multiple columns
+          * Combine with ORDER BY
+          * Column aliasing refresher, use with ORDER BY
+      - type: MultipleChoiceExercise
+        title: Everything in its right place
+        content: >-
+          Q: Which of the following sorts column1 in ascending order within each
+          level of column2?
+
+          A:
+
+          SELECT column1 AS c1, column2 AS c2
+
+          FROM table_name
+
+          GROUP BY c1
+
+          ORDER BY c2;
+      - type: NormalExercise
+        title: Sort within groups
+        content: >-
+          Combine GROUP BY and ORDER BY to sort within groups. Embed another MCE
+          at end to interpret last result
+      - type: VideoExercise
+        title: Combine GROUP BY with aggregate functions
+        content: >-
+          * Unleash the full power of GROUP BY and aggregate functions by
+          combining them to perform operations within groups
+
+          * Examples covering grouped COUNT, SUM, AVG
+      - type: NormalExercise
+        title: Compute group extremes
+        content: >-
+          Combine GROUP BY with MIN and MAX to compute the extreme values within
+          each group for a couple of variables
+      - type: NormalExercise
+        title: Sort by group averages
+        content: 'Compute group averages, then sort by the averages'
+      - type: VideoExercise
+        title: Filtering with aggregate functions
+        content: >-
+          * WHERE keyword cannot be used to filter results from aggregate
+          functions
+
+          * Enter HAVING
+
+          * Walk through several examples (this is not intuitive)
+
+          * Can't use aliases in the HAVING clause since evaluated before the
+          SELECT clause
+
+          * Brief discussion of order of operations (note to self: should this
+          come sooner in the course?)
+      - type: MultipleChoiceExercise
+        title: Order of operations
+        content: >-
+          Check understanding of the order of operations, i.e. HAVING executes
+          before SELECT, so alias is not helpful here
+      - type: NormalExercise
+        title: HAVING patience
+        content: >-
+          Compute group values, then filter for values above/below a certain
+          threshold using HAVING
+      - type: NormalExercise
+        title: Combine HAVING with ORDER BY
+        content: >-
+          Same as above, plus sort results by same group values. Note you can
+          refer to the column alias in the ORDER BY since it's executed last
+  - chapter_title: 'Case study: New York City bike share'
+    chapter_description: >-
+      This chapter gives you an opportunity to apply everything you've learned
+      in the first three chapters to real-world data! You'll be working with a
+      database that contains information on millions of individual bike share
+      trips in New York City in 2016, along with the stations the bikes belong
+      to, and daily weather metrics recorded from Central Park of the same time
+      period.
+    exercises:
+      - type: VideoExercise
+        title: Introduction to the data
+        content: >-
+          * Intro Citi Bike database: trips, stations, weather
+
+          * Part of an urban planning committee trying to understand biking
+          habits in NYC
+
+          * Will be exploring a number of questions, practicing your SQL skills
+          along the way
+
+          * Quick refresher of chapter 1 concepts (SELECT, DISTINCT, aggregate
+          functions)
+      - type: MultipleChoiceExercise
+        title: How many records?
+        content: >-
+          How many records are in the stations, trips, and weather tables,
+          respectively? 498, 9937968, 365 (numbers may change if/when we subset
+          the data to e.g. summer only)
+      - type: NormalExercise
+        title: Preview the tables
+        content: >-
+          SELECT some columns from weather, then from stations, then from
+          weather. But intro LIMIT for the last, since we don't want to retrieve
+          all records from such a huge table
+      - type: NormalExercise
+        title: Explore the data
+        content: |-
+          * How many bikes? SELECT COUNT(DISTINCT bike_id) FROM trips;
+          * Minimum, average, and maximum trip durations (in seconds, minutes)?
+          * Minimum, average, and maximum mean_temp_f?
+      - type: VideoExercise
+        title: 'Refresher: filtering rows'
+        content: >-
+          * Quick review of chapter 2 concepts (filtering rows)
+
+          * Pose some interested questions to be answered in the following
+          exercises
+      - type: NormalExercise
+        title: 'When it rains, it pours'
+        content: >
+          * How many days saw more than 1/2 inch of precipitation?
+
+          * How many days did it *rain* more than 1/2 inch? (Need to use LIKE to
+          partial match for "Rain" on events column)
+
+          * How many days did it rain BETWEEN 1/2 and 1 inches, with cloud cover
+          greater than 6?
+      - type: NormalExercise
+        title: Does rain affect rides?
+        content: >-
+          * What's the average trip length?
+
+          * What's the average trip length on days with more than 1/2 inch of
+          rain? (use start_date)
+
+
+          SELECT AVG(duration)
+
+          FROM trips
+
+          WHERE start_date IN (
+            SELECT date
+            FROM weather
+            WHERE precipitation_in > 0.5
+          );
+
+
+          * Finish with multiple choice to interpret result
+      - type: VideoExercise
+        title: 'Refresher: sorting and grouping'
+        content: >-
+          * Refresher of chapter 3 concepts (sorting and grouping)
+
+          * Pose some interesting questions to be answered in following
+          exercises
+      - type: NormalExercise
+        title: Most popular times to ride?
+        content: >-
+          * Compute the total number of trips started each month
+
+          * Compare ridership on weekdays vs weekends (use DATE_PART('dow',
+          ...))
+
+          * Average daily rides on national holidays vs. non-holidays?
+
+          * Which of the following is NOT a correct interpretation of these
+          results? (evaluate interpretation of last 3 results)
+      - type: NormalExercise
+        title: Most and least popular routes?
+        content: >-
+          * Count the total number of trips within each combination of
+          start_station_id and end_station_id (need to LIMIT result?)
+
+          * Then sort in both ascending and descending order
+
+          * Are these routes particularly short or long relative to other
+          routes?
+      - type: NormalExercise
+        title: Average trip duration by starting station
+        content: >-
+          Compute the average trip duration by starting station and order the
+          result by station id:
+
+
+          SELECT start_station_id AS station, AVG(duration) AS seconds
+
+          FROM trips
+
+          GROUP BY station
+
+          ORDER BY station
+
+
+          ---
+
+
+          Again, but only the longest trips:
+
+
+          SELECT start_station_id AS station, AVG(duration) AS seconds
+
+          FROM trips
+
+          GROUP BY station
+
+          HAVING AVG(duration) > 2000
+
+          ORDER BY seconds DESC;
+
+
+          Takes us to a station out in Bed-Stuy, Brooklyn!
+      - type: VideoExercise
+        title: Summary
+        content: Summarize what was learned from the case study and the course overall
