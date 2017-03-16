@@ -19,16 +19,16 @@ raw$movie_title <- str_trim(raw$movie_title)
 
 # Create function to get list of unique values over multiple specified columns.
 get_unique <- function (x, col_nums) {
-  
-  
+
+
   full_list <- unlist(map(x[col_nums], unlist))
   unique_values <-na.omit(unique(full_list))
   l <- length(unique_values)
-  
+
   df <- data_frame(unique_values)
   df <- arrange(df, unique_values)
   id <- c(1:l)
-  
+
   df$id <- id
   df <- select(df, id, unique_values)
   names(df)[2] <- "name"
@@ -76,14 +76,14 @@ roles <- select(roles, id, film_id, person_id, role)
 
 
 
-## Reviews 
+## Reviews
 
 # Create reviews table.
-reviews <- select(raw, 
+reviews <- select(raw,
                   film_id,
                   num_user = num_user_for_reviews,
-                  num_critic = num_critic_for_reviews, 
-                  imdb_score, 
+                  num_critic = num_critic_for_reviews,
+                  imdb_score,
                   num_votes = num_voted_users,
                   facebook_likes = movie_facebook_likes)
 
@@ -99,7 +99,7 @@ reviews <- select(reviews, review_id, 1:7) %>%
 ## Films
 
 # Rename columns appropriately
-films <- select(raw, 
+films <- select(raw,
                 id = film_id,
                 title = movie_title,
                 release_year = title_year,
@@ -112,13 +112,12 @@ films <- select(raw,
                 color)
 
 films <- merge(x = films, y = reviews[,1:2], by.x = "id", by.y = "film_id")
-films <- select(films, 
+films <- select(films,
                 id,
                 title,
                 release_year,
                 country,
                 duration,
-                color,
                 language,
                 certification,
                 gross,
