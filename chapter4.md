@@ -7,7 +7,7 @@ description: >-
   York City in 2015, along with the stations the bikes belong to, and daily
   weather metrics recorded from Central Park during the same time period.
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:0332cada55
+--- type:VideoExercise lang:sql xp:50 skills:1 key:c5e88bf9df
 ## Introduction to the CitiBike Data
 
 - Tripe, Stations, Weather - Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes - Etc.
@@ -18,7 +18,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:611a877d5d
+--- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:e43349f57b
 ## Get to Know Your Data
 
 Questions and answers go here.
@@ -37,7 +37,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:5afd968e78
+--- type:NormalExercise lang:sql xp:100 skills:1 key:7bd156c7f9
 ## Know Your LIMITs
 
 - Selecting from the different tables, but using LIMIT - Counts
@@ -66,7 +66,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:6443bf7117
+--- type:NormalExercise lang:sql xp:100 skills:1 key:d0ffdb4781
 ## Make Your Way Around (The Dataset)
 
 - Getting MIN, MAX, AVG
@@ -95,7 +95,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:e47fab0dee
+--- type:NormalExercise lang:sql xp:100 skills:1 key:5e08991e0e
 ## Filtering
 
 - Filtering based on various criteria
@@ -124,7 +124,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:f42ef71df1
+--- type:NormalExercise lang:sql xp:100 skills:1 key:62895f3719
 ## More Filtering
 
 - More examples of filtering for interesting information
@@ -153,7 +153,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:9c19012788
+--- type:NormalExercise lang:sql xp:100 skills:1 key:a705e69872
 ## Weather
 
 - Some weather related questions
@@ -182,7 +182,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:7f4ef7693f
+--- type:NormalExercise lang:sql xp:100 skills:1 key:0528c5f6eb
 ## Stations
 
 - Some questions related to stations
@@ -211,7 +211,7 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:1671deefb5
+--- type:NormalExercise lang:sql xp:100 skills:1 key:a152202d93
 ## Times
 
 - Some time related questions - e.g. most popular days to go cycling, etc.
@@ -240,7 +240,7 @@ Questions and answers go here.
 
 ```
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:311cc94e4c
+--- type:VideoExercise lang:sql xp:50 skills:1 key:fa8c321fa1
 ## Summary
 
 - Summarize the case study - Summarize the course - Give suggestions for further projects using what you've learned

@@ -6,7 +6,7 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:0ec97b66e5
+--- type:VideoExercise lang:sql xp:50 skills:1 key:ac26bee65c
 ## Introducing SQL
 
 - Motivating example: preview of Citi Bike case study. - Why not just use R / Python?
@@ -36,7 +36,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:9e656e3f82
+--- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:4fa8d91ea8
 ## Which of the following is a good reason to use SQL?
 
 - Question and answers go here.
@@ -55,7 +55,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:d08e3eb1f9
+--- type:NormalExercise lang:sql xp:100 skills:1 key:be1531d0c3
 ## Single Column SELECTs
 
 - Selecting stuff from single column.
@@ -84,7 +84,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:0ee6185769
+--- type:NormalExercise lang:sql xp:100 skills:1 key:42948a96fd
 ## Multiple Column SELECTs
 
 - Selecting stuff from multiple columns.
@@ -113,7 +113,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:3c17ec6d3c
+--- type:NormalExercise lang:sql xp:100 skills:1 key:04db1bd3fd
 ## SELECT DISTINCT
 
 - Selecting distinct stuff from single columns.
@@ -142,7 +142,7 @@ description: >-
 
 ```
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:4e2fc8d4dd
+--- type:VideoExercise lang:sql xp:50 skills:1 key:fefd5b2658
 ## Aggregate Functions
 
 - Introducing COUNT - COUNT DISTINCT - Difference between COUNT(*), COUNT(col) and COUNT(DISTINCT) - SUM, AVG, MIN, MAX - Introduction to Aliasing using AS - ROUND, FLOOR, CEILING
@@ -153,7 +153,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:16c258e653
+--- type:NormalExercise lang:sql xp:100 skills:1 key:4f6f9ab15a
 ## Learning to COUNT
 
 - Simple count exercises.
@@ -182,7 +182,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:5496bed6ee
+--- type:NormalExercise lang:sql xp:100 skills:1 key:4491207d93
 ## Different COUNTs
 
 - Exercises showing difference between COUNT(*), COUNT(col) AND COUNT(DISTINCT)
@@ -211,7 +211,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:5b0c7ed4a5
+--- type:NormalExercise lang:sql xp:100 skills:1 key:1fb7ef3bda
 ## SUM, AVG, MIN, MAX
 
 - Simple exercises using SUM, AVG, MIN, MAX
@@ -240,7 +240,7 @@ description: >-
 
 ```
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:72a6347ce9
+--- type:VideoExercise lang:sql xp:50 skills:1 key:8c9eaa8fa2
 ## Arithmetic in SQL
 
 - Some stuff about arithmetic in SQL - Introduction to alisaing using AS
@@ -251,7 +251,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:4c4d7b1b6c
+--- type:NormalExercise lang:sql xp:100 skills:1 key:478bb83792
 ## It's AS simple AS Aliasing
 
 - Simple AS exercises.
@@ -280,39 +280,10 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:0a7afdf29e
+--- type:NormalExercise lang:sql xp:100 skills:1 key:a60c51720f
 ## Even More Aliasing
 
 - Some aliasing with arithmetic.
-
-*** =instructions
-
-*** =hint
-
-*** =pre_exercise_code
-```{sql}
-
-```
-
-*** =sample_code
-```{sql}
-
-```
-
-*** =solution
-```{sql}
-
-```
-
-*** =sct
-```{sql}
-
-```
-
---- type:NormalExercise lang:sql xp:100 skills:1 key:96f4ab77fa
-## Rounding
-
-- Some simple rounding exercises.
 
 *** =instructions
 

@@ -73,9 +73,6 @@ chapters:
       - type: NormalExercise
         title: Even More Aliasing
         content: '- Some aliasing with arithmetic.'
-      - type: NormalExercise
-        title: Rounding
-        content: '- Some simple rounding exercises.'
   - chapter_title: Filtering Rows
     chapter_description: >-
       This chapter builds on the first by teaching you not only how to select

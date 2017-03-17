@@ -6,7 +6,7 @@ description: >-
   some criteria of interest. You'll learn how to use basic comparison operators,
   combine multiple criteria, match patterns in text, and much more.
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:a1f6929566
+--- type:VideoExercise lang:sql xp:50 skills:1 key:69c813dfa5
 ## 
 
 
@@ -17,7 +17,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:e96d122861
+--- type:NormalExercise lang:sql xp:100 skills:1 key:da1820b02c
 ## WHERE oh WHERE
 
 - Introduction to WHERE - Filtering numeric values - Filtering text values - Basic comparison operators - Multiple WHERE conditions: AND, OR
@@ -46,7 +46,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:e2cb68759f
+--- type:NormalExercise lang:sql xp:100 skills:1 key:7dbb43ecb8
 ## Simple Filtering of Text
 
 - Some basic filtering examples on text
@@ -75,7 +75,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:f3a84c6fed
+--- type:NormalExercise lang:sql xp:100 skills:1 key:5028d9f90e
 ## Simple Filtering of Numeric Values
 
 Some basic filtering examples on numeric values
@@ -104,7 +104,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:42a390d3b7
+--- type:NormalExercise lang:sql xp:100 skills:1 key:3c98c3fe60
 ## WHERE AND
 
 - Simple exercises combining WHERE with multiple AND clauses
@@ -133,7 +133,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:9b72c48cf4
+--- type:NormalExercise lang:sql xp:100 skills:1 key:b689b830bd
 ## WHERE OR
 
 - Simple exercises combining WHERE, AND and OR clauses.
@@ -162,7 +162,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:d20577230f
+--- type:VideoExercise lang:sql xp:50 skills:1 key:3549cfeead
 ## More Advanced Filtering
 
 - Introduction to BETWEEN, IN - IS NULL, IS NOT NULL
@@ -173,7 +173,7 @@ Some basic filtering examples on numeric values
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:777f7ddd84
+--- type:NormalExercise lang:sql xp:100 skills:1 key:9a7f0f5334
 ## BETWEEN (A Rock and A Hard Place)
 
 - Simple BETWEEN exercises
@@ -202,7 +202,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:08a5dc98c5
+--- type:NormalExercise lang:sql xp:100 skills:1 key:1e24cd7b4d
 ## IN
 
 - Exercises using WHERE with IN
@@ -231,7 +231,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:c4c4809bb1
+--- type:NormalExercise lang:sql xp:100 skills:1 key:dbc9a8959d
 ## BETWEEN and AND
 
 - Exercises using BETWEEN with AND
@@ -260,7 +260,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:962f2d75fe
+--- type:NormalExercise lang:sql xp:100 skills:1 key:49cfd6be81
 ## IN (The Big Leagues)
 
 - Exercises using WHERE with IN
@@ -289,7 +289,7 @@ Some basic filtering examples on numeric values
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:9398386daf
+--- type:NormalExercise lang:sql xp:100 skills:1 key:3d7f40308f
 ## IS NULL and IS NOT NULL
 
 - Using WHERE with IS NULL and IS NOT NULL clauses
