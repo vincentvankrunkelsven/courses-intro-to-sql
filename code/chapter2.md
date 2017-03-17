@@ -50,11 +50,6 @@ SELECT *
 FROM films
 WHERE certification = 'R';
 ```
-```sql
-SELECT *
-FROM films
-WHERE certification = 'R';
-```
 
 Get all films released in 2016.
 ```sql
@@ -199,6 +194,12 @@ SELECT COUNT(___)
 FROM films
 WHERE ___ BETWEEN 1990 AND 2000;
 ```
+```sql
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 1990 AND 2000;
+```
+
 
 Get the number of films made between 2000 and 2015 with budgets over $100 million.
 ```sql

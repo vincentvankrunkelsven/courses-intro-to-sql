@@ -190,18 +190,6 @@ SELECT MIN(gross)
 From films;
 ```
 
-Get both the lowest and highest grossing films, for comparision.
-```sql
-SELECT MIN(gross), MAX(gross)
-FROM films;
-```
-
-Get the highest number of Facebook likes for any film.
-```sql
-SELECT MAX(facebook_likes)
-FROM reviews;
-```
-
 #### Aliasing and Basic Arithmetic: AS, +, -, \*, /, %
 - AS
 - Addition

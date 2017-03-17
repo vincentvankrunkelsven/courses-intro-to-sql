@@ -290,10 +290,20 @@ FROM films;
 ```
 *** =sct4:
 
+*** =type5: NormalExercise
+*** =instructions5
+Count the number of unique countries.
+*** =solution5
+```
+SELECT COUNT(DISTINCT country)
+FROM films;
+```
+*** =sct5:
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:ba95f5cc97
 ## Different COUNTs
 Exercises showing difference between COUNT(*), COUNT(col) AND COUNT(DISTINCT)
+Using birthdates as examples.
 
 *** =pre_exercise_code
 ```
@@ -306,12 +316,33 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Count the total number of rows in the people table.
 *** =solution1
 ```
-Solution code goes here.
+SELECT COUNT(*)
+FROM people;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Count the total number of birthdates in the people table.
+*** =solution2
+```
+SELECT COUNT(birthdate)
+FROM people;
+```
+*** =sct3:
+
+*** =type3: NormalExercise
+*** =instructions3
+Count the total number of distinct birthdates in the people table.
+*** =solution3
+```
+SELECT COUNT(DISTINCT birthdate)
+FROM people;
+```
+*** =sct3:
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:5260bda57a
 ## SUM, AVG, MIN, MAX
@@ -328,17 +359,58 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get the total duration of all films.
 *** =solution1
 ```
-Solution code goes here.
+SELECT SUM(duration)
+FROM films;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get the average duration of all films.
+*** =solution2
+```
+SELECT AVG(duration)
+FROM films;
+```
+*** =sct2:
+
+*** =type3: NormalExercise
+*** =instructions3
+Get the duration of the shortest film.
+*** =solution3
+```
+SELECT MIN(duration)
+FROM films;
+```
+*** =sct3:
+
+*** =type4: NormalExercise
+*** =instructions4
+Get the amount made by the highest grossing film.
+*** =solution4
+```
+SELECT MAX(gross)
+FROM films;
+```
+*** =sct4:
+
+*** =type5: NormalExercise
+*** =instructions5
+Get the amount made by the lowest grossing film.
+*** =solution5
+```
+SELECT MIN(gross)
+FROM films;
+```
+*** =sct5:
 
 --- type:VideoExercise lang:sql xp:50 skills:1 key:d57162a2ad
 ## Arithmetic in SQL
-
-- Some stuff about arithmetic in SQL - Introduction to alisaing using AS
+- Some stuff about arithmetic in SQL
+- Introduction to alisaing using AS
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -361,16 +433,41 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get the profit (or loss) for each movie, where possible.
 *** =solution1
 ```
-Solution code goes here.
+SELECT title, gross - budget
+AS profit_or_loss
+FROM films;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get the duration in hours for each film.
+*** =solution2
+```
+SELECT title, duration / 60.0 AS duration_hours
+FROM films;
+```
+*** =sct2:
+
+
+*** =type3: NormalExercise
+*** =instructions3
+Get the average film duration in hours.
+*** =solution3
+```
+SELECT AVG(duration) / 60.0
+AS duration_hours  
+FROM films;
+```
+*** =sct3:
+
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:8612897f35
 ## Even More Aliasing
-Some aliasing with arithmetic.
+Some aliasing with aggregates and arithmetic.
 *** =pre_exercise_code
 ```
 Pre-exercise code goes here.
@@ -382,9 +479,54 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get the percentage of people who have died.
 *** =solution1
 ```
-Solution code goes here.
+SELECT COUNT(deathdate) * 100 / COUNT(*)
+AS percentage_dead
+FROM people;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Check if there's an even number of unique languages. (0 = yes, 1 = no)
+*** =solution2
+```
+SELECT COUNT(DISTINCT language) % 2
+AS result
+FROM films;
+```
+*** =sct2
+
+*** =type3: NormalExercise
+*** =instructions3
+Get the of years between the oldest film and newest film.
+*** =solution3
+```
+SELECT MAX(release_year) - MIN(release_year)
+AS difference
+FROM films;
+```
+*** =sct3:
+
+*** =type4: NormalExercise
+*** =instructions4
+Get the number of decades this dataset covers.
+*** =solution4
+```
+SELECT (MAX(release_year) - MIN(release_year)) / 10
+AS number_of_decades
+FROM films;
+```
+*** =sct4:
+
+*** =type5: NormalExercise
+*** =instructions5
+Get the duration in hours for each film.
+*** =solution5
+```
+SELECT title, duration / 60.0 AS duration_hours
+FROM films;
+```
+*** =sct5:
