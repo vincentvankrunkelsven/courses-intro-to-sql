@@ -7,11 +7,19 @@
 #### EXERCISE: SINGLE COLUMN SELECT
 Get the title of every film.
 ```sql
+SELECT ___
+FROM films;
+```
+```sql
 SELECT title
 FROM films;
 ```
 
 Get all details for every film.
+```sql
+SELECT ___
+FROM films;
+```
 ```sql
 SELECT *
 FROM films;
@@ -24,12 +32,6 @@ FROM people;
 ```
 
 #### EXERCISE: MULTIPLE COLUMN SELECT
-Get the title and release year of every film.
-```sql
-SELECT title, release_year
-FROM films;
-```
-
 Get the title and release year of every film.
 ```sql
 SELECT title, release_year
@@ -62,6 +64,10 @@ FROM people;
 
 ### EXERCISE: SELECT DISTINCT
 Get all the different countries.
+```sql
+SELECT ___ country
+FROM films;
+```
 ```sql
 SELECT DISTINCT country
 FROM films;
@@ -102,6 +108,10 @@ FROM reviews;
 
 #### EXERCISE: COUNT STAR, COUNT COLUMN AND COUNT DISTINCT
 Count the number of rows in the people table.
+```sql
+SELECT COUNT(___)
+FROM people;
+```
 ```sql
 SELECT COUNT(*)
 FROM people;
@@ -204,11 +214,20 @@ FROM reviews;
 Get the profit (or loss) for each movie, where possible.
 ```sql
 SELECT title, gross - budget
+___ profit_or_loss
+FROM films;
+```
+```sql
+SELECT title, gross - budget
 AS profit_or_loss
 FROM films;
 ```
 
 Get the duration in hours for each film.
+```sql
+SELECT title, ___ AS duration_hours
+FROM films;
+```
 ```sql
 SELECT title, duration / 60.0 AS duration_hours
 FROM films;
@@ -223,12 +242,22 @@ FROM films;
 
 Get the percentage of people who have died.
 ```sql
+SELECT COUNT(___) * 100 / COUNT(*)
+AS percentage_dead
+FROM people;
+```
+```sql
 SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
 FROM people;
 ```
 
 Check if there's an even number of unique languages. (0 = yes, 1 = no)
+```sql
+SELECT COUNT(___ language) ___ 2
+AS result
+FROM films;
+```
 ```sql
 SELECT COUNT(DISTINCT language) % 2
 AS result
