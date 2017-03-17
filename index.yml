@@ -38,15 +38,15 @@ chapters:
         title: Which of the following is a good reason to use SQL?
         content: >-
             - Question and answers go here.
-      - type: TabExercise
+      - type: NormalExercise
         title: Single Column SELECTs
         content: >-
           - Selecting stuff from single column.
-      - type: TabExercise
+      - type: NormalExercise
         title: Multiple Column SELECTs
         content: >-
           - Selecting stuff from multiple columns.
-      - type: TabExercise
+      - type: NormalExercise
         title: SELECT DISTINCT
         content: >-
           - Selecting distinct stuff from single columns.
@@ -59,15 +59,15 @@ chapters:
           - SUM, AVG, MIN, MAX
           - Introduction to Aliasing using AS
           - ROUND, FLOOR, CEILING
-      - type: TabExercise
+      - type: NormalExercise
         title: Learning to COUNT
         content: >-
           - Simple count exercises.
-      - type: TabExercise
+      - type: NormalExercise
         title: Different COUNTs
         content: >-
           - Exercises showing difference between COUNT(*), COUNT(col) AND COUNT(DISTINCT)
-      - type: TabExercise
+      - type: NormalExercise
         title: SUM, AVG, MIN, MAX
         content: >-
           - Simple exercises using SUM, AVG, MIN, MAX
@@ -76,15 +76,15 @@ chapters:
         content: >-
           - Some stuff about arithmetic in SQL
           - Introduction to alisaing using AS
-      - type: TabExercise
+      - type: NormalExercise
         title: It's AS simple AS Aliasing
         content: >-
           - Simple AS exercises.
-      - type: TabExercise
+      - type: NormalExercise
         title: Even More Aliasing
         content: >-
           - Some aliasing with arithmetic.
-      - type: TabExercise
+      - type: NormalExercise
         title: Rounding
         content: >-
           - Some simple rounding exercises.
@@ -104,18 +104,18 @@ chapters:
           - Filtering text values
           - Basic comparison operators
           - Multiple WHERE conditions: AND, OR
-      - type: TabExercise
+      - type: NormalExercise
         title: Simple Filtering of Text
         content: >-
           - Some basic filtering examples on text
-      - type: TabExercise
+      - type: NormalExercise
         title: Simple Filtering of Numeric Values
         content: Some basic filtering examples on numeric values
-      - type: TabExercise
+      - type: NormalExercise
         title: WHERE AND
         content: >-
           - Simple exercises combining WHERE with multiple AND clauses
-      - type: TabExercise
+      - type: NormalExercise
         title: WHERE OR
         content: >-
           - Simple exercises combining WHERE, AND and OR clauses.
@@ -124,23 +124,23 @@ chapters:
         content: >-
           - Introduction to BETWEEN, IN
           - IS NULL, IS NOT NULL
-      - type: TabExercise
+      - type: NormalExercise
         title: BETWEEN (A Rock and A Hard Place)
         content: >-
           - Simple BETWEEN exercises
-      - type: TabExercise
+      - type: NormalExercise
         title: IN
         content: >-
           - Exercises using WHERE with IN
-      - type: TabExercise
+      - type: NormalExercise
         title: BETWEEN and AND
         content: >-
           - Exercises using BETWEEN with AND
-      - type: TabExercise
+      - type: NormalExercise
         title: IN (The Big Leagues)
         content: >-
           - Exercises using WHERE with IN
-      - type: TabExercise
+      - type: NormalExercise
         title: IS NULL and IS NOT NULL
         content: >-
           - Using WHERE with IS NULL and IS NOT NULL clauses
@@ -150,7 +150,7 @@ chapters:
           - Introduction to simple pattern matching
           - Wildcards in SQL: %, _
           - LIKE, NOT LIKE
-      - type: TabExercise
+      - type: NormalExercise
         title: How Do You LIKE Me Now?
         content: >-
           - Using WHERE with LIKE and NOT LIKE
@@ -168,11 +168,11 @@ chapters:
           - Introduction to ORDER BY
           - Single columns, multiple columns
           - Sorting in reverse order with DESC
-      - type: TabExercise
+      - type: NormalExercise
         title: Sorting single columns
         content: >-
           - Using ORDER BY to sort on single columns
-      - type: TabExercise
+      - type: NormalExercise
         title: Sorting multiple columns
         content: >-
           - Using ORDER BY to sort on multiple columns
@@ -183,15 +183,15 @@ chapters:
           - Single columns, multiple columns
           - Combining GROUP BY with ORDER BY
           - Using GROUP BY with aggregate functions
-      - type: TabExercise
+      - type: NormalExercise
         title: Introduction to GROUP BY on single columns
         content: >-
           - Using GROUP BY to sort on single columns
-      - type: TabExercise
+      - type: NormalExercise
         title: Introduction to GROUP BY on multiple columns
         content: >-
           - Using GROUP BY to sort on multiple columns
-      - type: TabExercise
+      - type: NormalExercise
         title: Combining GROUP BY and ORDER BY
         content: >-
           - Using GROUP BY then ordering results with ORDER BY
@@ -200,15 +200,15 @@ chapters:
         content: >-
           - Introduction to HAVING
           - Comparison with WHERE
-      - type: TabExercise
+      - type: NormalExercise
         title: GROUP BY and Aggregate Functions
         content: >-
           - Using GROUP BY with aggregate functions to get interesting stats
-      - type: TabExercise
+      - type: NormalExercise
         title: HAVING A Great Time
         content: >-
           - Using HAVING to filter results from aggregate functions
-      - type: TabExercise
+      - type: NormalExercise
         title: Altogether Now
         content: >-
           - Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
@@ -231,32 +231,32 @@ chapters:
         title: Get to Know Your Data
         content: >-
           Questions and answers go here.
-      - type: TabExercise
+      - type: NormalExercise
         title: Know Your LIMITs
         content: >-
           - Selecting from the different tables, but using LIMIT
           - Counts
-      - type: TabExercise
+      - type: NormalExercise
         title: Make Your Way Around (The Dataset)
         content: >-
           - Getting MIN, MAX, AVG
-      - type: TabExercise
+      - type: NormalExercise
         title: Filtering
         content: >-
           - Filtering based on various criteria
-      - type: TabExercise
+      - type: NormalExercise
         title: More Filtering
         content: >-
           - More examples of filtering for interesting information
-      - type: TabExercise
+      - type: NormalExercise
         title: Weather
         content: >-
           - Some weather related questions
-      - type: TabExercise
+      - type: NormalExercise
         title: Stations
         content: >-
           - Some questions related to stations
-      - type: TabExercise
+      - type: NormalExercise
         title: Times
         content: >-
           - Some time related questions
