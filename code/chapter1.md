@@ -1,15 +1,29 @@
 # Selecting and summarizing columns
-#### Selecting Columns: SELECT, SELECT DISTINCT
+## Selecting Columns: SELECT, SELECT DISTINCT
 - SELECT (single)
 - SELECT (multiple)
 - SELECT DISTINCT
 
+#### EXERCISE: SINGLE COLUMN SELECT
 Get the title of every film.
 ```sql
 SELECT title
 FROM films;
 ```
 
+Get all details for every film.
+```sql
+SELECT *
+FROM films;
+```
+
+Get the names of everyone involved in working on the films.
+```sql
+SELECT name
+FROM people;
+```
+
+#### EXERCISE: MULTIPLE COLUMN SELECT
 Get the title and release year of every film.
 ```sql
 SELECT title, release_year
@@ -26,18 +40,6 @@ Get the title, release year and country for every film.
 ```sql
 SELECT title, release_year, country
 FROM films;
-```
-
-Get all details for every film.
-```sql
-SELECT *
-FROM films;
-```
-
-Get the names of everyone involved in working on the films.
-```sql
-SELECT name
-FROM people;
 ```
 
 Get every person's name and their date of birth where possible.
@@ -58,6 +60,7 @@ SELECT name, birthdate, deathdate
 FROM people;
 ```
 
+### EXERCISE: SELECT DISTINCT
 Get all the different countries.
 ```sql
 SELECT DISTINCT country
@@ -88,7 +91,7 @@ SELECT DISTINCT imdb_score
 FROM reviews;
 ```
 
-#### Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
+## Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
 - COUNT
 - COUNT DISTINCT
 - COUNT(column_name) vs COUNT(\*)
@@ -97,6 +100,7 @@ FROM reviews;
 - MIN (single)
 - MAX (single)
 
+#### EXERCISE: COUNT STAR, COUNT COLUMN AND COUNT DISTINCT
 Count the number of rows in the people table.
 ```sql
 SELECT COUNT(*)
@@ -145,6 +149,7 @@ SELECT COUNT(DISTINCT release_year)
 FROM films
 ```
 
+### EXERCISE: SUM, AVG, MIN, MAX
 Get the total duration of all films.
 ```sql
 SELECT SUM(duration)
@@ -195,6 +200,7 @@ FROM reviews;
 - Division
 - Modulo
 
+### EXERCISE: SIMPLE ALIASING
 Get the profit (or loss) for each movie, where possible.
 ```sql
 SELECT title, gross - budget
@@ -243,11 +249,12 @@ AS number_of_decades
 FROM films;
 ```
 
-#### Rounding Functions: ROUND, FLOOR, CEILING
+## Rounding Functions: ROUND, FLOOR, CEILING
 - ROUND AVG
 - FLOOR AVG
 - CEILING AVG
 
+### EXERCISE: ROUNDING
 Get the average duration of all films, rounded to the nearest minute.
 ```sql
 SELECT ROUND(AVG(duration))

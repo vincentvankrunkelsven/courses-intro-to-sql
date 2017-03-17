@@ -1,28 +1,22 @@
 # Sorting and Grouping
-###### Sorting: ORDER BY
+## Sorting: ORDER BY
 - (single)
 - ORDER BY (multiple)
 - ORDER BY DESC (single)
 - ORDER BY DESC (multiple)
 
+### EXERCISE: ORDER BY SINGLE COLUMN
 Get people, sort by name.
 ```sql
 SELECT name
 FROM people ORDER BY name;
 ```
 
-Get people, in order of when they were born
+Get people, in order of when they were born.
 ```sql
 SELECT birthdate, name
 FROM people
 ORDER BY birthdate;
-```
-
-Get people, sort by birthdate, then name.
-```sql
-SELECT birthdate, name
-FROM people
-ORDER BY birthdate, name;
 ```
 
 Get films released in 2000 or 2015, in the order they were released.
@@ -31,6 +25,37 @@ SELECT title, release_year
 FROM films
 WHERE release_year in (2000, 2015)
 ORDER BY release_year;
+```
+
+Get all films except those released in 2015, order them so we can see results.
+```sql
+SELECT *
+FROM films
+WHERE release_year <> 2015
+ORDER BY release_year;
+```
+
+### EXERCISE: ORDER BY SINGLE COLUMN DESC
+Get the score and film id for every film, from highest to lowest.
+```sql
+SELECT imdb_score, film_id
+FROM reviews
+ORDER BY imdb_score DESC;
+```
+
+Get the titles of films in reverse order.
+```sql
+SELECT *
+FROM films
+ORDER BY title DESC;
+```
+
+### EXERCISE: ORDER BY MULTIPLE COLUMNS
+Get people, in order of when they were born, and alphabetical order.
+```sql
+SELECT birthdate, name
+FROM people
+ORDER BY birthdate, name;
 ```
 
 Get films from in 2000 or 2015, sorted in the order they were released, and how long they were.
@@ -49,23 +74,15 @@ WHERE release_year IN (2000, 2015)
 ORDER BY certification, release_year;
 ```
 
-Get all films except those released in 2015, order them so we can see results.
-```sql
-SELECT *
-FROM films
-WHERE release_year <> 2015
-ORDER BY release_year;
-```
-
 Get people whose names start with A, B or C, (redundantly) ordered.
 ```sql
-SELECT name
+SELECT name, birthdate
 FROM people
 WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
-ORDER BY name;
+ORDER BY birthdate;
 ```
 
-###### Grouping: GROUP BY, HAVING
+## Grouping: GROUP BY, HAVING
 - GROUP BY (single)
 - GROUP BY (multiple)
 - GROUP BY then ORDER BY
@@ -76,19 +93,12 @@ ORDER BY name;
 - GROUP BY with MAX
 - HAVING
 
+### EXERCISE: GROUP BY SINGLE COLUMN
 Get count of films made in each year.
 ```sql
 SELECT release_year, COUNT(release_year)
 FROM films
 GROUP BY release_year;
-```
-
-Get the most spent making a film for each year, for each country.
-```sql
-SELECT release_year, country, MAX(budget)
-FROM films
-GROUP BY release_year, country
-ORDER BY release_year, country;
 ```
 
 Get count of films, group by release year then order by release year.
@@ -123,36 +133,6 @@ GROUP BY release_year
 ORDER BY release_year;
 ```
 
-Get details for the film with the lowest box office earnings per year.
-```sql
-SELECT release_year, title, gross
-FROM films
-WHERE release_year IN (
-  SELECT release_year
-  FROM films
-  WHERE gross IN (
-    SELECT MIN(gross)
-    FROM films
-    GROUP BY release_year
-  )
-);
-```
-
-Get details for the film with the highest box office earnings per year.
-```sql
-SELECT release_year, title, gross
-FROM films
-WHERE release_year IN (
-  SELECT release_year
-  FROM films
-  WHERE gross IN (
-    SELECT MAX(gross)
-    FROM films
-    GROUP BY release_year
-  )
-);
-```
-
 Get the total amount made in each language.
 ```sql
 SELECT language, SUM(gross)
@@ -175,55 +155,24 @@ FROM films
 GROUP BY country;
 ```
 
-Get the bottom ten lowest box office take per country.
+### EXERCISE: GROUP BY MULTIPLE COLUMNS
+Get the most spent making a film for each year, for each country.
 ```sql
-SELECT country, MIN(gross)
+SELECT release_year, country, MAX(budget)
 FROM films
-GROUP BY country
-ORDER BY min DESC;
+GROUP BY release_year, country
+ORDER BY release_year, country;
 ```
 
-Get the average amount made by each country.
+Get the lowest box office made by each country in each year.
 ```sql
-SELECT country, AVG(gross)
+SELECT release_year, country, MIN(gross)
 FROM films
-GROUP BY country;
+GROUP BY release_year, country
+ORDER BY release_year, country;
 ```
 
-Get the total amount made by the bottom ten countries.
-```sql
-SELECT country, SUM(gross)
-FROM films
-GROUP BY country
-ORDER BY sum
-LIMIT 10;
-```
-
-Get the total amount spent by the bottom ten countries.
-```sql
-SELECT country, SUM(budget)
-FROM films
-GROUP BY country
-ORDER BY sum
-LIMIT 10;
-```
-
-Get rounded average box office earnings per year.
-```sql
-SELECT release_year, ROUND(AVG(gross))
-FROM films
-GROUP BY release_year
-ORDER BY release_year;
-```
-
-Get lowest and highest box office earnings per year.
-```sql
-SELECT release_year, MIN(gross), MAX(gross)
-FROM films
-GROUP BY release_year
-ORDER BY release_year DESC;
-```
-
+### EXERCISE: HAVING
 Get the rounded average budget and average box office earnings for movies since 1990, but only if the average budget was greater than $60m in that year (Double check this).
 ```sql
 SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) as avg_box_office
@@ -242,88 +191,4 @@ GROUP BY country
 HAVING COUNT(title) > 10
 ORDER BY country
 LIMIT 5;
-```
-
-###### Some Extra Exercises
-Count of movies not rated.
-```sql
-SELECT COUNT(*)
-FROM films
-WHERE certification = 'Not Rated' OR certification IS NULL;
-```
-
-Count of movies not in English.
-```sql
-SELECT COUNT(*)
-FROM films
-WHERE language <> 'English';
-
-```
-
-Number of movies in black and white.
-```sql
-SELECT COUNT(*)
-FROM films
-WHERE color = 'Black and White';
-```
-
-Highest grossing per certification.
-```sql
-SELECT certification, MAX(gross)
-FROM films
-GROUP BY certification
-ORDER BY max DESC;
-```
-
-Count of films in each certification bracket.
-```sql
-SELECT certification, COUNT(title)
-FROM films
-GROUP BY certification
-ORDER BY count DESC;
-```
-
-Country with most R-Rated films.
-```sql
-SELECT country, COUNT(certification)
-FROM films
-WHERE certification = 'R'
-GROUP BY country
-ORDER BY count DESC;
-```
-
-Longest duration per year.
-```sql
-SELECT release_year, MAX(duration) AS max_duration
-FROM films
-GROUP BY release_year
-ORDER BY max_duration DESC;
-```
-
-Count of films made per country.
-```sql
-SELECT country, COUNT(title)
-FROM films
-GROUP BY country
-ORDER BY count DESC;
-```
-
-Count of user reviews vs critic reviews.
-```sql
-SELECT COUNT(num_user) AS count_users, COUNT(num_critic) AS count_critics
-FROM reviews;
-```
-
-Count of actors.
-```sql
-SELECT COUNT(*)
-FROM roles
-WHERE role = 'actor';
-```
-
-Count of directors.
-```sql
-SELECT COUNT(*)
-FROM roles
-WHERE role = 'director';
 ```
