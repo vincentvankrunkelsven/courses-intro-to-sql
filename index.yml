@@ -98,12 +98,12 @@ chapters:
     exercises:
       - type: VideoExercise
       - title: WHERE oh WHERE
-      content: >-
-        - Introduction to WHERE
-        - Filtering numeric values
-        - Filtering text values
-        - Basic comparison operators
-        - Multiple WHERE conditions: AND, OR
+        content: >-
+          - Introduction to WHERE
+          - Filtering numeric values
+          - Filtering text values
+          - Basic comparison operators
+          - Multiple WHERE conditions: AND, OR
       - type: TabExercise
         title: Simple Filtering of Text
         content: >-
@@ -183,87 +183,87 @@ chapters:
           - Single columns, multiple columns
           - Combining GROUP BY with ORDER BY
           - Using GROUP BY with aggregate functions
-        - type: TabExercise
-          title: Introduction to GROUP BY on single columns
-          content: >-
-            - Using GROUP BY to sort on single columns
-        - type: TabExercise
-          title: Introduction to GROUP BY on multiple columns
-          content: >-
-            - Using GROUP BY to sort on multiple columns
-        - type: TabExercise
-          title: Combining GROUP BY and ORDER BY
-          content: >-
-            - Using GROUP BY then ordering results with ORDER BY
-        - type: VideoExercise
-          title: HAVING A Great Time
-          content: >-
-            - Introduction to HAVING
-            - Comparison with WHERE
-        - type: TabExercise
-          title: GROUP BY and Aggregate Functions
-          content: >-
-            - Using GROUP BY with aggregate functions to get interesting stats
-        - type: TabExercise
-          title: HAVING A Great Time
-          content: >-
-            - Using HAVING to filter results from aggregate functions
-        - type: TabExercise
-          title: Altogether Now
-          content: >-
-            - Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
-    - chapter_title: 'Case Study: Citi Bike In New York City'
-      chapter_description: >-
-        This chapter gives you an opportunity to apply everything you've learned
-        in the first three chapters to real-world data! You'll be working with a
-        database that contains information on millions of individual bike share
-        trips in New York City in 2015, along with the stations the bikes belong
-        to, and daily weather metrics recorded from Central Park during the same time
-        period.
-      exercises:
-        - type: VideoExercise
-          title: Introduction to the CitiBike Data
-          content: >-
-            - Tripe, Stations, Weather
-            - Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes
-            - Etc.
-        - type: MultipleChoiceExercise
-          title: Get to Know Your Data
-          content: >-
-            Questions and answers go here.
-        - type: TabExercise
-          title: Know Your LIMITs
-          content: >-
-            - Selecting from the different tables, but using LIMIT
-            - Counts
-        - type: TabExercise
-          title: Make Your Way Around (The Dataset)
-          content: >-
-            - Getting MIN, MAX, AVG
-        - type: TabExercise
-          title: Filtering
-          content: >-
-            - Filtering based on various criteria
-        - type: TabExercise
-          title: More Filtering
-          content: >-
-            - More examples of filtering for interesting information
-        - type: TabExercise
-          title: Weather
-          content: >-
-            - Some weather related questions
-        - type: TabExercise
-          title: Stations
-          content: >-
-            - Some questions related to stations
-        - type: TabExercise
-          title: Times
-          content: >-
-            - Some time related questions
-            - e.g. most popular days to go cycling, etc.
-        - type: VideoExercise
-          title: Summary
-          content: >-
-            - Summarize the case study
-            - Summarize the course
-            - Give suggestions for further projects using what you've learned
+      - type: TabExercise
+        title: Introduction to GROUP BY on single columns
+        content: >-
+          - Using GROUP BY to sort on single columns
+      - type: TabExercise
+        title: Introduction to GROUP BY on multiple columns
+        content: >-
+          - Using GROUP BY to sort on multiple columns
+      - type: TabExercise
+        title: Combining GROUP BY and ORDER BY
+        content: >-
+          - Using GROUP BY then ordering results with ORDER BY
+      - type: VideoExercise
+        title: HAVING A Great Time
+        content: >-
+          - Introduction to HAVING
+          - Comparison with WHERE
+      - type: TabExercise
+        title: GROUP BY and Aggregate Functions
+        content: >-
+          - Using GROUP BY with aggregate functions to get interesting stats
+      - type: TabExercise
+        title: HAVING A Great Time
+        content: >-
+          - Using HAVING to filter results from aggregate functions
+      - type: TabExercise
+        title: Altogether Now
+        content: >-
+          - Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
+  - chapter_title: 'Case Study: Citi Bike In New York City'
+    chapter_description: >-
+      This chapter gives you an opportunity to apply everything you've learned
+      in the first three chapters to real-world data! You'll be working with a
+      database that contains information on millions of individual bike share
+      trips in New York City in 2015, along with the stations the bikes belong
+      to, and daily weather metrics recorded from Central Park during the same time
+      period.
+    exercises:
+      - type: VideoExercise
+        title: Introduction to the CitiBike Data
+        content: >-
+          - Tripe, Stations, Weather
+          - Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes
+          - Etc.
+      - type: MultipleChoiceExercise
+        title: Get to Know Your Data
+        content: >-
+          Questions and answers go here.
+      - type: TabExercise
+        title: Know Your LIMITs
+        content: >-
+          - Selecting from the different tables, but using LIMIT
+          - Counts
+      - type: TabExercise
+        title: Make Your Way Around (The Dataset)
+        content: >-
+          - Getting MIN, MAX, AVG
+      - type: TabExercise
+        title: Filtering
+        content: >-
+          - Filtering based on various criteria
+      - type: TabExercise
+        title: More Filtering
+        content: >-
+          - More examples of filtering for interesting information
+      - type: TabExercise
+        title: Weather
+        content: >-
+          - Some weather related questions
+      - type: TabExercise
+        title: Stations
+        content: >-
+          - Some questions related to stations
+      - type: TabExercise
+        title: Times
+        content: >-
+          - Some time related questions
+          - e.g. most popular days to go cycling, etc.
+      - type: VideoExercise
+        title: Summary
+        content: >-
+          - Summarize the case study
+          - Summarize the course
+          - Give suggestions for further projects using what you've learned
