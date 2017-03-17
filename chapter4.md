@@ -10,7 +10,9 @@ description: >-
 --- type:VideoExercise lang:sql xp:50 skills:1 key:bc0d0e6e8d
 ## Introduction to the CitiBike Data
 
-- Tripe, Stations, Weather - Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes - Etc.
+- Trips, Stations, Weather
+- Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes
+- Etc.
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -20,10 +22,13 @@ description: >-
 
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:8e3524960e
 ## Get to Know Your Data
-
-Questions and answers go here.
+Question goes here.
 
 *** =instructions
+-
+-
+-
+-
 
 *** =hint
 
@@ -37,213 +42,166 @@ Questions and answers go here.
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:feae971647
+--- type:TabExercise lang:sql xp:100 skills:1 key:feae971647
 ## Know Your LIMITs
-
-- Selecting from the different tables, but using LIMIT - Counts
-
-*** =instructions
-
-*** =hint
+- Selecting from the different tables, but using LIMIT
+- Counts
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:5f834c6a08
+--- type:TabExercise lang:sql xp:100 skills:1 key:5f834c6a08
 ## Make Your Way Around (The Dataset)
-
-- Getting MIN, MAX, AVG
-
-*** =instructions
-
-*** =hint
+Getting MIN, MAX, AVG
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:48b9934c8f
+--- type:TabExercise lang:sql xp:100 skills:1 key:48b9934c8f
 ## Filtering
-
-- Filtering based on various criteria
-
-*** =instructions
-
-*** =hint
+Filtering based on various criteria
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:c85b53bc9c
+--- type:TabExercise lang:sql xp:100 skills:1 key:c85b53bc9c
 ## More Filtering
-
-- More examples of filtering for interesting information
-
-*** =instructions
-
-*** =hint
+More examples of filtering for interesting information
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:aadfa696e6
+--- type:TabExercise lang:sql xp:100 skills:1 key:aadfa696e6
 ## Weather
-
-- Some weather related questions
-
-*** =instructions
-
-*** =hint
+Some weather related questions
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:f222b67a81
+--- type:TabExercise lang:sql xp:100 skills:1 key:f222b67a81
 ## Stations
-
-- Some questions related to stations
-
-*** =instructions
-
-*** =hint
+Some questions related to stations
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:6bda1c10dc
+--- type:TabExercise lang:sql xp:100 skills:1 key:6bda1c10dc
 ## Times
-
-- Some time related questions - e.g. most popular days to go cycling, etc.
-
-*** =instructions
-
-*** =hint
+Some time related questions - e.g. most popular days to go cycling, etc.
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
 --- type:VideoExercise lang:sql xp:50 skills:1 key:6945e9c035
 ## Summary
-
-- Summarize the case study - Summarize the course - Give suggestions for further projects using what you've learned
+- Summarize the case study
+- Summarize the course
+- Give suggestions for further projects using what you've learned
 
 *** =video_link
 //player.vimeo.com/video/154783078

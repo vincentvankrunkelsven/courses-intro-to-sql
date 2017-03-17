@@ -9,8 +9,9 @@ description: >-
 
 --- type:VideoExercise lang:sql xp:50 skills:1 key:69e18ea4ff
 ## Sorting with ORDER BY
-
-- Introduction to ORDER BY - Single columns, multiple columns - Sorting in reverse order with DESC
+- Introduction to ORDER BY
+- Single columns, multiple columns
+- Sorting in reverse order with DESC
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -18,68 +19,56 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:a7b2964ba6
+--- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba6
 ## Sorting single columns
-
-- Using ORDER BY to sort on single columns
-
-*** =instructions
-
-*** =hint
+Using ORDER BY to sort on single columns
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:b2a52993bc
+--- type:TabExercise lang:sql xp:100 skills:1 key:b2a52993bc
 ## Sorting multiple columns
-
-- Using ORDER BY to sort on multiple columns
-
-*** =instructions
-
-*** =hint
+Using ORDER BY to sort on multiple columns
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
 --- type:VideoExercise lang:sql xp:50 skills:1 key:547484254f
 ## Sorting with GROUP BY
-
-- Introduction to GROUP BY - Single columns, multiple columns - Combining GROUP BY with ORDER BY - Using GROUP BY with aggregate functions
+- Introduction to GROUP BY
+- Single columns, multiple columns
+- Combining GROUP BY with ORDER BY
+- Using GROUP BY with aggregate functions
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -87,97 +76,76 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:0afb2b2bfa
+--- type:TabExercise lang:sql xp:100 skills:1 key:0afb2b2bfa
 ## Introduction to GROUP BY on single columns
-
-- Using GROUP BY to sort on single columns
-
-*** =instructions
-
-*** =hint
+Using GROUP BY to sort on single columns
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:98e30a6131
+--- type:TabExercise lang:sql xp:100 skills:1 key:98e30a6131
 ## Introduction to GROUP BY on multiple columns
-
-- Using GROUP BY to sort on multiple columns
-
-*** =instructions
-
-*** =hint
+Using GROUP BY to sort on multiple columns
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:38a7c62434
+--- type:TabExercise lang:sql xp:100 skills:1 key:38a7c62434
 ## Combining GROUP BY and ORDER BY
-
-- Using GROUP BY then ordering results with ORDER BY
-
-*** =instructions
-
-*** =hint
+Using GROUP BY then ordering results with ORDER BY
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
 --- type:VideoExercise lang:sql xp:50 skills:1 key:c5863d0a14
 ## HAVING A Great Time
-
-- Introduction to HAVING - Comparison with WHERE
+- Introduction to HAVING
+- Comparison with WHERE
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -185,89 +153,68 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:cde5853c19
+--- type:TabExercise lang:sql xp:100 skills:1 key:cde5853c19
 ## GROUP BY and Aggregate Functions
-
-- Using GROUP BY with aggregate functions to get interesting stats
-
-*** =instructions
-
-*** =hint
+Using GROUP BY with aggregate functions to get interesting stats
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:f7dcb9e122
+--- type:TabExercise lang:sql xp:100 skills:1 key:f7dcb9e122
 ## HAVING A Great Time
-
-- Using HAVING to filter results from aggregate functions
-
-*** =instructions
-
-*** =hint
+Using HAVING to filter results from aggregate functions
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:63d226a813
+--- type:TabExercise lang:sql xp:100 skills:1 key:63d226a813
 ## Altogether Now
-
-- Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
-
-*** =instructions
-
-*** =hint
+Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
 
 *** =pre_exercise_code
-```{sql}
-
 ```
-
+Pre-exercise code goes here.
+```
 *** =sample_code
-```{sql}
-
+```
+Sample code goes here.
 ```
 
-*** =solution
-```{sql}
-
+*** =type1: NormalExercise
+*** =instructions1
+Instructions for first tab.
+*** =solution1
 ```
-
-*** =sct
-```{sql}
-
+Solution code goes here.
 ```
+*** =sct1: SCT for first tab.

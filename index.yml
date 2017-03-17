@@ -89,7 +89,6 @@ chapters:
           - Introduction to WHERE - Filtering numeric values - Filtering text
           values - Basic comparison operators - Multiple WHERE conditions: AND,
           OR
-        type: NormalExercise
       - type: NormalExercise
         title: Simple Filtering of Text
         content: '- Some basic filtering examples on text'
@@ -109,7 +108,7 @@ chapters:
         title: BETWEEN (A Rock and A Hard Place)
         content: '- Simple BETWEEN exercises'
       - type: NormalExercise
-        title: IN
+        title: WHERE IN The World
         content: '- Exercises using WHERE with IN'
       - type: NormalExercise
         title: BETWEEN and AND
@@ -178,7 +177,7 @@ chapters:
       - type: VideoExercise
         title: Introduction to the CitiBike Data
         content: >-
-          - Tripe, Stations, Weather - Imagine you're part of an urban planning
+          - Trips, Stations, Weather - Imagine you're part of an urban planning
           team trying to understand biking habits in NYC to improve bike routes
           - Etc.
       - type: MultipleChoiceExercise
