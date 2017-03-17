@@ -7,7 +7,7 @@ description: >-
   to combine GROUP BY with aggregate functions like SUM and AVG to summarize
   your data within groups — a very powerful paradigm!
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:01f3a98c21
+--- type:VideoExercise lang:sql xp:50 skills:1 key:69e18ea4ff
 ## Sorting with ORDER BY
 
 - Introduction to ORDER BY - Single columns, multiple columns - Sorting in reverse order with DESC
@@ -18,7 +18,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:80676d93fc
+--- type:NormalExercise lang:sql xp:100 skills:1 key:a7b2964ba6
 ## Sorting single columns
 
 - Using ORDER BY to sort on single columns
@@ -47,7 +47,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:65c0a0d49d
+--- type:NormalExercise lang:sql xp:100 skills:1 key:b2a52993bc
 ## Sorting multiple columns
 
 - Using ORDER BY to sort on multiple columns
@@ -76,7 +76,7 @@ description: >-
 
 ```
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:984378cdce
+--- type:VideoExercise lang:sql xp:50 skills:1 key:547484254f
 ## Sorting with GROUP BY
 
 - Introduction to GROUP BY - Single columns, multiple columns - Combining GROUP BY with ORDER BY - Using GROUP BY with aggregate functions
@@ -87,7 +87,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:f27d9419e2
+--- type:NormalExercise lang:sql xp:100 skills:1 key:0afb2b2bfa
 ## Introduction to GROUP BY on single columns
 
 - Using GROUP BY to sort on single columns
@@ -116,7 +116,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:a5d52b6971
+--- type:NormalExercise lang:sql xp:100 skills:1 key:98e30a6131
 ## Introduction to GROUP BY on multiple columns
 
 - Using GROUP BY to sort on multiple columns
@@ -145,7 +145,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:bdae54adbb
+--- type:NormalExercise lang:sql xp:100 skills:1 key:38a7c62434
 ## Combining GROUP BY and ORDER BY
 
 - Using GROUP BY then ordering results with ORDER BY
@@ -174,7 +174,7 @@ description: >-
 
 ```
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:18c4af1da7
+--- type:VideoExercise lang:sql xp:50 skills:1 key:c5863d0a14
 ## HAVING A Great Time
 
 - Introduction to HAVING - Comparison with WHERE
@@ -185,7 +185,7 @@ description: >-
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:a0d611443b
+--- type:NormalExercise lang:sql xp:100 skills:1 key:cde5853c19
 ## GROUP BY and Aggregate Functions
 
 - Using GROUP BY with aggregate functions to get interesting stats
@@ -214,7 +214,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:1961e20a2d
+--- type:NormalExercise lang:sql xp:100 skills:1 key:f7dcb9e122
 ## HAVING A Great Time
 
 - Using HAVING to filter results from aggregate functions
@@ -243,7 +243,7 @@ description: >-
 
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:aecbc80847
+--- type:NormalExercise lang:sql xp:100 skills:1 key:63d226a813
 ## Altogether Now
 
 - Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
