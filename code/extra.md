@@ -1,4 +1,16 @@
 ### LEFTOVER EXERCISES
+Get both the lowest and highest grossing films, for comparision.
+```sql
+SELECT MIN(gross), MAX(gross)
+FROM films;
+```
+
+Get the highest number of Facebook likes for any film.
+```sql
+SELECT MAX(facebook_likes)
+FROM reviews;
+```
+
 Get the bottom ten lowest box office take per country.
 ```sql
 SELECT country, MIN(gross)
