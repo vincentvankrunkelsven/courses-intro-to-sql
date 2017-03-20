@@ -223,13 +223,7 @@ FROM films
 ___ ___ ___;
 ```
 
-**Note for the following two, we will need to filter for non NULL, which might be more complex than it seems.**
-Get the highest box office take per country.
-```sql
-SELECT country, MAX(gross)
-FROM films
-GROUP BY country;
-```
+
 
 ### EXERCISE: GROUP BY MULTIPLE COLUMNS
 Get the most spent making a film for each year, for each country.
@@ -296,3 +290,5 @@ HAVING COUNT(title) > 10
 ORDER BY country
 LIMIT 5;
 ```
+
+##### SIMPLE HAVING EXERCISE
