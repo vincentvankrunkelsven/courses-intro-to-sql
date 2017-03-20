@@ -211,7 +211,7 @@ Sample code goes here.
 Get count of films made in each year.
 *** =solution1
 ```
-SELECT release_year, COUNT(release_year)
+SELECT release_year, COUNT(title)
 FROM films
 GROUP BY release_year;
 ```
@@ -348,7 +348,6 @@ Pre-exercise code goes here.
 ```
 Sample code goes here.
 ```
-
 *** =type1: NormalExercise
 *** =instructions1
 Get the rounded average budget and average box office earnings for movies since 1990, but only if the average budget was greater than $60m in that year.

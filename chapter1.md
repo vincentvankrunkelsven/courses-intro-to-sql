@@ -13,7 +13,7 @@ description: >-
   - Memory
   - Speed
   - Centralization
-  - Acesss control
+  - Access control
   - DBMS tools
   - Scalability
 - Vocabulary: comparing to spreadsheet
@@ -37,14 +37,15 @@ description: >-
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
-## Which of the following is a good reason to use SQL?
-Question goes here.
+## SQL Usage
+Which of the following is a good reason to use SQL?
 
 *** =instructions
--
--
--
--
+- Memory savings
+- Speed advantages
+- Centralization
+- Access Controls
+- All of the above
 
 *** =hint
 
@@ -55,7 +56,9 @@ Question goes here.
 
 *** =sct
 ```{sql}
-
+success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
+msg2 = 'Incorrect. Perhaps more than one of these Statements is true?
+test_mc(5, [success_msg, msg2])
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:c0bb58f7f9
