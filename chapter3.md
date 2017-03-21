@@ -7,18 +7,6 @@ description: >-
   to combine GROUP BY with aggregate functions like SUM and AVG to summarize
   your data within groups — a very powerful paradigm!
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:69e18ea4ff
-## Sorting with ORDER BY
-- Introduction to ORDER BY
-- Single columns, multiple columns
-- Sorting in reverse order with DESC
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
 --- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba6
 ## Sorting single columns (ASC)
 Using ORDER BY to sort on single columns
@@ -323,18 +311,6 @@ GROUP BY release_year, country
 ORDER BY release_year, country;
 ```
 *** =sct2:
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:c5863d0a14
-## HAVING A Great Time
-- Introduction to HAVING
-- Comparison with WHERE
-- The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:f7dcb9e122
 ## Altogether Now

@@ -6,20 +6,6 @@ description: >-
   some criteria of interest. You'll learn how to use basic comparison operators,
   combine multiple criteria, match patterns in text, and much more.
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:4d7ac6f1f4
-## WHERE Oh WHERE
-- Introduction to WHERE
-- Filtering numeric values
-- Filtering text values
-- Basic comparison operators
-- Multiple WHERE conditions: AND, OR
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
 --- type:TabExercise lang:sql xp:100 skills:1 key:b90db25f33
 ## Simple Filtering of Text
 Some basic filtering examples on text
@@ -244,17 +230,6 @@ WHERE release_year = 2012
 OR COUNTRY = 'UK';
 ```
 *** =sct4:
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:f13339152b
-## More Advanced Filtering
-- Introduction to BETWEEN, IN
-- IS NULL, IS NOT NULL
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:9c11f67712
 ## BETWEEN (A Rock and A Hard Place)

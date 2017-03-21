@@ -7,19 +7,6 @@ description: >-
   York City in 2015, along with the stations the bikes belong to, and daily
   weather metrics recorded from Central Park during the same time period.
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:bc0d0e6e8d
-## Introduction to the CitiBike Data
-
-- Trips, Stations, Weather
-- Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes
-- Etc.
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:8e3524960e
 ## Get to Know Your Data
 Question goes here.
@@ -370,15 +357,3 @@ FROM trips
 WHERE start_date = '2015-12-25';
 ```
 *** =sct2:
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:6945e9c035
-## Summary
-- Summarize the case study
-- Summarize the course
-- Give suggestions for further projects using what you've learned
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8

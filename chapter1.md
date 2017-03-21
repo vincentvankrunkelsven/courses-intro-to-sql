@@ -6,36 +6,6 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:99c7a591b5
-## Introducing SQL
-
-- Motivating example: preview of Citi Bike case study. - Why not just use R / Python?
-  - Memory
-  - Speed
-  - Centralization
-  - Access control
-  - DBMS tools
-  - Scalability
-- Vocabulary: comparing to spreadsheet
-  - Database: like a spreadsheet
-  - Table: like a worksheet
-  - Columns / Rows: same concept
-  - Fields: cells
-  - Entities:
-  - Attributes:
-- Basic SQL syntax
-  - We're using PostgreSQL
-  - Not case sensitive
-  - Statements end with semi-colon
-  - Brief intro to order of operations
-- Introducing SELECT, SELECT * and DISTINCT - Brief note on LIMIT
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
 ## SQL Usage
 Which of the following is a good reason to use SQL?
@@ -226,20 +196,6 @@ FROM reviews;
 ```
 *** =sct5:
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:3dd4ef4da9
-## Aggregate Functions
-- Introducing COUNT
-- COUNT DISTINCT
-- Difference between COUNT(*), COUNT(col) and COUNT(DISTINCT)
-- SUM, AVG, MIN, MAX
-- Introduction to Aliasing using AS - ROUND, FLOOR, CEILING
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
 --- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
 ## Learning to COUNT
 Simple count exercises.
@@ -409,17 +365,6 @@ SELECT MIN(gross)
 FROM films;
 ```
 *** =sct5:
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:d57162a2ad
-## Arithmetic in SQL
-- Some stuff about arithmetic in SQL
-- Introduction to alisaing using AS
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:6db52132a0
 ## It's AS simple AS Aliasing
