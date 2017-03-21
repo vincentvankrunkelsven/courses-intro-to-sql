@@ -20,7 +20,7 @@ description: >-
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba6
-## Sorting single columns
+## Sorting single columns (ASC)
 Using ORDER BY to sort on single columns
 
 *** =pre_exercise_code
@@ -34,12 +34,95 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get people, sort by name.
 *** =solution1
 ```
-Solution code goes here.
+SELECT name
+FROM people
+ORDER BY name;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get people, sort by birthdate.
+*** =solution2
+```
+SELECT name
+FROM people
+ORDER BY birthdate;
+```
+*** =sct2:
+
+*** =type3: NormalExercise
+*** =instructions3
+Get people, in order of when they were born.
+*** =solution3
+```
+SELECT birthdate, name
+FROM people
+ORDER BY birthdate;
+```
+*** =sct3:
+
+*** =type4: NormalExercise
+*** =instructions4
+Get films released in 2000 or 2015, in the order they were released.
+*** =solution4
+```
+SELECT title, release_year
+FROM films
+WHERE release_year in (2000, 2015)
+ORDER BY release_year;
+```
+*** =sct4:
+
+*** =type5: NormalExercise
+*** =instructions5
+Get all films except those released in 2015 and order them so we can see results.
+*** =solution5
+```
+SELECT *
+FROM films
+WHERE release_year <> 2015
+ORDER BY release_year;
+```
+*** =sct5:
+
+--- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba7
+## Sorting single columns (DESC)
+Using ORDER BY to sort on single columns
+
+*** =pre_exercise_code
+```
+Pre-exercise code goes here.
+```
+*** =sample_code
+```
+Sample code goes here.
+```
+
+*** =type1: NormalExercise
+*** =instructions1
+Get the score and film id for every film, from highest to lowest.
+*** =solution1
+```
+SELECT imdb_score, film_id
+FROM reviews
+ORDER BY imdb_score DESC;
+```
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get the titles of films in reverse order.
+*** =solution2
+```
+SELECT *
+FROM films
+ORDER BY title DESC;
+```
+*** =sct2:
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:b2a52993bc
 ## Sorting multiple columns
@@ -54,32 +137,6 @@ Pre-exercise code goes here.
 Sample code goes here.
 ```
 
-*** =type1: NormalExercise
-*** =instructions1
-Instructions for first tab.
-*** =solution1
-```
-Solution code goes here.
-```
-*** =sct1: SCT for first tab.
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:547484254f
-## Sorting with GROUP BY
-- Introduction to GROUP BY
-- Single columns, multiple columns
-- Combining GROUP BY with ORDER BY
-- Using GROUP BY with aggregate functions
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
---- type:TabExercise lang:sql xp:100 skills:1 key:0afb2b2bfa
-## Introduction to GROUP BY on single columns
-Using GROUP BY to sort on single columns
-
 *** =pre_exercise_code
 ```
 Pre-exercise code goes here.
@@ -91,12 +148,50 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get people, in order of when they were born, and alphabetical order.
 *** =solution1
 ```
-Solution code goes here.
+SELECT birthdate, name
+FROM people
+ORDER BY birthdate, name;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get people, in order of when they were born, and alphabetical order.
+*** =solution2
+```
+SELECT release_year, duration, title
+FROM films
+WHERE release_year IN (2000, 2015)
+ORDER BY release_year, duration;
+```
+*** =sct2:
+
+*** =type3: NormalExercise
+*** =instructions3
+
+*** =solution3
+```
+SELECT certification, release_year, title
+FROM films
+WHERE release_year IN (2000, 2015)
+ORDER BY certification, release_year;
+```
+*** =sct3:
+
+*** =type4: NormalExercise
+*** =instructions4
+Get people whose names start with A, B or C, (redundantly) ordered.
+*** =solution4
+```
+SELECT name, birthdate
+FROM people
+WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
+ORDER BY birthdate;
+```
+*** =sct4:
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:98e30a6131
 ## Introduction to GROUP BY on multiple columns
@@ -113,15 +208,87 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get count of films made in each year.
 *** =solution1
 ```
-Solution code goes here.
+SELECT release_year, COUNT(title)
+FROM films
+GROUP BY release_year;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get count of films, group by release year then order by release year.
+*** =solution2
+```
+SELECT release_year, COUNT(title) as films_released
+FROM films
+GROUP BY release_year
+ORDER BY release_year;
+```
+*** =sct2:
+
+*** =type3: NormalExercise
+*** =instructions3
+Get count of films released in each year, ordered by count, lowest to highest.
+*** =solution3
+```
+SELECT release_year, COUNT(title) AS films_released
+FROM films
+GROUP BY release_year
+ORDER BY films_released;
+```
+*** =sct3:
+
+*** =type4: NormalExercise
+*** =instructions4
+Get count of films released in each year, ordered by count highest to lowest.
+*** =solution4
+```
+SELECT release_year, COUNT(title) AS films_released
+FROM films
+GROUP BY release_year
+ORDER BY films_released DESC;
+```
+*** =sct4:
+
+*** =type5: NormalExercise
+*** =instructions5
+Get lowest box office earnings per year.
+*** =solution5
+```
+SELECT release_year, MIN(gross)
+FROM films
+GROUP BY release_year
+ORDER BY release_year;
+```
+*** =sct5:
+
+*** =type6: NormalExercise
+*** =instructions6
+Get the total amount made in each language.
+*** =solution6
+```
+SELECT language, SUM(gross)
+FROM films
+GROUP BY language;
+```
+*** =sct6:
+
+*** =type6: NormalExercise
+*** =instructions6
+Get the total amount spent by each country.
+*** =solution6
+```
+SELECT country, SUM(gross)
+FROM films
+GROUP BY country;
+```
+*** =sct6:
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:38a7c62434
-## Combining GROUP BY and ORDER BY
+## Combining GROUP BY and ORDER BY, AGGREGATE FUNCTIONS
 Using GROUP BY then ordering results with ORDER BY
 
 *** =pre_exercise_code
@@ -135,17 +302,33 @@ Sample code goes here.
 
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get the most spent making a film for each year, for each country.
 *** =solution1
 ```
-Solution code goes here.
+SELECT release_year, country, MAX(budget)
+FROM films
+GROUP BY release_year, country
+ORDER BY release_year, country;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type2: NormalExercise
+*** =instructions2
+Get the lowest box office made by each country in each year.
+*** =solution2
+```
+SELECT release_year, country, MIN(gross)
+FROM films
+GROUP BY release_year, country
+ORDER BY release_year, country;
+```
+*** =sct2:
 
 --- type:VideoExercise lang:sql xp:50 skills:1 key:c5863d0a14
 ## HAVING A Great Time
 - Introduction to HAVING
 - Comparison with WHERE
+- The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
 
 *** =video_link
 //player.vimeo.com/video/154783078
@@ -153,51 +336,7 @@ Solution code goes here.
 *** =video_hls
 //videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
 
---- type:TabExercise lang:sql xp:100 skills:1 key:cde5853c19
-## GROUP BY and Aggregate Functions
-Using GROUP BY with aggregate functions to get interesting stats
-
-*** =pre_exercise_code
-```
-Pre-exercise code goes here.
-```
-*** =sample_code
-```
-Sample code goes here.
-```
-
-*** =type1: NormalExercise
-*** =instructions1
-Instructions for first tab.
-*** =solution1
-```
-Solution code goes here.
-```
-*** =sct1: SCT for first tab.
-
 --- type:TabExercise lang:sql xp:100 skills:1 key:f7dcb9e122
-## HAVING A Great Time
-Using HAVING to filter results from aggregate functions
-
-*** =pre_exercise_code
-```
-Pre-exercise code goes here.
-```
-*** =sample_code
-```
-Sample code goes here.
-```
-
-*** =type1: NormalExercise
-*** =instructions1
-Instructions for first tab.
-*** =solution1
-```
-Solution code goes here.
-```
-*** =sct1: SCT for first tab.
-
---- type:TabExercise lang:sql xp:100 skills:1 key:63d226a813
 ## Altogether Now
 Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
 
@@ -209,12 +348,30 @@ Pre-exercise code goes here.
 ```
 Sample code goes here.
 ```
-
 *** =type1: NormalExercise
 *** =instructions1
-Instructions for first tab.
+Get the rounded average budget and average box office earnings for movies since 1990, but only if the average budget was greater than $60m in that year.
 *** =solution1
 ```
-Solution code goes here.
+SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
+FROM films
+WHERE release_year > 1990
+GROUP BY release_year
+HAVING AVG(budget) > 20000000
+ORDER BY release_year DESC;
 ```
-*** =sct1: SCT for first tab.
+*** =sct1:
+
+*** =type1: NormalExercise
+*** =instructions2
+Get the name, average budget, average box office take of countries who have made more than 10 films. Order by name, and get the top five.
+*** =solution2
+```
+SELECT country, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
+FROM films
+GROUP BY country
+HAVING COUNT(title) > 10
+ORDER BY country
+LIMIT 5;
+```
+*** =sct2:

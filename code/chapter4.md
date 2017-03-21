@@ -220,11 +220,11 @@ WHERE start_date = '2015-12-25';
 Which station was started from the most?
 ```sql
 SELECT station_id, ___(___)
-FROM trips
+FROM trips;
 ```
 ```sql
 SELECT station_id, COUNT(station_id)
-FROM trips
+FROM trips;
 ```
 
 What were the top ten most popular stations to start from?

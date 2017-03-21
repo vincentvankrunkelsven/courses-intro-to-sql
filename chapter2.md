@@ -79,7 +79,7 @@ WHERE certification = 'R';
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:b90db25f34
 ## Simple Filtering of Numeric values
-Some basic filtering examples on text
+Some basic filtering examples on numeric values.
 
 *** =pre_exercise_code
 ```

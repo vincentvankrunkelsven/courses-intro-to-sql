@@ -60,6 +60,14 @@ GROUP BY release_year
 ORDER BY release_year DESC;
 ```
 
+**Note for the following two, we will need to filter for non NULL, which might be more complex than it seems.**
+Get the highest box office take per country.
+```sql
+SELECT country, MAX(gross)
+FROM films
+GROUP BY country;
+```
+
 ###### Some Extra Exercises
 Count of movies not rated.
 ```sql
