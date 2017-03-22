@@ -7,26 +7,15 @@ description: >-
   to combine GROUP BY with aggregate functions like SUM and AVG to summarize
   your data within groups — a very powerful paradigm!
 
---- type:VideoExercise lang:sql xp:50 skills:1 key:69e18ea4ff
-## Sorting with ORDER BY
-- Introduction to ORDER BY
-- Single columns, multiple columns
-- Sorting in reverse order with DESC
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
-
 --- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba6
 ## Sorting single columns (ASC)
 Using ORDER BY to sort on single columns
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -41,7 +30,14 @@ SELECT name
 FROM people
 ORDER BY name;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -52,7 +48,14 @@ SELECT name
 FROM people
 ORDER BY birthdate;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -63,7 +66,15 @@ SELECT birthdate, name
 FROM people
 ORDER BY birthdate;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='birthdate', match='any')
+Ex().test_column(name='name', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -75,7 +86,15 @@ FROM films
 WHERE release_year in (2000, 2015)
 ORDER BY release_year;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='title', match='any')
+Ex().test_column(name='release_year', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type5: NormalExercise
 *** =instructions5
@@ -87,16 +106,23 @@ FROM films
 WHERE release_year <> 2015
 ORDER BY release_year;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba7
 ## Sorting single columns (DESC)
 Using ORDER BY to sort on single columns
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -111,7 +137,15 @@ SELECT imdb_score, film_id
 FROM reviews
 ORDER BY imdb_score DESC;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='imdb_score', match='any')
+Ex().test_column(name='film_id', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -122,25 +156,23 @@ SELECT *
 FROM films
 ORDER BY title DESC;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:b2a52993bc
 ## Sorting multiple columns
 Using ORDER BY to sort on multiple columns
 
 *** =pre_exercise_code
-```
-Pre-exercise code goes here.
-```
-*** =sample_code
-```
-Sample code goes here.
+```{python}
+connect('postgresql', 'films')
 ```
 
-*** =pre_exercise_code
-```
-Pre-exercise code goes here.
-```
 *** =sample_code
 ```
 Sample code goes here.
@@ -155,7 +187,15 @@ SELECT birthdate, name
 FROM people
 ORDER BY birthdate, name;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='birthdate', match='any')
+Ex().test_column(name='name', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -167,7 +207,16 @@ FROM films
 WHERE release_year IN (2000, 2015)
 ORDER BY release_year, duration;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='duration', match='any')
+Ex().test_column(name='title', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -179,7 +228,16 @@ FROM films
 WHERE release_year IN (2000, 2015)
 ORDER BY certification, release_year;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='certification', match='any')
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='title', match='any')
+Ex().has_equal_ast()
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -191,16 +249,25 @@ FROM people
 WHERE name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%'
 ORDER BY birthdate;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().test_column(name='birthdate', match='any')
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:98e30a6131
 ## Introduction to GROUP BY on multiple columns
 Using GROUP BY to sort on multiple columns
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -215,7 +282,15 @@ SELECT release_year, COUNT(title)
 FROM films
 GROUP BY release_year;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+# should also check count col here, without alias
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -227,7 +302,15 @@ FROM films
 GROUP BY release_year
 ORDER BY release_year;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='films_released', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -239,7 +322,15 @@ FROM films
 GROUP BY release_year
 ORDER BY films_released;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='films_released', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -251,7 +342,15 @@ FROM films
 GROUP BY release_year
 ORDER BY films_released DESC;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='films_released', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type5: NormalExercise
 *** =instructions5
@@ -263,7 +362,15 @@ FROM films
 GROUP BY release_year
 ORDER BY release_year;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+# should also check min col here, without alias
+Ex().has_equal_ast()
+```
 
 *** =type6: NormalExercise
 *** =instructions6
@@ -274,7 +381,15 @@ SELECT language, SUM(gross)
 FROM films
 GROUP BY language;
 ```
-*** =sct6:
+*** =sct6
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='language', match='any')
+# should also check sum col here, without alias
+Ex().has_equal_ast()
+```
 
 *** =type6: NormalExercise
 *** =instructions6
@@ -285,16 +400,25 @@ SELECT country, SUM(gross)
 FROM films
 GROUP BY country;
 ```
-*** =sct6:
+*** =sct6
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='country', match='any')
+# should also check sum col here, without alias
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:38a7c62434
 ## Combining GROUP BY and ORDER BY, AGGREGATE FUNCTIONS
 Using GROUP BY then ordering results with ORDER BY
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -310,7 +434,16 @@ FROM films
 GROUP BY release_year, country
 ORDER BY release_year, country;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='country', match='any')
+# should also check max col here, without alias
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -322,28 +455,26 @@ FROM films
 GROUP BY release_year, country
 ORDER BY release_year, country;
 ```
-*** =sct2:
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:c5863d0a14
-## HAVING A Great Time
-- Introduction to HAVING
-- Comparison with WHERE
-- The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
-
-*** =video_link
-//player.vimeo.com/video/154783078
-
-*** =video_hls
-//videos.datacamp.com/transcoded/000_placeholders/v1/hls-temp.master.m3u8
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='country', match='any')
+# should also check min col here, without alias
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:f7dcb9e122
 ## Altogether Now
 Combining GROUP BY, ORDER BY, and HAVING with aggregate functions
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -360,7 +491,16 @@ GROUP BY release_year
 HAVING AVG(budget) > 20000000
 ORDER BY release_year DESC;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='avg_budget', match='exact')
+Ex().test_column(name='avg_box_office', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type1: NormalExercise
 *** =instructions2
@@ -374,4 +514,12 @@ HAVING COUNT(title) > 10
 ORDER BY country
 LIMIT 5;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='avg_budget', match='any')
+Ex().test_column(name='avg_box_office', match='any')
+Ex().has_equal_ast()
+```

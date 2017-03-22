@@ -34,4 +34,69 @@ In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or de
 In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is used with aggregate functions like `COUNT()` or `MAX`. For example, `SELECT title, COUNT(title) FROM films GROUP BY release_year;` will give you the number of films released in each year.
 
 ###### SUPER MEGA ADVANCED FILTERING: HAVING
-In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can use the `HAVING` keyword. For example, `SELECT release_year FROM films GROUP BY release_year HAVING COUNT(title) > 10;` will show only those years in which more than 10 films were released. 
+In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can use the `HAVING` keyword. For example, `SELECT release_year FROM films GROUP BY release_year HAVING COUNT(title) > 10;` will show only those years in which more than 10 films were released.
+
+###### VIDEO EXERCISES:
+Introducing SQL
+- Motivating example: preview of Citi Bike case study. - Why not just use R / Python?
+  - Memory
+  - Speed
+  - Centralization
+  - Access control
+  - DBMS tools
+  - Scalability
+- Vocabulary: comparing to spreadsheet
+  - Database: like a spreadsheet
+  - Table: like a worksheet
+  - Columns / Rows: same concept
+  - Fields: cells
+  - Entities:
+  - Attributes:
+- Basic SQL syntax
+  - We're using PostgreSQL
+  - Not case sensitive
+  - Statements end with semi-colon
+  - Brief intro to order of operations
+- Introducing SELECT, SELECT * and DISTINCT - Brief note on LIMIT
+
+Aggregate Functions
+- Introducing COUNT
+- COUNT DISTINCT
+- Difference between COUNT(\*), COUNT(col) and COUNT(DISTINCT)
+- SUM, AVG, MIN, MAX
+- Introduction to Aliasing using AS - ROUND, FLOOR, CEILING
+
+Arithmetic in SQL## Arithmetic in SQL
+- Some stuff about arithmetic in SQL
+- Introduction to alisaing using AS
+
+WHERE Oh WHERE
+- Introduction to WHERE
+- Filtering numeric values
+- Filtering text values
+- Basic comparison operators
+- Multiple WHERE conditions: AND, OR
+
+More Advanced Filtering
+- Introduction to BETWEEN, IN
+- IS NULL, IS NOT NULL
+
+Sorting with ORDER BY
+- Introduction to ORDER BY
+- Single columns, multiple columns
+- Sorting in reverse order with DESC
+
+HAVING A Great Time
+- Introduction to HAVING
+- Comparison with WHERE
+- The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
+
+Introduction to the CitiBike Data
+- Trips, Stations, Weather
+- Imagine you're part of an urban planning team trying to understand biking habits in NYC to improve bike routes
+- Etc.
+
+Summary
+- Summarize the case study
+- Summarize the course
+- Give suggestions for further projects using what you've learned
