@@ -14,21 +14,22 @@ Which of the following is a good reason to use SQL?
 - Memory savings
 - Speed advantages
 - Centralization
-- Access Controls
 - All of the above
 
 *** =hint
 
 *** =pre_exercise_code
-```{sql}
-
+```{python}
+connect('postgresql', 'films')
 ```
 
 *** =sct
-```{sql}
+```{python}
 success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
 msg2 = 'Incorrect. Perhaps more than one of these Statements is true?
-test_mc(5, [success_msg, msg2])
+
+Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
+
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:c0bb58f7f9
@@ -36,7 +37,8 @@ test_mc(5, [success_msg, msg2])
 Selecting stuff from single column.
 
 *** =pre_exercise_code
-```
+```{python}
+connect('postgresql', 'films')
 ```
 
 *** =sample_code
@@ -55,6 +57,10 @@ FROM films;
 ```
 *** =sct1
 ```
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='title', match='any')
 ```
 
 *** =type2: NormalExercise
@@ -66,7 +72,11 @@ SELECT *
 FROM films;
 ```
 *** =sct2
-```
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
@@ -78,16 +88,21 @@ SELECT name
 FROM people;
 ```
 *** =sct3
-```
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
 ## Multiple Column SELECTs
 Selecting stuff from multiple columns.
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -101,7 +116,14 @@ Get the title and release year of every film.
 SELECT title, release_year
 FROM films;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='title', match='any')
+Ex().test_column(name='release_year', match='any')
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -111,7 +133,15 @@ Get the title, release year and country for every film.
 SELECT title, release_year, country
 FROM films;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='title', match='any')
+Ex().test_column(name='release_year', match='any')
+Ex().test_column(name='country', match='any')
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -121,7 +151,14 @@ Get every person's name and their date of birth where possible.
 SELECT name, birthdate
 FROM people;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().test_column(name='birthdate', match='any')
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -131,16 +168,24 @@ Get every person name and their date of death where possible.
 SELECT name, deathdate
 FROM people;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().test_column(name='deathdate', match='any')
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:de52236965
 ## SELECT DISTINCT
 Selecting distinct stuff from single columns.
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -154,7 +199,15 @@ Get all the different countries.
 SELECT DISTINCT country
 FROM films;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='country', match='any')
+select = Ex().check_statement('select', 0)
+select.test_student_typed('distinct')
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -164,7 +217,15 @@ Get all the different film languages.
 SELECT DISTINCT language
 FROM films;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='language', match='any')
+select = Ex().check_statement('select', 0)
+select.test_student_typed('distinct')
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -174,7 +235,13 @@ Get the different types of film roles.
 SELECT DISTINCT role
 FROM roles;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='role', match='any')
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -184,7 +251,13 @@ Get all the different certification categories.
 SELECT DISTINCT certification
 FROM films;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='certification', match='any')
+```
 
 *** =type5: NormalExercise
 *** =instructions5
@@ -194,16 +267,23 @@ Get all the different IMDB scores - has any scored over 9.5?
 SELECT DISTINCT imdb_score
 FROM reviews;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='imdb_score', match='any')
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
 ## Learning to COUNT
 Simple count exercises.
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -217,7 +297,13 @@ Count the number of rows in the people table.
 SELECT COUNT(*)
 FROM people;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -227,7 +313,13 @@ Count the number of birthdate entries in the people table.
 SELECT COUNT(birthdate)
 FROM people;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -237,7 +329,13 @@ Count the number of unique birthdate entries in the people table.
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -247,7 +345,13 @@ Count the number of unique languages.
 SELECT COUNT(DISTINCT language)
 FROM films;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type5: NormalExercise
 *** =instructions5
@@ -257,7 +361,13 @@ Count the number of unique countries.
 SELECT COUNT(DISTINCT country)
 FROM films;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:ba95f5cc97
 ## Different COUNTs
@@ -265,9 +375,10 @@ Exercises showing difference between COUNT(*), COUNT(col) AND COUNT(DISTINCT)
 Using birthdates as examples.
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -281,7 +392,13 @@ Count the total number of rows in the people table.
 SELECT COUNT(*)
 FROM people;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -291,7 +408,13 @@ Count the total number of birthdates in the people table.
 SELECT COUNT(birthdate)
 FROM people;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -301,16 +424,23 @@ Count the total number of distinct birthdates in the people table.
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 Simple exercises using SUM, AVG, MIN, MAX
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -324,7 +454,13 @@ Get the total duration of all films.
 SELECT SUM(duration)
 FROM films;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -334,7 +470,13 @@ Get the average duration of all films.
 SELECT AVG(duration)
 FROM films;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -344,7 +486,13 @@ Get the duration of the shortest film.
 SELECT MIN(duration)
 FROM films;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -354,7 +502,13 @@ Get the amount made by the highest grossing film.
 SELECT MAX(gross)
 FROM films;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 *** =type5: NormalExercise
 *** =instructions5
@@ -364,16 +518,23 @@ Get the amount made by the lowest grossing film.
 SELECT MIN(gross)
 FROM films;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:6db52132a0
 ## It's AS simple AS Aliasing
 Simple AS exercises.
 
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -388,17 +549,32 @@ SELECT title, gross - budget
 AS profit_or_loss
 FROM films;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='profit_or_loss', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
 Get the duration in hours for each film.
 *** =solution2
 ```
-SELECT title, duration / 60.0 AS duration_hours
+SELECT title, duration / 60.0
+AS duration_hours
 FROM films;
 ```
-*** =sct2:
+*** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='duration_hours', match='exact')
+Ex().has_equal_ast()
+```
 
 
 *** =type3: NormalExercise
@@ -410,16 +586,24 @@ SELECT AVG(duration) / 60.0
 AS duration_hours  
 FROM films;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='duration_hours', match='exact')
+Ex().has_equal_ast()
+```
 
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:8612897f35
 ## Even More Aliasing
 Some aliasing with aggregates and arithmetic.
 *** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
 ```
-Pre-exercise code goes here.
-```
+
 *** =sample_code
 ```
 Sample code goes here.
@@ -434,7 +618,14 @@ SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
 FROM people;
 ```
-*** =sct1:
+*** =sct1
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='percentage_dead', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type2: NormalExercise
 *** =instructions2
@@ -446,6 +637,13 @@ AS result
 FROM films;
 ```
 *** =sct2
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='result', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type3: NormalExercise
 *** =instructions3
@@ -456,7 +654,14 @@ SELECT MAX(release_year) - MIN(release_year)
 AS difference
 FROM films;
 ```
-*** =sct3:
+*** =sct3
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='difference', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type4: NormalExercise
 *** =instructions4
@@ -467,7 +672,14 @@ SELECT (MAX(release_year) - MIN(release_year)) / 10
 AS number_of_decades
 FROM films;
 ```
-*** =sct4:
+*** =sct4
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='number_of_decades', match='exact')
+Ex().has_equal_ast()
+```
 
 *** =type5: NormalExercise
 *** =instructions5
@@ -477,4 +689,11 @@ Get the duration in hours for each film.
 SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
-*** =sct5:
+*** =sct5
+```{sql}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='duration_hours', match='exact')
+Ex().has_equal_ast()
+```
