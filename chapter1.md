@@ -42,7 +42,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 SELECT ___
 FROM films;
 ```
@@ -104,7 +104,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
@@ -187,7 +187,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
@@ -285,7 +285,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
@@ -380,7 +380,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
@@ -442,7 +442,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
@@ -536,7 +536,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
@@ -605,7 +605,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
