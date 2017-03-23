@@ -21,7 +21,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 20dc9571de
+*** =key1: e4642301fc
 
 *** =instructions1
 Get all French language films.
@@ -40,7 +40,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 5341b42f25
+*** =key2: a16bc98ce9
 
 *** =instructions2
 Get the name of the person born on November 11th, 1974.
@@ -61,7 +61,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 530910a980
+*** =key3: 29541f3a02
 
 *** =instructions3
 Get the number of Hindi movies.
@@ -80,7 +80,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 99d2d01fbb
+*** =key4: a67c8fc85d
 
 *** =instructions4
 Get all movies with an R certification.
@@ -113,7 +113,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: aaf3bcc97b
+*** =key1: da8b09c1b9
 
 *** =instructions1
 Get all films released in 2016.
@@ -132,7 +132,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: d304bf940a
+*** =key2: 0b7662d37f
 
 *** =instructions2
 Get all films released in 2016.
@@ -151,7 +151,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: d3367f6803
+*** =key3: 4cb45339e6
 
 *** =instructions3
 Get the number of films released before 2000.
@@ -170,7 +170,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: a13fe31a04
+*** =key4: 4084aafc2b
 
 *** =instructions4
 Get the title and release year of films released since 2000.
@@ -205,7 +205,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 9861f22e3e
+*** =key1: 6ce4bcd6f5
 
 *** =instructions1
 Get all Spanish films released before 2000.
@@ -227,7 +227,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 959636fe23
+*** =key2: 6c2fabb9ff
 
 *** =instructions2
 Get the all Spanish films released since 2000.
@@ -247,7 +247,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 83c010a716
+*** =key3: a005a41764
 
 *** =instructions3
 Get average duration for films released in France in 1992.
@@ -281,7 +281,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: d39b68d62c
+*** =key1: 15d83dd8ca
 
 *** =instructions1
 Get films released in 1990 or released in 2000 in English or Spanish.
@@ -301,7 +301,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 493b403e75
+*** =key2: 5a8195910c
 
 *** =instructions2
 Get films released since 2000 that are in French or Spanish, and made more than $20m.
@@ -322,7 +322,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 61457b8c8c
+*** =key3: 3c94446ac9
 
 *** =instructions3
 Get films released in the 90s.
@@ -341,7 +341,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 514ebdc6a6
+*** =key4: 61973bfa06
 
 *** =instructions4
 Get average duration for films released in the UK or which were released in 2012.
@@ -377,7 +377,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 90500cd8da
+*** =key1: f762ba0ac0
 
 *** =instructions1
 Get films released in the 90s.
@@ -398,7 +398,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 05a3410fc7
+*** =key2: 3d3b7f5a4b
 
 *** =instructions2
 Get the number of films released in the 90s.
@@ -417,7 +417,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: a1cdd8ce78
+*** =key3: da91e310bd
 
 *** =instructions3
 Get the number of films made between 2000 and 2015 with budgets over $100 million.
@@ -454,7 +454,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 98818a8587
+*** =key1: 8d98d6eacc
 
 *** =instructions1
 Get films released in  in 1990 or released in 2000 that were longer than two hours.
@@ -491,7 +491,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 6781b1a21e
+*** =key1: 7ad00b8995
 
 *** =instructions1
 Get the number of films released between 2000 and 2015 that were longer than two hours.
@@ -525,7 +525,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: ae15505378
+*** =key1: 93dd9bb3d5
 
 *** =instructions1
 Get the names of people who are still alive.
@@ -559,7 +559,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 03f1791894
+*** =key1: 8dff237ee4
 
 *** =instructions1
 Get people whose names begin with 'B'.
@@ -579,7 +579,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 6a603d59d6
+*** =key2: 6fb59d1735
 
 *** =instructions2
 Get people whose names have 'r' as the second letter.
@@ -599,7 +599,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 179ee81dfb
+*** =key3: 069ce2e6d6
 
 *** =instructions3
 Get people whose names don't start with A.
