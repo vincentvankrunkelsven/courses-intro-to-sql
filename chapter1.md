@@ -48,6 +48,8 @@ FROM films;
 ```
 
 *** =type1: NormalExercise
+*** =key1: 698c4a0314
+
 *** =instructions1
 Get the title of every film.
 *** =solution1
@@ -64,6 +66,8 @@ Ex().test_column(name='title', match='any')
 ```
 
 *** =type2: NormalExercise
+*** =key2: fb0ca1260d
+
 *** =instructions2
 Get all details for every film.
 *** =solution2
@@ -80,6 +84,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 339f322854
+
 *** =instructions3
 Get the names of everyone involved in working on the films.
 *** =solution3
@@ -109,6 +115,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 54295dcca0
+
 *** =instructions1
 Get the title and release year of every film.
 *** =solution1
@@ -126,6 +134,8 @@ Ex().test_column(name='release_year', match='any')
 ```
 
 *** =type2: NormalExercise
+*** =key2: 6badccda6d
+
 *** =instructions2
 Get the title, release year and country for every film.
 *** =solution2
@@ -144,6 +154,8 @@ Ex().test_column(name='country', match='any')
 ```
 
 *** =type3: NormalExercise
+*** =key3: c79ef8b650
+
 *** =instructions3
 Get every person's name and their date of birth where possible.
 *** =solution3
@@ -161,6 +173,8 @@ Ex().test_column(name='birthdate', match='any')
 ```
 
 *** =type4: NormalExercise
+*** =key4: 04bed990d0
+
 *** =instructions4
 Get every person name and their date of death where possible.
 *** =solution4
@@ -192,6 +206,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 4714955226
+
 *** =instructions1
 Get all the different countries.
 *** =solution1
@@ -210,6 +226,8 @@ select.test_student_typed('distinct')
 ```
 
 *** =type2: NormalExercise
+*** =key2: 288a64d8a5
+
 *** =instructions2
 Get all the different film languages.
 *** =solution2
@@ -228,6 +246,8 @@ select.test_student_typed('distinct')
 ```
 
 *** =type3: NormalExercise
+*** =key3: d1b786fa45
+
 *** =instructions3
 Get the different types of film roles.
 *** =solution3
@@ -244,6 +264,8 @@ Ex().test_column(name='role', match='any')
 ```
 
 *** =type4: NormalExercise
+*** =key4: a174daa60a
+
 *** =instructions4
 Get all the different certification categories.
 *** =solution4
@@ -260,6 +282,8 @@ Ex().test_column(name='certification', match='any')
 ```
 
 *** =type5: NormalExercise
+*** =key5: 7afa63a8f0
+
 *** =instructions5
 Get all the different IMDB scores - has any scored over 9.5?
 *** =solution5
@@ -290,6 +314,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 328a78545a
+
 *** =instructions1
 Count the number of rows in the people table.
 *** =solution1
@@ -306,6 +332,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 072d34c2eb
+
 *** =instructions2
 Count the number of birthdate entries in the people table.
 *** =solution2
@@ -322,6 +350,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 879ea3f4e6
+
 *** =instructions3
 Count the number of unique birthdate entries in the people table.
 *** =solution3
@@ -338,6 +368,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 8ddd2fed15
+
 *** =instructions4
 Count the number of unique languages.
 *** =solution4
@@ -354,6 +386,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 2429bc445f
+
 *** =instructions5
 Count the number of unique countries.
 *** =solution5
@@ -385,6 +419,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 86c38b9b8c
+
 *** =instructions1
 Count the total number of rows in the people table.
 *** =solution1
@@ -401,6 +437,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 8b8ec062de
+
 *** =instructions2
 Count the total number of birthdates in the people table.
 *** =solution2
@@ -417,6 +455,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: bc0e930635
+
 *** =instructions3
 Count the total number of distinct birthdates in the people table.
 *** =solution3
@@ -447,6 +487,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 0452e3228b
+
 *** =instructions1
 Get the total duration of all films.
 *** =solution1
@@ -463,6 +505,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: cbb09165ba
+
 *** =instructions2
 Get the average duration of all films.
 *** =solution2
@@ -479,6 +523,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 37c6e8ba9e
+
 *** =instructions3
 Get the duration of the shortest film.
 *** =solution3
@@ -495,6 +541,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 7760ada2ec
+
 *** =instructions4
 Get the amount made by the highest grossing film.
 *** =solution4
@@ -511,6 +559,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 120970fc06
+
 *** =instructions5
 Get the amount made by the lowest grossing film.
 *** =solution5
@@ -541,6 +591,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 4579f7c77f
+
 *** =instructions1
 Get the profit (or loss) for each movie, where possible.
 *** =solution1
@@ -559,6 +611,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 6d7df9b1f4
+
 *** =instructions2
 Get the duration in hours for each film.
 *** =solution2
@@ -578,6 +632,8 @@ Ex().has_equal_ast()
 
 
 *** =type3: NormalExercise
+*** =key3: cd373380c6
+
 *** =instructions3
 Get the average film duration in hours.
 *** =solution3
@@ -610,6 +666,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 2d4e9a61a8
+
 *** =instructions1
 Get the percentage of people who have died.
 *** =solution1
@@ -628,6 +686,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 5dc0a026b4
+
 *** =instructions2
 Check if there's an even number of unique languages. (0 = yes, 1 = no)
 *** =solution2
@@ -646,6 +706,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: c023886a88
+
 *** =instructions3
 Get the of years between the oldest film and newest film.
 *** =solution3
@@ -664,6 +726,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: e40c245517
+
 *** =instructions4
 Get the number of decades this dataset covers.
 *** =solution4
@@ -682,6 +746,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 06a82453b9
+
 *** =instructions5
 Get the duration in hours for each film.
 *** =solution5
