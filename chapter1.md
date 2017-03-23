@@ -51,7 +51,7 @@ FROM films;
 *** =instructions1
 Get the title of every film.
 *** =solution1
-```
+```{sql}
 SELECT title
 FROM films;
 ```
