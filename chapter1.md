@@ -48,7 +48,7 @@ FROM films;
 ```
 
 *** =type1: NormalExercise
-*** =key1: 18cd1c527d
+*** =key1: 6374f812c2
 
 *** =instructions1
 Get the title of every film.
@@ -66,7 +66,7 @@ Ex().test_column(name='title', match='any')
 ```
 
 *** =type2: NormalExercise
-*** =key2: ed08cdd426
+*** =key2: 5647f8c20c
 
 *** =instructions2
 Get all details for every film.
@@ -84,7 +84,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 92d08b15cf
+*** =key3: f7272ff91c
 
 *** =instructions3
 Get the names of everyone involved in working on the films.
@@ -115,7 +115,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 3826fc5208
+*** =key1: 8a87395b1a
 
 *** =instructions1
 Get the title and release year of every film.
@@ -134,7 +134,7 @@ Ex().test_column(name='release_year', match='any')
 ```
 
 *** =type2: NormalExercise
-*** =key2: f222b32fa0
+*** =key2: ecf947f506
 
 *** =instructions2
 Get the title, release year and country for every film.
@@ -154,7 +154,7 @@ Ex().test_column(name='country', match='any')
 ```
 
 *** =type3: NormalExercise
-*** =key3: 9da0c178eb
+*** =key3: 1783341d3b
 
 *** =instructions3
 Get every person's name and their date of birth where possible.
@@ -173,7 +173,7 @@ Ex().test_column(name='birthdate', match='any')
 ```
 
 *** =type4: NormalExercise
-*** =key4: d0c50bbdde
+*** =key4: a47d16d1e4
 
 *** =instructions4
 Get every person name and their date of death where possible.
@@ -206,7 +206,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 7ac13646be
+*** =key1: 390d53b2ba
 
 *** =instructions1
 Get all the different countries.
@@ -226,7 +226,7 @@ select.test_student_typed('distinct')
 ```
 
 *** =type2: NormalExercise
-*** =key2: c2d93cea22
+*** =key2: d87d0e430b
 
 *** =instructions2
 Get all the different film languages.
@@ -246,7 +246,7 @@ select.test_student_typed('distinct')
 ```
 
 *** =type3: NormalExercise
-*** =key3: 4827a346fe
+*** =key3: bca66b8e85
 
 *** =instructions3
 Get the different types of film roles.
@@ -264,7 +264,7 @@ Ex().test_column(name='role', match='any')
 ```
 
 *** =type4: NormalExercise
-*** =key4: 5fb34336e1
+*** =key4: 52d229a31d
 
 *** =instructions4
 Get all the different certification categories.
@@ -282,7 +282,7 @@ Ex().test_column(name='certification', match='any')
 ```
 
 *** =type5: NormalExercise
-*** =key5: c860ba8ee3
+*** =key5: 434d9781e9
 
 *** =instructions5
 Get all the different IMDB scores - has any scored over 9.5?
@@ -314,7 +314,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: f844cbf6c7
+*** =key1: f5beec2c40
 
 *** =instructions1
 Count the number of rows in the people table.
@@ -332,7 +332,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: be5cbe6338
+*** =key2: 68b3eaf4c0
 
 *** =instructions2
 Count the number of birthdate entries in the people table.
@@ -350,7 +350,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: a76b70bbff
+*** =key3: b53e5e0b82
 
 *** =instructions3
 Count the number of unique birthdate entries in the people table.
@@ -368,7 +368,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 5cf5f804e9
+*** =key4: 3f620c83e3
 
 *** =instructions4
 Count the number of unique languages.
@@ -386,7 +386,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
-*** =key5: ee833df3f8
+*** =key5: 479d4764ec
 
 *** =instructions5
 Count the number of unique countries.
@@ -419,7 +419,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 33327ea732
+*** =key1: a82bc20ac5
 
 *** =instructions1
 Count the total number of rows in the people table.
@@ -437,7 +437,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: fdbf50d34b
+*** =key2: 01f38014c2
 
 *** =instructions2
 Count the total number of birthdates in the people table.
@@ -455,7 +455,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 0e574b37d5
+*** =key3: 34db6a84f0
 
 *** =instructions3
 Count the total number of distinct birthdates in the people table.
@@ -487,7 +487,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: a321512f29
+*** =key1: 1e1c22478d
 
 *** =instructions1
 Get the total duration of all films.
@@ -505,7 +505,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 0d116109c4
+*** =key2: c3cd7cf21a
 
 *** =instructions2
 Get the average duration of all films.
@@ -523,7 +523,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 3bf5887639
+*** =key3: 1970e254ff
 
 *** =instructions3
 Get the duration of the shortest film.
@@ -541,7 +541,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 84d0836370
+*** =key4: e2a9919620
 
 *** =instructions4
 Get the amount made by the highest grossing film.
@@ -559,7 +559,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
-*** =key5: 5f01c2ab94
+*** =key5: 9788b448a4
 
 *** =instructions5
 Get the amount made by the lowest grossing film.
@@ -591,7 +591,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 6ad1704cf7
+*** =key1: eb7f45ebc2
 
 *** =instructions1
 Get the profit (or loss) for each movie, where possible.
@@ -611,7 +611,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: c5f11b603a
+*** =key2: 6c5a493dae
 
 *** =instructions2
 Get the duration in hours for each film.
@@ -632,7 +632,7 @@ Ex().has_equal_ast()
 
 
 *** =type3: NormalExercise
-*** =key3: d1f60a94c2
+*** =key3: 528879d088
 
 *** =instructions3
 Get the average film duration in hours.
@@ -666,7 +666,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 82547a1f18
+*** =key1: d5f66dce49
 
 *** =instructions1
 Get the percentage of people who have died.
@@ -686,7 +686,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: b3321da236
+*** =key2: 046f3fb90e
 
 *** =instructions2
 Check if there's an even number of unique languages. (0 = yes, 1 = no)
@@ -706,7 +706,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 452b8916cf
+*** =key3: d267ba8c96
 
 *** =instructions3
 Get the of years between the oldest film and newest film.
@@ -726,7 +726,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 9786fea6b1
+*** =key4: 636347ccad
 
 *** =instructions4
 Get the number of decades this dataset covers.
@@ -746,7 +746,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
-*** =key5: f1cf880f84
+*** =key5: 14444b3848
 
 *** =instructions5
 Get the duration in hours for each film.
