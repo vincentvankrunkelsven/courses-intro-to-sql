@@ -49,7 +49,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 5b3f708243
+*** =key1: 96f73c1255
 
 *** =instructions1
 How many trips were made in 2015?
@@ -67,7 +67,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 0044598bef
+*** =key2: 725f9bac49
 
 *** =instructions2
 Using LIMIT to display only top 10 results.
@@ -86,7 +86,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 8a3dd7227e
+*** =key3: 824ef2c32f
 
 *** =instructions3
 How many different bikes are there?
@@ -104,7 +104,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 7de464ee0a
+*** =key4: b5d489ca53
 
 *** =instructions4
 
@@ -137,7 +137,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 71c05a4232
+*** =key1: 036586f5a5
 
 *** =instructions1
 How long was the longest trip?
@@ -155,7 +155,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 8c84bb6a99
+*** =key2: dae23c4de6
 
 *** =instructions2
 How long was the shortest trip?
@@ -173,7 +173,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 0685dfc668
+*** =key3: bff6c31833
 
 *** =instructions3
 How long was the average trip, in seconds?
@@ -191,7 +191,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 81147b03a7
+*** =key4: 100be72761
 
 *** =instructions4
 How long was the average trip, in minutes?
@@ -211,7 +211,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
-*** =key5: da664f943d
+*** =key5: 08622b2318
 
 *** =instructions5
 How much time total was spent on trips, in days?
@@ -245,7 +245,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 4626f45975
+*** =key1: 61cbbaf281
 
 *** =instructions1
 How many days did it rain?
@@ -264,7 +264,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 7a4769bf48
+*** =key2: 5731e34718
 
 *** =instructions2
 How many days do we not have data for?
@@ -297,7 +297,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 529ba5c313
+*** =key1: 9c99a7f9fb
 
 *** =instructions1
 How many days was it cloudy?
@@ -316,7 +316,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: dff53eab2d
+*** =key2: b7d224f4d9
 
 *** =instructions2
 How many days did it snow?
@@ -331,7 +331,7 @@ WHERE events LIKE '%Snow';
 ```
 
 *** =type3: NormalExercise
-*** =key3: 8b475d78f8
+*** =key3: ad332fc611
 
 *** =instructions3
 How many days did it rain? (All variants).
@@ -350,7 +350,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 2a943972c2
+*** =key4: 8d1138ca7a
 
 *** =instructions4
 How many days was cloud cover greater than 5?
@@ -369,7 +369,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
-*** =key5: 403d51bec2
+*** =key5: 3ec14beb5f
 
 *** =instructions5
 How many days did it rain more than 0.5 inches?
@@ -388,7 +388,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
-*** =key6: 7e8b0d12cf
+*** =key6: 275308669c
 
 *** =instructions6
 What was the average mean temperature for the year?
@@ -422,7 +422,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 11e8bd03ad
+*** =key1: 605066b226
 
 *** =instructions1
 Are there any days on which no trips were made?
@@ -441,7 +441,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: dc0ccdb756
+*** =key2: db6d8198da
 
 *** =instructions2
 Which station was started from the most?
@@ -461,7 +461,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: d9f9bfc8c4
+*** =key3: 96d9e8384e
 
 *** =instructions3
 What were the top ten most popular stations to start from?
@@ -483,7 +483,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 9ed6414d6d
+*** =key4: b235a96d86
 
 *** =instructions4
 What were the top ten least popular stations to start from?
@@ -519,7 +519,7 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
-*** =key1: 7cd0630976
+*** =key1: 716df6c898
 
 *** =instructions1
 Which date had the most trips?
@@ -541,7 +541,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 73081d2e0d
+*** =key2: bcc5ad713c
 
 *** =instructions2
 How many trips were made on Christmas Day?
