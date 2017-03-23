@@ -49,6 +49,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 5b3f708243
+
 *** =instructions1
 How many trips were made in 2015?
 *** =solution1
@@ -65,6 +67,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 0044598bef
+
 *** =instructions2
 Using LIMIT to display only top 10 results.
 *** =solution2
@@ -82,6 +86,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 8a3dd7227e
+
 *** =instructions3
 How many different bikes are there?
 *** =solution3
@@ -98,6 +104,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 7de464ee0a
+
 *** =instructions4
 
 *** =solution4
@@ -129,6 +137,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 71c05a4232
+
 *** =instructions1
 How long was the longest trip?
 *** =solution1
@@ -145,6 +155,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 8c84bb6a99
+
 *** =instructions2
 How long was the shortest trip?
 *** =solution2
@@ -161,6 +173,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 0685dfc668
+
 *** =instructions3
 How long was the average trip, in seconds?
 *** =solution3
@@ -177,6 +191,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 81147b03a7
+
 *** =instructions4
 How long was the average trip, in minutes?
 *** =solution4
@@ -195,6 +211,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: da664f943d
+
 *** =instructions5
 How much time total was spent on trips, in days?
 *** =solution5
@@ -227,6 +245,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 4626f45975
+
 *** =instructions1
 How many days did it rain?
 *** =solution1
@@ -244,6 +264,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 7a4769bf48
+
 *** =instructions2
 How many days do we not have data for?
 *** =solution2
@@ -275,6 +297,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 529ba5c313
+
 *** =instructions1
 How many days was it cloudy?
 *** =solution1
@@ -292,6 +316,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: dff53eab2d
+
 *** =instructions2
 How many days did it snow?
 *** =solution2
@@ -305,6 +331,8 @@ WHERE events LIKE '%Snow';
 ```
 
 *** =type3: NormalExercise
+*** =key3: 8b475d78f8
+
 *** =instructions3
 How many days did it rain? (All variants).
 *** =solution3
@@ -322,6 +350,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 2a943972c2
+
 *** =instructions4
 How many days was cloud cover greater than 5?
 *** =solution4
@@ -339,6 +369,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 403d51bec2
+
 *** =instructions5
 How many days did it rain more than 0.5 inches?
 *** =solution5
@@ -356,6 +388,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
+*** =key6: 7e8b0d12cf
+
 *** =instructions6
 What was the average mean temperature for the year?
 *** =solution6
@@ -388,6 +422,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 11e8bd03ad
+
 *** =instructions1
 Are there any days on which no trips were made?
 *** =solution1
@@ -405,6 +441,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: dc0ccdb756
+
 *** =instructions2
 Which station was started from the most?
 *** =solution2
@@ -423,6 +461,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: d9f9bfc8c4
+
 *** =instructions3
 What were the top ten most popular stations to start from?
 *** =solution3
@@ -443,6 +483,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 9ed6414d6d
+
 *** =instructions4
 What were the top ten least popular stations to start from?
 *** =solution4
@@ -477,6 +519,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 7cd0630976
+
 *** =instructions1
 Which date had the most trips?
 *** =solution1
@@ -497,6 +541,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 73081d2e0d
+
 *** =instructions2
 How many trips were made on Christmas Day?
 *** =solution2
