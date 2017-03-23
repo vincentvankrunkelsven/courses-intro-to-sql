@@ -22,6 +22,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: f50faed816
+
 *** =instructions1
 Get people, sort by name.
 *** =solution1
@@ -40,6 +42,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 1d8f109261
+
 *** =instructions2
 Get people, sort by birthdate.
 *** =solution2
@@ -58,6 +62,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: e4dfb329a7
+
 *** =instructions3
 Get people, in order of when they were born.
 *** =solution3
@@ -77,6 +83,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 41de450388
+
 *** =instructions4
 Get films released in 2000 or 2015, in the order they were released.
 *** =solution4
@@ -97,6 +105,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 48a9b03e8b
+
 *** =instructions5
 Get all films except those released in 2015 and order them so we can see results.
 *** =solution5
@@ -129,6 +139,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: ef0d58f529
+
 *** =instructions1
 Get the score and film id for every film, from highest to lowest.
 *** =solution1
@@ -148,6 +160,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 067a5b7f4d
+
 *** =instructions2
 Get the titles of films in reverse order.
 *** =solution2
@@ -179,6 +193,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 712c740877
+
 *** =instructions1
 Get people, in order of when they were born, and alphabetical order.
 *** =solution1
@@ -198,6 +214,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 86cc0e2bb8
+
 *** =instructions2
 Get people, in order of when they were born, and alphabetical order.
 *** =solution2
@@ -219,6 +237,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 97e29ca991
+
 *** =instructions3
 
 *** =solution3
@@ -240,6 +260,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 97421c2dd0
+
 *** =instructions4
 Get people whose names start with A, B or C, (redundantly) ordered.
 *** =solution4
@@ -274,6 +296,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 39a7c933e3
+
 *** =instructions1
 Get count of films made in each year.
 *** =solution1
@@ -293,6 +317,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: c95662fd69
+
 *** =instructions2
 Get count of films, group by release year then order by release year.
 *** =solution2
@@ -313,6 +339,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 98018f8476
+
 *** =instructions3
 Get count of films released in each year, ordered by count, lowest to highest.
 *** =solution3
@@ -333,6 +361,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 2c2823d074
+
 *** =instructions4
 Get count of films released in each year, ordered by count highest to lowest.
 *** =solution4
@@ -353,6 +383,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 6520492bcf
+
 *** =instructions5
 Get lowest box office earnings per year.
 *** =solution5
@@ -392,6 +424,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
+*** =key6: 5300fb4e35
+
 *** =instructions6
 Get the total amount spent by each country.
 *** =solution6
@@ -425,6 +459,8 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 912e76170c
+
 *** =instructions1
 Get the most spent making a film for each year, for each country.
 *** =solution1
@@ -446,6 +482,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: c0cb2a5012
+
 *** =instructions2
 Get the lowest box office made by each country in each year.
 *** =solution2
@@ -501,6 +539,8 @@ Ex().test_column(name='avg_budget', match='exact')
 Ex().test_column(name='avg_box_office', match='exact')
 Ex().has_equal_ast()
 ```
+
+*** =key1: 322756ed13
 
 *** =type1: NormalExercise
 *** =instructions2
