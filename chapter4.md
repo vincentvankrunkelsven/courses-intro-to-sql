@@ -10,11 +10,13 @@ description: >-
 
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:8e3524960e
 ## Get to Know Your Data
-Question goes here.
+A good data scientist needs to have an intuitive sense of the data they're working with. 
+
+How many rows does the `trips` table have?
 
 *** =instructions
-- one
-- two
+- 
+- 
 - three
 - four (correct)
 

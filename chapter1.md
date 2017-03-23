@@ -34,7 +34,7 @@ Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:c0bb58f7f9
 ## Single Column SELECTs
-Selecting stuff from single column.
+In SQL, statements like `SELECT` are not case sensitive. This means that SQL will understand if you write `select`, for example.
 
 *** =pre_exercise_code
 ```{python}
@@ -107,7 +107,7 @@ Ex().test_column(name='name', match='any')
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
 ## Multiple Column SELECTs
-Selecting stuff from multiple columns.
+To `SELECT` from multiple columns, you can simply separate the columns with a comma. 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -115,7 +115,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___, ___
+FROM films;
 ```
 
 *** =type1: NormalExercise
@@ -202,7 +203,7 @@ Ex().test_column(name='deathdate', match='any')
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:de52236965
 ## SELECT DISTINCT
-Selecting distinct stuff from single columns.
+If you want to `SELECT` _unique_ values, you can use the `DISTINCT` keyword.    
 
 *** =pre_exercise_code
 ```{python}
@@ -315,7 +316,9 @@ Ex().test_column(name='imdb_score', match='any')
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
 ## Learning to COUNT
-Simple count exercises.
+The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has). 
+
+For example, `SELECT COUNT(DISTINCT name) FROM people` gives you the number of unique names in the `people` table. If you do `SELECT COUNT(*) FROM people` you will get the number of records in the entire `people` table.
 
 *** =pre_exercise_code
 ```{python}
@@ -424,8 +427,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:ba95f5cc97
 ## Different COUNTs
-Exercises showing difference between COUNT(*), COUNT(col) AND COUNT(DISTINCT)
-Using birthdates as examples.
+Try out the exercises to see the difference between `COUNT(column)`, `COUNT(DISTINCT column)` and `COUNT(*)`.
 
 *** =pre_exercise_code
 ```{python}
@@ -496,7 +498,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:5260bda57a
 ## SUM, AVG, MIN, MAX
-Simple exercises using SUM, AVG, MIN, MAX
+Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. For example, `SELECT AVG(budget) FROM films;` would give you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
 
 *** =pre_exercise_code
 ```{python}
@@ -605,7 +607,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:6db52132a0
 ## It's AS simple AS Aliasing
-Simple AS exercises.
+In SQL, the `AS` keyword allows us to specify an _alias_ (temporary name) for a column in the result set. For example, `SELECT COUNT(title) AS title_count FROM films;` will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable.
 
 *** =pre_exercise_code
 ```{python}
@@ -685,7 +687,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:8612897f35
 ## Even More Aliasing
-Some aliasing with aggregates and arithmetic.
+Try practicsing your aliasing skills in these exercises!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')

@@ -8,7 +8,7 @@ description: >-
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:b90db25f33
 ## Simple Filtering of Text
-Some basic filtering examples on text
+In SQL, the `WHERE` keyword allows you to filter records based on conditions. For example, `SELECT title FROM films WHERE release_year > 2000;` will give you the names of all the films released since the year 2000. You can filter using `WHERE` with both text and numeric values!
 
 *** =pre_exercise_code
 ```{python}
@@ -100,7 +100,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:b90db25f34
 ## Simple Filtering of Numeric values
-Some basic filtering examples on numeric values.
+Try using the `WHERE` clause to filter numeric values! 
 
 *** =pre_exercise_code
 ```{python}
@@ -192,7 +192,8 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:5bda32d7c8
 ## WHERE AND
-Simple exercises combining WHERE with AND clauses
+You can build up your `WHERE`query using the `AND` keyword. For example, `SELECT title FROM films WHERE release_year > 1994 AND release_year < 2000;`, which will give you all the films released between 1994 and 2000. Similarly, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
+
 
 *** =pre_exercise_code
 ```{python}
@@ -268,7 +269,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:ecc1838fc7
 ## WHERE AND, OR
-Simple exercises combining WHERE, AND and OR clauses.
+You can also build up your `WHERE`query using the and `OR` keyword. For example, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
 
 *** =pre_exercise_code
 ```{python}
@@ -365,7 +366,9 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:9c11f67712
 ## BETWEEN (A Rock and A Hard Place)
-Simple BETWEEN exercises.
+In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example, `SELECT title FROM films WHERE release_year BETWEEN 1994 AND 2000;` will give you the names of all the films released between 1994 and 2000. 
+
+**Remember**: the `BETWEEN` operator is _inclusive_; the beginning and end values are included in the results. 
 
 *** =pre_exercise_code
 ```{python}
@@ -444,7 +447,8 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:4fc7e638f8
 ## WHERE IN The World
-Exercises using WHERE with IN
+In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions.
+
 
 *** =pre_exercise_code
 ```{python}
@@ -481,7 +485,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:84411d78aa
 ## BETWEEN and AND
-Exercises using BETWEEN with AND.
+Practice using `BETWEEN` with multiple `AND` operators!
 
 *** =pre_exercise_code
 ```{python}
@@ -514,8 +518,8 @@ Ex().has_equal_ast()
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:84411d78ab
-## IS NULL
-Simple exercises.
+## NULL and IS NULL
+In SQL, `NULL` represents an unknown value. Often, you will want to filter out so we only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. For example, `SELECT name FROM people WHERE birthdate IS NOT NULL;` will give you the names of all the people whose birthdate we know.
 
 *** =pre_exercise_code
 ```{python}
@@ -549,7 +553,13 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:84411d78ac
 ## LIKE and NOT LIKE
-Simple exercises.
+In `SQL` the `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
+
+There are two _wildcards_ you can use with `LIKE`: `%` and `_`. 
+
+The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind` and so on.
+
+The `_` wildcard will match a single character. For example, if you filtered with `DataC_amp` you could match `DataCamp` and `DataComp`, and so on.
 
 *** =pre_exercise_code
 ```{python}
