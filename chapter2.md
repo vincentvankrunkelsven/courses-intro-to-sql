@@ -229,7 +229,6 @@ Ex().has_equal_ast()
 *** =type2: NormalExercise
 *** =key2: e703c95e46
 
-
 *** =instructions2
 Get the all Spanish films released since 2000.
 *** =solution2
@@ -325,7 +324,6 @@ Ex().has_equal_ast()
 *** =type3: NormalExercise
 
 *** =key3: 510b387baa
-
 
 *** =instructions3
 Get films released in the 90s.
