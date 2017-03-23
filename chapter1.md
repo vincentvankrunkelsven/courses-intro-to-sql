@@ -48,17 +48,18 @@ FROM films;
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: a41cc766d5
 
 *** =instructions1
 Get the title of every film.
 *** =solution1
-```
+```{sql}
 SELECT title
 FROM films;
 ```
 *** =sct1
-```
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -66,17 +67,18 @@ Ex().test_column(name='title', match='any')
 ```
 
 *** =type2: NormalExercise
+
 *** =key2: 4a74270ecd
 
 *** =instructions2
 Get all details for every film.
 *** =solution2
-```
+```{sql}
 SELECT *
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -84,17 +86,19 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 15471ad3a1
+
+
+*** =key3: 323bd5ddf5
 
 *** =instructions3
 Get the names of everyone involved in working on the films.
 *** =solution3
-```
+```{sql}
 SELECT name
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -115,17 +119,18 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: d561b4df97
 
 *** =instructions1
 Get the title and release year of every film.
 *** =solution1
-```
+```{sql}
 SELECT title, release_year
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -134,17 +139,19 @@ Ex().test_column(name='release_year', match='any')
 ```
 
 *** =type2: NormalExercise
-*** =key2: 29bbbc1b21
+
+
+*** =key2: 917d7dc533
 
 *** =instructions2
 Get the title, release year and country for every film.
 *** =solution2
-```
+```{sql}
 SELECT title, release_year, country
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -154,17 +161,18 @@ Ex().test_column(name='country', match='any')
 ```
 
 *** =type3: NormalExercise
+
 *** =key3: eeba078a00
 
 *** =instructions3
 Get every person's name and their date of birth where possible.
 *** =solution3
-```
+```{sql}
 SELECT name, birthdate
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -173,17 +181,18 @@ Ex().test_column(name='birthdate', match='any')
 ```
 
 *** =type4: NormalExercise
+
 *** =key4: dac27d9aad
 
 *** =instructions4
 Get every person name and their date of death where possible.
 *** =solution4
-```
+```{sql}
 SELECT name, deathdate
 FROM people;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -206,17 +215,18 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: e6b81711f1
 
 *** =instructions1
 Get all the different countries.
 *** =solution1
-```
+```{sql}
 SELECT DISTINCT country
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -226,17 +236,18 @@ select.test_student_typed('distinct')
 ```
 
 *** =type2: NormalExercise
+
 *** =key2: 2cb9a4bf6a
 
 *** =instructions2
 Get all the different film languages.
 *** =solution2
-```
+```{sql}
 SELECT DISTINCT language
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -246,17 +257,18 @@ select.test_student_typed('distinct')
 ```
 
 *** =type3: NormalExercise
+
 *** =key3: 26835d3029
 
 *** =instructions3
 Get the different types of film roles.
 *** =solution3
-```
+```{sql}
 SELECT DISTINCT role
 FROM roles;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -264,17 +276,18 @@ Ex().test_column(name='role', match='any')
 ```
 
 *** =type4: NormalExercise
+
 *** =key4: d81908d52c
 
 *** =instructions4
 Get all the different certification categories.
 *** =solution4
-```
+```{sql}
 SELECT DISTINCT certification
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -282,17 +295,18 @@ Ex().test_column(name='certification', match='any')
 ```
 
 *** =type5: NormalExercise
+
 *** =key5: d19187a6a4
 
 *** =instructions5
 Get all the different IMDB scores - has any scored over 9.5?
 *** =solution5
-```
+```{sql}
 SELECT DISTINCT imdb_score
 FROM reviews;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -314,17 +328,18 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: 4688067e3e
 
 *** =instructions1
 Count the number of rows in the people table.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(*)
 FROM people;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -332,17 +347,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+
 *** =key2: 497ffa962e
 
 *** =instructions2
 Count the number of birthdate entries in the people table.
 *** =solution2
-```
+```{sql}
 SELECT COUNT(birthdate)
 FROM people;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -350,17 +366,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+
 *** =key3: 50c903a00a
 
 *** =instructions3
 Count the number of unique birthdate entries in the people table.
 *** =solution3
-```
+```{sql}
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -368,17 +385,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+
 *** =key4: 511052cbbe
 
 *** =instructions4
 Count the number of unique languages.
 *** =solution4
-```
+```{sql}
 SELECT COUNT(DISTINCT language)
 FROM films;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -386,17 +404,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+
 *** =key5: 9e1147efe5
 
 *** =instructions5
 Count the number of unique countries.
 *** =solution5
-```
+```{sql}
 SELECT COUNT(DISTINCT country)
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -419,17 +438,18 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: 063e5e780f
 
 *** =instructions1
 Count the total number of rows in the people table.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(*)
 FROM people;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -437,17 +457,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+
 *** =key2: 5716af696b
 
 *** =instructions2
 Count the total number of birthdates in the people table.
 *** =solution2
-```
+```{sql}
 SELECT COUNT(birthdate)
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -455,17 +476,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+
 *** =key3: 841a8d69fa
 
 *** =instructions3
 Count the total number of distinct birthdates in the people table.
 *** =solution3
-```
+```{sql}
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -487,17 +509,18 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: 80fd462ae1
 
 *** =instructions1
 Get the total duration of all films.
 *** =solution1
-```
+```{sql}
 SELECT SUM(duration)
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -505,17 +528,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+
 *** =key2: 7993b51268
 
 *** =instructions2
 Get the average duration of all films.
 *** =solution2
-```
+```{sql}
 SELECT AVG(duration)
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -523,17 +547,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+
 *** =key3: a03aeabbc6
 
 *** =instructions3
 Get the duration of the shortest film.
 *** =solution3
-```
+```{sql}
 SELECT MIN(duration)
 FROM films;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -541,17 +566,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+
 *** =key4: fabbc619c6
 
 *** =instructions4
 Get the amount made by the highest grossing film.
 *** =solution4
-```
+```{sql}
 SELECT MAX(gross)
 FROM films;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -559,17 +585,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+
 *** =key5: e14c21bc81
 
 *** =instructions5
 Get the amount made by the lowest grossing film.
 *** =solution5
-```
+```{sql}
 SELECT MIN(gross)
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -591,18 +618,19 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
 *** =key1: ec33c2353b
 
 *** =instructions1
 Get the profit (or loss) for each movie, where possible.
 *** =solution1
-```
+```{sql}
 SELECT title, gross - budget
 AS profit_or_loss
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -616,13 +644,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Get the duration in hours for each film.
 *** =solution2
-```
+```{sql}
 SELECT title, duration / 60.0
 AS duration_hours
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -632,18 +660,21 @@ Ex().has_equal_ast()
 
 
 *** =type3: NormalExercise
+
+*** =key3: 497f8d2a8a
+
 *** =key3: 6e1e07d9f8
 
 *** =instructions3
 Get the average film duration in hours.
 *** =solution3
-```
+```{sql}
 SELECT AVG(duration) / 60.0
 AS duration_hours  
 FROM films;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -666,18 +697,21 @@ Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+
+*** =key1: e14dc7c1a2
+
 *** =key1: d8393df397
 
 *** =instructions1
 Get the percentage of people who have died.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
 FROM people;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -691,13 +725,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Check if there's an even number of unique languages. (0 = yes, 1 = no)
 *** =solution2
-```
+```{sql}
 SELECT COUNT(DISTINCT language) % 2
 AS result
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -706,18 +740,19 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+
 *** =key3: c2bbd9a806
 
 *** =instructions3
 Get the of years between the oldest film and newest film.
 *** =solution3
-```
+```{sql}
 SELECT MAX(release_year) - MIN(release_year)
 AS difference
 FROM films;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -726,18 +761,19 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+
 *** =key4: f272486b68
 
 *** =instructions4
 Get the number of decades this dataset covers.
 *** =solution4
-```
+```{sql}
 SELECT (MAX(release_year) - MIN(release_year)) / 10
 AS number_of_decades
 FROM films;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -746,17 +782,18 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+
 *** =key5: 52d3616e78
 
 *** =instructions5
 Get the duration in hours for each film.
 *** =solution5
-```
+```{sql}
 SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
