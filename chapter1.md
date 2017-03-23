@@ -129,7 +129,7 @@ Ex().test_column(name='release_year', match='any')
 *** =instructions2
 Get the title, release year and country for every film.
 *** =solution2
-```
+```{sql}
 SELECT title, release_year, country
 FROM films;
 ```
@@ -164,7 +164,7 @@ Ex().test_column(name='birthdate', match='any')
 *** =instructions4
 Get every person name and their date of death where possible.
 *** =solution4
-```
+```{sql}
 SELECT name, deathdate
 FROM people;
 ```
