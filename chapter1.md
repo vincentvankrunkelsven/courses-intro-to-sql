@@ -88,6 +88,8 @@ Ex().has_equal_ast()
 *** =type3: NormalExercise
 
 
+*** =key3: 323bd5ddf5
+
 *** =instructions3
 Get the names of everyone involved in working on the films.
 *** =solution3
@@ -138,6 +140,8 @@ Ex().test_column(name='release_year', match='any')
 
 *** =type2: NormalExercise
 
+
+*** =key2: 917d7dc533
 
 *** =instructions2
 Get the title, release year and country for every film.
@@ -661,7 +665,6 @@ Ex().has_equal_ast()
 
 *** =key3: 6e1e07d9f8
 
-
 *** =instructions3
 Get the average film duration in hours.
 *** =solution3
@@ -698,7 +701,6 @@ Sample code goes here.
 *** =key1: e14dc7c1a2
 
 *** =key1: d8393df397
-
 
 *** =instructions1
 Get the percentage of people who have died.
