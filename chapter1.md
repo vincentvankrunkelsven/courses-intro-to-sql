@@ -56,7 +56,7 @@ SELECT title
 FROM films;
 ```
 *** =sct1
-```
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -67,12 +67,12 @@ Ex().test_column(name='title', match='any')
 *** =instructions2
 Get all details for every film.
 *** =solution2
-```
+```{sql}
 SELECT *
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -83,12 +83,12 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the names of everyone involved in working on the films.
 *** =solution3
-```
+```{sql}
 SELECT name
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -117,7 +117,7 @@ SELECT title, release_year
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -134,7 +134,7 @@ SELECT title, release_year, country
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -147,12 +147,12 @@ Ex().test_column(name='country', match='any')
 *** =instructions3
 Get every person's name and their date of birth where possible.
 *** =solution3
-```
+```{sql}
 SELECT name, birthdate
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -169,7 +169,7 @@ SELECT name, deathdate
 FROM people;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -195,12 +195,12 @@ Sample code goes here.
 *** =instructions1
 Get all the different countries.
 *** =solution1
-```
+```{sql}
 SELECT DISTINCT country
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -213,12 +213,12 @@ select.test_student_typed('distinct')
 *** =instructions2
 Get all the different film languages.
 *** =solution2
-```
+```{sql}
 SELECT DISTINCT language
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -231,12 +231,12 @@ select.test_student_typed('distinct')
 *** =instructions3
 Get the different types of film roles.
 *** =solution3
-```
+```{sql}
 SELECT DISTINCT role
 FROM roles;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -247,12 +247,12 @@ Ex().test_column(name='role', match='any')
 *** =instructions4
 Get all the different certification categories.
 *** =solution4
-```
+```{sql}
 SELECT DISTINCT certification
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -263,12 +263,12 @@ Ex().test_column(name='certification', match='any')
 *** =instructions5
 Get all the different IMDB scores - has any scored over 9.5?
 *** =solution5
-```
+```{sql}
 SELECT DISTINCT imdb_score
 FROM reviews;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -293,12 +293,12 @@ Sample code goes here.
 *** =instructions1
 Count the number of rows in the people table.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(*)
 FROM people;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -309,12 +309,12 @@ Ex().has_equal_ast()
 *** =instructions2
 Count the number of birthdate entries in the people table.
 *** =solution2
-```
+```{sql}
 SELECT COUNT(birthdate)
 FROM people;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -325,12 +325,12 @@ Ex().has_equal_ast()
 *** =instructions3
 Count the number of unique birthdate entries in the people table.
 *** =solution3
-```
+```{sql}
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -341,12 +341,12 @@ Ex().has_equal_ast()
 *** =instructions4
 Count the number of unique languages.
 *** =solution4
-```
+```{sql}
 SELECT COUNT(DISTINCT language)
 FROM films;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -357,12 +357,12 @@ Ex().has_equal_ast()
 *** =instructions5
 Count the number of unique countries.
 *** =solution5
-```
+```{sql}
 SELECT COUNT(DISTINCT country)
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -388,12 +388,12 @@ Sample code goes here.
 *** =instructions1
 Count the total number of rows in the people table.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(*)
 FROM people;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -404,12 +404,12 @@ Ex().has_equal_ast()
 *** =instructions2
 Count the total number of birthdates in the people table.
 *** =solution2
-```
+```{sql}
 SELECT COUNT(birthdate)
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -420,12 +420,12 @@ Ex().has_equal_ast()
 *** =instructions3
 Count the total number of distinct birthdates in the people table.
 *** =solution3
-```
+```{sql}
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -450,12 +450,12 @@ Sample code goes here.
 *** =instructions1
 Get the total duration of all films.
 *** =solution1
-```
+```{sql}
 SELECT SUM(duration)
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -466,12 +466,12 @@ Ex().has_equal_ast()
 *** =instructions2
 Get the average duration of all films.
 *** =solution2
-```
+```{sql}
 SELECT AVG(duration)
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -482,12 +482,12 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the duration of the shortest film.
 *** =solution3
-```
+```{sql}
 SELECT MIN(duration)
 FROM films;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -498,12 +498,12 @@ Ex().has_equal_ast()
 *** =instructions4
 Get the amount made by the highest grossing film.
 *** =solution4
-```
+```{sql}
 SELECT MAX(gross)
 FROM films;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -514,12 +514,12 @@ Ex().has_equal_ast()
 *** =instructions5
 Get the amount made by the lowest grossing film.
 *** =solution5
-```
+```{sql}
 SELECT MIN(gross)
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -544,13 +544,13 @@ Sample code goes here.
 *** =instructions1
 Get the profit (or loss) for each movie, where possible.
 *** =solution1
-```
+```{sql}
 SELECT title, gross - budget
 AS profit_or_loss
 FROM films;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -562,13 +562,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Get the duration in hours for each film.
 *** =solution2
-```
+```{sql}
 SELECT title, duration / 60.0
 AS duration_hours
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -581,13 +581,13 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the average film duration in hours.
 *** =solution3
-```
+```{sql}
 SELECT AVG(duration) / 60.0
 AS duration_hours  
 FROM films;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -613,13 +613,13 @@ Sample code goes here.
 *** =instructions1
 Get the percentage of people who have died.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(deathdate) * 100 / COUNT(*)
 AS percentage_dead
 FROM people;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -631,13 +631,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Check if there's an even number of unique languages. (0 = yes, 1 = no)
 *** =solution2
-```
+```{sql}
 SELECT COUNT(DISTINCT language) % 2
 AS result
 FROM films;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -649,13 +649,13 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the of years between the oldest film and newest film.
 *** =solution3
-```
+```{sql}
 SELECT MAX(release_year) - MIN(release_year)
 AS difference
 FROM films;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -667,13 +667,13 @@ Ex().has_equal_ast()
 *** =instructions4
 Get the number of decades this dataset covers.
 *** =solution4
-```
+```{sql}
 SELECT (MAX(release_year) - MIN(release_year)) / 10
 AS number_of_decades
 FROM films;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -685,12 +685,12 @@ Ex().has_equal_ast()
 *** =instructions5
 Get the duration in hours for each film.
 *** =solution5
-```
+```{sql}
 SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
 *** =sct5
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()

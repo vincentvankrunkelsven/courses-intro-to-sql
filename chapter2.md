@@ -24,13 +24,13 @@ Sample code goes here.
 *** =instructions1
 Get all French language films.
 *** =solution1
-```
+```{sql}
 SELECT *
 FROM films
 WHERE language = 'French';
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -41,13 +41,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Get the name of the person born on November 11th, 1974.
 *** =solution2
-```
+```{sql}
 SELECT name, birthdate
 FROM people
 WHERE birthdate = '1974-11-11';
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -60,13 +60,13 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the number of Hindi movies.
 *** =solution3
-```
+```{sql}
 SELECT COUNT(*)
 FROM films
 WHERE language = 'Hindi';
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -77,13 +77,13 @@ Ex().has_equal_ast()
 *** =instructions4
 Get all movies with an R certification.
 *** =solution4
-```
+```{sql}
 SELECT *
 FROM films
 WHERE certification = 'R';
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -108,13 +108,13 @@ Sample code goes here.
 *** =instructions1
 Get all films released in 2016.
 *** =solution1
-```
+```{sql}
 SELECT *
 FROM films
 WHERE release_year = 2016;
 ```
 *** =sct1
-```{sql}
+```{python}{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -125,13 +125,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Get all films released in 2016.
 *** =solution2
-```
+```{sql}
 SELECT *
 FROM films
 WHERE release_year = 2016;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -142,13 +142,13 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the number of films released before 2000.
 *** =solution3
-```
+```{sql}
 SELECT COUNT(*)
 FROM films
 WHERE release_year < 2000;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -159,13 +159,13 @@ Ex().has_equal_ast()
 *** =instructions4
 Get the title and release year of films released since 2000.
 *** =solution4
-```
+```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year > 2000;
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -192,14 +192,14 @@ Sample code goes here.
 *** =instructions1
 Get all Spanish films released before 2000.
 *** =solution1
-```
+```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year < 2000
 AND language = 'Spanish';
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -212,14 +212,14 @@ Ex().has_equal_ast()
 *** =instructions2
 Get the all Spanish films released since 2000.
 *** =solution2
-```
+```{sql}
 SELECT *
 FROM films
 WHERE release_year > 2000
 AND language = 'Spanish';
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -230,14 +230,14 @@ Ex().has_equal_ast()
 *** =instructions3
 Get average duration for films released in France in 1992.
 *** =solution3
-```
+```{sql}
 SELECT AVG(duration)
 FROM films
 WHERE release_year = 1992
 AND country = 'France';
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -262,14 +262,14 @@ Sample code goes here.
 *** =instructions1
 Get films released in 1990 or released in 2000 in English or Spanish.
 *** =solution1
-```
+```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year = 1990 OR release_year = 2000
 AND language = 'French' OR language = 'Spanish';
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -280,7 +280,7 @@ Ex().has_equal_ast()
 *** =instructions2
 Get films released since 2000 that are in French or Spanish, and made more than $20m.
 *** =solution2
-```
+```{sql}
 SELECT *
 FROM films
 WHERE release_year > 2000
@@ -288,7 +288,7 @@ AND language = 'French' OR language = 'Spanish'
 AND gross > 20000000;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -299,13 +299,13 @@ Ex().has_equal_ast()
 *** =instructions3
 Get films released in the 90s.
 *** =solution3
-```
+```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year >= 1990 AND release_year <= 2000;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -316,7 +316,7 @@ Ex().has_equal_ast()
 *** =instructions4
 Get average duration for films released in the UK or which were released in 2012.
 *** =solution4
-```
+```{sql}
 SELECT AVG(duration)
 FROM films
 AS average_duration
@@ -324,7 +324,7 @@ WHERE release_year = 2012
 OR COUNTRY = 'UK';
 ```
 *** =sct4
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -350,13 +350,13 @@ Sample code goes here.
 *** =instructions1
 Get films released in the 90s.
 *** =solution1
-```
+```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -369,13 +369,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Get the number of films released in the 90s.
 *** =solution2
-```
+```{sql}
 SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -386,7 +386,7 @@ Ex().has_equal_ast()
 *** =instructions3
 Get the number of films made between 2000 and 2015 with budgets over $100 million.
 *** =solution3
-```
+```{sql}
 SELECT title, budget
 FROM films
 WHERE release_year
@@ -394,7 +394,7 @@ BETWEEN 2000 AND 2015
 AND budget > 100000000;
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -421,14 +421,14 @@ Sample code goes here.
 *** =instructions1
 Get films released in  in 1990 or released in 2000 that were longer than two hours.
 *** =solution1
-```
+```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year IN (1990, 2000)
 AND duration > 120;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -456,14 +456,14 @@ Sample code goes here.
 *** =instructions1
 Get the number of films released between 2000 and 2015 that were longer than two hours.
 *** =solution1
-```
+```{sql}
 SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 2000 AND 2015
 AND duration > 120;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -488,13 +488,13 @@ Sample code goes here.
 *** =instructions1
 Get the names of people who are still alive.
 *** =solution1
-```
+```{sql}
 SELECT name
 FROM people
 WHERE deathdate IS NULL;
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -520,13 +520,13 @@ Sample code goes here.
 *** =instructions1
 Get people whose names begin with 'B'.
 *** =solution1
-```
+```{sql}
 SELECT name
 FROM people
 WHERE name LIKE 'B%';
 ```
 *** =sct1
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -538,13 +538,13 @@ Ex().has_equal_ast()
 *** =instructions2
 Get people whose names have 'r' as the second letter.
 *** =solution2
-```
+```{sql}
 SELECT name
 FROM people
 WHERE name LIKE '_r%';
 ```
 *** =sct2
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -556,13 +556,13 @@ Ex().has_equal_ast()
 *** =instructions3
 Get people whose names don't start with A.
 *** =solution3
-```
+```{sql}
 SELECT name
 FROM people
 WHERE name NOT LIKE 'A%';
 ```
 *** =sct3
-```{sql}
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
