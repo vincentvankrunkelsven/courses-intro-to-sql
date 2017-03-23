@@ -1,3 +1,4 @@
 title: Intro to SQL for Data Science
 description: Course description here.
 programming_language: sql
+from: 'postgresql-base-prod:22'
