@@ -112,7 +112,7 @@ Sample code goes here.
 *** =instructions1
 Get the title and release year of every film.
 *** =solution1
-```
+```{sql}
 SELECT title, release_year
 FROM films;
 ```
