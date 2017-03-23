@@ -42,12 +42,14 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 SELECT ___
 FROM films;
 ```
 
 *** =type1: NormalExercise
+*** =key1: a41cc766d5
+
 *** =instructions1
 Get the title of every film.
 *** =solution1
@@ -64,6 +66,8 @@ Ex().test_column(name='title', match='any')
 ```
 
 *** =type2: NormalExercise
+*** =key2: 4a74270ecd
+
 *** =instructions2
 Get all details for every film.
 *** =solution2
@@ -80,6 +84,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 15471ad3a1
+
 *** =instructions3
 Get the names of everyone involved in working on the films.
 *** =solution3
@@ -104,11 +110,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: d561b4df97
+
 *** =instructions1
 Get the title and release year of every film.
 *** =solution1
@@ -126,6 +134,8 @@ Ex().test_column(name='release_year', match='any')
 ```
 
 *** =type2: NormalExercise
+*** =key2: 29bbbc1b21
+
 *** =instructions2
 Get the title, release year and country for every film.
 *** =solution2
@@ -144,6 +154,8 @@ Ex().test_column(name='country', match='any')
 ```
 
 *** =type3: NormalExercise
+*** =key3: eeba078a00
+
 *** =instructions3
 Get every person's name and their date of birth where possible.
 *** =solution3
@@ -161,6 +173,8 @@ Ex().test_column(name='birthdate', match='any')
 ```
 
 *** =type4: NormalExercise
+*** =key4: dac27d9aad
+
 *** =instructions4
 Get every person name and their date of death where possible.
 *** =solution4
@@ -187,11 +201,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: e6b81711f1
+
 *** =instructions1
 Get all the different countries.
 *** =solution1
@@ -210,6 +226,8 @@ select.test_student_typed('distinct')
 ```
 
 *** =type2: NormalExercise
+*** =key2: 2cb9a4bf6a
+
 *** =instructions2
 Get all the different film languages.
 *** =solution2
@@ -228,6 +246,8 @@ select.test_student_typed('distinct')
 ```
 
 *** =type3: NormalExercise
+*** =key3: 26835d3029
+
 *** =instructions3
 Get the different types of film roles.
 *** =solution3
@@ -244,6 +264,8 @@ Ex().test_column(name='role', match='any')
 ```
 
 *** =type4: NormalExercise
+*** =key4: d81908d52c
+
 *** =instructions4
 Get all the different certification categories.
 *** =solution4
@@ -260,6 +282,8 @@ Ex().test_column(name='certification', match='any')
 ```
 
 *** =type5: NormalExercise
+*** =key5: d19187a6a4
+
 *** =instructions5
 Get all the different IMDB scores - has any scored over 9.5?
 *** =solution5
@@ -285,11 +309,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 4688067e3e
+
 *** =instructions1
 Count the number of rows in the people table.
 *** =solution1
@@ -306,6 +332,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 497ffa962e
+
 *** =instructions2
 Count the number of birthdate entries in the people table.
 *** =solution2
@@ -322,6 +350,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 50c903a00a
+
 *** =instructions3
 Count the number of unique birthdate entries in the people table.
 *** =solution3
@@ -338,6 +368,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 511052cbbe
+
 *** =instructions4
 Count the number of unique languages.
 *** =solution4
@@ -354,6 +386,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 9e1147efe5
+
 *** =instructions5
 Count the number of unique countries.
 *** =solution5
@@ -380,11 +414,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 063e5e780f
+
 *** =instructions1
 Count the total number of rows in the people table.
 *** =solution1
@@ -401,6 +437,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 5716af696b
+
 *** =instructions2
 Count the total number of birthdates in the people table.
 *** =solution2
@@ -417,6 +455,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 841a8d69fa
+
 *** =instructions3
 Count the total number of distinct birthdates in the people table.
 *** =solution3
@@ -442,11 +482,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 80fd462ae1
+
 *** =instructions1
 Get the total duration of all films.
 *** =solution1
@@ -463,6 +505,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 7993b51268
+
 *** =instructions2
 Get the average duration of all films.
 *** =solution2
@@ -479,6 +523,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: a03aeabbc6
+
 *** =instructions3
 Get the duration of the shortest film.
 *** =solution3
@@ -495,6 +541,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: fabbc619c6
+
 *** =instructions4
 Get the amount made by the highest grossing film.
 *** =solution4
@@ -511,6 +559,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: e14c21bc81
+
 *** =instructions5
 Get the amount made by the lowest grossing film.
 *** =solution5
@@ -536,11 +586,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: ec33c2353b
+
 *** =instructions1
 Get the profit (or loss) for each movie, where possible.
 *** =solution1
@@ -559,6 +611,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 1351c6f6bb
+
 *** =instructions2
 Get the duration in hours for each film.
 *** =solution2
@@ -578,6 +632,8 @@ Ex().has_equal_ast()
 
 
 *** =type3: NormalExercise
+*** =key3: 6e1e07d9f8
+
 *** =instructions3
 Get the average film duration in hours.
 *** =solution3
@@ -605,11 +661,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: d8393df397
+
 *** =instructions1
 Get the percentage of people who have died.
 *** =solution1
@@ -628,6 +686,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 5a50009c41
+
 *** =instructions2
 Check if there's an even number of unique languages. (0 = yes, 1 = no)
 *** =solution2
@@ -646,6 +706,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: c2bbd9a806
+
 *** =instructions3
 Get the of years between the oldest film and newest film.
 *** =solution3
@@ -664,6 +726,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: f272486b68
+
 *** =instructions4
 Get the number of decades this dataset covers.
 *** =solution4
@@ -682,6 +746,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 52d3616e78
+
 *** =instructions5
 Get the duration in hours for each film.
 *** =solution5

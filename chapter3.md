@@ -17,11 +17,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: e3a06cce15
+
 *** =instructions1
 Get people, sort by name.
 *** =solution1
@@ -40,6 +42,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 14a2792baa
+
 *** =instructions2
 Get people, sort by birthdate.
 *** =solution2
@@ -58,6 +62,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 6cfeca71b1
+
 *** =instructions3
 Get people, in order of when they were born.
 *** =solution3
@@ -77,6 +83,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: e2702b5933
+
 *** =instructions4
 Get films released in 2000 or 2015, in the order they were released.
 *** =solution4
@@ -97,6 +105,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 5c84507976
+
 *** =instructions5
 Get all films except those released in 2015 and order them so we can see results.
 *** =solution5
@@ -124,11 +134,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 1ed651456d
+
 *** =instructions1
 Get the score and film id for every film, from highest to lowest.
 *** =solution1
@@ -148,6 +160,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 3629dd5dcd
+
 *** =instructions2
 Get the titles of films in reverse order.
 *** =solution2
@@ -174,11 +188,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 9ec6e8ae72
+
 *** =instructions1
 Get people, in order of when they were born, and alphabetical order.
 *** =solution1
@@ -198,6 +214,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 3460b2f14b
+
 *** =instructions2
 Get people, in order of when they were born, and alphabetical order.
 *** =solution2
@@ -219,6 +237,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: c03517c2b9
+
 *** =instructions3
 
 *** =solution3
@@ -240,6 +260,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: f0ade213ff
+
 *** =instructions4
 Get people whose names start with A, B or C, (redundantly) ordered.
 *** =solution4
@@ -269,11 +291,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 0b29eb4ff3
+
 *** =instructions1
 Get count of films made in each year.
 *** =solution1
@@ -293,6 +317,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: ebee043890
+
 *** =instructions2
 Get count of films, group by release year then order by release year.
 *** =solution2
@@ -313,6 +339,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: b4341b8451
+
 *** =instructions3
 Get count of films released in each year, ordered by count, lowest to highest.
 *** =solution3
@@ -333,6 +361,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 66d0c5198a
+
 *** =instructions4
 Get count of films released in each year, ordered by count highest to lowest.
 *** =solution4
@@ -353,6 +383,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 53ad6da98c
+
 *** =instructions5
 Get lowest box office earnings per year.
 *** =solution5
@@ -392,6 +424,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
+*** =key6: 83944ff64f
+
 *** =instructions6
 Get the total amount spent by each country.
 *** =solution6
@@ -420,11 +454,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: eac5f722a5
+
 *** =instructions1
 Get the most spent making a film for each year, for each country.
 *** =solution1
@@ -446,6 +482,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 48461bd4d3
+
 *** =instructions2
 Get the lowest box office made by each country in each year.
 *** =solution2
@@ -476,7 +514,7 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 *** =type1: NormalExercise
@@ -501,6 +539,8 @@ Ex().test_column(name='avg_budget', match='exact')
 Ex().test_column(name='avg_box_office', match='exact')
 Ex().has_equal_ast()
 ```
+
+*** =key1: 1ed0ce7d61
 
 *** =type1: NormalExercise
 *** =instructions2

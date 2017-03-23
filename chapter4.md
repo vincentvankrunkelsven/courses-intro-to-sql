@@ -44,11 +44,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 96f73c1255
+
 *** =instructions1
 How many trips were made in 2015?
 *** =solution1
@@ -65,6 +67,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 725f9bac49
+
 *** =instructions2
 Using LIMIT to display only top 10 results.
 *** =solution2
@@ -82,6 +86,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 824ef2c32f
+
 *** =instructions3
 How many different bikes are there?
 *** =solution3
@@ -98,6 +104,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: b5d489ca53
+
 *** =instructions4
 
 *** =solution4
@@ -124,11 +132,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 036586f5a5
+
 *** =instructions1
 How long was the longest trip?
 *** =solution1
@@ -145,6 +155,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: dae23c4de6
+
 *** =instructions2
 How long was the shortest trip?
 *** =solution2
@@ -161,6 +173,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: bff6c31833
+
 *** =instructions3
 How long was the average trip, in seconds?
 *** =solution3
@@ -177,6 +191,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 100be72761
+
 *** =instructions4
 How long was the average trip, in minutes?
 *** =solution4
@@ -195,6 +211,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 08622b2318
+
 *** =instructions5
 How much time total was spent on trips, in days?
 *** =solution5
@@ -222,11 +240,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 61cbbaf281
+
 *** =instructions1
 How many days did it rain?
 *** =solution1
@@ -244,6 +264,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: 5731e34718
+
 *** =instructions2
 How many days do we not have data for?
 *** =solution2
@@ -270,11 +292,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 9c99a7f9fb
+
 *** =instructions1
 How many days was it cloudy?
 *** =solution1
@@ -292,6 +316,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: b7d224f4d9
+
 *** =instructions2
 How many days did it snow?
 *** =solution2
@@ -305,6 +331,8 @@ WHERE events LIKE '%Snow';
 ```
 
 *** =type3: NormalExercise
+*** =key3: ad332fc611
+
 *** =instructions3
 How many days did it rain? (All variants).
 *** =solution3
@@ -322,6 +350,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: 8d1138ca7a
+
 *** =instructions4
 How many days was cloud cover greater than 5?
 *** =solution4
@@ -339,6 +369,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type5: NormalExercise
+*** =key5: 3ec14beb5f
+
 *** =instructions5
 How many days did it rain more than 0.5 inches?
 *** =solution5
@@ -356,6 +388,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
+*** =key6: 275308669c
+
 *** =instructions6
 What was the average mean temperature for the year?
 *** =solution6
@@ -383,11 +417,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 605066b226
+
 *** =instructions1
 Are there any days on which no trips were made?
 *** =solution1
@@ -405,6 +441,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: db6d8198da
+
 *** =instructions2
 Which station was started from the most?
 *** =solution2
@@ -423,6 +461,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
+*** =key3: 96d9e8384e
+
 *** =instructions3
 What were the top ten most popular stations to start from?
 *** =solution3
@@ -443,6 +483,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
+*** =key4: b235a96d86
+
 *** =instructions4
 What were the top ten least popular stations to start from?
 *** =solution4
@@ -472,11 +514,13 @@ connect('postgresql', 'films')
 ```
 
 *** =sample_code
-```
+```{sql}
 Sample code goes here.
 ```
 
 *** =type1: NormalExercise
+*** =key1: 716df6c898
+
 *** =instructions1
 Which date had the most trips?
 *** =solution1
@@ -497,6 +541,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
+*** =key2: bcc5ad713c
+
 *** =instructions2
 How many trips were made on Christmas Day?
 *** =solution2
