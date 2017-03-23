@@ -107,7 +107,7 @@ Ex().test_column(name='name', match='any')
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
 ## Multiple Column SELECTs
-To `SELECT` from multiple columns, you can simply separate the columns with a comma. 
+To `SELECT` from multiple columns, you can separate the columns with a comma. 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
