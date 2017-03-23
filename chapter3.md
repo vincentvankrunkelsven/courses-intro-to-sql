@@ -45,7 +45,6 @@ Ex().has_equal_ast()
 
 *** =key2: 14a2792baa
 
-
 *** =instructions2
 Get people, sort by birthdate.
 *** =solution2
