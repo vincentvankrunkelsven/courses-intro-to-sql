@@ -18,7 +18,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___
+FROM people
+___ ___ ___;
 ```
 
 *** =type1: NormalExercise
@@ -136,7 +138,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT imdb_score, film_id
+FROM reviews
+___ ___ imdb_score ___;
 ```
 
 *** =type1: NormalExercise
@@ -191,7 +195,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT birthdate, name
+FROM people
+___ ___ ___, ___;
 ```
 
 *** =type1: NormalExercise
@@ -293,7 +299,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT release_year, ___(___)
+FROM films
+___ ___ release_year;
 ```
 
 *** =type1: NormalExercise
@@ -458,7 +466,10 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT release_year, country, ___(___)
+FROM films
+___ ___ release_year, country
+___ ___ release_year, country;
 ```
 
 *** =type1: NormalExercise
@@ -518,7 +529,12 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT release_year, ___(___(budget)) AS avg_budget, ROUND(AVG(___)) AS avg_box_office
+FROM films
+___ release_year > 1990
+GROUP BY release_year
+___ (budget) > 20000000
+___ ___ release_year ___;
 ```
 *** =type1: NormalExercise
 *** =key1: a141cd669f

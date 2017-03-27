@@ -15,10 +15,10 @@ A good data scientist needs to have an intuitive sense of the data they're worki
 How many rows does the `trips` table have?
 
 *** =instructions
-- 
-- 
-- three
-- four (correct)
+- 26,259,032
+- 19,937,968
+- 5,126
+- 9,937,968
 
 *** =hint
 
@@ -47,18 +47,21 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___
+FROM trips
+___ ___;
 ```
 
 *** =type1: NormalExercise
 *** =key1: 96f73c1255
 
 *** =instructions1
-How many trips were made in 2015?
+Use LIMIT to display only the top 10 results.
 *** =solution1
 ```{sql}
-SELECT COUNT(*)
-FROM trips;
+SELECT *
+FROM trips
+LIMIT 10;
 ```
 *** =sct1
 ```{python}
@@ -69,15 +72,14 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 725f9bac49
+*** =key2: 824ef2c32f
 
 *** =instructions2
-Using LIMIT to display only top 10 results.
+How many different bikes are there?
 *** =solution2
 ```{sql}
-SELECT *
-FROM trips
-LIMIT 10;
+SELECT COUNT(DISTINCT bike_id)
+FROM trips;
 ```
 *** =sct2
 ```{python}
@@ -88,35 +90,17 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 824ef2c32f
+
+*** =key3: b5d489ca53
 
 *** =instructions3
-How many different bikes are there?
+
 *** =solution3
-```{sql}
-SELECT COUNT(DISTINCT bike_id)
-FROM trips;
-```
-*** =sct3
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type4: NormalExercise
-
-*** =key4: b5d489ca53
-
-*** =instructions4
-
-*** =solution4
 ```{sql}
 SELECT COUNT(DISTINCT id)
 FROM trips;
 ```
-*** =sct4
+*** =sct3
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -136,7 +120,6 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
 ```
 
 *** =type1: NormalExercise
@@ -244,7 +227,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+
 ```
 
 *** =type1: NormalExercise
@@ -296,7 +279,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+
 ```
 
 *** =type1: NormalExercise
@@ -425,7 +408,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+
 ```
 
 *** =type1: NormalExercise
@@ -522,7 +505,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+
 ```
 
 *** =type1: NormalExercise

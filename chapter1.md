@@ -212,7 +212,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___ ___
+FROM films;
 ```
 
 *** =type1: NormalExercise
@@ -327,7 +328,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT COUNT(___)
+FROM people;
 ```
 
 *** =type1: NormalExercise
@@ -436,7 +438,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___
+FROM films;
 ```
 
 *** =type1: NormalExercise
@@ -444,11 +447,11 @@ Sample code goes here.
 *** =key1: 063e5e780f
 
 *** =instructions1
-Count the total number of rows in the people table.
+Count the total number of rows in the films table.
 *** =solution1
 ```{sql}
 SELECT COUNT(*)
-FROM people;
+FROM films;
 ```
 *** =sct1
 ```{python}
@@ -507,7 +510,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___(___)
+FROM films;
 ```
 
 *** =type1: NormalExercise
@@ -616,7 +620,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___, ___ - ___
+AS profit_or_loss
+FROM films;
 ```
 
 *** =type1: NormalExercise
@@ -695,7 +701,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT COUNT(___) * 100 / COUNT(___)
+AS percentage_dead
+FROM people;
 ```
 
 *** =type1: NormalExercise

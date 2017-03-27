@@ -17,7 +17,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___
+FROM films
+___ language = ___;
 ```
 
 *** =type1: NormalExercise
@@ -109,7 +111,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___
+FROM films
+___ release_year = ___;
 ```
 
 *** =type1: NormalExercise
@@ -202,14 +206,17 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT title, release_year
+FROM films
+___ ___ < 2000
+___ language = ___;
 ```
 
 *** =type1: NormalExercise
 *** =key1: 7ccf93b215
 
 *** =instructions1
-Get all Spanish films released before 2000.
+Get title and release year for all Spanish films released before 2000.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -278,14 +285,17 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT title, release_year
+FROM films
+___ release_year = 1990 ___ release_year = 2000
+___ language = 'French' ___ language = 'Spanish';
 ```
 
 *** =type1: NormalExercise
 *** =key1: 969ed73542
 
 *** =instructions1
-Get films released in 1990 or released in 2000 in English or Spanish.
+Get the title and release year of films released in 1990 or 2000 in English or Spanish.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -377,7 +387,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT title, release_year
+FROM films
+___ release_year ___ 1990 ___ 2000;
 ```
 
 *** =type1: NormalExercise
@@ -447,7 +459,11 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:4fc7e638f8
 ## WHERE IN The World
-In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions.
+In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions. 
+
+The syntax is as follows:
+
+```SELECT column_name FROM table_name WHERE column_name IN (val1, val2, ..)```
 
 
 *** =pre_exercise_code
@@ -457,7 +473,10 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT title, release_year
+FROM films
+___ release_year ___ (1990, 2000)
+AND duration > 120;
 ```
 
 *** =type1: NormalExercise
@@ -494,7 +513,10 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___(___)
+FROM films
+___ release_year ___ 2000 ___ 2015
+___ duration > 120;
 ```
 
 *** =type1: NormalExercise
@@ -528,7 +550,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT ___
+FROM people
+___ deathdate ___ ___ ;
 ```
 
 *** =type1: NormalExercise
@@ -568,7 +592,9 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-Sample code goes here.
+SELECT name
+FROM people
+___ name ___ ___
 ```
 
 *** =type1: NormalExercise
