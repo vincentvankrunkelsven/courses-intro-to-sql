@@ -26,7 +26,7 @@ connect('postgresql', 'films')
 *** =sct
 ```{python}
 success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
-msg2 = 'Incorrect. Perhaps more than one of these Statements is true?
+msg2 = 'Incorrect. Perhaps more than one of these Statements is true?'
 
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 
