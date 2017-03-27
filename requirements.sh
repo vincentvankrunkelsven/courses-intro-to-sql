@@ -18,6 +18,6 @@ service postgresql start \
   && cd courses-intro-to-sql \
   && sudo -u postgres psql films < data/films/films.sql \
   && sudo -u postgres psql olympics < data/olympics/code/olympics.sql \
-  && cd $(BASE_DIR)/nycbikes15 \
+  && cd $BASE_DIR/nycbikes15 \
   && sudo -u postgres psql nycbikes15 < sql-setup/create-db-postgres.sql \
   && service postgresql stop
