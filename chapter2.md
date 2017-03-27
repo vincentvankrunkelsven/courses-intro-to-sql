@@ -5,10 +5,35 @@ description: >-
   summarize columns of interest, but to filter tables for records satisfying
   some criteria of interest. You'll learn how to use basic comparison operators,
   combine multiple criteria, match patterns in text, and much more.
+  
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:bfc80ff2e5
+## Filtering Results
+In SQL, the `WHERE` keyword allows you to filter  both text and numeric records based on certain conditions. For example, `SELECT title FROM films WHERE release_year > 2000;` will give you the names of all the films released since the year 2000. 
+
+What types of data can be filtered using `WHERE`?
+*** =instructions
+- Numeric data
+- Textual data
+- Numeric and textual data
+- Date data
+
+*** =hint
+
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct! `WHERE` can be used to filter on both numeric and textual data.'
+msg2 = 'Incorrect.'
+
+Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
+```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:b90db25f33
 ## Simple Filtering of Text
-In SQL, the `WHERE` keyword allows you to filter records based on conditions. For example, `SELECT title FROM films WHERE release_year > 2000;` will give you the names of all the films released since the year 2000. You can filter using `WHERE` with both text and numeric values!
+Practice using `WHERE`.
 
 *** =pre_exercise_code
 ```{python}
@@ -372,11 +397,68 @@ Ex().test_column(name='average_duration', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:9c11f67712
-## BETWEEN (A Rock and A Hard Place)
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:a1827199e2
+## More Advanced Filtering
 In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example, `SELECT title FROM films WHERE release_year BETWEEN 1994 AND 2000;` will give you the names of all the films released between 1994 and 2000. 
 
 **Remember**: the `BETWEEN` operator is _inclusive_; the beginning and end values are included in the results. 
+
+What does the `BETWEEN` keyword do?
+
+*** =instructions
+- Filter numeric values
+- Filter textual values
+- Filter values in a specified list
+- Filter values in a specified range
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+```
+
+
+
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:5cf67b42b3
+## Introduction to NULL and IS NULL
+In SQL, `NULL` represents an unknown value. Often, you will want to filter out so we only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. For example, `SELECT name FROM people WHERE birthdate IS NOT NULL;` will give you the names of all the people whose birthdate we know.
+
+What does `NULL` represent?
+
+*** =instructions
+- Corrupt values
+- Unknown values
+- Empty values
+- Invalid values
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
+
+Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
+```
+--- type:TabExercise lang:sql xp:100 skills:1 key:9c11f67712
+## BETWEEN (A Rock and A Hard Place)
+Practice using `BETWEEN`.
 
 *** =pre_exercise_code
 ```{python}
@@ -539,7 +621,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:84411d78ab
 ## NULL and IS NULL
-In SQL, `NULL` represents an unknown value. Often, you will want to filter out so we only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. For example, `SELECT name FROM people WHERE birthdate IS NOT NULL;` will give you the names of all the people whose birthdate we know.
+Practice using `NULL` and `IS NULL`.
 
 *** =pre_exercise_code
 ```{python}

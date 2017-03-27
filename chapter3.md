@@ -7,9 +7,40 @@ description: >-
   to combine GROUP BY with aggregate functions like SUM and AVG to summarize
   your data within groups — a very powerful paradigm!
 
+
+
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:ac6d71b0e4
+## ORDER BY In The Courtroom
+In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you can use the `DESC` keyword. 
+
+For example, `SELECT title FROM films ORDER BY release_year;` will give you the titles of films sorted by release year, from newest to oldest. You can use `ORDER BY` to sort by multiple columns too if you need to.
+
+What way does `ORDER BY` sort results by default?
+*** =instructions
+- Alphabetically 
+- Descending
+- Ascending
+- In order of creation date
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(3, [msg2, msg2, success_msg, msg2])
+```
+
 --- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba6
 ## Sorting single columns (ASC)
-In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you can use the `DESC` keyword. For example, `SELECT title FROM films ORDER BY release_year;` will give you the titles of films sorted by release year, from newest to oldest. You can use `ORDER BY` to sort by multiple columns too if you need to.
+Practice using `ORDER BY`.
 
 *** =pre_exercise_code
 ```{python}
@@ -289,9 +320,38 @@ Ex().test_column(name='birthdate', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:98e30a6131
-## Introduction to GROUP BY on multiple columns
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:81987a99cf
+## Introduction to GROUP BY
 In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is used with aggregate functions like `COUNT()` or `MAX`. For example, `SELECT title, COUNT(title) FROM films GROUP BY release_year;` will give you the number of films released in each year.
+
+What is `GROUP BY` used for?
+
+*** =instructions
+- Sorting results by column
+- Sorting results by creation order
+- Sorting results in alphabetical order
+- Sorting results from aggregate functions
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+```
+
+--- type:TabExercise lang:sql xp:100 skills:1 key:98e30a6131
+## GROUP BY on multiple columns
+Practice using `GROUP BY`.
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -518,9 +578,37 @@ Ex().test_column(name='country', match='any')
 Ex().has_equal_ast()
 ```
 
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:4d55b1adf8
+## HAVING a Great Time
+In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can instead use the `HAVING` keyword. For example, `SELECT release_year FROM films GROUP BY release_year HAVING COUNT(title) > 10;` will show only those years in which more than 10 films were released.
+
+Why do we need the `HAVING` keyword?
+
+*** =instructions
+- To order by creation date
+- To sort using textual values
+- To sort using numeric values
+- `WHERE` cannot be used with aggregate functions
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+```
+
 --- type:TabExercise lang:sql xp:100 skills:1 key:f7dcb9e122
 ## Altogether Now
-In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can instead use the `HAVING` keyword. For example, `SELECT release_year FROM films GROUP BY release_year HAVING COUNT(title) > 10;` will show only those years in which more than 10 films were released.
+Practice using `ORDER BY`, `GROUP BY` and `HAVING`.
 
 *** =pre_exercise_code
 ```{python}

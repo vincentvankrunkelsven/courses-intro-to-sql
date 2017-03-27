@@ -6,8 +6,11 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
---- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
 ## SQL Usage
+Something about the many uses of SQL. 
+
 Which of the following is a good reason to use SQL?
 
 *** =instructions
@@ -26,9 +29,9 @@ connect('postgresql', 'films')
 *** =sct
 ```{python}
 success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
-msg2 = 'Incorrect. Perhaps more than one of these Statements is true?'
+msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
 
-Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
+Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 
 ```
 
@@ -308,11 +311,37 @@ Ex().test_nrows()
 Ex().test_column(name='imdb_score', match='any')
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
-## Learning to COUNT
+
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:97f97f5766
+## Every Little Counts
 The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has).
 
 For example, `SELECT COUNT(DISTINCT name) FROM people` gives you the number of unique names in the `people` table. If you do `SELECT COUNT(*) FROM people` you will get the number of records in the entire `people` table.
+
+What is the `COUNT` function used for?
+*** =instructions
+- Counting the number of columns
+- Counting the number of records in a row
+- Counting the number of records in a column
+- Counting the number of tables in a database
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
+msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
+
+Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
+```
+--- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
+## Learning to COUNT
+Practice your new COUNTing skills!
 
 *** =pre_exercise_code
 ```{python}
