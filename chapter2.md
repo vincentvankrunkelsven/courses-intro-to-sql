@@ -36,8 +36,6 @@ WHERE language = 'French';
 *** =sct1
 ```{python}
 Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
@@ -360,8 +358,8 @@ Get average duration for films released in the UK or which were released in 2012
 *** =solution4
 ```{sql}
 SELECT AVG(duration)
-FROM films
 AS average_duration
+FROM films
 WHERE release_year = 2012
 OR COUNTRY = 'UK';
 ```
