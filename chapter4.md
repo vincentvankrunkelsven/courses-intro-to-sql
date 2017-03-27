@@ -29,8 +29,8 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct!'
-msg2 = 'Incorrect.
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
 
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
