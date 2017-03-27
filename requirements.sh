@@ -1,4 +1,4 @@
-BASE_DIR=$(cwd)
+BASE_DIR=$(pwd)
 NYCBIKES_DATA="https://assets.datacamp.com/course/sql/nycbikes15.zip"
 
 apt-get update && apt-get install -y unzip
