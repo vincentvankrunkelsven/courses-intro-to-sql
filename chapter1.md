@@ -107,7 +107,7 @@ Ex().test_column(name='name', match='any')
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
 ## Multiple Column SELECTs
-To `SELECT` from multiple columns, you can separate the columns with a comma. 
+To `SELECT` from multiple columns, you can separate the columns with a comma.
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -233,7 +233,7 @@ Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
 Ex().test_column(name='country', match='any')
-select = Ex().check_statement('select', 0)
+select = Ex().check_node('select', 0)
 select.test_student_typed('distinct')
 ```
 
@@ -254,7 +254,7 @@ Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
 Ex().test_column(name='language', match='any')
-select = Ex().check_statement('select', 0)
+select = Ex().check_node('select', 0)
 select.test_student_typed('distinct')
 ```
 
@@ -317,7 +317,7 @@ Ex().test_column(name='imdb_score', match='any')
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
 ## Learning to COUNT
-The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has). 
+The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has).
 
 For example, `SELECT COUNT(DISTINCT name) FROM people` gives you the number of unique names in the `people` table. If you do `SELECT COUNT(*) FROM people` you will get the number of records in the entire `people` table.
 
