@@ -406,6 +406,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
+*** =key6: cff5924de5
+
 *** =instructions6
 Get the total amount made in each language.
 *** =solution6
@@ -519,6 +521,8 @@ connect('postgresql', 'films')
 Sample code goes here.
 ```
 *** =type1: NormalExercise
+*** =key1: a141cd669f
+
 *** =instructions1
 Get the rounded average budget and average box office earnings for movies since 1990, but only if the average budget was greater than $60m in that year.
 *** =solution1
