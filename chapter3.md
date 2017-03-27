@@ -406,6 +406,8 @@ Ex().has_equal_ast()
 ```
 
 *** =type6: NormalExercise
+*** =key6: cff5924de5
+
 *** =instructions6
 Get the total amount made in each language.
 *** =solution6
@@ -424,18 +426,18 @@ Ex().test_column(name='language', match='any')
 Ex().has_equal_ast()
 ```
 
-*** =type6: NormalExercise
-*** =key6: 83944ff64f
+*** =type7: NormalExercise
+*** =key7: 83944ff64f
 
-*** =instructions6
+*** =instructions7
 Get the total amount spent by each country.
-*** =solution6
+*** =solution7
 ```{sql}
 SELECT country, SUM(gross)
 FROM films
 GROUP BY country;
 ```
-*** =sct6
+*** =sct7
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -519,6 +521,8 @@ connect('postgresql', 'films')
 Sample code goes here.
 ```
 *** =type1: NormalExercise
+*** =key1: a141cd669f
+
 *** =instructions1
 Get the rounded average budget and average box office earnings for movies since 1990, but only if the average budget was greater than $60m in that year.
 *** =solution1
@@ -541,9 +545,9 @@ Ex().test_column(name='avg_box_office', match='exact')
 Ex().has_equal_ast()
 ```
 
-*** =key1: 1ed0ce7d61
+*** =key2: 1ed0ce7d61
 
-*** =type1: NormalExercise
+*** =type2: NormalExercise
 *** =instructions2
 Get the name, average budget, average box office take of countries who have made more than 10 films. Order by name, and get the top five.
 *** =solution2
