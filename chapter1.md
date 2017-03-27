@@ -60,10 +60,8 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().test_column(name='title', match='any')
+Ex().check_result()
 ```
 
 *** =type2: NormalExercise
@@ -99,10 +97,9 @@ FROM people;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().test_column(name='name', match='any')
+Ex().check_result()
+
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
@@ -230,11 +227,9 @@ FROM films;
 *** =sct1
 ```{python}
 Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().test_column(name='country', match='any')
-select = Ex().check_node('select', 0)
-select.test_student_typed('distinct')
+# select = Ex().check_node('select', 0)
+# select.test_student_typed('distinct')
 ```
 
 *** =type2: NormalExercise
@@ -250,12 +245,10 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().test_column(name='language', match='any')
-select = Ex().check_node('select', 0)
-select.test_student_typed('distinct')
+Ex().check_result()
+# select = Ex().check_node('select', 0)
+# select.test_student_typed('distinct')
 ```
 
 *** =type3: NormalExercise
