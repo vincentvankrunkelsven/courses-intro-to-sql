@@ -7,26 +7,28 @@ description: >-
   select and summarize columns from database tables.
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
-## SQL Usage
+## Beginning your SQL journey
 
-Something about the many uses of SQL. 
+Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions.
 
-Which of the following is a good reason to use SQL?
+One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. Each column, in turn, contains a single *attribute* of the entities in the table.
+
+In a table called `people`, each record represents which of the following?
 
 *** =instructions
-- Memory savings
-- Speed advantages
-- Centralization
-- All of the above
+- A single attribute about people
+- A collection of entities
+- A single person
 
 *** =hint
 
 *** =sct
 ```{python}
-success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
-msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
+msg1 = 'Incorrect, that's a column!'
+msg2 = 'Sorry, that's a table!'
+success_msg = 'Correct! In a database table, each record contains information on exactly one entity.'
 
-Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+Ex().test_mc(4, [msg1, msg2, success_msg])
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:c0bb58f7f9
