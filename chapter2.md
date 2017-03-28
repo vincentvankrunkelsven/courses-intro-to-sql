@@ -32,7 +32,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
 
---- type:TabExercise lang:sql xp:100 key:b90db25f33
+--- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
 Practice using `WHERE`.
@@ -125,7 +125,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:b90db25f34
+--- type:BulletExercise lang:sql xp:100 key:b90db25f34
 ## Simple filtering of numeric values
 
 Try using the `WHERE` clause to filter numeric values! 
@@ -220,7 +220,7 @@ Ex().test_column(name='release_year', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:5bda32d7c8
+--- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
 You can build up your `WHERE`query using the `AND` keyword. For example, `SELECT title FROM films WHERE release_year > 1994 AND release_year < 2000;`, which will give you all the films released between 1994 and 2000. Similarly, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
@@ -300,7 +300,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:ecc1838fc7
+--- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND, OR
 
 You can also build up your `WHERE`query using the and `OR` keyword. For example, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
@@ -461,7 +461,7 @@ msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
 
 Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
 ```
---- type:TabExercise lang:sql xp:100 key:9c11f67712
+--- type:BulletExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (a rock and a hard place)
 Practice using `BETWEEN`.
 
@@ -542,7 +542,7 @@ Ex().test_column(name='budget', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:4fc7e638f8
+--- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN the world
 
 In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions. 
@@ -591,7 +591,7 @@ Ex().has_equal_ast()
 ```
 
 
---- type:TabExercise lang:sql xp:100 key:84411d78aa
+--- type:BulletExercise lang:sql xp:100 key:84411d78aa
 ## BETWEEN and AND
 
 Practice using `BETWEEN` with multiple `AND` operators!
@@ -629,7 +629,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:84411d78ab
+--- type:BulletExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
 
 Practice using `NULL` and `IS NULL`.
@@ -666,7 +666,7 @@ Ex().test_column(name='name', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:84411d78ac
+--- type:BulletExercise lang:sql xp:100 key:84411d78ac
 ## LIKE and NOT LIKE
 
 In `SQL` the `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.

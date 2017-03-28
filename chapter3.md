@@ -37,7 +37,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(3, [msg2, msg2, success_msg, msg2])
 ```
 
---- type:TabExercise lang:sql xp:100 key:a7b2964ba6
+--- type:BulletExercise lang:sql xp:100 key:a7b2964ba6
 ## Sorting single columns (ASC)
 Practice using `ORDER BY`.
 
@@ -157,7 +157,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:a7b2964ba7
+--- type:BulletExercise lang:sql xp:100 key:a7b2964ba7
 ## Sorting single columns (DESC)
 
 Try out using `ORDER BY` to sort single columns!
@@ -214,7 +214,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:b2a52993bc
+--- type:BulletExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 
 Try out using `ORDER BY` to sort single columns! Remember, to specify multiple columns, just separate the column names with a comma.
@@ -348,7 +348,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:98e30a6131
+--- type:BulletExercise lang:sql xp:100 key:98e30a6131
 ## GROUP BY on multiple columns
 Practice using `GROUP BY`.
 
@@ -515,7 +515,7 @@ Ex().test_column(name='country', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:38a7c62434
+--- type:BulletExercise lang:sql xp:100 key:38a7c62434
 ## Combining with aggregate functions
 
 Try out your skills by combining `GROUP BY` and `ORDER BY` with some aggregate functions!
@@ -608,7 +608,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:f7dcb9e122
+--- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
 ## All together now
 
 Practice using `ORDER BY`, `GROUP BY` and `HAVING`.

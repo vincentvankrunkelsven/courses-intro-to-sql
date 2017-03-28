@@ -36,7 +36,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:feae971647
+--- type:BulletExercise lang:sql xp:100 key:feae971647
 ## Know your LIMITs
 
 - Selecting from the different tables, but using LIMIT
@@ -110,7 +110,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:5f834c6a08
+--- type:BulletExercise lang:sql xp:100 key:5f834c6a08
 ## Make your way around (the dataset)
 
 Getting MIN, MAX, AVG
@@ -218,7 +218,7 @@ Ex().test_column(name='duration_days', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:48b9934c8f
+--- type:BulletExercise lang:sql xp:100 key:48b9934c8f
 ## Filtering
 
 Filtering based on various criteria
@@ -271,7 +271,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:aadfa696e6
+--- type:BulletExercise lang:sql xp:100 key:aadfa696e6
 ## Weather
 
 Some weather related questions
@@ -401,7 +401,7 @@ Ex().test_column(name='avg_mean_temp', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:f222b67a81
+--- type:BulletExercise lang:sql xp:100 key:f222b67a81
 ## Stations
 
 Some questions related to stations
@@ -499,7 +499,7 @@ Ex().test_column(name='start_station_id', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:6bda1c10dc
+--- type:BulletExercise lang:sql xp:100 key:6bda1c10dc
 ## Times
 
 Some time related questions - e.g. most popular days to go cycling, etc.
