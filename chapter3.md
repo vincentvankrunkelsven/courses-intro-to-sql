@@ -7,16 +7,15 @@ description: >-
   to combine GROUP BY with aggregate functions like SUM and AVG to summarize
   your data within groups — a very powerful paradigm!
 
-
-
-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:ac6d71b0e4
-## ORDER BY In The Courtroom
+## ORDER BY in the courtroom
+
 In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you can use the `DESC` keyword. 
 
 For example, `SELECT title FROM films ORDER BY release_year;` will give you the titles of films sorted by release year, from newest to oldest. You can use `ORDER BY` to sort by multiple columns too if you need to.
 
 What way does `ORDER BY` sort results by default?
+
 *** =instructions
 - Alphabetically 
 - Descending
@@ -160,6 +159,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:a7b2964ba7
 ## Sorting single columns (DESC)
+
 Try out using `ORDER BY` to sort single columns!
 
 *** =pre_exercise_code
@@ -216,8 +216,8 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
-Try out using `ORDER BY` to sort single columns! Remember, to specify multiple columns, just separate the column names with a comma.
 
+Try out using `ORDER BY` to sort single columns! Remember, to specify multiple columns, just separate the column names with a comma.
 
 *** =pre_exercise_code
 ```{python}
@@ -320,9 +320,9 @@ Ex().test_column(name='birthdate', match='any')
 Ex().has_equal_ast()
 ```
 
-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
 ## Introduction to GROUP BY
+
 In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is used with aggregate functions like `COUNT()` or `MAX`. For example, `SELECT title, COUNT(title) FROM films GROUP BY release_year;` will give you the number of films released in each year.
 
 What is `GROUP BY` used for?
@@ -516,7 +516,8 @@ Ex().has_equal_ast()
 ```
 
 --- type:TabExercise lang:sql xp:100 key:38a7c62434
-## Combining GROUP BY and ORDER BY, Aggregate Functions
+## Combining with aggregate functions
+
 Try out your skills by combining `GROUP BY` and `ORDER BY` with some aggregate functions!
 
 *** =pre_exercise_code
@@ -580,7 +581,8 @@ Ex().has_equal_ast()
 
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:4d55b1adf8
-## HAVING a Great Time
+## HAVING a great time
+
 In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can instead use the `HAVING` keyword. For example, `SELECT release_year FROM films GROUP BY release_year HAVING COUNT(title) > 10;` will show only those years in which more than 10 films were released.
 
 Why do we need the `HAVING` keyword?
@@ -607,7 +609,8 @@ Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
 
 --- type:TabExercise lang:sql xp:100 key:f7dcb9e122
-## Altogether Now
+## All together now
+
 Practice using `ORDER BY`, `GROUP BY` and `HAVING`.
 
 *** =pre_exercise_code

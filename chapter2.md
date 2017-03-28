@@ -7,7 +7,8 @@ description: >-
   combine multiple criteria, match patterns in text, and much more.
   
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
-## Filtering Results
+## Filtering results
+
 In SQL, the `WHERE` keyword allows you to filter  both text and numeric records based on certain conditions. For example, `SELECT title FROM films WHERE release_year > 2000;` will give you the names of all the films released since the year 2000. 
 
 What types of data can be filtered using `WHERE`?
@@ -32,7 +33,8 @@ Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
 
 --- type:TabExercise lang:sql xp:100 key:b90db25f33
-## Simple Filtering of Text
+## Simple filtering of text
+
 Practice using `WHERE`.
 
 *** =pre_exercise_code
@@ -124,7 +126,8 @@ Ex().has_equal_ast()
 ```
 
 --- type:TabExercise lang:sql xp:100 key:b90db25f34
-## Simple Filtering of Numeric values
+## Simple filtering of numeric values
+
 Try using the `WHERE` clause to filter numeric values! 
 
 *** =pre_exercise_code
@@ -219,8 +222,8 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
-You can build up your `WHERE`query using the `AND` keyword. For example, `SELECT title FROM films WHERE release_year > 1994 AND release_year < 2000;`, which will give you all the films released between 1994 and 2000. Similarly, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
 
+You can build up your `WHERE`query using the `AND` keyword. For example, `SELECT title FROM films WHERE release_year > 1994 AND release_year < 2000;`, which will give you all the films released between 1994 and 2000. Similarly, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
 
 *** =pre_exercise_code
 ```{python}
@@ -299,6 +302,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND, OR
+
 You can also build up your `WHERE`query using the and `OR` keyword. For example, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
 
 *** =pre_exercise_code
@@ -399,7 +403,8 @@ Ex().has_equal_ast()
 
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
-## More Advanced Filtering
+## More advanced filtering
+
 In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example, `SELECT title FROM films WHERE release_year BETWEEN 1994 AND 2000;` will give you the names of all the films released between 1994 and 2000. 
 
 **Remember**: the `BETWEEN` operator is _inclusive_; the beginning and end values are included in the results. 
@@ -457,7 +462,7 @@ msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
 Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
 ```
 --- type:TabExercise lang:sql xp:100 key:9c11f67712
-## BETWEEN (A Rock and A Hard Place)
+## BETWEEN (a rock and a hard place)
 Practice using `BETWEEN`.
 
 *** =pre_exercise_code
@@ -538,13 +543,17 @@ Ex().has_equal_ast()
 ```
 
 --- type:TabExercise lang:sql xp:100 key:4fc7e638f8
-## WHERE IN The World
+## WHERE IN the world
+
 In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions. 
 
 The syntax is as follows:
 
-```SELECT column_name FROM table_name WHERE column_name IN (val1, val2, ..)```
-
+```sql
+SELECT column_name 
+FROM table_name 
+WHERE column_name IN (val1, val2, ..)
+```
 
 *** =pre_exercise_code
 ```{python}
@@ -584,6 +593,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:84411d78aa
 ## BETWEEN and AND
+
 Practice using `BETWEEN` with multiple `AND` operators!
 
 *** =pre_exercise_code
@@ -621,6 +631,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
+
 Practice using `NULL` and `IS NULL`.
 
 *** =pre_exercise_code
@@ -657,6 +668,7 @@ Ex().has_equal_ast()
 
 --- type:TabExercise lang:sql xp:100 key:84411d78ac
 ## LIKE and NOT LIKE
+
 In `SQL` the `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
 
 There are two _wildcards_ you can use with `LIKE`: `%` and `_`. 

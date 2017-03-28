@@ -580,7 +580,7 @@ Ex().has_equal_ast()
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:6db52132a0
-## It's AS simple AS Aliasing
+## It's AS simple AS aliasing
 
 In SQL, the `AS` keyword allows us to specify an _alias_ (temporary name) for a column in the result set. For example, `SELECT COUNT(title) AS title_count FROM films;` will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable.
 
@@ -662,7 +662,7 @@ Ex().has_equal_ast()
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:8612897f35
-## Even More Aliasing
+## Even more aliasing
 
 Try practicsing your aliasing skills in these exercises!
 
