@@ -143,7 +143,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___, ___
-FROM films;
+FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -248,7 +248,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___ ___
-FROM films;
+FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -346,7 +346,21 @@ Ex().test_mc(3,[msg2, msg2, success_msg, msg2, msg2])
 --- type:BulletExercise lang:sql xp:100 key:7643365e67
 ## Practice with COUNT
 
-Practice your new COUNTing skills!
+If you want to count the number of non-missing values in a particular column, you can call `COUNT` on just that column:
+
+```sql
+SELECT COUNT(birthdate)
+FROM roles;
+```
+
+It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. For example, this query counts the number of distinct birthdates contained in the `roles` table:
+
+```sql
+SELECT COUNT(DISTINCT role) 
+FROM roles;
+```
+
+Let's get some practice with `COUNT`!
 
 *** =pre_exercise_code
 ```{python}
@@ -356,7 +370,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT COUNT(___)
-FROM people;
+FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -364,7 +378,7 @@ FROM people;
 *** =key1: 4688067e3e
 
 *** =instructions1
-Count the number of rows in the people table.
+Count the number of rows in the `people` table.
 *** =solution1
 ```{sql}
 SELECT COUNT(*)
@@ -383,7 +397,7 @@ Ex().has_equal_ast()
 *** =key2: 497ffa962e
 
 *** =instructions2
-Count the number of birthdate entries in the people table.
+Count the number of non-missing birth dates in the `people` table.
 *** =solution2
 ```{sql}
 SELECT COUNT(birthdate)
@@ -402,7 +416,7 @@ Ex().has_equal_ast()
 *** =key3: 50c903a00a
 
 *** =instructions3
-Count the number of unique birthdate entries in the people table.
+Count the number of unique birth dates in the `people` table.
 *** =solution3
 ```{sql}
 SELECT COUNT(DISTINCT birthdate)
@@ -421,7 +435,7 @@ Ex().has_equal_ast()
 *** =key4: 511052cbbe
 
 *** =instructions4
-Count the number of unique languages.
+Count the number of unique languages in the `films` table.
 *** =solution4
 ```{sql}
 SELECT COUNT(DISTINCT language)
@@ -440,86 +454,13 @@ Ex().has_equal_ast()
 *** =key5: 9e1147efe5
 
 *** =instructions5
-Count the number of unique countries.
+Count the number of unique countries in the `films` table.
 *** =solution5
 ```{sql}
 SELECT COUNT(DISTINCT country)
 FROM films;
 ```
 *** =sct5
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
---- type:BulletExercise lang:sql xp:100 key:ba95f5cc97
-## Different COUNTs
-
-Try out the exercises to see the difference between `COUNT(column)`, `COUNT(DISTINCT column)` and `COUNT(*)`.
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
-*** =sample_code
-```{sql}
-SELECT ___
-FROM films;
-```
-
-*** =type1: NormalExercise
-
-*** =key1: 063e5e780f
-
-*** =instructions1
-Count the total number of rows in the films table.
-*** =solution1
-```{sql}
-SELECT COUNT(*)
-FROM films;
-```
-*** =sct1
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type2: NormalExercise
-
-*** =key2: 5716af696b
-
-*** =instructions2
-Count the total number of birthdates in the people table.
-*** =solution2
-```{sql}
-SELECT COUNT(birthdate)
-FROM people;
-```
-*** =sct3
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type3: NormalExercise
-
-*** =key3: 841a8d69fa
-
-*** =instructions3
-Count the total number of distinct birthdates in the people table.
-*** =solution3
-```{sql}
-SELECT COUNT(DISTINCT birthdate)
-FROM people;
-```
-*** =sct3
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
