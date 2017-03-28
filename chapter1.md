@@ -36,21 +36,21 @@ Ex().test_mc(4, [msg1, msg2, success_msg])
 
 While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. This is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
 
-In SQL, you can select data from a table using a `SELECT` statement. For example, to select a column called `name` from a table called `people`, you'd use the following query:
+In SQL, you can select data from a table using a `SELECT` statement. For example, the following would select a column called `name` from a table called `people`:
 
 ```sql
 SELECT name
 FROM people;
 ```
 
-SQL keywords, such as `SELECT` and `FROM` above, are not case-sensitive, which means you could write the same query as:
+In this query, `SELECT` and `FROM` are called keywords. In SQL, keywords are not case-sensitive, which means you could write the same query as:
 
 ```sql
 select name
 from people;
 ```
 
-That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Note the semicolon at the end of the `SELECT` statement—this tells SQL it's the end of your query.
+That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement—this tells SQL it's the end of your query.
 
 *** =pre_exercise_code
 ```{python}
@@ -68,7 +68,7 @@ FROM films;
 *** =key1: a41cc766d5
 
 *** =instructions1
-Get the title of every film.
+Get the `title` of every film in the `films` table.
 *** =solution1
 ```{sql}
 SELECT title
@@ -85,7 +85,7 @@ Ex().check_result()
 *** =key2: 4a74270ecd
 
 *** =instructions2
-Get all details for every film.
+Modify your query to return the `release_year` for every film.
 *** =solution2
 ```{sql}
 SELECT *
@@ -105,7 +105,7 @@ Ex().has_equal_ast()
 *** =key3: 323bd5ddf5
 
 *** =instructions3
-Get the names of everyone involved in working on the films.
+Get the `name` of all `people` involved in the films.
 *** =solution3
 ```{sql}
 SELECT name
@@ -115,7 +115,6 @@ FROM people;
 ```{python}
 Ex().test_column(name='name', match='any')
 Ex().check_result()
-
 ```
 
 --- type:TabExercise lang:sql xp:100 key:09f21bae4c
