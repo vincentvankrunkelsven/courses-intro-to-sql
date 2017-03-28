@@ -31,12 +31,12 @@ success_msg = 'Correct! In a database table, each record contains information on
 Ex().test_mc(4, [msg1, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:c0bb58f7f9
-## Single column SELECTs
+--- type:BulletExercise lang:sql xp:100 key:c0bb58f7f9
+## SELECTing single columns
 
 While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. This is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
 
-In SQL, you can select data from a table using a `SELECT` statement. For example, the following would select a column called `name` from a table called `people`:
+In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects a column called `name` from a table called `people`:
 
 ```sql
 SELECT name
@@ -88,11 +88,12 @@ Ex().check_result()
 Modify your query to return the `release_year` for every film.
 *** =solution2
 ```{sql}
-SELECT *
+SELECT release_year
 FROM films;
 ```
 *** =sct2
 ```{python}
+# todo: need to update?
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -117,10 +118,22 @@ Ex().test_column(name='name', match='any')
 Ex().check_result()
 ```
 
---- type:TabExercise lang:sql xp:100 key:09f21bae4c
-## Multiple Column SELECTs
+--- type:BulletExercise lang:sql xp:100 key:09f21bae4c
+## SELECTing multiple columns
 
-To `SELECT` from multiple columns, you can separate the columns with a comma.
+To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns called `name` and `dob` from a table called `people`:
+
+```sql
+SELECT name, birthdate
+FROM people;
+```
+
+Sometimes, you may want to select all columns from a table. In this case, there's a handy shorthand so you don't have to type every column name:
+
+```sql
+SELECT *
+FROM people;
+```
 
 *** =pre_exercise_code
 ```{python}
@@ -180,7 +193,7 @@ Ex().test_column(name='country', match='any')
 *** =key3: eeba078a00
 
 *** =instructions3
-Get every person's name and their date of birth where possible.
+Get every person's name and date of birth.
 *** =solution3
 ```{sql}
 SELECT name, birthdate
@@ -200,7 +213,7 @@ Ex().test_column(name='birthdate', match='any')
 *** =key4: dac27d9aad
 
 *** =instructions4
-Get every person name and their date of death where possible.
+Return all columns from the `people` table.
 *** =solution4
 ```{sql}
 SELECT name, deathdate
