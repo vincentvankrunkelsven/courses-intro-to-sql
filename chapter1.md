@@ -11,7 +11,7 @@ description: >-
 
 Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions.
 
-One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. Each column, in turn, contains a single *attribute* of the entities in the table.
+One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. Each column, or *field*, contains a single *attribute* of all entities in the table.
 
 In a table called `people`, each record represents which of the following?
 
@@ -32,9 +32,25 @@ Ex().test_mc(4, [msg1, msg2, success_msg])
 ```
 
 --- type:TabExercise lang:sql xp:100 key:c0bb58f7f9
-## Single Column SELECTs
+## Single column SELECTs
 
-In SQL, statements like `SELECT` are not case sensitive. This means that SQL will understand if you write `select`, for example.
+While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. This is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
+
+In SQL, you can select data from a table using a `SELECT` statement. For example, to select a column called `name` from a table called `people`, you'd use the following query:
+
+```sql
+SELECT name
+FROM people;
+```
+
+SQL keywords, such as `SELECT` and `FROM` above, are not case-sensitive, which means you could write the same query as:
+
+```sql
+select name
+from people;
+```
+
+That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Note the semicolon at the end of the `SELECT` statement—this tells SQL it's the end of your query.
 
 *** =pre_exercise_code
 ```{python}
