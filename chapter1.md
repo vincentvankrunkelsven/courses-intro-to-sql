@@ -24,11 +24,11 @@ In a table called `people`, each record represents which of the following?
 
 *** =sct
 ```{python}
-msg1 = 'Incorrect, that's a column!'
-msg2 = 'Sorry, that's a table!'
-success_msg = 'Correct! In a database table, each record contains information on exactly one entity.'
+msg1 = "Incorrect, that's a column!"
+msg2 = "Sorry, that's a table!"
+success_msg = "Correct! In a database table, each record contains information on exactly one entity."
 
-Ex().test_mc(4, [msg1, msg2, success_msg])
+Ex().test_mc(3, [msg1, msg2, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:c0bb58f7f9
