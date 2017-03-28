@@ -36,7 +36,7 @@ Ex().test_mc(3, [msg1, msg2, success_msg])
 
 While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. This is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
 
-In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects a column called `name` from a table called `people`:
+In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects the `name` column from the `people` table:
 
 ```sql
 SELECT name
@@ -121,7 +121,7 @@ Ex().check_result()
 --- type:BulletExercise lang:sql xp:100 key:09f21bae4c
 ## SELECTing multiple columns
 
-To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns called `name` and `dob` from a table called `people`:
+To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns, `name` and `dob`, from the `people` table:
 
 ```sql
 SELECT name, birthdate
@@ -216,7 +216,7 @@ Ex().test_column(name='birthdate', match='any')
 Return all columns from the `people` table.
 *** =solution4
 ```{sql}
-SELECT name, deathdate
+SELECT *
 FROM people;
 ```
 *** =sct4
@@ -228,10 +228,17 @@ Ex().test_column(name='name', match='any')
 Ex().test_column(name='deathdate', match='any')
 ```
 
---- type:TabExercise lang:sql xp:100 key:de52236965
+--- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
-If you want to `SELECT` _unique_ values, you can use the `DISTINCT` keyword.    
+If you want to `SELECT` all distinct values from a column, you can use the `DISTINCT` keyword. 
+
+This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
+
+```sql
+SELECT DISTINCT language
+FROM films;
+```
 
 *** =pre_exercise_code
 ```{python}
@@ -249,7 +256,7 @@ FROM films;
 *** =key1: e6b81711f1
 
 *** =instructions1
-Get all the different countries.
+Get all unique countries represented in the `films` table.
 *** =solution1
 ```{sql}
 SELECT DISTINCT country
@@ -268,15 +275,15 @@ Ex().test_column(name='country', match='any')
 *** =key2: 2cb9a4bf6a
 
 *** =instructions2
-Get all the different film languages.
+Get all the different film certifications.
 *** =solution2
 ```{sql}
-SELECT DISTINCT language
+SELECT DISTINCT certification
 FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().test_column(name='language', match='any')
+Ex().test_column(name='certification', match='any')
 Ex().check_result()
 # select = Ex().check_node('select', 0)
 # select.test_student_typed('distinct')
@@ -287,7 +294,7 @@ Ex().check_result()
 *** =key3: 26835d3029
 
 *** =instructions3
-Get the different types of film roles.
+Get the different types of film `roles`.
 *** =solution3
 ```{sql}
 SELECT DISTINCT role
@@ -301,58 +308,26 @@ Ex().test_nrows()
 Ex().test_column(name='role', match='any')
 ```
 
-*** =type4: NormalExercise
+--- type:MultipleChoiceExercise lang:sql xp:50 key:97f97f5766
+## Learning to COUNT
 
-*** =key4: d81908d52c
+The `COUNT` statement returns the number of records in one or more columns.
 
-*** =instructions4
-Get all the different certification categories.
-*** =solution4
-```{sql}
-SELECT DISTINCT certification
-FROM films;
-```
-*** =sct5
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='certification', match='any')
+The following simply gives the number of records in the `people` table:
+
+```sql
+SELECT COUNT(*)
+FROM people;
 ```
 
-*** =type5: NormalExercise
+How many records are contained in the `reviews` table?
 
-*** =key5: d19187a6a4
-
-*** =instructions5
-Get all the different IMDB scores - has any scored over 9.5?
-*** =solution5
-```{sql}
-SELECT DISTINCT imdb_score
-FROM reviews;
-```
-*** =sct5
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='imdb_score', match='any')
-```
-
-
---- type:PlainMultipleChoiceExercise lang:sql xp:50 key:97f97f5766
-## Every Little Counts
-
-The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has).
-
-For example, `SELECT COUNT(DISTINCT name) FROM people` gives you the number of unique names in the `people` table. If you do `SELECT COUNT(*) FROM people` you will get the number of records in the entire `people` table.
-
-What is the `COUNT` function used for?
 *** =instructions
-- Counting the number of columns
-- Counting the number of records in a row
-- Counting the number of records in a column
-- Counting the number of tables in a database
+- 9,468
+- 8,397
+- 4,968
+- 9,837
+- 9,864
 
 *** =hint
 
@@ -363,13 +338,13 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
-msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
+success_msg = 'Correct!'
+msg2 = "Use the syntax provided in the example. Be sure to swap out `people` for `reviews`!"
 
-Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
+Ex().test_mc(3,[msg2, msg2, success_msg, msg2, msg2])
 ```
---- type:TabExercise lang:sql xp:100 key:7643365e67
-## Learning to COUNT
+--- type:BulletExercise lang:sql xp:100 key:7643365e67
+## Practice with COUNT
 
 Practice your new COUNTing skills!
 
@@ -479,7 +454,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:ba95f5cc97
+--- type:BulletExercise lang:sql xp:100 key:ba95f5cc97
 ## Different COUNTs
 
 Try out the exercises to see the difference between `COUNT(column)`, `COUNT(DISTINCT column)` and `COUNT(*)`.
@@ -552,7 +527,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:5260bda57a
+--- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 
 Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. For example, `SELECT AVG(budget) FROM films;` would give you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
@@ -663,7 +638,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:6db52132a0
+--- type:BulletExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS Aliasing
 
 In SQL, the `AS` keyword allows us to specify an _alias_ (temporary name) for a column in the result set. For example, `SELECT COUNT(title) AS title_count FROM films;` will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable.
@@ -745,7 +720,7 @@ Ex().test_column(name='duration_hours', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 key:8612897f35
+--- type:BulletExercise lang:sql xp:100 key:8612897f35
 ## Even More Aliasing
 
 Try practicsing your aliasing skills in these exercises!
