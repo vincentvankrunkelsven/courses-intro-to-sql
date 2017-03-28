@@ -10,7 +10,7 @@ description: >-
 
 
 
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:ac6d71b0e4
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:ac6d71b0e4
 ## ORDER BY In The Courtroom
 In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you can use the `DESC` keyword. 
 
@@ -38,7 +38,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(3, [msg2, msg2, success_msg, msg2])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba6
+--- type:TabExercise lang:sql xp:100 key:a7b2964ba6
 ## Sorting single columns (ASC)
 Practice using `ORDER BY`.
 
@@ -158,7 +158,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:a7b2964ba7
+--- type:TabExercise lang:sql xp:100 key:a7b2964ba7
 ## Sorting single columns (DESC)
 Try out using `ORDER BY` to sort single columns!
 
@@ -214,7 +214,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:b2a52993bc
+--- type:TabExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 Try out using `ORDER BY` to sort single columns! Remember, to specify multiple columns, just separate the column names with a comma.
 
@@ -321,7 +321,7 @@ Ex().has_equal_ast()
 ```
 
 
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:81987a99cf
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
 ## Introduction to GROUP BY
 In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is used with aggregate functions like `COUNT()` or `MAX`. For example, `SELECT title, COUNT(title) FROM films GROUP BY release_year;` will give you the number of films released in each year.
 
@@ -348,7 +348,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:98e30a6131
+--- type:TabExercise lang:sql xp:100 key:98e30a6131
 ## GROUP BY on multiple columns
 Practice using `GROUP BY`.
 
@@ -515,7 +515,7 @@ Ex().test_column(name='country', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:38a7c62434
+--- type:TabExercise lang:sql xp:100 key:38a7c62434
 ## Combining GROUP BY and ORDER BY, Aggregate Functions
 Try out your skills by combining `GROUP BY` and `ORDER BY` with some aggregate functions!
 
@@ -579,7 +579,7 @@ Ex().has_equal_ast()
 ```
 
 
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:4d55b1adf8
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:4d55b1adf8
 ## HAVING a Great Time
 In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can instead use the `HAVING` keyword. For example, `SELECT release_year FROM films GROUP BY release_year HAVING COUNT(title) > 10;` will show only those years in which more than 10 films were released.
 
@@ -606,7 +606,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:f7dcb9e122
+--- type:TabExercise lang:sql xp:100 key:f7dcb9e122
 ## Altogether Now
 Practice using `ORDER BY`, `GROUP BY` and `HAVING`.
 

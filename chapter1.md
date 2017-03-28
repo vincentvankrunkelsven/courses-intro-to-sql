@@ -6,7 +6,7 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
 Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions.
@@ -31,7 +31,7 @@ success_msg = 'Correct! In a database table, each record contains information on
 Ex().test_mc(4, [msg1, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:c0bb58f7f9
+--- type:TabExercise lang:sql xp:100 key:c0bb58f7f9
 ## Single Column SELECTs
 
 In SQL, statements like `SELECT` are not case sensitive. This means that SQL will understand if you write `select`, for example.
@@ -102,7 +102,7 @@ Ex().check_result()
 
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
+--- type:TabExercise lang:sql xp:100 key:09f21bae4c
 ## Multiple Column SELECTs
 
 To `SELECT` from multiple columns, you can separate the columns with a comma.
@@ -200,7 +200,7 @@ Ex().test_column(name='name', match='any')
 Ex().test_column(name='deathdate', match='any')
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:de52236965
+--- type:TabExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
 If you want to `SELECT` _unique_ values, you can use the `DISTINCT` keyword.    
@@ -312,7 +312,7 @@ Ex().test_column(name='imdb_score', match='any')
 ```
 
 
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:97f97f5766
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:97f97f5766
 ## Every Little Counts
 
 The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has).
@@ -340,7 +340,7 @@ msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
 
 Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
---- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
+--- type:TabExercise lang:sql xp:100 key:7643365e67
 ## Learning to COUNT
 
 Practice your new COUNTing skills!
@@ -451,7 +451,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:ba95f5cc97
+--- type:TabExercise lang:sql xp:100 key:ba95f5cc97
 ## Different COUNTs
 
 Try out the exercises to see the difference between `COUNT(column)`, `COUNT(DISTINCT column)` and `COUNT(*)`.
@@ -524,7 +524,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:5260bda57a
+--- type:TabExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 
 Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. For example, `SELECT AVG(budget) FROM films;` would give you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
@@ -635,7 +635,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:6db52132a0
+--- type:TabExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS Aliasing
 
 In SQL, the `AS` keyword allows us to specify an _alias_ (temporary name) for a column in the result set. For example, `SELECT COUNT(title) AS title_count FROM films;` will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable.
@@ -717,7 +717,7 @@ Ex().test_column(name='duration_hours', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:8612897f35
+--- type:TabExercise lang:sql xp:100 key:8612897f35
 ## Even More Aliasing
 
 Try practicsing your aliasing skills in these exercises!

@@ -8,7 +8,7 @@ description: >-
   weather metrics recorded from Central Park during the same time period.
 
 
---- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:8e3524960e
+--- type:MultipleChoiceExercise lang:sql xp:50 key:8e3524960e
 ## Get to Know Your Data
 A good data scientist needs to have an intuitive sense of the data they're working with. 
 
@@ -35,7 +35,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:feae971647
+--- type:TabExercise lang:sql xp:100 key:feae971647
 ## Know Your LIMITs
 - Selecting from the different tables, but using LIMIT
 - Counts
@@ -109,7 +109,7 @@ Ex().has_equal_ast()
 ```
 
 
---- type:TabExercise lang:sql xp:100 skills:1 key:5f834c6a08
+--- type:TabExercise lang:sql xp:100 key:5f834c6a08
 ## Make Your Way Around (The Dataset)
 Getting MIN, MAX, AVG
 
@@ -216,7 +216,7 @@ Ex().test_column(name='duration_days', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:48b9934c8f
+--- type:TabExercise lang:sql xp:100 key:48b9934c8f
 ## Filtering
 Filtering based on various criteria
 
@@ -268,7 +268,7 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:aadfa696e6
+--- type:TabExercise lang:sql xp:100 key:aadfa696e6
 ## Weather
 Some weather related questions
 
@@ -397,7 +397,7 @@ Ex().test_column(name='avg_mean_temp', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:f222b67a81
+--- type:TabExercise lang:sql xp:100 key:f222b67a81
 ## Stations
 Some questions related to stations
 
@@ -494,7 +494,7 @@ Ex().test_column(name='start_station_id', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:6bda1c10dc
+--- type:TabExercise lang:sql xp:100 key:6bda1c10dc
 ## Times
 Some time related questions - e.g. most popular days to go cycling, etc.
 
