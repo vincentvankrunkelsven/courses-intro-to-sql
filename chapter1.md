@@ -6,38 +6,51 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
+## Beginning your SQL journey
 
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:a1f556e63f
-## SQL Usage
-Something about the many uses of SQL. 
+Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions.
 
-Which of the following is a good reason to use SQL?
+One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. Each column, or *field*, contains a single *attribute* of all entities in the table.
+
+In a table called `people`, each record represents which of the following?
 
 *** =instructions
-- Memory savings
-- Speed advantages
-- Centralization
-- All of the above
+- A single attribute about people
+- A collection of entities
+- A single person
 
 *** =hint
 
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
 *** =sct
 ```{python}
-success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
-msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
+msg1 = "Incorrect, that's a column!"
+msg2 = "Sorry, that's a table!"
+success_msg = "Correct! In a database table, each record contains information on exactly one entity."
 
-Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
-
+Ex().test_mc(3, [msg1, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:c0bb58f7f9
-## Single Column SELECTs
-In SQL, statements like `SELECT` are not case sensitive. This means that SQL will understand if you write `select`, for example.
+--- type:BulletExercise lang:sql xp:100 key:c0bb58f7f9
+## SELECTing single columns
+
+While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. This is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
+
+In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects the `name` column from the `people` table:
+
+```sql
+SELECT name
+FROM people;
+```
+
+In this query, `SELECT` and `FROM` are called keywords. In SQL, keywords are not case-sensitive, which means you could write the same query as:
+
+```sql
+select name
+from people;
+```
+
+That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement—this tells SQL it's the end of your query.
 
 *** =pre_exercise_code
 ```{python}
@@ -55,7 +68,7 @@ FROM films;
 *** =key1: a41cc766d5
 
 *** =instructions1
-Get the title of every film.
+Get the `title` of every film in the `films` table.
 *** =solution1
 ```{sql}
 SELECT title
@@ -72,14 +85,15 @@ Ex().check_result()
 *** =key2: 4a74270ecd
 
 *** =instructions2
-Get all details for every film.
+Modify your query to return the `release_year` for every film.
 *** =solution2
 ```{sql}
-SELECT *
+SELECT release_year
 FROM films;
 ```
 *** =sct2
 ```{python}
+# todo: need to update?
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
@@ -92,7 +106,7 @@ Ex().has_equal_ast()
 *** =key3: 323bd5ddf5
 
 *** =instructions3
-Get the names of everyone involved in working on the films.
+Get the `name` of all `people` involved in the films.
 *** =solution3
 ```{sql}
 SELECT name
@@ -102,12 +116,25 @@ FROM people;
 ```{python}
 Ex().test_column(name='name', match='any')
 Ex().check_result()
-
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:09f21bae4c
-## Multiple Column SELECTs
-To `SELECT` from multiple columns, you can separate the columns with a comma.
+--- type:BulletExercise lang:sql xp:100 key:09f21bae4c
+## SELECTing multiple columns
+
+To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns, `name` and `dob`, from the `people` table:
+
+```sql
+SELECT name, birthdate
+FROM people;
+```
+
+Sometimes, you may want to select all columns from a table. In this case, there's a handy shorthand so you don't have to type every column name:
+
+```sql
+SELECT *
+FROM people;
+```
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -116,7 +143,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___, ___
-FROM films;
+FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -166,7 +193,7 @@ Ex().test_column(name='country', match='any')
 *** =key3: eeba078a00
 
 *** =instructions3
-Get every person's name and their date of birth where possible.
+Get every person's name and date of birth.
 *** =solution3
 ```{sql}
 SELECT name, birthdate
@@ -186,10 +213,10 @@ Ex().test_column(name='birthdate', match='any')
 *** =key4: dac27d9aad
 
 *** =instructions4
-Get every person name and their date of death where possible.
+Return all columns from the `people` table.
 *** =solution4
 ```{sql}
-SELECT name, deathdate
+SELECT *
 FROM people;
 ```
 *** =sct4
@@ -201,9 +228,17 @@ Ex().test_column(name='name', match='any')
 Ex().test_column(name='deathdate', match='any')
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:de52236965
+--- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
-If you want to `SELECT` _unique_ values, you can use the `DISTINCT` keyword.    
+
+If you want to `SELECT` all distinct values from a column, you can use the `DISTINCT` keyword. 
+
+This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
+
+```sql
+SELECT DISTINCT language
+FROM films;
+```
 
 *** =pre_exercise_code
 ```{python}
@@ -213,7 +248,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___ ___
-FROM films;
+FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -221,7 +256,7 @@ FROM films;
 *** =key1: e6b81711f1
 
 *** =instructions1
-Get all the different countries.
+Get all unique countries represented in the `films` table.
 *** =solution1
 ```{sql}
 SELECT DISTINCT country
@@ -240,15 +275,15 @@ Ex().test_column(name='country', match='any')
 *** =key2: 2cb9a4bf6a
 
 *** =instructions2
-Get all the different film languages.
+Get all the different film certifications.
 *** =solution2
 ```{sql}
-SELECT DISTINCT language
+SELECT DISTINCT certification
 FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().test_column(name='language', match='any')
+Ex().test_column(name='certification', match='any')
 Ex().check_result()
 # select = Ex().check_node('select', 0)
 # select.test_student_typed('distinct')
@@ -259,7 +294,7 @@ Ex().check_result()
 *** =key3: 26835d3029
 
 *** =instructions3
-Get the different types of film roles.
+Get the different types of film `roles`.
 *** =solution3
 ```{sql}
 SELECT DISTINCT role
@@ -273,57 +308,26 @@ Ex().test_nrows()
 Ex().test_column(name='role', match='any')
 ```
 
-*** =type4: NormalExercise
+--- type:MultipleChoiceExercise lang:sql xp:50 key:97f97f5766
+## Learning to COUNT
 
-*** =key4: d81908d52c
+The `COUNT` statement returns the number of records in one or more columns.
 
-*** =instructions4
-Get all the different certification categories.
-*** =solution4
-```{sql}
-SELECT DISTINCT certification
-FROM films;
-```
-*** =sct5
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='certification', match='any')
+The following simply gives the number of records in the `people` table:
+
+```sql
+SELECT COUNT(*)
+FROM people;
 ```
 
-*** =type5: NormalExercise
+How many records are contained in the `reviews` table?
 
-*** =key5: d19187a6a4
-
-*** =instructions5
-Get all the different IMDB scores - has any scored over 9.5?
-*** =solution5
-```{sql}
-SELECT DISTINCT imdb_score
-FROM reviews;
-```
-*** =sct5
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='imdb_score', match='any')
-```
-
-
---- type:PlainMultipleChoiceExercise lang:sql xp:50 skills:1 key:97f97f5766
-## Every Little Counts
-The `COUNT` statement gives you the number of records in a column (a.k.a the number of records an attribute has).
-
-For example, `SELECT COUNT(DISTINCT name) FROM people` gives you the number of unique names in the `people` table. If you do `SELECT COUNT(*) FROM people` you will get the number of records in the entire `people` table.
-
-What is the `COUNT` function used for?
 *** =instructions
-- Counting the number of columns
-- Counting the number of records in a row
-- Counting the number of records in a column
-- Counting the number of tables in a database
+- 9,468
+- 8,397
+- 4,968
+- 9,837
+- 9,864
 
 *** =hint
 
@@ -334,14 +338,29 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct! There are many advantages to using SQL over imperative programming languages like Python or R.'
-msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
+success_msg = 'Correct!'
+msg2 = "Use the syntax provided in the example. Be sure to swap out `people` for `reviews`!"
 
-Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
+Ex().test_mc(3,[msg2, msg2, success_msg, msg2, msg2])
 ```
---- type:TabExercise lang:sql xp:100 skills:1 key:7643365e67
-## Learning to COUNT
-Practice your new COUNTing skills!
+--- type:BulletExercise lang:sql xp:100 key:7643365e67
+## Practice with COUNT
+
+If you want to count the number of non-missing values in a particular column, you can call `COUNT` on just that column:
+
+```sql
+SELECT COUNT(birthdate)
+FROM roles;
+```
+
+It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. For example, this query counts the number of distinct birthdates contained in the `roles` table:
+
+```sql
+SELECT COUNT(DISTINCT role) 
+FROM roles;
+```
+
+Let's get some practice with `COUNT`!
 
 *** =pre_exercise_code
 ```{python}
@@ -351,7 +370,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT COUNT(___)
-FROM people;
+FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -359,7 +378,7 @@ FROM people;
 *** =key1: 4688067e3e
 
 *** =instructions1
-Count the number of rows in the people table.
+Count the number of rows in the `people` table.
 *** =solution1
 ```{sql}
 SELECT COUNT(*)
@@ -378,7 +397,7 @@ Ex().has_equal_ast()
 *** =key2: 497ffa962e
 
 *** =instructions2
-Count the number of birthdate entries in the people table.
+Count the number of non-missing birth dates in the `people` table.
 *** =solution2
 ```{sql}
 SELECT COUNT(birthdate)
@@ -397,7 +416,7 @@ Ex().has_equal_ast()
 *** =key3: 50c903a00a
 
 *** =instructions3
-Count the number of unique birthdate entries in the people table.
+Count the number of unique birth dates in the `people` table.
 *** =solution3
 ```{sql}
 SELECT COUNT(DISTINCT birthdate)
@@ -416,7 +435,7 @@ Ex().has_equal_ast()
 *** =key4: 511052cbbe
 
 *** =instructions4
-Count the number of unique languages.
+Count the number of unique languages in the `films` table.
 *** =solution4
 ```{sql}
 SELECT COUNT(DISTINCT language)
@@ -435,7 +454,7 @@ Ex().has_equal_ast()
 *** =key5: 9e1147efe5
 
 *** =instructions5
-Count the number of unique countries.
+Count the number of unique countries in the `films` table.
 *** =solution5
 ```{sql}
 SELECT COUNT(DISTINCT country)
@@ -449,80 +468,9 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:ba95f5cc97
-## Different COUNTs
-Try out the exercises to see the difference between `COUNT(column)`, `COUNT(DISTINCT column)` and `COUNT(*)`.
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
-*** =sample_code
-```{sql}
-SELECT ___
-FROM films;
-```
-
-*** =type1: NormalExercise
-
-*** =key1: 063e5e780f
-
-*** =instructions1
-Count the total number of rows in the films table.
-*** =solution1
-```{sql}
-SELECT COUNT(*)
-FROM films;
-```
-*** =sct1
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type2: NormalExercise
-
-*** =key2: 5716af696b
-
-*** =instructions2
-Count the total number of birthdates in the people table.
-*** =solution2
-```{sql}
-SELECT COUNT(birthdate)
-FROM people;
-```
-*** =sct3
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type3: NormalExercise
-
-*** =key3: 841a8d69fa
-
-*** =instructions3
-Count the total number of distinct birthdates in the people table.
-*** =solution3
-```{sql}
-SELECT COUNT(DISTINCT birthdate)
-FROM people;
-```
-*** =sct3
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
---- type:TabExercise lang:sql xp:100 skills:1 key:5260bda57a
+--- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
+
 Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. For example, `SELECT AVG(budget) FROM films;` would give you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
 
 *** =pre_exercise_code
@@ -631,8 +579,9 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:6db52132a0
-## It's AS simple AS Aliasing
+--- type:BulletExercise lang:sql xp:100 key:6db52132a0
+## It's AS simple AS aliasing
+
 In SQL, the `AS` keyword allows us to specify an _alias_ (temporary name) for a column in the result set. For example, `SELECT COUNT(title) AS title_count FROM films;` will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable.
 
 *** =pre_exercise_code
@@ -712,10 +661,11 @@ Ex().test_column(name='duration_hours', match='exact')
 Ex().has_equal_ast()
 ```
 
+--- type:BulletExercise lang:sql xp:100 key:8612897f35
+## Even more aliasing
 
---- type:TabExercise lang:sql xp:100 skills:1 key:8612897f35
-## Even More Aliasing
 Try practicsing your aliasing skills in these exercises!
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')

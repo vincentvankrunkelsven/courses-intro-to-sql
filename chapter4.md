@@ -8,8 +8,9 @@ description: >-
   weather metrics recorded from Central Park during the same time period.
 
 
---- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:8e3524960e
-## Get to Know Your Data
+--- type:MultipleChoiceExercise lang:sql xp:50 key:8e3524960e
+## Get to know your data
+
 A good data scientist needs to have an intuitive sense of the data they're working with. 
 
 How many rows does the `trips` table have?
@@ -35,8 +36,9 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:feae971647
-## Know Your LIMITs
+--- type:BulletExercise lang:sql xp:100 key:feae971647
+## Know your LIMITs
+
 - Selecting from the different tables, but using LIMIT
 - Counts
 
@@ -108,9 +110,9 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
+--- type:BulletExercise lang:sql xp:100 key:5f834c6a08
+## Make your way around (the dataset)
 
---- type:TabExercise lang:sql xp:100 skills:1 key:5f834c6a08
-## Make Your Way Around (The Dataset)
 Getting MIN, MAX, AVG
 
 *** =pre_exercise_code
@@ -216,8 +218,9 @@ Ex().test_column(name='duration_days', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:48b9934c8f
+--- type:BulletExercise lang:sql xp:100 key:48b9934c8f
 ## Filtering
+
 Filtering based on various criteria
 
 *** =pre_exercise_code
@@ -268,8 +271,9 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:aadfa696e6
+--- type:BulletExercise lang:sql xp:100 key:aadfa696e6
 ## Weather
+
 Some weather related questions
 
 *** =pre_exercise_code
@@ -397,8 +401,9 @@ Ex().test_column(name='avg_mean_temp', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:f222b67a81
+--- type:BulletExercise lang:sql xp:100 key:f222b67a81
 ## Stations
+
 Some questions related to stations
 
 *** =pre_exercise_code
@@ -494,8 +499,9 @@ Ex().test_column(name='start_station_id', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:TabExercise lang:sql xp:100 skills:1 key:6bda1c10dc
+--- type:BulletExercise lang:sql xp:100 key:6bda1c10dc
 ## Times
+
 Some time related questions - e.g. most popular days to go cycling, etc.
 
 *** =pre_exercise_code
