@@ -34,7 +34,9 @@ Ex().test_mc(3, [msg1, msg2, success_msg])
 --- type:BulletExercise lang:sql xp:100 key:c0bb58f7f9
 ## SELECTing single columns
 
-While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. This is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
+While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data or information from a database table or combination of tables. 
+
+Querying is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
 
 In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects the `name` column from the `people` table:
 
@@ -50,7 +52,7 @@ select name
 from people;
 ```
 
-That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement—this tells SQL it's the end of your query.
+That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement — this tells SQL where the end of your query is.
 
 *** =pre_exercise_code
 ```{python}
@@ -121,14 +123,14 @@ Ex().check_result()
 --- type:BulletExercise lang:sql xp:100 key:09f21bae4c
 ## SELECTing multiple columns
 
-To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns, `name` and `dob`, from the `people` table:
+To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
 
 ```sql
 SELECT name, birthdate
 FROM people;
 ```
 
-Sometimes, you may want to select all columns from a table. In this case, there's a handy shorthand so you don't have to type every column name:
+Sometimes, you may want to select all columns from a table. In this case, there's a handy shortcut so you don't have to type every column name:
 
 ```sql
 SELECT *
@@ -231,7 +233,7 @@ Ex().test_column(name='deathdate', match='any')
 --- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
-If you want to `SELECT` all distinct values from a column, you can use the `DISTINCT` keyword. 
+If you want to `SELECT` all unique values from a column, you can use the `DISTINCT` keyword. 
 
 This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
 
@@ -353,7 +355,7 @@ SELECT COUNT(birthdate)
 FROM roles;
 ```
 
-It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. For example, this query counts the number of distinct birthdates contained in the `roles` table:
+It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. For example, this query counts the number of distinct roles contained in the `roles` table:
 
 ```sql
 SELECT COUNT(DISTINCT role) 
