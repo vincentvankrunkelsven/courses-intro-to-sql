@@ -45,7 +45,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___
-FROM films
+FROM ___
 ___ language = ___;
 ```
 
@@ -138,7 +138,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___
-FROM films
+FROM ___
 ___ release_year = ___;
 ```
 
@@ -233,7 +233,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT title, release_year
-FROM films
+FROM ___
 ___ ___ < 2000
 ___ language = ___;
 ```
@@ -312,8 +312,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT title, release_year
-FROM films
+SELECT ___, ___
+FROM ___
 ___ release_year = 1990 ___ release_year = 2000
 ___ language = 'French' ___ language = 'Spanish';
 ```
@@ -472,8 +472,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT title, release_year
-FROM films
+SELECT ___, ___
+FROM ___
 ___ release_year ___ 1990 ___ 2000;
 ```
 
@@ -562,10 +562,10 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT title, release_year
-FROM films
+SELECT ___, ___
+FROM ___
 ___ release_year ___ (1990, 2000)
-AND duration > 120;
+AND ___ > 120;
 ```
 
 *** =type1: NormalExercise
@@ -642,7 +642,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___
-FROM people
+FROM ___
 ___ deathdate ___ ___ ;
 ```
 
@@ -685,7 +685,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT name
-FROM people
+FROM ___
 ___ name ___ ___
 ```
 

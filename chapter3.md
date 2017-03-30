@@ -49,7 +49,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT ___
-FROM people
+FROM ___
 ___ ___ ___;
 ```
 
@@ -169,8 +169,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT imdb_score, film_id
-FROM reviews
+SELECT ___, ___
+FROM ___
 ___ ___ imdb_score ___;
 ```
 
@@ -227,7 +227,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT birthdate, name
-FROM people
+FROM ___
 ___ ___ ___, ___;
 ```
 
@@ -360,7 +360,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT release_year, ___(___)
-FROM films
+FROM ___
 ___ ___ release_year;
 ```
 
@@ -528,7 +528,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT release_year, country, ___(___)
-FROM films
+FROM ___
 ___ ___ release_year, country
 ___ ___ release_year, country;
 ```
@@ -621,9 +621,9 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT release_year, ___(___(budget)) AS avg_budget, ROUND(AVG(___)) AS avg_box_office
-FROM films
+FROM ___
 ___ release_year > 1990
-GROUP BY release_year
+GROUP BY ___
 ___ (budget) > 20000000
 ___ ___ release_year ___;
 ```
