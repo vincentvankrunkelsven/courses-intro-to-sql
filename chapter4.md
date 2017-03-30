@@ -48,7 +48,7 @@ Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
 
 *** =type2: MultipleChoiceExercise
-*** =key2: 96f73c1255
+*** =key2: 84040e754d
 
 *** =instructions2
 - 498
@@ -65,7 +65,7 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: 96f73c1255
+*** =key3: 7d7a214cd0
 
 *** =instructions3
 - 360
@@ -131,7 +131,7 @@ ___ ___;
 ```
 
 *** =type1: NormalExercise
-*** =key1: 96f73c1255
+*** =key1: 2ce01771ef
 
 *** =instructions1
 Display only the top 10 results from the `trips` table.
