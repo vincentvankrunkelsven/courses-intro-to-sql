@@ -7,9 +7,83 @@ description: >-
   York City in 2015, along with the stations the bikes belong to, and daily
   weather metrics recorded from Central Park during the same time period.
 
+--- type:TabExercise lang:sql key:feae971647
+## Get to know your data
+
+By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
+
+The mayor wants that report on his desk soon though and you don't have time to wait around! 
+
+__these questions need to be in each MCE tab__
+
+- How many trips were made in total?
+- How many stations are there?
+- How many days of the year does the `weather` table cover?
+
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+```
+
+*** =type1: MultipleChoiceExercise
+*** =key1: 96f73c1255
+
+*** =instructions1
+- 26,259,032
+- 19,937,968
+- 5,126
+- 9,937,968
+
+*** =sct1
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
+```
+
+*** =type2: MultipleChoiceExercise
+*** =key2: 96f73c1255
+
+*** =instructions2
+- 498
+- 562
+- 892
+- 365
+
+*** =sct2
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
+```
+
+*** =type3: MultipleChoiceExercise
+*** =key3: 96f73c1255
+
+*** =instructions3
+- 360
+- 362
+- 730
+- 365
+
+*** =sct3
+```{python}
+success_msg = 'Correct!
+msg2 = 'Incorrect.'
+
+Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
+```
 
 --- type:MultipleChoiceExercise lang:sql xp:50 key:8e3524960e
 ## Get to know your data
+
 Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
 
 Before you can take on the job, you should get a feel for the data you'll be working with. 
@@ -26,7 +100,7 @@ How many rows does the `trips` table have?
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sct
@@ -37,15 +111,16 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:feae971647
-## Know your LIMITs
+--- type:BulletExercise lang:sql xp:100 key:f62f663205
+## Get to know your data
+
 By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
 
 The mayor wants that report on his desk soon though and you don't have time to wait around! 
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -116,7 +191,7 @@ The mayor wants to know some stats about trip durations, to see if people prefer
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -223,7 +298,7 @@ The mayor is interested in discovering whether the weather has a large effect on
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -391,7 +466,7 @@ The mayor wants to know which stations are the most popular.
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -469,7 +544,7 @@ The mayor is planning a publicity stunt, and wants to wants to know about how Ci
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
