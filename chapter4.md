@@ -41,14 +41,14 @@ connect('postgresql', 'nycbikes15')
 
 *** =sct1
 ```{python}
-success_msg = 'Correct!
+success_msg = 'Correct!'
 msg2 = 'Incorrect.'
 
 Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
 
 *** =type2: MultipleChoiceExercise
-*** =key2: 84040e754d
+*** =key2: 96f73c1255
 
 *** =instructions2
 - 498
@@ -65,7 +65,7 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: 7d7a214cd0
+*** =key3: 96f73c1255
 
 *** =instructions3
 - 360
@@ -105,7 +105,7 @@ connect('postgresql', 'nycbikes15')
 
 *** =sct
 ```{python}
-success_msg = 'Correct!
+success_msg = 'Correct!'
 msg2 = 'Incorrect.'
 
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
@@ -131,7 +131,7 @@ ___ ___;
 ```
 
 *** =type1: NormalExercise
-*** =key1: 2ce01771ef
+*** =key1: 96f73c1255
 
 *** =instructions1
 Display only the top 10 results from the `trips` table.
@@ -587,9 +587,6 @@ WHERE start_date = '2015-12-25';
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 

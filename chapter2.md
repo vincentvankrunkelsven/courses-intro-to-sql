@@ -426,7 +426,7 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct!
+success_msg = 'Correct!'
 msg2 = 'Incorrect.'
 
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
@@ -456,7 +456,7 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct!
+success_msg = 'Correct!'
 msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
 
 Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
