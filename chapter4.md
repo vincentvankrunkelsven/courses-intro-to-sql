@@ -9,10 +9,9 @@ description: >-
 
 --- type:TabExercise lang:sql key:0dbcee0148
 ## Get to know your data
+Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
 
-By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
-
-The mayor wants that report on his desk soon though and you don't have time to wait around! 
+Before you can take on the job, you should get a feel for the data you'll be working with. 
 
 __these questions need to be in each MCE tab__
 
@@ -48,7 +47,7 @@ Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
 
 *** =type2: MultipleChoiceExercise
-*** =key2: 345b44fcd8
+*** =key2: 96f73c1255
 
 *** =instructions2
 - 498
@@ -65,7 +64,7 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: 3d6aa58a49
+*** =key3: 96f73c1255
 
 *** =instructions3
 - 360
@@ -76,36 +75,6 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 *** =sct3
 ```{python}
 success_msg = 'Correct!
-msg2 = 'Incorrect.'
-
-Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
-```
-
---- type:MultipleChoiceExercise lang:sql xp:50 key:4f3f6ffffd
-## Get to know your data
-
-Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
-
-Before you can take on the job, you should get a feel for the data you'll be working with. 
-
-How many rows does the `trips` table have?
-
-*** =instructions
-- 26,259,032
-- 19,937,968
-- 5,126
-- 9,937,968
-
-*** =hint
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'nycbikes15')
-```
-
-*** =sct
-```{python}
-success_msg = 'Correct!'
 msg2 = 'Incorrect.'
 
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
@@ -131,7 +100,7 @@ ___ ___;
 ```
 
 *** =type1: NormalExercise
-*** =key1: f199d4ac6b
+*** =key1: 96f73c1255
 
 *** =instructions1
 Display only the top 10 results from the `trips` table.
