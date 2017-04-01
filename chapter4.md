@@ -7,7 +7,7 @@ description: >-
   York City in 2015, along with the stations the bikes belong to, and daily
   weather metrics recorded from Central Park during the same time period.
 
---- type:TabExercise lang:sql key:feae971647
+--- type:TabExercise lang:sql key:0dbcee0148
 ## Get to know your data
 
 By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
@@ -48,7 +48,7 @@ Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
 
 *** =type2: MultipleChoiceExercise
-*** =key2: 3e391a8e89
+*** =key2: 96f73c1255
 
 *** =instructions2
 - 498
@@ -65,7 +65,7 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: e91151d2a8
+*** =key3: 96f73c1255
 
 *** =instructions3
 - 360
@@ -81,7 +81,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:MultipleChoiceExercise lang:sql xp:50 key:8e3524960e
+--- type:MultipleChoiceExercise lang:sql xp:50 key:4f3f6ffffd
 ## Get to know your data
 
 Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
@@ -111,7 +111,7 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:f62f663205
+--- type:BulletExercise lang:sql xp:100 key:dce32a0d9a
 ## Get to know your data
 
 By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
@@ -131,7 +131,7 @@ ___ ___;
 ```
 
 *** =type1: NormalExercise
-*** =key1: 13b2904047
+*** =key1: 96f73c1255
 
 *** =instructions1
 Display only the top 10 results from the `trips` table.
@@ -185,7 +185,7 @@ Ex().test_ncols()
 Ex().test_nrows()
 Ex().has_equal_ast()
 ```
---- type:BulletExercise lang:sql xp:100 key:5f834c6a08
+--- type:BulletExercise lang:sql xp:100 key:cfd546a48c
 ## Make your way around (the dataset)
 The mayor wants to know some stats about trip durations, to see if people prefer to take long or short trips using CitiBike. 
 
@@ -292,7 +292,7 @@ Ex().test_column(name='duration_days', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:BulletExercise lang:sql xp:100 key:aadfa696e6
+--- type:BulletExercise lang:sql xp:100 key:27b5196db3
 ## Weather questions 
 The mayor is interested in discovering whether the weather has a large effect on whether people use CitiBike bikes.
 
@@ -460,7 +460,7 @@ Ex().test_column(name='avg_mean_temp', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:BulletExercise lang:sql xp:100 key:f222b67a81
+--- type:BulletExercise lang:sql xp:100 key:c3a36ee3f0
 ## Stations
 The mayor wants to know which stations are the most popular.
 
@@ -538,7 +538,7 @@ Ex().test_column(name='start_station_id', match='any')
 Ex().has_equal_ast()
 ```
 
---- type:BulletExercise lang:sql xp:100 key:6bda1c10dc
+--- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
 ## Times
 The mayor is planning a publicity stunt, and wants to wants to know about how CitiBike usage changes depending on the time of the year. 
 
