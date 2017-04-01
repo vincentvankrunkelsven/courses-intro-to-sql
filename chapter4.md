@@ -48,7 +48,7 @@ Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
 
 *** =type2: MultipleChoiceExercise
-*** =key2: 02f6beb992
+*** =key2: 96f73c1255
 
 *** =instructions2
 - 498
@@ -65,7 +65,7 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: 6f45927902
+*** =key3: 96f73c1255
 
 *** =instructions3
 - 360
@@ -112,7 +112,7 @@ Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:dce32a0d9a
-## Get to know your data
+## The sky's the LIMIT
 
 By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
 
@@ -131,7 +131,7 @@ ___ ___;
 ```
 
 *** =type1: NormalExercise
-*** =key1: ca849f03b6
+*** =key1: 96f73c1255
 
 *** =instructions1
 Display only the top 10 results from the `trips` table.
