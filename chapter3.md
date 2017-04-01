@@ -179,12 +179,14 @@ ___ ___ imdb_score ___;
 
 *** =instructions1
 Get the score and film id for every film, from highest to lowest.
+
 *** =solution1
 ```{sql}
 SELECT imdb_score, film_id
 FROM reviews
 ORDER BY imdb_score DESC;
 ```
+
 *** =sct1
 ```{python}
 Ex().check_result()
@@ -196,12 +198,14 @@ Ex().has_equal_ast()
 
 *** =instructions2
 Get the titles of films in reverse order.
+
 *** =solution2
 ```{sql}
 SELECT *
 FROM films
 ORDER BY title DESC;
 ```
+
 *** =sct2
 ```{python}
 Ex().check_result()
