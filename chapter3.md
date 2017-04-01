@@ -188,10 +188,6 @@ ORDER BY imdb_score DESC;
 *** =sct1
 ```{python}
 Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='imdb_score', match='any')
-Ex().test_column(name='film_id', match='any')
 Ex().has_equal_ast()
 ```
 
@@ -209,8 +205,6 @@ ORDER BY title DESC;
 *** =sct2
 ```{python}
 Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
