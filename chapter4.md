@@ -450,7 +450,7 @@ connect('postgresql', 'nycbikes15')
 Which station was started from the most?
 *** =solution1
 ```{sql}
-SELECT id as station_id, COUNT(station_id)
+SELECT id as station_id, COUNT(id)
 FROM trips;
 ```
 *** =sct1
