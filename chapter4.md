@@ -539,7 +539,6 @@ LIMIT 10;
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
-Ex().test_column(name='start_date', match='any')
 Ex().has_equal_ast()
 ```
 
