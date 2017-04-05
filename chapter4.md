@@ -450,7 +450,7 @@ connect('postgresql', 'nycbikes15')
 Which station was started from the most?
 *** =solution1
 ```{sql}
-SELECT station_id, COUNT(station_id)
+SELECT id as station_id, COUNT(station_id)
 FROM trips;
 ```
 *** =sct1
@@ -458,7 +458,7 @@ FROM trips;
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
-Ex().test_column(name='station_id', match='any')
+Ex().test_column(name='station_id', match='exact')
 # should also check count col here, without alias
 Ex().has_equal_ast()
 ```
