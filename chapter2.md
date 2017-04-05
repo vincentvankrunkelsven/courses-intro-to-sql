@@ -26,8 +26,8 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct! `WHERE` can be used to filter on both numeric and textual data.'
-msg2 = 'Incorrect.'
+success_msg = "Correct! `WHERE` can be used to filter on both numeric and textual data."
+msg2 = "Incorrect."
 
 Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
@@ -147,6 +147,7 @@ ___ release_year = ___;
 
 *** =instructions1
 Get all films released in 2016.
+
 *** =solution1
 ```{sql}
 SELECT *
@@ -154,10 +155,8 @@ FROM films
 WHERE release_year = 2016;
 ```
 *** =sct1
-```{python}{python}
+```{python}
 Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 

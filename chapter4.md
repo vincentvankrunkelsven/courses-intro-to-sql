@@ -40,8 +40,8 @@ connect('postgresql', 'nycbikes15')
 
 *** =sct1
 ```{python}
-success_msg = 'Correct!'
-msg2 = 'Incorrect.'
+success_msg = "Correct!"
+msg2 = "Incorrect."
 
 Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
@@ -74,8 +74,8 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 
 *** =sct3
 ```{python}
-success_msg = 'Correct!
-msg2 = 'Incorrect.'
+success_msg = "Correct!"
+msg2 = "Incorrect."
 
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
@@ -536,9 +536,6 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
