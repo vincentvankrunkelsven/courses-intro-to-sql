@@ -57,8 +57,8 @@ Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 
 *** =sct2
 ```{python}
-success_msg = 'Correct!
-msg2 = 'Incorrect.'
+success_msg = "Correct!"
+msg2 = "Incorrect."
 
 Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 ```
