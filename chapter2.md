@@ -462,7 +462,7 @@ Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
 ```
 --- type:BulletExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (a rock and a hard place)
-Practice using `BETWEEN`.
+Now you can practice using `BETWEEN`!
 
 *** =pre_exercise_code
 ```{python}
@@ -628,10 +628,51 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
+*** =type2: NormalExercise
+*** =key2: 1d71b2f707
+
+*** =instructions2
+Get the number of films released between 1994 and 2004 that were rated R.
+*** =solution2
+```{sql}
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 1994 AND 2004
+AND certification = 'R';
+```
+*** =sct2
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
+*** =type3: NormalExercise
+*** =key3: 1d71b2f708
+
+*** =instructions3
+Get the number of films released between 1950 and 2000 that were in French, and released in the USA.
+*** =solution3
+```{sql}
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 1950 AND 2000
+AND language = 'FRENCH' 
+AND country = 'USA';
+```
+*** =sct3
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
 --- type:BulletExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
 
-Practice using `NULL` and `IS NULL`.
+Practice using `NULL` and `IS NULL`!
 
 *** =pre_exercise_code
 ```{python}
@@ -657,6 +698,46 @@ FROM people
 WHERE deathdate IS NULL;
 ```
 *** =sct1
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().has_equal_ast()
+```
+
+*** =type2: NormalExercise
+*** =key2: 3c646ada88
+
+*** =instructions2
+Get the number of films which don't have a language associated with them.
+*** =solution2
+```{sql}
+SELECT count(title)
+FROM films
+WHERE language IS NULL;
+```
+*** =sct2
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='name', match='any')
+Ex().has_equal_ast()
+```
+
+*** =type3: NormalExercise
+*** =key3: 3c646ada89
+
+*** =instructions3
+Get the title of every film which doesn't have a budget associated with it.
+*** =solution3
+```{sql}
+SELECT title
+FROM films
+WHERE budget IS NULL;
+```
+*** =sct3
 ```{python}
 Ex().check_result()
 Ex().test_ncols()

@@ -451,7 +451,8 @@ Which station was started from the most?
 *** =solution1
 ```{sql}
 SELECT id as station_id, COUNT(id)
-FROM trips;
+FROM trips
+GROUP BY station_id;
 ```
 *** =sct1
 ```{python}
@@ -536,6 +537,7 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
+Ex().test_error()
 Ex().has_equal_ast()
 ```
 
