@@ -16,9 +16,10 @@ What types of data can be filtered using `WHERE`?
 - Numeric data
 - Textual data
 - Numeric and textual data
-- Date data
+- None of the above
 
 *** =hint
+It's not none of the above! 
 
 ```{python}
 connect('postgresql', 'films')
@@ -35,7 +36,7 @@ Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
-Practice using `WHERE`.
+Now it's your turn to practice using `WHERE`!
 
 *** =pre_exercise_code
 ```{python}
@@ -110,7 +111,7 @@ Ex().has_equal_ast()
 *** =key4: 2c87504f11
 
 *** =instructions4
-Get all movies with an R certification.
+Get details for all films with an R certification.
 *** =solution4
 ```{sql}
 SELECT *
@@ -127,8 +128,7 @@ Ex().has_equal_ast()
 
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34
 ## Simple filtering of numeric values
-
-Try using the `WHERE` clause to filter numeric values! 
+Now try using the `WHERE` clause to filter numeric values! 
 
 *** =pre_exercise_code
 ```{python}
@@ -164,7 +164,7 @@ Ex().has_equal_ast()
 *** =key2: f1ea8c68b9
 
 *** =instructions2
-Get all films released in 2016.
+Get details for all films released in 2016.
 *** =solution2
 ```{sql}
 SELECT *
@@ -462,7 +462,7 @@ Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
 ```
 --- type:BulletExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (a rock and a hard place)
-Now you can practice using `BETWEEN`!
+It's your turn to practice using `BETWEEN`!
 
 *** =pre_exercise_code
 ```{python}
@@ -481,7 +481,7 @@ ___ release_year ___ 1990 ___ 2000;
 *** =key1: 9252da136b
 
 *** =instructions1
-Get films released in the 90s.
+Get the title and release year of all films released in the 90s.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -522,7 +522,7 @@ Ex().has_equal_ast()
 *** =key3: d21a4bec02
 
 *** =instructions3
-Get the number of films made between 2000 and 2015 with budgets over $100 million.
+Get the title and budget of all films made between 2000 and 2015 with budgets over $100 million.
 *** =solution3
 ```{sql}
 SELECT title, budget
@@ -571,7 +571,7 @@ AND ___ > 120;
 *** =key1: dc7674d358
 
 *** =instructions1
-Get films released in  in 1990 or released in 2000 that were longer than two hours.
+Get the title and release year of all films released in 1990 or released in 2000 that were longer than two hours.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -580,6 +580,48 @@ WHERE release_year IN (1990, 2000)
 AND duration > 120;
 ```
 *** =sct1
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='title', match='any')
+Ex().test_column(name='release_year', match='any')
+Ex().has_equal_ast()
+```
+
+*** =type2: NormalExercise
+*** =key2: dc7674d358
+
+*** =instructions2
+Get the title and language of all films which were in English, Spanish or French. 
+*** =solution2
+```{sql}
+SELECT title, language
+FROM films
+WHERE language IN ('English', 'Spanish', 'French');
+```
+*** =sct2
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().test_column(name='title', match='any')
+Ex().test_column(name='release_year', match='any')
+Ex().has_equal_ast()
+```
+
+*** =type3: NormalExercise
+*** =key3: dc7674d358
+
+*** =instructions3
+Get the title and certification of all films with an NC-17 or R certification.
+*** =solution3
+```{sql}
+SELECT title, certification
+FROM films
+WHERE certification IN ('NC-17', 'R');
+```
+*** =sct3
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -755,7 +797,7 @@ There are two _wildcards_ you can use with `LIKE`: `%` and `_`.
 
 The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind` and so on.
 
-The `_` wildcard will match a single character. For example, if you filtered with `DataC_amp` you could match `DataCamp` and `DataComp`, and so on.
+The `_` wildcard will match a single character. For example, if you filtered with `DataC_amp` you would match `DataCamp` and `DataComp`, and so on.
 
 *** =pre_exercise_code
 ```{python}

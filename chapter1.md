@@ -21,11 +21,12 @@ In a table called `people`, each record represents which of the following?
 - A single person
 
 *** =hint
+Think about what one entity in the `people` table represents.
 
 *** =sct
 ```{python}
-msg1 = "Incorrect, that's a column!"
-msg2 = "Sorry, that's a table!"
+msg1 = "Incorrect, a single attribute about people would be a column!"
+msg2 = "Sorry, that would be a table!"
 success_msg = "Correct! In a database table, each record contains information on exactly one entity."
 
 Ex().test_mc(3, [msg1, msg2, success_msg])
@@ -52,7 +53,7 @@ select name
 from people;
 ```
 
-That said, it's good practice to capitalize SQL keywords to help distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement — this tells SQL where the end of your query is.
+That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement — this tells SQL where the end of your query is.
 
 *** =pre_exercise_code
 ```{python}
@@ -296,7 +297,7 @@ Ex().check_result()
 *** =key3: 26835d3029
 
 *** =instructions3
-Get the different types of film `roles`.
+Get the different types of film roles.
 *** =solution3
 ```{sql}
 SELECT DISTINCT role
@@ -473,7 +474,18 @@ Ex().has_equal_ast()
 --- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 
-Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. For example, `SELECT AVG(budget) FROM films;` would give you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
+Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. 
+
+For example, 
+
+```
+SELECT AVG(budget) 
+FROM films;
+``` 
+
+gives you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. 
+
+The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
 
 *** =pre_exercise_code
 ```{python}
@@ -584,7 +596,14 @@ Ex().has_equal_ast()
 --- type:BulletExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS aliasing
 
-In SQL, the `AS` keyword allows us to specify an _alias_ (temporary name) for a column in the result set. For example, `SELECT COUNT(title) AS title_count FROM films;` will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable.
+In SQL, the `AS` keyword allows you to specify an _alias_ (temporary name) for a column in the result set. For example, 
+
+```
+SELECT COUNT(title) AS title_count 
+FROM films;
+```
+
+will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable!
 
 *** =pre_exercise_code
 ```{python}
