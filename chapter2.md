@@ -9,7 +9,15 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
-In SQL, the `WHERE` keyword allows you to filter  both text and numeric records based on certain conditions. For example, `SELECT title FROM films WHERE release_year > 2000;` will give you the names of all the films released since the year 2000. 
+In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. For example, 
+
+```
+SELECT title 
+FROM films 
+WHERE release_year > 2000;
+```
+
+gives you the titles of all films released since the year 2000. 
 
 What types of data can be filtered using `WHERE`?
 *** =instructions
@@ -28,9 +36,11 @@ connect('postgresql', 'films')
 *** =sct
 ```{python}
 success_msg = "Correct! `WHERE` can be used to filter on both numeric and textual data."
-msg2 = "Incorrect."
+msg2 = "Incorrect. `WHERE` can be used with more than just numeric data!"
+msg3 = "Incorrect. `WHERE` can be used with more than just textual data!"
+msg4 = "Incorrect, it's not one of the above!"
 
-Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
+Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
@@ -63,15 +73,27 @@ WHERE language = 'French';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Check your `WHERE` clause!')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting the right columns?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    star,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
 *** =key2: 051f6fb8ec
 
 *** =instructions2
-Get the name of the person born on November 11th, 1974.
+Get the name and birth date of the person born on November 11th, 1974.
 *** =solution2
 ```{sql}
 SELECT name, birthdate
@@ -80,12 +102,11 @@ WHERE birthdate = '1974-11-11';
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().test_column(name='birthdate', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 ```
 
 *** =type3: NormalExercise
@@ -101,17 +122,27 @@ WHERE language = 'Hindi';
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    from_clause, 
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
 *** =key4: 2c87504f11
 
 *** =instructions4
-Get details for all films with an R certification.
+Get all details for all films with an R certification.
 *** =solution4
 ```{sql}
 SELECT *
@@ -120,10 +151,20 @@ WHERE certification = 'R';
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star, 
+    from_clause, 
+    where_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34
@@ -146,7 +187,7 @@ ___ release_year = ___;
 *** =key1: 8a4615ada8
 
 *** =instructions1
-Get all films released in 2016.
+Get all details for all films released in 2016.
 
 *** =solution1
 ```{sql}
@@ -156,8 +197,20 @@ WHERE release_year = 2016;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star, 
+    from_clause, 
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -173,10 +226,20 @@ WHERE release_year = 2016;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star, 
+    from_clause, 
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -192,10 +255,20 @@ WHERE release_year < 2000;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    from_clause, 
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
@@ -211,12 +284,18 @@ WHERE release_year > 2000;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    from_clause, 
+    where_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
@@ -251,12 +330,20 @@ AND language = 'Spanish';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+left = sel.check_field('where_clause').check_node('BinaryExpr').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+
+right = sel.check_field('where_clause').check_node('BinaryExpr').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    left, 
+    right,
+    test_correct()
+])
 ```
 
 *** =type2: NormalExercise
@@ -273,10 +360,22 @@ AND language = 'Spanish';
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+left = sel.check_field('where_clause').check_node('BinaryExpr').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+
+right = sel.check_field('where_clause').check_node('BinaryExpr').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    left, 
+    right,
+    test_correct()
+])
 ```
 
 *** =type3: NormalExercise
@@ -293,10 +392,13 @@ AND country = 'France';
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
@@ -590,7 +692,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 500a07a19a
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -611,7 +713,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: df4cc6e9d4
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
