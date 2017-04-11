@@ -874,7 +874,7 @@ alias = test_column('percentage_dead', match='exact')
 
 alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the percentage of dead people correctly?')
 
-count_call = sel.check_node('AliasExpr').check_node('binaryExpr').check_field('left').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -922,7 +922,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('difference', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('IgnoreExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the difference correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the difference correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
@@ -951,7 +951,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('number_of_decades', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('IgnoreExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the number of decades correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the number of decades correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
@@ -980,7 +980,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('duration_hours', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('IgnoreExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
