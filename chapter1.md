@@ -84,8 +84,8 @@ title = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `t
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    title, 
     from_clause,
+    title, 
     test_error()
 ])
 ```
@@ -189,9 +189,9 @@ release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     title,
     release_year,
-    from_clause,
     test_error()
 ])
 ```
@@ -219,10 +219,10 @@ country = sel.check_node('Identifier', 2).has_equal_ast('Have you selected the `
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     title,
     release_year,
     country,
-    from_clause,
     test_error()
 ])
 ```
@@ -242,11 +242,11 @@ sel = check_node('SelectStmt')
 
 name = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `name` column correctly?')
 
-birthdate = sel.check_node('Identifier', 2).has_equal_ast('Have you selected the `birthdate` column correctly?')
+birthdate = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `birthdate` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-Ex().test_correct('check_result(), [
+Ex().test_correct(check_result(), [
     name,
     birthdate, 
     from_clause,
@@ -320,12 +320,17 @@ distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTI
 language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `language` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    distinct, 
+    language,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
-
 *** =key2: 2cb9a4bf6a
-
 *** =instructions2
 Get all the different film certifications.
 *** =solution2
