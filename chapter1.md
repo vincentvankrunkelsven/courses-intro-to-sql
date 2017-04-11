@@ -231,6 +231,7 @@ Ex().test_correct(check_result(), [
 *** =key3: eeba078a00
 *** =instructions3
 Get every person's name and date of birth.
+
 *** =solution3
 ```{sql}
 SELECT name, birthdate
@@ -251,7 +252,7 @@ Ex().test_correct(check_result(), [
     birthdate, 
     from_clause,
     test_error()
-]
+])
 ```
 
 *** =type4: NormalExercise
@@ -272,8 +273,8 @@ star = sel.check_node('Star').has_equal_ast('Have you used `*` in your `SELECT` 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    star,
     from_clause,
+    star,
     test_error()
 ])
 ```
@@ -322,9 +323,9 @@ language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `la
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
     distinct, 
     language,
+    from_clause, 
     test_error()
 ])
 ```
