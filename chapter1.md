@@ -186,7 +186,7 @@ title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `ti
 
 release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `release_year` column correctly?')
 
-from_clause = sel.check_field('from_clause').has_equal_ast('HIs your `FROM` cause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
 Ex().test_correct(check_result(), [
     title,
@@ -216,7 +216,7 @@ release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected 
 
 country = sel.check_node('Identifier', 2).has_equal_ast('Have you selected the `country` column correctly?')
 
-from_clause = sel.check_field('from_clause').has_equal_ast('HIs your `FROM` cause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
 Ex().test_correct(check_result(), [
     title,
@@ -269,7 +269,7 @@ sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Have you used `*` in your `SELECT` statement?')
 
-from_clause = sel.check_field('people').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     star,
