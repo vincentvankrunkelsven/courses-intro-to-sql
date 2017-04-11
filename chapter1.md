@@ -341,18 +341,27 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().test_column(name='certification', match='any')
-Ex().check_result()
-# select = Ex().check_node('select', 0)
-# select.test_student_typed('distinct')
+sel = check_node('SelectStmt')
+
+distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
+
+certification = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `certification` column correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    distinct, 
+    certification,
+    from_clause, 
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
-
 *** =key3: 26835d3029
-
 *** =instructions3
 Get the different types of film roles.
+
 *** =solution3
 ```{sql}
 SELECT DISTINCT role
@@ -360,10 +369,20 @@ FROM roles;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='role', match='any')
+sel = check_node('SelectStmt')
+
+distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
+
+role = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `role` column correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    distinct, 
+    role,
+    from_clause, 
+    test_error()
+])
 ```
 
 --- type:MultipleChoiceExercise lang:sql xp:50 key:97f97f5766
@@ -442,10 +461,16 @@ FROM people;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    count
+])
 ```
 
 *** =type2: NormalExercise
@@ -459,10 +484,16 @@ FROM people;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    count
+])
 ```
 
 *** =type3: NormalExercise
@@ -478,10 +509,16 @@ FROM people;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    count
+])
 ```
 
 *** =type4: NormalExercise
@@ -497,10 +534,16 @@ FROM films;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    count
+])
 ```
 
 *** =type5: NormalExercise
@@ -516,10 +559,16 @@ FROM films;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    count
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:5260bda57a
@@ -562,10 +611,18 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+
+sum_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `SUM` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    sum_call, 
+    sel,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -581,10 +638,18 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+
+avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    avg_call, 
+    sel,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -600,10 +665,18 @@ FROM films;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+
+min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    min_call, 
+    sel,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
@@ -619,18 +692,25 @@ FROM films;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+
+max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    max_call, 
+    sel,
+    test_error()
+])
 ```
 
 *** =type5: NormalExercise
-
 *** =key5: e14c21bc81
-
 *** =instructions5
 Get the amount made by the lowest grossing film.
+
 *** =solution5
 ```{sql}
 SELECT MIN(gross)
@@ -638,10 +718,18 @@ FROM films;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+
+min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    min_call, 
+    sel,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:6db52132a0
@@ -663,8 +751,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___ - ___
-AS profit_or_loss
+SELECT ___, ___ - ___ AS profit_or_loss
 FROM films;
 ```
 
@@ -676,24 +763,30 @@ FROM films;
 Get the profit (or loss) for each movie, where possible.
 *** =solution1
 ```{sql}
-SELECT title, gross - budget
-AS profit_or_loss
+SELECT title, gross - budget AS profit_or_loss
 FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='profit_or_loss', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('profit_or_loss', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the profit or loss correctly?')
+
+Ex().test_correct(check_result(), [
+    alias_eqn, 
+    alias,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
 *** =key2: 1351c6f6bb
 
 *** =instructions2
-Get the duration in hours for each film.
+Get the title and duration in hours for each film. The duration in hours should be aliased as `duration_hours`.
+
 *** =solution2
 ```{sql}
 SELECT title, duration / 60.0
@@ -702,35 +795,47 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_hours', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('duration_hours', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
+
+Ex().test_correct(check_result(), [
+    alias_eqn, 
+    alias,
+    test_error()
+])
 ```
 
 
 *** =type3: NormalExercise
-
 *** =key3: 497f8d2a8a
-
-*** =key3: 6e1e07d9f8
-
 *** =instructions3
-Get the average film duration in hours.
+Get the title and average film duration in hours. Alias the duration in hours as `avg_duration_in_hours`.
+
 *** =solution3
 ```{sql}
 SELECT AVG(duration) / 60.0
-AS duration_hours  
+AS avg_duration_hours  
 FROM films;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_hours', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('avg_duration_hours', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the average duration in hours correctly?')
+
+avg_call = sel.check_node('AliasExpr').check_field('left').has_equal_ast('Are you calling `AVG` correctly?')
+
+Ex().test_correct(check_result(), [
+    avg_call,
+    alias_eqn, 
+    alias,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:8612897f35
@@ -745,7 +850,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT COUNT(___) * 100 / COUNT(___)
+SELECT (COUNT(___) * 100 / COUNT(___))
 AS percentage_dead
 FROM people;
 ```
@@ -754,7 +859,7 @@ FROM people;
 *** =key1: e14dc7c1a2
 
 *** =instructions1
-Get the percentage of people who have died.
+Get the percentage of people who have died. Alias the result as `percentage_dead`.
 *** =solution1
 ```{sql}
 SELECT COUNT(deathdate) * 100 / COUNT(*)
@@ -763,18 +868,30 @@ FROM people;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='percentage_dead', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('percentage_dead', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the percentage of dead people correctly?')
+
+count_call = sel.check_node('AliasExpr').check_node('binaryExpr').check_field('left').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    alias_eqn,
+    alias, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
 *** =key2: 5a50009c41
 
 *** =instructions2
-Check if there's an even number of unique languages. (0 = yes, 1 = no)
+Check if there's an even number of unique languages. (0 = yes, 1 = no). Alias the result as `result`.
 *** =solution2
 ```{sql}
 SELECT COUNT(DISTINCT language) % 2
@@ -783,19 +900,14 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='result', match='exact')
-Ex().has_equal_ast()
+# can't check modulo on sqlwhat yet
 ```
 
 *** =type3: NormalExercise
-
 *** =key3: c2bbd9a806
-
 *** =instructions3
-Get the of years between the oldest film and newest film.
+Get the of years between the oldest film and newest film. Alias the result as `difference`.
+
 *** =solution3
 ```{sql}
 SELECT MAX(release_year) - MIN(release_year)
@@ -804,18 +916,27 @@ FROM films;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='difference', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+alias = test_column('difference', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('IgnoreExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the difference correctly?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    alias_eqn, 
+    alias
+])
+
 ```
 
 *** =type4: NormalExercise
 *** =key4: f272486b68
 
 *** =instructions4
-Get the number of decades this dataset covers.
+Get the number of decades this dataset covers. Alias the result as `number_of_decades`.
 *** =solution4
 ```{sql}
 SELECT (MAX(release_year) - MIN(release_year)) / 10
@@ -824,11 +945,19 @@ FROM films;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='number_of_decades', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+alias = test_column('number_of_decades', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('IgnoreExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the number of decades correctly?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    alias_eqn, 
+    alias
+])
 ```
 
 *** =type5: NormalExercise
@@ -836,7 +965,8 @@ Ex().has_equal_ast()
 *** =key5: 52d3616e78
 
 *** =instructions5
-Get the duration in hours for each film.
+Get the duration in hours for each film. Alias the duration in hours as `duration_hours`.
+
 *** =solution5
 ```{sql}
 SELECT title, duration / 60.0 AS duration_hours
@@ -844,9 +974,17 @@ FROM films;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_hours', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+alias = test_column('duration_hours', match='exact')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('IgnoreExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
+
+Ex().test_correct(check_result(), [
+    from_clause, 
+    alias_eqn, 
+    alias
+])
 ```
