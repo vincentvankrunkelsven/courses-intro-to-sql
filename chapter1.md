@@ -67,9 +67,7 @@ FROM films;
 ```
 
 *** =type1: NormalExercise
-
 *** =key1: a41cc766d5
-
 *** =instructions1
 Get the `title` of every film in the `films` table.
 *** =solution1
@@ -79,16 +77,24 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().test_column(name='title', match='any')
-Ex().check_result()
+sel = check_node('SelectStmt')
+
+title = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `title` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    title, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
-
 *** =key2: 4a74270ecd
-
 *** =instructions2
 Modify your query to return the `release_year` for every film.
+
 *** =solution2
 ```{sql}
 SELECT release_year
@@ -96,20 +102,24 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-# todo: need to update?
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+release_year = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    release_year, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
-
-
 *** =key3: 323bd5ddf5
-
 *** =instructions3
 Get the `name` of all `people` involved in the films.
+
 *** =solution3
 ```{sql}
 SELECT name
@@ -117,8 +127,17 @@ FROM people;
 ```
 *** =sct3
 ```{python}
-Ex().test_column(name='name', match='any')
-Ex().check_result()
+sel = check_node('SelectStmt')
+
+name = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    name, 
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:09f21bae4c
@@ -150,11 +169,10 @@ FROM ___;
 ```
 
 *** =type1: NormalExercise
-
 *** =key1: d561b4df97
-
 *** =instructions1
 Get the title and release year of every film.
+
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -162,20 +180,27 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
+sel = check_node('SelectStmt')
+
+title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
+
+release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `release_year` column correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('HIs your `FROM` cause correct?')
+
+Ex().test_correct(check_result(), [
+    title,
+    release_year,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
-
-
 *** =key2: 917d7dc533
-
 *** =instructions2
 Get the title, release year and country for every film.
+
 *** =solution2
 ```{sql}
 SELECT title, release_year, country
@@ -183,18 +208,27 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='country', match='any')
+sel = check_node('SelectStmt')
+
+title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
+
+release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `release_year` column correctly?')
+
+country = sel.check_node('Identifier', 2).has_equal_ast('Have you selected the `country` column correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('HIs your `FROM` cause correct?')
+
+Ex().test_correct(check_result(), [
+    title,
+    release_year,
+    country,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
-
 *** =key3: eeba078a00
-
 *** =instructions3
 Get every person's name and date of birth.
 *** =solution3
@@ -204,17 +238,24 @@ FROM people;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().test_column(name='birthdate', match='any')
+sel = check_node('SelectStmt')
+
+name = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `name` column correctly?')
+
+birthdate = sel.check_node('Identifier', 2).has_equal_ast('Have you selected the `birthdate` column correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct('check_result(), [
+    name,
+    birthdate, 
+    from_clause,
+    test_error()
+]
 ```
 
 *** =type4: NormalExercise
-
 *** =key4: dac27d9aad
-
 *** =instructions4
 Return all columns from the `people` table.
 *** =solution4
@@ -224,11 +265,17 @@ FROM people;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().test_column(name='deathdate', match='any')
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Have you used `*` in your `SELECT` statement?')
+
+from_clause = sel.check_field('people').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star,
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:de52236965
@@ -255,11 +302,10 @@ FROM ___;
 ```
 
 *** =type1: NormalExercise
-
 *** =key1: e6b81711f1
-
 *** =instructions1
 Get all unique countries represented in the `films` table.
+
 *** =solution1
 ```{sql}
 SELECT DISTINCT country
@@ -267,10 +313,13 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_column(name='country', match='any')
-# select = Ex().check_node('select', 0)
-# select.test_student_typed('distinct')
+sel = check_node('SelectStmt')
+
+distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
+
+language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `language` column correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 ```
 
 *** =type2: NormalExercise
@@ -377,9 +426,7 @@ FROM ___;
 ```
 
 *** =type1: NormalExercise
-
 *** =key1: 4688067e3e
-
 *** =instructions1
 Count the number of rows in the `people` table.
 *** =solution1
@@ -396,9 +443,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-
 *** =key2: 497ffa962e
-
 *** =instructions2
 Count the number of non-missing birth dates in the `people` table.
 *** =solution2
@@ -700,10 +745,7 @@ FROM people;
 ```
 
 *** =type1: NormalExercise
-
 *** =key1: e14dc7c1a2
-
-*** =key1: d8393df397
 
 *** =instructions1
 Get the percentage of people who have died.
@@ -764,7 +806,6 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-
 *** =key4: f272486b68
 
 *** =instructions4
