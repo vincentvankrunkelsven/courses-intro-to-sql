@@ -7,44 +7,91 @@ description: >-
   York City in 2015, along with the stations the bikes belong to, and daily
   weather metrics recorded from Central Park during the same time period.
 
-
---- type:MultipleChoiceExercise lang:sql xp:50 key:8e3524960e
+--- type:TabExercise lang:sql key:0dbcee0148
 ## Get to know your data
+Wow, you've come a long way! Congrats on making it this far.
 
-A good data scientist needs to have an intuitive sense of the data they're working with. 
+Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
 
-How many rows does the `trips` table have?
+Before you take on the job, you should get a feel for the data you'll be working with. 
 
-*** =instructions
+__these questions need to be in each MCE tab__
+
+- How many trips were made in total?
+- How many stations are there?
+- How many days of the year does the `weather` table cover?
+
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+```
+
+*** =type1: MultipleChoiceExercise
+*** =key1: 96f73c1255
+
+*** =instructions1
 - 26,259,032
 - 19,937,968
 - 5,126
 - 9,937,968
 
-*** =hint
-
-*** =pre_exercise_code
+*** =sct1
 ```{python}
-connect('postgresql', 'films')
+success_msg = "Correct!"
+msg2 = "Incorrect."
+
+Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 ```
 
-*** =sct
+*** =type2: MultipleChoiceExercise
+*** =key2: 36239dc2bb
+
+*** =instructions2
+- 498
+- 562
+- 892
+- 365
+
+*** =sct2
 ```{python}
-success_msg = 'Correct!
-msg2 = 'Incorrect.'
+success_msg = "Correct!"
+msg2 = "Incorrect."
+
+Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
+```
+
+*** =type3: MultipleChoiceExercise
+*** =key3: 0c3fd16aad
+
+*** =instructions3
+- 360
+- 362
+- 730
+- 365
+
+*** =sct3
+```{python}
+success_msg = "Correct!"
+msg2 = "Incorrect."
 
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:feae971647
-## Know your LIMITs
+--- type:BulletExercise lang:sql xp:100 key:dce32a0d9a
+## The sky's the LIMIT
 
-- Selecting from the different tables, but using LIMIT
-- Counts
+By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
+
+The mayor wants that report on his desk soon though and you don't have time to wait around! 
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -55,10 +102,10 @@ ___ ___;
 ```
 
 *** =type1: NormalExercise
-*** =key1: 96f73c1255
+*** =key1: 0f8c208095
 
 *** =instructions1
-Use LIMIT to display only the top 10 results.
+Display only the top 10 results from the `trips` table.
 *** =solution1
 ```{sql}
 SELECT *
@@ -96,7 +143,7 @@ Ex().has_equal_ast()
 *** =key3: b5d489ca53
 
 *** =instructions3
-
+How many different trips were made?
 *** =solution3
 ```{sql}
 SELECT COUNT(DISTINCT id)
@@ -109,15 +156,13 @@ Ex().test_ncols()
 Ex().test_nrows()
 Ex().has_equal_ast()
 ```
-
---- type:BulletExercise lang:sql xp:100 key:5f834c6a08
+--- type:BulletExercise lang:sql xp:100 key:cfd546a48c
 ## Make your way around (the dataset)
-
-Getting MIN, MAX, AVG
+The mayor wants to know some stats about trip durations, to see if people prefer to take long or short trips using CitiBike. 
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -218,14 +263,13 @@ Ex().test_column(name='duration_days', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:BulletExercise lang:sql xp:100 key:48b9934c8f
-## Filtering
-
-Filtering based on various criteria
+--- type:BulletExercise lang:sql xp:100 key:27b5196db3
+## Weather questions
+The mayor is interested in discovering whether the weather has a large effect on whether people use CitiBike bikes.
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -256,7 +300,7 @@ Ex().has_equal_ast()
 *** =key2: 5731e34718
 
 *** =instructions2
-How many days do we not have data for?
+How many days is there no data for?
 *** =solution2
 ```{sql}
 SELECT COUNT(*)
@@ -271,14 +315,52 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
---- type:BulletExercise lang:sql xp:100 key:aadfa696e6
-## Weather
+*** =type3: NormalExercise
+*** =key3: 9c99a7f9fb
 
-Some weather related questions
+*** =instructions3
+How many days was it cloudy?
+*** =solution3
+```{sql}
+SELECT COUNT(*)
+FROM weather
+WHERE cloud_cover = 0 OR cloud_cover IS NULL;
+```
+
+*** =sct3
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
+*** =type4: NormalExercise
+*** =key4: b7d224f4d9
+
+*** =instructions4
+How many days did it snow?
+*** =solution4
+```{sql}
+SELECT COUNT(*)
+FROM weather
+WHERE events LIKE '%Snow';
+```
+*** =sct4
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
+--- type:BulletExercise lang:sql xp:100 key:69853cbb54
+## Weather questions (2)
+From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits. 
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -287,15 +369,15 @@ connect('postgresql', 'films')
 ```
 
 *** =type1: NormalExercise
-*** =key1: 9c99a7f9fb
+*** =key1: ad332fc611
 
 *** =instructions1
-How many days was it cloudy?
+How many days did it rain? (All variants).
 *** =solution1
 ```{sql}
-SELECT COUNT(*)
+SELECT *
 FROM weather
-WHERE cloud_cover = 0 OR cloud_cover IS NULL;
+WHERE events LIKE '%Rain';
 ```
 *** =sct1
 ```{python}
@@ -306,15 +388,15 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: b7d224f4d9
+*** =key2: 8d1138ca7a
 
 *** =instructions2
-How many days did it snow?
+How many days was cloud cover greater than 5?
 *** =solution2
 ```{sql}
 SELECT COUNT(*)
 FROM weather
-WHERE events LIKE '%Snow';
+WHERE cloud_cover > 5;
 ```
 *** =sct2
 ```{python}
@@ -325,15 +407,15 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: ad332fc611
+*** =key3: 3ec14beb5f
 
 *** =instructions3
-How many days did it rain? (All variants).
+How many days did it rain more than 0.5 inches?
 *** =solution3
 ```{sql}
-SELECT *
+SELECT COUNT(*)
 FROM weather
-WHERE events LIKE '%Rain';
+WHERE precipitation_in > 0.5;
 ```
 *** =sct3
 ```{python}
@@ -344,55 +426,17 @@ Ex().has_equal_ast()
 ```
 
 *** =type4: NormalExercise
-*** =key4: 8d1138ca7a
+*** =key4: 275308669c
 
 *** =instructions4
-How many days was cloud cover greater than 5?
-*** =solution4
-```{sql}
-SELECT COUNT(*)
-FROM weather
-WHERE cloud_cover > 5;
-```
-*** =sct4
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type5: NormalExercise
-*** =key5: 3ec14beb5f
-
-*** =instructions5
-How many days did it rain more than 0.5 inches?
-*** =solution5
-```{sql}
-SELECT COUNT(*)
-FROM weather
-WHERE precipitation_in > 0.5;
-```
-*** =sct5
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type6: NormalExercise
-*** =key6: 275308669c
-
-*** =instructions6
 What was the average mean temperature for the year?
-*** =solution6
+*** =solution4
 ```{sql}
 SELECT AVG(mean_temp_f)
 AS avg_mean_temp
 FROM weather;
 ```
-*** =sct6
+*** =sct4
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -401,14 +445,15 @@ Ex().test_column(name='avg_mean_temp', match='exact')
 Ex().has_equal_ast()
 ```
 
---- type:BulletExercise lang:sql xp:100 key:f222b67a81
-## Stations
 
-Some questions related to stations
+
+--- type:BulletExercise lang:sql xp:100 key:c3a36ee3f0
+## Stations
+The mayor wants to know which stations are the most popular.
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -417,55 +462,59 @@ connect('postgresql', 'films')
 ```
 
 *** =type1: NormalExercise
-*** =key1: 605066b226
+*** =key1: db6d8198da
 
 *** =instructions1
-Are there any days on which no trips were made?
+Which station was started from the most?
 *** =solution1
 ```{sql}
-SELECT *
+SELECT id as station_id, COUNT(id)
 FROM trips
-WHERE id IS NULL;
+GROUP BY station_id;
 ```
 *** =sct1
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
+Ex().test_column(name='station_id', match='exact')
+# should also check count col here, without alias
 Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: db6d8198da
+*** =key2: 96d9e8384e
 
 *** =instructions2
-Which station was started from the most?
+What were the top ten most popular stations to start from?
 *** =solution2
 ```{sql}
-SELECT station_id, COUNT(station_id)
-FROM trips;
+SELECT start_station_id, COUNT(start_station_id)
+FROM trips
+GROUP BY start_station_id
+ORDER BY count DESC
+LIMIT 10;
 ```
 *** =sct2
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
-Ex().test_column(name='station_id', match='any')
-# should also check count col here, without alias
+Ex().test_column(name='start_station_id', match='any')
 Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 96d9e8384e
+*** =key3: b235a96d86
 
 *** =instructions3
-What were the top ten most popular stations to start from?
+What were the top ten least popular stations to start from?
 *** =solution3
 ```{sql}
 SELECT start_station_id, COUNT(start_station_id)
 FROM trips
 GROUP BY start_station_id
-ORDER BY count DESC
+ORDER BY count
 LIMIT 10;
 ```
 *** =sct3
@@ -477,36 +526,13 @@ Ex().test_column(name='start_station_id', match='any')
 Ex().has_equal_ast()
 ```
 
-*** =type4: NormalExercise
-*** =key4: b235a96d86
-
-*** =instructions4
-What were the top ten least popular stations to start from?
-*** =solution4
-```{sql}
-SELECT start_station_id, COUNT(start_station_id)
-FROM trips
-GROUP BY start_station_id
-ORDER BY count
-LIMIT 10;
-```
-*** =sct4
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='start_station_id', match='any')
-Ex().has_equal_ast()
-```
-
---- type:BulletExercise lang:sql xp:100 key:6bda1c10dc
+--- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
 ## Times
-
-Some time related questions - e.g. most popular days to go cycling, etc.
+The mayor is planning a publicity stunt, and wants to wants to know about how CitiBike usage changes depending on the time of the year. 
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'nycbikes15')
 ```
 
 *** =sample_code
@@ -529,10 +555,7 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='start_date', match='any')
+Ex().test_error()
 Ex().has_equal_ast()
 ```
 
@@ -549,8 +572,26 @@ WHERE start_date = '2015-12-25';
 ```
 *** =sct2
 ```{python}
+Ex().has_equal_ast()
+```
+
+
+*** =type3: NormalExercise
+*** =key3: 605066b226
+
+*** =instructions3
+Are there any days on which no trips were made?
+*** =solution3
+```{sql}
+SELECT *
+FROM trips
+WHERE id IS NULL;
+```
+*** =sct3
+```{python}
 Ex().check_result()
 Ex().test_ncols()
 Ex().test_nrows()
 Ex().has_equal_ast()
 ```
+
