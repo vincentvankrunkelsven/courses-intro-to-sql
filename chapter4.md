@@ -13,7 +13,7 @@ Wow, you've come a long way! Congrats on making it this far.
 
 Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
 
-Before you can take on the job, you should get a feel for the data you'll be working with. 
+Before you take on the job, you should get a feel for the data you'll be working with. 
 
 __these questions need to be in each MCE tab__
 
@@ -264,7 +264,7 @@ Ex().has_equal_ast()
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:27b5196db3
-## Weather questions I
+## Weather questions
 The mayor is interested in discovering whether the weather has a large effect on whether people use CitiBike bikes.
 
 *** =pre_exercise_code
@@ -355,7 +355,7 @@ Ex().has_equal_ast()
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:69853cbb54
-## Weather questions II
+## Weather questions (2)
 From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits. 
 
 *** =pre_exercise_code
