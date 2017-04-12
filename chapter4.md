@@ -15,7 +15,7 @@ Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you t
 
 Before you take on the job, you should get a feel for the data you'll be working with. 
 
-__these questions need to be in each MCE tab__
+**these questions need to be in each MCE tab - can we do that?**
 
 - How many trips were made in total?
 - How many stations are there?
@@ -114,10 +114,13 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Have you selected all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+limit_clause = sel.check_field('limit_clause').has_equal_ast('Is your `LIMIT` clause correct?')
 ```
 
 *** =type2: NormalExercise
@@ -132,10 +135,20 @@ FROM trips;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.chck_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    distinct,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -151,10 +164,20 @@ FROM trips;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.chck_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    distinct,
+    from_clause,
+    test_error()
+])
 ```
 --- type:BulletExercise lang:sql xp:100 key:cfd546a48c
 ## Make your way around (the dataset)
@@ -181,10 +204,17 @@ FROM trips;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    max_call, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -199,10 +229,17 @@ FROM trips;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    min_call, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -217,10 +254,17 @@ FROM trips;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
