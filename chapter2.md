@@ -920,16 +920,27 @@ AND duration > 120;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+in_op = where_clause.check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+
+and_op = where_clause.check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    and_op, 
+    in_op,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
-*** =key2: 9067603429
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -941,16 +952,24 @@ WHERE language IN ('English', 'Spanish', 'French');
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+in_op = where_clause.check_field('arr', 1').has_equal_ast('Are you using `IN` correctly?')
+
+Ex().test_correct(check_result(), [
+    in_op,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
-*** =key3: 1f90d7b2df
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
@@ -962,12 +981,19 @@ WHERE certification IN ('NC-17', 'R');
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+in_op = where_clause.check_field('arr', 1').has_equal_ast('Are you using `IN` correctly?')
+
+Ex().test_correct(check_result(), [
+    in_op,
+    from_clause,
+    where_clause,
+    test_error()
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
@@ -1040,11 +1066,17 @@ WHERE deathdate IS NULL;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
+
+Ex().test_correct(check_result(), []
+    where_clause,
+    from_clause,
+    test_error()
+)
 ```
 
 *** =type2: NormalExercise
@@ -1054,17 +1086,27 @@ Ex().has_equal_ast()
 Get the number of films which don't have a language associated with them.
 *** =solution2
 ```{sql}
-SELECT count(title)
+SELECT COUNT(title)
 FROM films
 WHERE language IS NULL;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
+
+Ex().test_correct([
+    where_clause,
+    count_call,
+    from_clause,
+    test_error()
+])
+
 ```
 
 *** =type3: NormalExercise
@@ -1080,11 +1122,17 @@ WHERE budget IS NULL;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
+
+Ex().test_correct([
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:84411d78ac
@@ -1149,11 +1197,17 @@ WHERE name LIKE '_r%';
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -1169,9 +1223,15 @@ WHERE name NOT LIKE 'A%';
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
