@@ -271,7 +271,7 @@ Ex().test_correct(check_result(), [
 *** =key4: 100be72761
 
 *** =instructions4
-How long was the average trip, in minutes?
+How long was the average trip, in minutes? Alias your result as `duration_minutes`.
 *** =solution4
 ```{sql}
 SELECT AVG(duration) / 60
@@ -280,18 +280,27 @@ FROM trips;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_minutes', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('duration_minutes', match='exact')
+
+avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call, 
+    from_clause,
+    alias,
+    test_error()
+])
 ```
 
 *** =type5: NormalExercise
 *** =key5: 08622b2318
 
 *** =instructions5
-How much time total was spent on trips, in days?
+How much time total was spent on trips, in days? Alias your result as `duration_days`.
 *** =solution5
 ```{sql}
 SELECT SUM(duration) / 60 / 60 / 24
@@ -300,11 +309,7 @@ FROM trips;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_days', match='exact')
-Ex().has_equal_ast()
+
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:27b5196db3

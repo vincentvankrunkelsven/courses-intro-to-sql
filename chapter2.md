@@ -940,7 +940,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 0b8c543a4e
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -969,7 +969,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 27fc0d1265
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
@@ -994,6 +994,7 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
     test_error()
+])
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
@@ -1072,11 +1073,11 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
 
-Ex().test_correct(check_result(), []
+Ex().test_correct(check_result(), [
     where_clause,
     from_clause,
     test_error()
-)
+])
 ```
 
 *** =type2: NormalExercise
