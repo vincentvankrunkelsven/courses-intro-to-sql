@@ -163,7 +163,7 @@ sel = check_node('SelectStmt')
 
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_node('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 in_op = where_clause.check_field('arr', 1).has_equal_ast('Is your `IN` operation correct?')
 
@@ -245,7 +245,7 @@ ORDER BY imdb_score DESC;
 ```{python}
 sel = check_node('SelectStmt')
 
-from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
