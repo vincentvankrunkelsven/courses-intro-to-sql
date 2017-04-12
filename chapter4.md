@@ -15,7 +15,7 @@ Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you t
 
 Before you take on the job, you should get a feel for the data you'll be working with. 
 
-__these questions need to be in each MCE tab__
+**these questions need to be in each MCE tab - can we do that?**
 
 - How many trips were made in total?
 - How many stations are there?
@@ -114,10 +114,13 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Have you selected all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+limit_clause = sel.check_field('limit_clause').has_equal_ast('Is your `LIMIT` clause correct?')
 ```
 
 *** =type2: NormalExercise
@@ -132,10 +135,20 @@ FROM trips;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.chck_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    distinct,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -151,10 +164,20 @@ FROM trips;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.chck_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    distinct,
+    from_clause,
+    test_error()
+])
 ```
 --- type:BulletExercise lang:sql xp:100 key:cfd546a48c
 ## Make your way around (the dataset)
@@ -181,10 +204,17 @@ FROM trips;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    max_call, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -199,10 +229,17 @@ FROM trips;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    min_call, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -217,17 +254,24 @@ FROM trips;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call, 
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
 *** =key4: 100be72761
 
 *** =instructions4
-How long was the average trip, in minutes?
+How long was the average trip, in minutes? Alias your result as `duration_minutes`.
 *** =solution4
 ```{sql}
 SELECT AVG(duration) / 60
@@ -236,18 +280,27 @@ FROM trips;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_minutes', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('duration_minutes', match='exact')
+
+avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call, 
+    from_clause,
+    alias,
+    test_error()
+])
 ```
 
 *** =type5: NormalExercise
 *** =key5: 08622b2318
 
 *** =instructions5
-How much time total was spent on trips, in days?
+How much time total was spent on trips, in days? Alias your result as `duration_days`.
 *** =solution5
 ```{sql}
 SELECT SUM(duration) / 60 / 60 / 24
@@ -256,11 +309,29 @@ FROM trips;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='duration_days', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+sum_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').check_field('left').check_node('Unshaped').has_equal_ast('Did you use `SUM` on `duration`?')
+
+alias = test_column('duration_days', match='exact')
+
+from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+division_check1 = test_student_typed('/ 60 / 60 / 24', msg='Make sure your division is correct!')
+
+division_check2 = test_student_typed('/ 60 / 24 / 60', msg='Make sure your division is correct!')
+
+division_check3 = test_student_typed('/ 24 / 60 / 60', msg='Make sure your division is correct!')
+
+Ex().test_correct(check_result(), [
+    alias,
+    from_clause,
+    sum_call,
+    division_check1,
+    division_check2,
+    division_check3,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:27b5196db3
@@ -290,10 +361,20 @@ WHERE events = 'Rain';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+from_clause = sel.check_field('from_clause')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -309,10 +390,20 @@ WHERE events IS NULL;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+from_clause = sel.check_field('from_clause')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -329,10 +420,18 @@ WHERE cloud_cover = 0 OR cloud_cover IS NULL;
 
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = check_field('where_clause')
+
+or_op1 = where_clause.check_field('left').has_equal_ast('Is the first part of your `WHERE` statement correct?')
+
+or_op2 = where_clause.check_field('right').has_equal_ast('Is the second part of your `WHERE` statement correct?')
+
 ```
 
 *** =type4: NormalExercise
@@ -348,10 +447,20 @@ WHERE events LIKE '%Snow';
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:69853cbb54
@@ -381,10 +490,20 @@ WHERE events LIKE '%Rain';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -400,10 +519,20 @@ WHERE cloud_cover > 5;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -419,17 +548,27 @@ WHERE precipitation_in > 0.5;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
 *** =key4: 275308669c
 
 *** =instructions4
-What was the average mean temperature for the year?
+What was the average mean temperature for the year? Alias your answer as `avg_mean_temp`.
 *** =solution4
 ```{sql}
 SELECT AVG(mean_temp_f)
@@ -438,11 +577,21 @@ FROM weather;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='avg_mean_temp', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('avg_mean_temp', match='exact')
+
+avg_call = sel.check_field('target_list').check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call,
+    where_clause,
+    from_clause,
+    alias,
+    test_error()
+])
 ```
 
 
@@ -474,12 +623,13 @@ GROUP BY station_id;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='station_id', match='exact')
-# should also check count col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly'?)
 ```
 
 *** =type2: NormalExercise
@@ -497,11 +647,26 @@ LIMIT 10;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='start_station_id', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('Unshaped', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+limit_clause = sel.check_field('Is your `LIMIT` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    group_by_clause,
+    order_by_clause,
+    limit_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -519,11 +684,23 @@ LIMIT 10;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='start_station_id', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('Unshaped', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    group_by_clause,
+    order_by_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
@@ -555,8 +732,26 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
-Ex().test_error()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 1).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+limit_clause = sel.check_field('limit_clause').has_equal_ast('Is your `LIMIT` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    limit_clause,
+    order_by_clause,
+    group_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -572,7 +767,20 @@ WHERE start_date = '2015-12-25';
 ```
 *** =sct2
 ```{python}
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 
@@ -589,9 +797,19 @@ WHERE id IS NULL;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all the columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star, 
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
