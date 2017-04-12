@@ -940,7 +940,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 9363b5b861
+*** =key2: 351e00d039
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -969,7 +969,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 701b0abab7
+*** =key3: 9a7025a36f
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
