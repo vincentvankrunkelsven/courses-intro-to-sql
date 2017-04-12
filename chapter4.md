@@ -264,7 +264,7 @@ Ex().has_equal_ast()
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:27b5196db3
-## Weather questions 
+## Weather questions I
 The mayor is interested in discovering whether the weather has a large effect on whether people use CitiBike bikes.
 
 *** =pre_exercise_code
@@ -354,18 +354,32 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
-*** =type5: NormalExercise
-*** =key5: ad332fc611
+--- type:BulletExercise lang:sql xp:100 key:69853cbb54
+## Weather questions II
+From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits. 
 
-*** =instructions5
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+
+```
+
+*** =type1: NormalExercise
+*** =key1: ad332fc611
+
+*** =instructions1
 How many days did it rain? (All variants).
-*** =solution5
+*** =solution1
 ```{sql}
 SELECT *
 FROM weather
 WHERE events LIKE '%Rain';
 ```
-*** =sct5
+*** =sct1
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -373,18 +387,18 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
-*** =type6: NormalExercise
-*** =key6: 8d1138ca7a
+*** =type2: NormalExercise
+*** =key2: 8d1138ca7a
 
-*** =instructions6
+*** =instructions2
 How many days was cloud cover greater than 5?
-*** =solution6
+*** =solution2
 ```{sql}
 SELECT COUNT(*)
 FROM weather
 WHERE cloud_cover > 5;
 ```
-*** =sct6
+*** =sct2
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -392,18 +406,18 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
-*** =type7: NormalExercise
-*** =key7: 3ec14beb5f
+*** =type3: NormalExercise
+*** =key3: 3ec14beb5f
 
-*** =instructions7
+*** =instructions3
 How many days did it rain more than 0.5 inches?
-*** =solution7
+*** =solution3
 ```{sql}
 SELECT COUNT(*)
 FROM weather
 WHERE precipitation_in > 0.5;
 ```
-*** =sct7
+*** =sct3
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -411,18 +425,18 @@ Ex().test_nrows()
 Ex().has_equal_ast()
 ```
 
-*** =type8: NormalExercise
-*** =key8: 275308669c
+*** =type4: NormalExercise
+*** =key4: 275308669c
 
-*** =instructions8
+*** =instructions4
 What was the average mean temperature for the year?
-*** =solution8
+*** =solution4
 ```{sql}
 SELECT AVG(mean_temp_f)
 AS avg_mean_temp
 FROM weather;
 ```
-*** =sct8
+*** =sct4
 ```{python}
 Ex().check_result()
 Ex().test_ncols()
@@ -430,6 +444,8 @@ Ex().test_nrows()
 Ex().test_column(name='avg_mean_temp', match='exact')
 Ex().has_equal_ast()
 ```
+
+
 
 --- type:BulletExercise lang:sql xp:100 key:c3a36ee3f0
 ## Stations

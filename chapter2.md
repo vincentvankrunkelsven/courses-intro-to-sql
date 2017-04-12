@@ -180,7 +180,7 @@ Ex().test_correct(check_result(), [
 
 Remember, the `WHERE` clause can be used to filter numeric records, such as years. 
 
-For example, the following code would select all films with a budget over ten thousand dollars:
+For example, the following code selects all films with a budget over ten thousand dollars:
 
 ```
 SELECT * 
@@ -566,7 +566,7 @@ WHERE release_year
 BETWEEN 1994 AND 2000;
 ``` 
 
-will give you the names of all the films released between 1994 and 2000. 
+gives you the names of all the films released between 1994 and 2000. 
 
 **Remember**: the `BETWEEN` operator is _inclusive_; the beginning and end values are included in the results. 
 
@@ -982,7 +982,7 @@ There are two _wildcards_ you can use with `LIKE`: `%` and `_`.
 
 The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind` and so on.
 
-The `_` wildcard will match a single character. For example, if you filtered with `DataC_amp` you would match `DataCamp` and `DataComp`, and so on.
+The `_` wildcard will match a single character. For example, if you filtered with `DataC_mp` you would match `DataCamp` and `DataComp`, and so on.
 
 *** =pre_exercise_code
 ```{python}
