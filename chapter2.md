@@ -484,10 +484,21 @@ AND language = 'French' OR language = 'Spanish';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+left = sel.check_node('BinaryExpr').check_field('left')
+right = sel.check_node('BinaryExpr').check_field('right')
+
+or_one = left.check_field('left').has_equal_ast('Did you check for 1990?')
+
+
+or_three = left.check_field('right').check_field('right').has_equal_ast('Did you check for French films?')
+
+or_four = right.has_equal_ast('Did you check for Spanish films?')
+
+
+
+
+
 ```
 
 *** =type2: NormalExercise
@@ -817,7 +828,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: 4c50674726
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -838,7 +849,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 4eb45457be
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
@@ -1011,11 +1022,17 @@ WHERE name LIKE 'B%';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
