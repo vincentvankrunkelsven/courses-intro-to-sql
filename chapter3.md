@@ -326,12 +326,17 @@ ORDER BY birthdate, name;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='birthdate', match='any')
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -348,13 +353,23 @@ ORDER BY release_year, duration;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='duration', match='any')
-Ex().test_column(name='title', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause corect?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+in_op = where_clause.check_field('arr', 1).has_equal_ast('Are you using `IN` correctly?')
+
+Ex().test_correct(check_result(), [
+    in_op,
+    where_clause,
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -371,13 +386,23 @@ ORDER BY certification, release_year;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='certification', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='title', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause corect?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+in_op = where_clause.check_field('arr', 1).has_equal_ast('Are you using `IN` correctly?')
+
+Ex().test_correct(check_result(), [
+    in_op,
+    where_clause,
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
@@ -394,12 +419,21 @@ ORDER BY birthdate;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().test_column(name='birthdate', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause')
+
+# we can check individual LIKEs here, but it's messier
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    order_by_clause,
+    test_error()
+])
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
@@ -470,41 +504,64 @@ GROUP BY release_year;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-# should also check count col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('Unshaped').has_equal_ast('Is your `COUNT` call correct?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    from_clause,
+    order_by_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
 *** =key2: ebee043890
 
 *** =instructions2
-Get the count of films group by release year then order by release year.
+Get the count of films group by release year then order by release year. Alias the count as `films_released`.
 *** =solution2
 ```{sql}
-SELECT release_year, COUNT(title) as films_released
+SELECT release_year, COUNT(title) AS films_released
 FROM films
 GROUP BY release_year
 ORDER BY release_year;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='films_released', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('films_released', match='exact')
+
+count_call = alias.check_field('expr').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    order_by_clause,
+    group_by_clause,
+    from_clause,
+    alias,
+    test_error()
+])
+
 ```
 
 *** =type3: NormalExercise
 *** =key3: b4341b8451
 
 *** =instructions3
-Get the count of films released in each year, ordered by count, lowest to highest.
+Get the count of films released in each year, ordered by count, lowest to highest. Alias the count as `films_released`.
 *** =solution3
 ```{sql}
 SELECT release_year, COUNT(title) AS films_released
@@ -514,12 +571,27 @@ ORDER BY films_released;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='films_released', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+alias = test_column('films_released', match='exact')
+
+count_call = sel.check_node('AliasExpr').check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    group_by_clause,
+    from_clause,
+    count_call,
+    alias,
+    test_error()
+])
+
 ```
 
 *** =type4: NormalExercise
@@ -536,12 +608,26 @@ ORDER BY films_released DESC;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='films_released', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+alias = test_column('films_released', match='exact')
+
+count_call = sel.check_node('AliasExpr').check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    group_by_clause,
+    from_clause,
+    count_call,
+    alias,
+    test_error()
+])
 ```
 
 *** =type5: NormalExercise
@@ -558,12 +644,23 @@ ORDER BY release_year;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-# should also check min col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    group_by_clause,
+    from_clause,
+    min_call,
+    test_error()
+])
 ```
 
 *** =type6: NormalExercise
@@ -579,12 +676,20 @@ GROUP BY language;
 ```
 *** =sct6
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='language', match='any')
-# should also check sum col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+sum_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `SUM` correctly?')
+
+Ex().test_correct(check_result(), [
+    group_by_clause,
+    from_clause,
+    sum_call,
+    test_error()
+])
 ```
 
 *** =type7: NormalExercise
@@ -600,12 +705,20 @@ GROUP BY country;
 ```
 *** =sct7
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='country', match='any')
-# should also check sum col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+sum_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `SUM` correctly?')
+
+Ex().test_correct(check_result(), [
+    group_by_clause,
+    from_clause,
+    sum_call,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:38a7c62434
@@ -640,13 +753,26 @@ ORDER BY release_year, country;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='country', match='any')
-# should also check max col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+group_by_clause1 = sel.check_field('group_by_clause', 0).has_equal_ast('Is the first column of your `GROUP BY` clause correct?')
+
+group_by_clause2 = sel.check_field('group_by_clause').has_equal_ast('Is the second column of your `GROUP BY` clause correct?')
+
+max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    group_by_clause1,
+    group_by_clause2,
+    from_clause,
+    sum_call,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -663,13 +789,26 @@ ORDER BY release_year, country;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='country', match='any')
-# should also check min col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+group_by_clause1 = sel.check_field('group_by_clause', 0).has_equal_ast('Is the first column of your `GROUP BY` clause correct?')
+
+group_by_clause2 = sel.check_field('group_by_clause').has_equal_ast('Is the second column of your `GROUP BY` clause correct?')
+
+min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    group_by_clause1,
+    group_by_clause2,
+    from_clause,
+    sum_call,
+    test_error()
+])
 ```
 
 
@@ -707,10 +846,12 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = 'Correct!'
-msg2 = 'Incorrect.'
+success_msg = 'Correct! `HAVING` is needed because `WHERE` cannot deal with aggregate functions.'
+creation = 'Incorrect. `HAVING` does not have anything to do with creation date.'
+textual = 'Incorrect. `WHERE` can sort with textual values, so why would we need `HAVING`?'
+numeric = 'Incorrect. `WHERE` can sort with numeric values, so why would we need `HAVING`?'
 
-Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+Ex().test_mc(4, [creation, textual, numeric, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
@@ -748,13 +889,8 @@ ORDER BY release_year DESC;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='release_year', match='any')
-Ex().test_column(name='avg_budget', match='exact')
-Ex().test_column(name='avg_box_office', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
 ```
 
 *** =key2: 1ed0ce7d61
@@ -773,10 +909,5 @@ LIMIT 5;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='avg_budget', match='any')
-Ex().test_column(name='avg_box_office', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
 ```
