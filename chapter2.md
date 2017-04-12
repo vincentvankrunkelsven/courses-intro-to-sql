@@ -579,6 +579,7 @@ What does the `BETWEEN` keyword do?
 - Filter values in a specified range
 
 *** =hint
+Think about looking for values **between** a beginning and end point. 
 
 *** =pre_exercise_code
 ```{python}
@@ -880,6 +881,7 @@ What does `NULL` represent?
 - Invalid values
 
 *** =hint
+Remember, `NULL` represents values which we can not determine. 
 
 *** =pre_exercise_code
 ```{python}

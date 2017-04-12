@@ -31,6 +31,7 @@ What way does `ORDER BY` sort results by default?
 - In order of creation date
 
 *** =hint
+By default, `ORDER BY` behaves as if it was using the `ASC` keyword.
 
 *** =pre_exercise_code
 ```{python}
@@ -363,6 +364,7 @@ What is `GROUP BY` used for?
 - Sorting results from aggregate functions
 
 *** =hint
+You use `GROUP BY` when you want to compute results from many records.
 
 *** =pre_exercise_code
 ```{python}
@@ -636,6 +638,7 @@ Why do we need the `HAVING` keyword?
 - `WHERE` cannot be used with aggregate functions
 
 *** =hint
+What kind of functions can `WHERE` not be used with? 
 
 *** =pre_exercise_code
 ```{python}
