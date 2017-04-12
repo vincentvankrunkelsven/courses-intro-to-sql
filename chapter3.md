@@ -171,7 +171,7 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 
 Ex().test_correct(check_result(), [
     order_by_clause,
-    in_opm
+    in_op,
     from_clause,
     where_clause,
     test_error()
@@ -247,7 +247,7 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-order_by_clause = sel.check_node('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -472,7 +472,7 @@ one = 'Incorrect. While `GROUP BY` does sort by column, we could just use `ORDER
 two = 'Incorrect.'
 three = 'Incorrect. While `GROUP BY` can sort in alphabetical order, we could just use `ORDER BY` for this.'
 
-Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+Ex().test_mc(4, [one, two, three, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:98e30a6131
