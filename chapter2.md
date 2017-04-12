@@ -490,14 +490,22 @@ right = sel.check_node('BinaryExpr').check_field('right')
 
 or_one = left.check_field('left').has_equal_ast('Did you check for 1990?')
 
+or_two = left.check_field('right').has_equal_ast('Did you check for 2000?')
 
 or_three = left.check_field('right').check_field('right').has_equal_ast('Did you check for French films?')
 
 or_four = right.has_equal_ast('Did you check for Spanish films?')
 
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-
-
+Ex().test_correct(check_result(), [
+    or_one, 
+    or_two, 
+    or_three,
+    or_four,
+    from_clause,
+    test_error()
+])
 
 ```
 
@@ -516,10 +524,28 @@ AND gross > 20000000;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+where_one = where_clause.check_field('left').check_field('left').has_equal_ast('Are you checking the `release_year` correctly?')
+
+and_one = where_clause.check_field('left').check_field('right').has_equal_ast('Are you checking for French correctly?')
+
+and_two = where_clause.check_field('right').check_field('left').has_equal_ast('Are you checking for Spanish correctly?')
+
+Ex().test_correct(check_result(), [
+    where_one, 
+    and_one,
+    and_two,
+    from_clause,
+    star,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -536,17 +562,27 @@ WHERE release_year >= 1990 AND release_year <= 2000;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause')
+
+where_one = sel.check_field('where_clause').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+
+where_two = sel.check_field('where_clause').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_one,
+    where_two,
+    test_error()
+]))
 ```
 
 *** =type4: NormalExercise
 *** =key4: aa938f1976
 
 *** =instructions4
-Get average duration for films released in the UK or which were released in 2012.
+Get average duration for films released in the UK or which were released in 2012. Alias the result as `average_duration`.
 *** =solution4
 ```{sql}
 SELECT AVG(duration)
@@ -557,11 +593,25 @@ OR COUNTRY = 'UK';
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='average_duration', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause')
+
+alias = test_column('average_duration', match='exact')
+
+avg_call = sel.check_node('AliasExpr').has_equal_ast('Are you calling `AVG` correctly?')
+
+where_one = sel.check_field('where_clause').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+
+where_two = sel.check_field('where_clause').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    alias,
+    from_clause,
+    where_one,
+    where_two,
+    test_error()
+])
 ```
 
 
@@ -600,9 +650,11 @@ connect('postgresql', 'films')
 *** =sct
 ```{python}
 success_msg = 'Correct!'
-msg2 = 'Incorrect.'
+numeric = 'Incorrect. `BETWEEN` does not just filter numeric values.'
+textual = 'Incorrect. `BETWEEN` does not just filter textual values.'
+lst = 'Incorrect!'
 
-Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
+Ex().test_mc(4, [numeric, textual, lst, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:9c11f67712
@@ -646,12 +698,21 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+between = where_clause.check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+
+Ex().test_correct(check_result(), [
+    between,
+    from_clause,
+    where_clause,
+    test_error()
+])
+
 ```
 
 *** =type2: NormalExercise
@@ -667,10 +728,23 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('target_list', 1)
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+between = where_clause.check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    between,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -689,12 +763,23 @@ AND budget > 100000000;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='budget', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+between = where_clause.check_field('left').check_field('arr', 1).has_equal_ast('Is your use of `BETWEEN` correct?')
+
+and_op = where_clause.check_field('right').has_equal_ast('Is your `AND` operator correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    between, 
+    and_op,
+    where_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:84411d78aa
@@ -729,10 +814,26 @@ AND duration > 120;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+between = where_clause.check_field('left').check_field('arr', 1).has_equal_ast('Is your use of `BETWEEN` correct?')
+
+and_op = where_clause.check_field('right').has_equal_ast('Is your `AND` operator correct?')
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    from_clause,
+    between,
+    and_op,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -828,7 +929,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: e51a20375f
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -849,7 +950,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: 58f0ec541c
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
