@@ -929,7 +929,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type2: NormalExercise
-*** =key2: dc7674d358
+*** =key2: 9067603429
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -950,7 +950,7 @@ Ex().has_equal_ast()
 ```
 
 *** =type3: NormalExercise
-*** =key3: dc7674d358
+*** =key3: 1f90d7b2df
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
