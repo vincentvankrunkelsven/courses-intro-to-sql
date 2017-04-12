@@ -9,6 +9,8 @@ description: >-
 
 --- type:TabExercise lang:sql key:0dbcee0148
 ## Get to know your data
+Wow, you've come a long way! Congrats on making it this far.
+
 Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
 
 Before you can take on the job, you should get a feel for the data you'll be working with. 

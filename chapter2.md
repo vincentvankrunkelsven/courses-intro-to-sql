@@ -46,6 +46,14 @@ Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
+As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on textual data, which gets the titles of all films which were rated `'R'`:
+
+```
+SELECT title 
+FROM films 
+WHERE certification = 'R';
+```
+
 Now it's your turn to practice using `WHERE`!
 
 *** =pre_exercise_code
@@ -169,7 +177,18 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34
 ## Simple filtering of numeric values
-Now try using the `WHERE` clause to filter numeric values! 
+
+Remember, the `WHERE` clause can be used to filter numeric records, such as years. 
+
+For example, the following code would select all films with a budget over ten thousand dollars:
+
+```
+SELECT * 
+FROM films
+WHERE budget > 10000;
+```
+
+Now it's your turn to use the `WHERE` clause to filter numeric values! 
 
 *** =pre_exercise_code
 ```{python}
@@ -301,7 +320,18 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
-You can build up your `WHERE`query using the `AND` keyword. For example, `SELECT title FROM films WHERE release_year > 1994 AND release_year < 2000;`, which will give you all the films released between 1994 and 2000. Similarly, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
+You can build up your `WHERE`queries using the `AND` keyword. 
+
+For example, 
+
+```
+SELECT title 
+FROM films 
+WHERE release_year > 1994 
+AND release_year < 2000;
+```
+
+will give you the titles of films released between 1994 and 2000. 
 
 *** =pre_exercise_code
 ```{python}
@@ -398,13 +428,34 @@ avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` corre
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
+left = sel.check_node('BinaryExpr').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
 
+right = sel.check_node('BinaryExpr').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call, 
+    left, 
+    right,
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND, OR
 
-You can also build up your `WHERE`query using the and `OR` keyword. For example, `SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;` will give you the names of all the films released in _either_ 1994 or 2000.
+You can also build up your `WHERE`query using the `OR` keyword. 
+
+For example, 
+
+```
+SELECT title 
+FROM films 
+WHERE release_year = 1994 
+OR release_year = 2000;
+```
+
+will give you the names of all the films released in _either_ 1994 or 2000.
 
 *** =pre_exercise_code
 ```{python}
@@ -504,9 +555,18 @@ Ex().has_equal_ast()
 
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
-## More advanced filtering
+## BETWEEN
 
-In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example, `SELECT title FROM films WHERE release_year BETWEEN 1994 AND 2000;` will give you the names of all the films released between 1994 and 2000. 
+In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example, 
+
+```
+SELECT title 
+FROM films 
+WHERE release_year 
+BETWEEN 1994 AND 2000;
+``` 
+
+will give you the names of all the films released between 1994 and 2000. 
 
 **Remember**: the `BETWEEN` operator is _inclusive_; the beginning and end values are included in the results. 
 
@@ -533,38 +593,20 @@ msg2 = 'Incorrect.'
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
 
-
-
-
---- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
-## Introduction to NULL and IS NULL
-In SQL, `NULL` represents an unknown value. Often, you will want to filter out so we only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. For example, `SELECT name FROM people WHERE birthdate IS NOT NULL;` will give you the names of all the people whose birthdate we know.
-
-What does `NULL` represent?
-
-*** =instructions
-- Corrupt values
-- Unknown values
-- Empty values
-- Invalid values
-
-*** =hint
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
-*** =sct
-```{python}
-success_msg = 'Correct!'
-msg2 = 'Incorrect. Perhaps more than one of these statements is true?'
-
-Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
-```
 --- type:BulletExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (a rock and a hard place)
-It's your turn to practice using `BETWEEN`!
+
+Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` operators, so you can build up your queries and make them even more powerful! 
+
+For example, suppose we have a table called `kids`. We can get the names of all kids under the age of 12, whose ages are multiples of 2, as follows:
+
+```
+SELECT name 
+FROM kids
+WHERE age BETWEEN 2 AND 12
+```
+
+Take a go at using `BETWEEN` with `AND`!
 
 *** =pre_exercise_code
 ```{python}
@@ -643,18 +685,100 @@ Ex().test_column(name='budget', match='any')
 Ex().has_equal_ast()
 ```
 
+--- type:BulletExercise lang:sql xp:100 key:84411d78aa
+## BETWEEN (again)
+
+Give the exercises a go to master `BETWEEN`.
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sample_code
+```{sql}
+SELECT ___(___)
+FROM films
+___ release_year ___ 2000 ___ 2015
+___ duration > 120;
+```
+
+*** =type1: NormalExercise
+*** =key1: 1d71b2f706
+
+*** =instructions1
+Get the number of films released between 2000 and 2015 that were longer than two hours.
+*** =solution1
+```{sql}
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 2000 AND 2015
+AND duration > 120;
+```
+*** =sct1
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
+*** =type2: NormalExercise
+*** =key2: 1d71b2f707
+
+*** =instructions2
+Get the number of films released between 1994 and 2004 that were rated R.
+*** =solution2
+```{sql}
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 1994 AND 2004
+AND certification = 'R';
+```
+*** =sct2
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
+*** =type3: NormalExercise
+*** =key3: 1d71b2f708
+
+*** =instructions3
+Get the number of films released between 1950 and 2000 that were in French, and released in the USA.
+*** =solution3
+```{sql}
+SELECT COUNT(*)
+FROM films
+WHERE release_year BETWEEN 1950 AND 2000
+AND language = 'FRENCH' 
+AND country = 'USA';
+```
+*** =sct3
+```{python}
+Ex().check_result()
+Ex().test_ncols()
+Ex().test_nrows()
+Ex().has_equal_ast()
+```
+
+
 --- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN the world
 
-In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions. 
+In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right? 
 
-The syntax is as follows:
+For example, suppose we have a table called `kids`. We can get the names of all kids under the age of 12, whose ages are multiples of 2, as follows:
 
-```sql
-SELECT column_name 
-FROM table_name 
-WHERE column_name IN (val1, val2, ..)
 ```
+SELECT name 
+FROM kids
+WHERE age IN (2, 4, 6, 8, 10)
+```
+
+Try using the `IN` operator yourself! 
 
 *** =pre_exercise_code
 ```{python}
@@ -733,90 +857,49 @@ Ex().test_column(name='release_year', match='any')
 Ex().has_equal_ast()
 ```
 
+--- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
+## Introduction to NULL and IS NULL
+In SQL, `NULL` represents an unknown value. Often, you will want to filter out so we only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. 
 
---- type:BulletExercise lang:sql xp:100 key:84411d78aa
-## BETWEEN and AND
+For example, 
 
-Practice using `BETWEEN` with multiple `AND` operators!
+```
+SELECT name 
+FROM people 
+WHERE birthdate IS NOT NULL;
+``` 
+
+will give you the names of all the people whose birthdate has an entry in the `people` table.
+
+What does `NULL` represent?
+
+*** =instructions
+- Corrupt values
+- Unknown values
+- Empty values
+- Invalid values
+
+*** =hint
 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
 ```
 
-*** =sample_code
-```{sql}
-SELECT ___(___)
-FROM films
-___ release_year ___ 2000 ___ 2015
-___ duration > 120;
-```
-
-*** =type1: NormalExercise
-*** =key1: 1d71b2f706
-
-*** =instructions1
-Get the number of films released between 2000 and 2015 that were longer than two hours.
-*** =solution1
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 2000 AND 2015
-AND duration > 120;
-```
-*** =sct1
+*** =sct
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
+success_msg = 'Correct! `NULL` is used to represent unknown values.'
+corrupt = 'Incorrect. We can not be sure that a `NULL` value is actually corrupt.'
+empty = 'Incorrect. We can not be sure that a `NULL` value is actually an empty value.'
+invalid = 'Incorrect!'
 
-*** =type2: NormalExercise
-*** =key2: 1d71b2f707
-
-*** =instructions2
-Get the number of films released between 1994 and 2004 that were rated R.
-*** =solution2
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 1994 AND 2004
-AND certification = 'R';
-```
-*** =sct2
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
-```
-
-*** =type3: NormalExercise
-*** =key3: 1d71b2f708
-
-*** =instructions3
-Get the number of films released between 1950 and 2000 that were in French, and released in the USA.
-*** =solution3
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 1950 AND 2000
-AND language = 'FRENCH' 
-AND country = 'USA';
-```
-*** =sct3
-```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+Ex().test_mc(2, [corrupt, success_msg, empty, invalid])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
 
-Practice using `NULL` and `IS NULL`!
+Now that you know what `NULL` is, and what it's used for, give the exercises a go!
 
 *** =pre_exercise_code
 ```{python}
