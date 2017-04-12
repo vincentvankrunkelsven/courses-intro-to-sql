@@ -519,10 +519,20 @@ WHERE cloud_cover > 5;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -538,17 +548,27 @@ WHERE precipitation_in > 0.5;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
 *** =key4: 275308669c
 
 *** =instructions4
-What was the average mean temperature for the year?
+What was the average mean temperature for the year? Alias your answer as `avg_mean_temp`.
 *** =solution4
 ```{sql}
 SELECT AVG(mean_temp_f)
@@ -557,11 +577,21 @@ FROM weather;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='avg_mean_temp', match='exact')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+alias = test_column('avg_mean_temp', match='exact')
+
+avg_call = sel.check_field('target_list').check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    avg_call,
+    where_clause,
+    from_clause,
+    alias,
+    test_error()
+])
 ```
 
 
@@ -593,12 +623,13 @@ GROUP BY station_id;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='station_id', match='exact')
-# should also check count col here, without alias
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly'?)
 ```
 
 *** =type2: NormalExercise
@@ -616,11 +647,26 @@ LIMIT 10;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='start_station_id', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('Unshaped', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+limit_clause = sel.check_field('Is your `LIMIT` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    group_by_clause,
+    order_by_clause,
+    limit_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -638,11 +684,23 @@ LIMIT 10;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='start_station_id', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_node('Unshaped', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    group_by_clause,
+    order_by_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
@@ -674,8 +732,26 @@ LIMIT 10;
 ```
 *** =sct1
 ```{python}
-Ex().test_error()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 1).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+limit_clause = sel.check_field('limit_clause').has_equal_ast('Is your `LIMIT` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    limit_clause,
+    order_by_clause,
+    group_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -691,7 +767,20 @@ WHERE start_date = '2015-12-25';
 ```
 *** =sct2
 ```{python}
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 
@@ -708,9 +797,19 @@ WHERE id IS NULL;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all the columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star, 
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
