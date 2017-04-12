@@ -374,9 +374,9 @@ connect('postgresql', 'films')
 *** =sct
 ```{python}
 success_msg = 'Correct! `GROUP BY` is speficially for sorting the results of aggregate functions.'
-one = 'Incorrect. While `GROUP BY` does sort by column, we could just use `ORDER BY` for this.
+one = 'Incorrect. While `GROUP BY` does sort by column, we could just use `ORDER BY` for this.'
 two = 'Incorrect.'
-three = 'Incorrect. While `GROUP BY` can sort in alphabetical order, we could just use `ORDER BY` for this.
+three = 'Incorrect. While `GROUP BY` can sort in alphabetical order, we could just use `ORDER BY` for this.'
 
 Ex().test_mc(4, [msg2, msg2, msg2, success_msg])
 ```
