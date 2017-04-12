@@ -361,7 +361,20 @@ WHERE events = 'Rain';
 ```
 *** =sct1
 ```{python}
+sel = check_node('SelectStmt')
 
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+from_clause = sel.check_field('from_clause')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -377,10 +390,20 @@ WHERE events IS NULL;
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+from_clause = sel.check_field('from_clause')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -397,10 +420,18 @@ WHERE cloud_cover = 0 OR cloud_cover IS NULL;
 
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = check_field('where_clause')
+
+or_op1 = where_clause.check_field('left').has_equal_ast('Is the first part of your `WHERE` statement correct?')
+
+or_op2 = where_clause.check_field('right').has_equal_ast('Is the second part of your `WHERE` statement correct?')
+
 ```
 
 *** =type4: NormalExercise
@@ -416,10 +447,20 @@ WHERE events LIKE '%Snow';
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:69853cbb54
@@ -449,10 +490,20 @@ WHERE events LIKE '%Rain';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star,
+    where_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
