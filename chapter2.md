@@ -372,7 +372,7 @@ Ex().test_correct(check_result(), [
     from_clause,
     left, 
     right,
-    test_correct()
+    test_error()
 ])
 ```
 
@@ -575,7 +575,7 @@ Ex().test_correct(check_result(), [
     where_one,
     where_two,
     test_error()
-]))
+])
 ```
 
 *** =type4: NormalExercise
@@ -922,7 +922,7 @@ AND duration > 120;
 ```{python}
 sel = check_node('SelectStmt')
 
-from_clause = sel.check_field('from_clause').has_equal('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -940,7 +940,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 351e00d039
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -969,7 +969,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 9a7025a36f
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.

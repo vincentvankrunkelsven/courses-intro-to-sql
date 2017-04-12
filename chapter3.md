@@ -78,11 +78,18 @@ ORDER BY name;
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    from_clause,
+    test_error()
+])
+
 ```
 
 *** =type2: NormalExercise
@@ -99,11 +106,17 @@ ORDER BY birthdate;
 ```
 *** =sct2
 ```{sql}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -119,12 +132,17 @@ ORDER BY birthdate;
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='birthdate', match='any')
-Ex().test_column(name='name', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
@@ -136,17 +154,28 @@ Get the title and release year of films released in 2000 or 2015, in the order t
 ```{sql}
 SELECT title, release_year
 FROM films
-WHERE release_year in (2000, 2015)
+WHERE release_year IN (2000, 2015)
 ORDER BY release_year;
 ```
 *** =sct4
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().test_column(name='title', match='any')
-Ex().test_column(name='release_year', match='any')
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_node('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+in_op = where_clause.check_field('arr', 1).has_equal_ast('Is your `IN` operation correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    in_opm
+    from_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 *** =type5: NormalExercise
@@ -163,10 +192,23 @@ ORDER BY release_year;
 ```
 *** =sct5
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star,
+    from_clause,
+    order_by_clause,
+    where_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:a7b2964ba7
@@ -201,8 +243,17 @@ ORDER BY imdb_score DESC;
 
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_node('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
@@ -220,8 +271,17 @@ ORDER BY title DESC;
 
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+order_by_clause = sel.check_node('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+Ex().test_correct(check_result(), [
+    order_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:b2a52993bc
