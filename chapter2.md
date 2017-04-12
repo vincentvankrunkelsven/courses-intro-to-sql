@@ -940,7 +940,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 6e95c392f7
+*** =key2: dc7674d358
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French. 
@@ -969,7 +969,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 08ece6e809
+*** =key3: dc7674d358
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
@@ -1101,7 +1101,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
 
-Ex().test_correct([
+Ex().test_correct(check_result(), [
     where_clause,
     count_call,
     from_clause,

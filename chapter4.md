@@ -361,10 +361,7 @@ WHERE events = 'Rain';
 ```
 *** =sct1
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+
 ```
 
 *** =type2: NormalExercise
