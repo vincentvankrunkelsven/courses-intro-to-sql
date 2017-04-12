@@ -273,9 +273,9 @@ ORDER BY title DESC;
 ```{python}
 sel = check_node('SelectStmt')
 
-from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-order_by_clause = sel.check_node('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
