@@ -309,7 +309,29 @@ FROM trips;
 ```
 *** =sct5
 ```{python}
+sel = check_node('SelectStmt')
 
+sum_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').check_field('left').check_node('Unshaped').has_equal_ast('Did you use `SUM` on `duration`?')
+
+alias = test_column('duration_days', match='exact')
+
+from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+division_check1 = test_student_typed('/ 60 / 60 / 24', msg='Make sure your division is correct!')
+
+division_check2 = test_student_typed('/ 60 / 24 / 60', msg='Make sure your division is correct!')
+
+division_check3 = test_student_typed('/ 24 / 60 / 60', msg='Make sure your division is correct!')
+
+Ex().test_correct(check_result(), [
+    alias,
+    from_clause,
+    sum_call,
+    division_check1,
+    division_check2,
+    division_check3,
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:27b5196db3
