@@ -9,6 +9,7 @@ description: >-
 
 --- type:TabExercise lang:sql key:0dbcee0148
 ## Get to know your data
+
 Wow, you've come a long way! Congrats on making it this far.
 
 Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
@@ -426,12 +427,19 @@ count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUN
 
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = check_field('where_clause')
+cloud_cover1 = test_student_typed("cloud_cover = 0", msg='Did you check `cloud_cover = 0`?')
+cloud_cover2 = test_student_typed("cloud_cover = 0", msg='Did you check `cloud_cover IS NULL`?')
 
-or_op1 = where_clause.check_field('left').has_equal_ast('Is the first part of your `WHERE` statement correct?')
+where_clause = check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-or_op2 = where_clause.check_field('right').has_equal_ast('Is the second part of your `WHERE` statement correct?')
-
+Ex().test_correct(check_result(), [
+    count_call,
+    cloud_cover1,
+    cloud_cover2,
+    where_clause,
+    from_clause,
+    test_correct()
+])
 ```
 
 *** =type4: NormalExercise

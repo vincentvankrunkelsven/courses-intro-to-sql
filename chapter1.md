@@ -143,7 +143,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:09f21bae4c
 ## SELECTing multiple columns
 
-To `SELECT` multiple columns from a table, you can separate the columns with commas. For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
+To `SELECT` multiple columns from a table, you separate the columns with commas. For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
 
 ```sql
 SELECT name, birthdate
@@ -407,10 +407,16 @@ How many records are contained in the `reviews` table?
 - 9,864
 
 *** =hint
+Run a query to count the number of records in the `reviews` table!
 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+```
+
+*** =sample_code
+```{sql}
+-- You can test out queries here! 
 ```
 
 *** =sct
@@ -463,13 +469,14 @@ FROM people;
 ```{python}
 sel = check_node('SelectStmt')
 
-count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
+    count_call,
     from_clause, 
-    count
+    test_error()
 ])
 ```
 
@@ -760,7 +767,7 @@ FROM films;
 *** =key1: ec33c2353b
 
 *** =instructions1
-Get the profit (or loss) for each movie, where possible.
+Get the title and profit or loss for each movie, where possible. Let's define the profit or loss as being the amount the movie made, less the amount the movie cost to make.
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS profit_or_loss
@@ -785,17 +792,17 @@ Ex().test_correct(check_result(), [
 *** =key2: 1351c6f6bb
 
 *** =instructions2
-Get the title and duration in hours for each film. The duration in hours should be aliased as `duration_hours`.
+Get the title and duration in hours for each film. Alias the duration in hours as `duration_hours`.
 
 *** =solution2
 ```{sql}
-SELECT title, duration / 60.0
+SELECT title, duration / 60
 AS duration_hours
 FROM films;
 ```
 *** =sct2
 ```{python}
-sel = check_node('SelectStmt')
+sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60`?')
 
 alias = test_column('duration_hours', match='exact')
 
@@ -804,6 +811,7 @@ alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('
 Ex().test_correct(check_result(), [
     alias_eqn, 
     alias,
+    sel,
     test_error()
 ])
 ```
@@ -812,17 +820,17 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 497f8d2a8a
 *** =instructions3
-Get the title and average film duration in hours. Alias the duration in hours as `avg_duration_in_hours`.
+Get the average film duration in hours for each movie. Alias the duration in hours as `avg_duration_in_hours`.
 
 *** =solution3
 ```{sql}
-SELECT AVG(duration) / 60.0
+SELECT AVG(duration) / 60
 AS avg_duration_hours  
 FROM films;
 ```
 *** =sct3
 ```{python}
-sel = check_node('SelectStmt')
+sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you use `AVG`?')
 
 alias = test_column('avg_duration_hours', match='exact')
 
@@ -834,6 +842,7 @@ Ex().test_correct(check_result(), [
     avg_call,
     alias_eqn, 
     alias,
+    sel,
     test_error()
 ])
 ```
@@ -841,7 +850,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:8612897f35
 ## Even more aliasing
 
-Try practicsing your aliasing skills in these exercises!
+Nice work! Practice your newfound aliasing skills before moving on to the next chapter. 
 
 *** =pre_exercise_code
 ```{python}
@@ -874,12 +883,17 @@ alias = test_column('percentage_dead', match='exact')
 
 alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the percentage of dead people correctly?')
 
+count_call1 = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').has_equal_ast('Is your first `COUNT` call equation correct?')
+
+count_call2 = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('right').has_equal_ast('Is your second `COUNT` call equation correct?')
+
 count_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
+    count_call1,
+    count_call2,
     alias_eqn,
     alias, 
     from_clause,
@@ -969,7 +983,7 @@ Get the duration in hours for each film. Alias the duration in hours as `duratio
 
 *** =solution5
 ```{sql}
-SELECT title, duration / 60.0 AS duration_hours
+SELECT title, duration / 60 AS duration_hours
 FROM films;
 ```
 *** =sct5

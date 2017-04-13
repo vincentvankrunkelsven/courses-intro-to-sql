@@ -1,5 +1,5 @@
 ---
-title: Filtering Rows
+title: Filtering Records
 description: >-
   This chapter builds on the first by teaching you not only how to select and
   summarize columns of interest, but to filter tables for records satisfying
@@ -56,6 +56,8 @@ WHERE certification = 'R';
 
 Now it's your turn to practice using `WHERE`!
 
+**Note: in PostgreSQL (the flavor of SQL we're using), you must use single quotes with `WHERE`.**
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -72,7 +74,7 @@ ___ language = ___;
 *** =key1: b645308dcd
 
 *** =instructions1
-Get all French language films.
+Get all details for all French language films.
 *** =solution1
 ```{sql}
 SELECT *
@@ -101,7 +103,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 051f6fb8ec
 
 *** =instructions2
-Get the name and birth date of the person born on November 11th, 1974.
+Get the name and birth date of the person born on November 11th, 1974. Remember to use ISO date format (yyyy-mm-dd)!
 *** =solution2
 ```{sql}
 SELECT name, birthdate
@@ -331,7 +333,7 @@ WHERE release_year > 1994
 AND release_year < 2000;
 ```
 
-will give you the titles of films released between 1994 and 2000. 
+gives you the titles of films released between 1994 and 2000. 
 
 *** =pre_exercise_code
 ```{python}
@@ -350,7 +352,7 @@ ___ language = ___;
 *** =key1: 7ccf93b215
 
 *** =instructions1
-Get title and release year for all Spanish films released before 2000.
+Get the title and release year for all Spanish films released before 2000.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -364,14 +366,17 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-left = sel.check_field('where_clause').check_node('BinaryExpr').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-right = sel.check_field('where_clause').check_node('BinaryExpr').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+release_year = test_student_typed("release_year < 2000", msg='Did you check the `release_year`?')
+
+language = test_student_typed("language = 'Spanish'", msg='Did you check the `language`?')
 
 Ex().test_correct(check_result(), [
+    release_year,
+    language,
+    where_clause,
     from_clause,
-    left, 
-    right,
     test_error()
 ])
 ```
@@ -380,7 +385,7 @@ Ex().test_correct(check_result(), [
 *** =key2: e703c95e46
 
 *** =instructions2
-Get the all Spanish films released since 2000.
+Get all details for all Spanish films released since 2000.
 *** =solution2
 ```{sql}
 SELECT *
@@ -396,14 +401,17 @@ star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-left = sel.check_field('where_clause').check_node('BinaryExpr').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-right = sel.check_field('where_clause').check_node('BinaryExpr').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+release_year = test_student_typed("release_year > 2000", msg='Did you check the `release_year` correctly??')
+
+language = test_student_typed("language = 'Spanish'", msg='Did you check the `language` correctly?')
 
 Ex().test_correct(check_result(), [
+    release_year,
+    language,
+    where_clause
     from_clause,
-    left, 
-    right,
     test_error()
 ])
 ```
@@ -412,7 +420,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 7f2ba5c82f
 
 *** =instructions3
-Get average duration for films released in France in 1992.
+Get the average duration for films released in France in 1992.
 *** =solution3
 ```{sql}
 SELECT AVG(duration)
@@ -428,14 +436,17 @@ avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` corre
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-left = sel.check_node('BinaryExpr').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?')
 
-right = sel.check_node('BinaryExpr').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+country = test_student_typed("country = 'French'", msg='Did you check the `country` correctly?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
     avg_call, 
-    left, 
-    right,
+    release_year,
+    country,
+    where_clause,
     from_clause,
     test_error()
 ])
@@ -467,7 +478,7 @@ connect('postgresql', 'films')
 SELECT ___, ___
 FROM ___
 ___ release_year = 1990 ___ release_year = 2000
-___ language = 'French' ___ language = 'Spanish';
+___ language = 'English' ___ language = 'Spanish';
 ```
 
 *** =type1: NormalExercise
@@ -488,21 +499,19 @@ sel = check_node('SelectStmt')
 left = sel.check_node('BinaryExpr').check_field('left')
 right = sel.check_node('BinaryExpr').check_field('right')
 
-or_one = left.check_field('left').has_equal_ast('Did you check for 1990?')
-
-or_two = left.check_field('right').has_equal_ast('Did you check for 2000?')
-
-or_three = left.check_field('right').check_field('right').has_equal_ast('Did you check for French films?')
-
-or_four = right.has_equal_ast('Did you check for Spanish films?')
+release_year1 = test_student_typed("release_year = 1992", msg='Did you check the year 1990?')
+release_year2 = test_student_typed("release_year = 2000", msg='Did you check the year 2000?')
+french = test_student_typed("language = 'French'", msg='Did you check for French?')
+spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    or_one, 
-    or_two, 
-    or_three,
-    or_four,
+    release_year1, 
+    release_year2, 
+    french,
+    spanish,
+    where_clause,
     from_clause,
     test_error()
 ])
@@ -530,18 +539,19 @@ star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause')
+release_year = test_student_typed("release_year > 2000", msg='Did you check the year 2000?')
+french = test_student_typed("language = 'French'", msg='Did you check for French?')
+spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?')
+gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?')
 
-where_one = where_clause.check_field('left').check_field('left').has_equal_ast('Are you checking the `release_year` correctly?')
-
-and_one = where_clause.check_field('left').check_field('right').has_equal_ast('Are you checking for French correctly?')
-
-and_two = where_clause.check_field('right').check_field('left').has_equal_ast('Are you checking for Spanish correctly?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    where_one, 
-    and_one,
-    and_two,
+    release_year, 
+    french,
+    spanish,
+    gross,
+    where_clause,
     from_clause,
     star,
     test_error()
@@ -589,7 +599,7 @@ SELECT AVG(duration)
 AS average_duration
 FROM films
 WHERE release_year = 2012
-OR COUNTRY = 'UK';
+OR country = 'UK';
 ```
 *** =sct4
 ```{python}
@@ -601,15 +611,14 @@ alias = test_column('average_duration', match='exact')
 
 avg_call = sel.check_node('AliasExpr').has_equal_ast('Are you calling `AVG` correctly?')
 
-where_one = sel.check_field('where_clause').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
-
-where_two = sel.check_field('where_clause').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+release_year = test_student_typed("release_year = 2012", msg='Did you check the `release_year` correctly?')
+country = test_student_typed("country = UK", msg='Did you check the `country` correctly?')
 
 Ex().test_correct(check_result(), [
     alias,
     from_clause,
-    where_one,
-    where_two,
+    release_year,
+    country,
     test_error()
 ])
 ```
