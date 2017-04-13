@@ -465,6 +465,7 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:69853cbb54
 ## Weather questions (2)
+
 From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits. 
 
 *** =pre_exercise_code
@@ -594,9 +595,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-
-
---- type:BulletExercise lang:sql xp:100 key:c3a36ee3f0
+--- type:BulletExercise lang:sql xp:100 key:9b477c077c
 ## Stations
 The mayor wants to know which stations are the most popular.
 
@@ -611,7 +610,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: db6d8198da
+*** =key1: 
 
 *** =instructions1
 Which station was started from the most?
@@ -640,7 +639,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 96d9e8384e
+*** =key2: 
 
 *** =instructions2
 What were the top ten most popular stations to start from?
@@ -677,7 +676,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: b235a96d86
+*** =key3: 
 
 *** =instructions3
 What were the top ten least popular stations to start from?
@@ -767,7 +766,7 @@ Ex().test_correct(check_result(), [
 *** =instructions2
 How many trips were made on Christmas Day?
 *** =solution2
-```{python}
+```{sql}
 SELECT COUNT(*)
 FROM trips
 WHERE start_date = '2015-12-25';
@@ -795,25 +794,25 @@ Ex().test_correct(check_result(), [
 *** =key3: 605066b226
 
 *** =instructions3
-Are there any days on which no trips were made?
+How many trips were made on Christmas Day?
 *** =solution3
 ```{sql}
-SELECT *
+SELECT COUNT(*)
 FROM trips
-WHERE id IS NULL;
+WHERE start_date = '2015-01-01';
 ```
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
-star = sel.check_node('Star').has_equal_ast('Are you selecting all the columns?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUNT` correctly?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
 Ex().test_correct(check_result(), [
-    star, 
+    count_call,
     from_clause,
     where_clause,
     test_error()
