@@ -749,7 +749,7 @@ SELECT COUNT(title) AS title_count
 FROM films;
 ```
 
-will give you a result set with a single column named `title_count`. Aliases are helpful for making results more readable!
+gives you a result set with a single column named `title_count`. Aliases are helpful for making results more readable!
 
 *** =pre_exercise_code
 ```{python}
@@ -767,7 +767,7 @@ FROM films;
 *** =key1: ec33c2353b
 
 *** =instructions1
-Get the title and profit or loss for each movie, where possible. Let's define the profit or loss as being the amount the movie made, less the amount the movie cost to make.
+Get the title and profit or loss for each movie, where possible. Let's define the profit or loss as being the amount the movie made, less the amount the movie cost to make. Alias the profit or loss as `profit_or_loss`. 
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS profit_or_loss
@@ -820,7 +820,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 497f8d2a8a
 *** =instructions3
-Get the average film duration in hours for each movie. Alias the duration in hours as `avg_duration_in_hours`.
+Get the average film duration in hours for each movie. Alias the duration in hours as `avg_duration_hours`.
 
 *** =solution3
 ```{sql}
@@ -914,7 +914,22 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-# can't check modulo on sqlwhat yet
+sel = test_student_typed('SELECT')
+distinct = test_student_typed('distinct|DISTINCT', msg='Did you use `DISTINCT`?')
+count_call = test_student_typed('(count|COUNT)\(((distinct|DISTINCT)\slanguage\))', msg='Are you calling `COUNT` correctly?')
+alias = test_student_typed('(as|AS)\sresult', msg='Did you alias your result correctly?')
+from_clause = test_student_typed('(from|FROM)\sfilms', msg='Is your `FROM` clause correct?')
+modulo = test_student_typed('% 2', msg='Did you use the modulo operator (`%`)?', fixed=True)
+
+Ex().test_correct(check_result(), [
+    sel,
+    distinct,
+    count_call,
+    modulo,
+    alias,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
