@@ -610,7 +610,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: 
+*** =key1: 10fb6c6094
 
 *** =instructions1
 Which station was started from the most?
@@ -639,7 +639,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 
+*** =key2: 41228cf301
 
 *** =instructions2
 What were the top ten most popular stations to start from?
@@ -676,7 +676,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 
+*** =key3: 0212d3b9ff
 
 *** =instructions3
 What were the top ten least popular stations to start from?
