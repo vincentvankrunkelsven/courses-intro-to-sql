@@ -630,6 +630,13 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
 count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly'?)
+
+Ex().test_correct(check_result(), [
+    count_call, 
+    group_by_clause,
+    from_clause,
+    test_error()
+])
 ```
 
 *** =type2: NormalExercise
