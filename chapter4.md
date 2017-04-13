@@ -595,7 +595,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:9b477c077c
+--- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
 ## Stations
 
 The mayor wants to know which stations are the most popular.
@@ -611,7 +611,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: e108b662a7
+*** =key1: 716df6c898
 
 *** =instructions1
 Which station was started from the most?
@@ -632,7 +632,7 @@ group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GRO
 count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly'?)
 
 Ex().test_correct(check_result(), [
-    count_call, 
+    count_call,
     group_by_clause,
     from_clause,
     test_error()
@@ -640,7 +640,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: bd226fb134
+*** =key2: bcc5ad713c
 
 *** =instructions2
 What were the top ten most popular stations to start from?
@@ -676,8 +676,9 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
+
 *** =type3: NormalExercise
-*** =key3: 84218e62bc
+*** =key3: 605066b226
 
 *** =instructions3
 What were the top ten least popular stations to start from?
@@ -710,7 +711,8 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
+
+--- type:BulletExercise lang:sql xp:100 key:ae5e7b765b
 ## Times
 
 The mayor is planning a publicity stunt, and wants to wants to know how CitiBike usage changes depending on the time of year. 
@@ -790,7 +792,6 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
-
 
 *** =type3: NormalExercise
 *** =key3: 605066b226
