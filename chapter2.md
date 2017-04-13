@@ -859,10 +859,26 @@ AND certification = 'R';
 ```
 *** =sct2
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+between = where_clause.check_node('Unshaped').check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+
+certification = test_student_typed("certification = 'R'", msg='Did you check `certification` correctly in your `WHERE` clause?', fixed=True)
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    between,
+    certification,
+    test_error()
+])
+
 ```
 
 *** =type3: NormalExercise
@@ -875,15 +891,34 @@ Get the number of films released between 1950 and 2000 that were in French, and 
 SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 1950 AND 2000
-AND language = 'FRENCH' 
+AND language = 'French' 
 AND country = 'USA';
 ```
 *** =sct3
 ```{python}
-Ex().check_result()
-Ex().test_ncols()
-Ex().test_nrows()
-Ex().has_equal_ast()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+between = where_clause.check_node('Unshaped', priority=99).check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+
+language = test_student_typed("language = 'French'", msg="Did you check `language = 'French'`?", fixed=True)
+
+country = test_student_typed("country = 'USA'", msg="Did you check `country = 'USA'`?", fixed=True)
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    between,
+    language,
+    country,
+    where_clause,
+    test_error()
+])
 ```
 
 
@@ -935,13 +970,13 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+in_op = where_clause.check_node('Unshaped', priority=99).has_equal_ast('Is your use of `IN` correct?')
 
-and_op = where_clause.check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+duration = where_clause.check_node('BinaryExpr').has_equal_ast('Did you check `duration` correctly?')
 
 Ex().test_correct(check_result(), [
-    and_op, 
-    in_op,
+    in_op, 
+    duration,
     from_clause,
     where_clause,
     test_error()

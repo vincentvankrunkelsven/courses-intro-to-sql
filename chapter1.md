@@ -499,7 +499,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 Ex().test_correct(check_result(), [
     from_clause, 
-    count
+    count,
+    test_error()
 ])
 ```
 
@@ -524,7 +525,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 Ex().test_correct(check_result(), [
     from_clause, 
-    count
+    count,
+    test_error()
 ])
 ```
 
@@ -549,7 +551,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 Ex().test_correct(check_result(), [
     from_clause, 
-    count
+    count,
+    test_error()
 ])
 ```
 
@@ -574,7 +577,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 Ex().test_correct(check_result(), [
     from_clause, 
-    count
+    count, 
+    test_error()
 ])
 ```
 
@@ -956,7 +960,8 @@ alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('
 Ex().test_correct(check_result(), [
     from_clause, 
     alias_eqn, 
-    alias
+    alias,
+    test_error()
 ])
 
 ```
@@ -985,7 +990,8 @@ alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('
 Ex().test_correct(check_result(), [
     from_clause, 
     alias_eqn, 
-    alias
+    alias,
+    test_error()
 ])
 ```
 
@@ -1014,6 +1020,7 @@ alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('
 Ex().test_correct(check_result(), [
     from_clause, 
     alias_eqn, 
-    alias
+    alias, 
+    test_error()
 ])
 ```
