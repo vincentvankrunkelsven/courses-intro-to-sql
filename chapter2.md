@@ -827,7 +827,7 @@ sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
 
-from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -863,7 +863,7 @@ sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
 
-from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause')
 
