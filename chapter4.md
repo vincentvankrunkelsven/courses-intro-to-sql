@@ -595,7 +595,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
+--- type:BulletExercise lang:sql xp:100 key:f03a901d7a
 ## Stations
 
 The mayor wants to know which stations are the most popular.
@@ -728,7 +728,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: 709eb1f61e
+*** =key1: 716df6c898
 
 *** =instructions1
 Which date had the most trips?
@@ -765,7 +765,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: aef5c2fb86
+*** =key2: bcc5ad713c
 
 *** =instructions2
 How many trips were made on Christmas Day?
@@ -794,7 +794,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 847f16751f
+*** =key3: 605066b226
 
 *** =instructions3
 How many trips were made on Christmas Day?
