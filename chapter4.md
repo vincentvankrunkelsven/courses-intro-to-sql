@@ -601,9 +601,10 @@ Ex().test_correct(check_result(), [
 The mayor wants to know which stations are the most popular.
 
 *** =instructions
-Which station was started from the most?
+Get the `start_station_id` of the station which was started from the most.
 
 *** =hint
+Count the number of times each `start_station_id` appears in the `trips` table!
 
 *** =pre_exercise_code
 ```{python}
@@ -636,7 +637,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly'?)
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
 
 Ex().test_correct(check_result(), [
     count_call,
@@ -654,9 +655,9 @@ Ex().test_correct(check_result(), [
 The mayor wants to know which stations are the most popular.
 
 *** =instructions
-What were the top ten most popular stations to start from?
-
+Get the `start_station_id`s of the top ten most popular stations to start from.
 *** =hint
+Count the number of times each `start_station_id` appears in the `trips` table!
 
 *** =pre_exercise_code
 ```{python}
@@ -710,9 +711,10 @@ Ex().test_correct(check_result(), [
 The mayor wants to know which stations are the least popular to determine if they need to be renovated.
 
 *** =instructions
-What were the ten least popular stations to start from?
+Get the `start_station_id`s of the ten least popular stations to start from. 
 
 *** =hint
+Count the number of times each `start_station_id` appears in the `trips` table!
 
 *** =pre_exercise_code
 ```{python}
