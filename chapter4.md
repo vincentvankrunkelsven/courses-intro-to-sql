@@ -597,6 +597,7 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:9b477c077c
 ## Stations
+
 The mayor wants to know which stations are the most popular.
 
 *** =pre_exercise_code
@@ -610,7 +611,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: 10fb6c6094
+*** =key1: 
 
 *** =instructions1
 Which station was started from the most?
@@ -639,7 +640,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 41228cf301
+*** =key2: 
 
 *** =instructions2
 What were the top ten most popular stations to start from?
@@ -676,7 +677,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 0212d3b9ff
+*** =key3: 
 
 *** =instructions3
 What were the top ten least popular stations to start from?
@@ -711,6 +712,7 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
 ## Times
+
 The mayor is planning a publicity stunt, and wants to wants to know how CitiBike usage changes depending on the time of year. 
 
 *** =pre_exercise_code
