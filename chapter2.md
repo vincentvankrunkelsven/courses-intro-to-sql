@@ -827,7 +827,7 @@ sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
 
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_node('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -1016,7 +1016,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 3c947b0d2d
 
 *** =instructions3
-Get the title and certification of all films with an NC-17 or R certification.
+Get the title and certification of all films with an NC-17 or R certification. Note that you'll need to check in this order.
 *** =solution3
 ```{sql}
 SELECT title, certification
