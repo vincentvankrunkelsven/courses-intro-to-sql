@@ -728,7 +728,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: 716df6c898
+*** =key1: b8ae19c6bc
 
 *** =instructions1
 Which date had the most trips?
@@ -765,7 +765,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: bcc5ad713c
+*** =key2: 5e56c25c82
 
 *** =instructions2
 How many trips were made on New Year's Day?
@@ -794,7 +794,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 605066b226
+*** =key3: 5761bbe61f
 
 *** =instructions3
 How many trips were made on Christmas Day?
