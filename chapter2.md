@@ -410,7 +410,7 @@ language = test_student_typed("language = 'Spanish'", msg='Did you check the `la
 Ex().test_correct(check_result(), [
     release_year,
     language,
-    where_clause
+    where_clause,
     from_clause,
     test_error()
 ])
