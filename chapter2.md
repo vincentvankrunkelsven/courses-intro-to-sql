@@ -368,9 +368,9 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = test_student_typed("release_year < 2000", msg='Did you check the `release_year`?')
+release_year = test_student_typed("release_year < 2000", msg='Did you check the `release_year`?', fixed=True)
 
-language = test_student_typed("language = 'Spanish'", msg='Did you check the `language`?')
+language = test_student_typed("language = 'Spanish'", msg='Did you check the `language`?', fixed=True)
 
 Ex().test_correct(check_result(), [
     release_year,
@@ -403,9 +403,9 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = test_student_typed("release_year > 2000", msg='Did you check the `release_year` correctly??')
+release_year = test_student_typed("release_year > 2000", msg='Did you check the `release_year` correctly?', fixed=True)
 
-language = test_student_typed("language = 'Spanish'", msg='Did you check the `language` correctly?')
+language = test_student_typed("language = 'Spanish'", msg='Did you check the `language` correctly?', fixed=True)
 
 Ex().test_correct(check_result(), [
     release_year,
@@ -436,9 +436,9 @@ avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` corre
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?')
+release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?', fixed=True)
 
-country = test_student_typed("country = 'French'", msg='Did you check the `country` correctly?')
+country = test_student_typed("country = 'French'", msg='Did you check the `country` correctly?', fixed=True)
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -499,10 +499,10 @@ sel = check_node('SelectStmt')
 left = sel.check_node('BinaryExpr').check_field('left')
 right = sel.check_node('BinaryExpr').check_field('right')
 
-release_year1 = test_student_typed("release_year = 1992", msg='Did you check the year 1990?')
-release_year2 = test_student_typed("release_year = 2000", msg='Did you check the year 2000?')
-french = test_student_typed("language = 'French'", msg='Did you check for French?')
-spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?')
+release_year1 = test_student_typed("release_year = 1992", msg='Did you check the year 1990?', fixed=True)
+release_year2 = test_student_typed("release_year = 2000", msg='Did you check the year 2000?', fixed=True)
+french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
+spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -539,10 +539,10 @@ star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-release_year = test_student_typed("release_year > 2000", msg='Did you check the year 2000?')
-french = test_student_typed("language = 'French'", msg='Did you check for French?')
-spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?')
-gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?')
+release_year = test_student_typed("release_year > 2000", msg='Did you check the year 2000?', fixed=True)
+french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
+spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
+gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?', fixed=True)
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -611,8 +611,8 @@ alias = test_column('average_duration', match='exact')
 
 avg_call = sel.check_node('AliasExpr').has_equal_ast('Are you calling `AVG` correctly?')
 
-release_year = test_student_typed("release_year = 2012", msg='Did you check the `release_year` correctly?')
-country = test_student_typed("country = UK", msg='Did you check the `country` correctly?')
+release_year = test_student_typed("release_year = 2012", msg='Did you check the `release_year` correctly?', fixed=True)
+country = test_student_typed("country = UK", msg='Did you check the `country` correctly?', fixed=True)
 
 Ex().test_correct(check_result(), [
     alias,
