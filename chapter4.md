@@ -728,7 +728,7 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: c9670afee2
+*** =key1: 716df6c898
 
 *** =instructions1
 Which date had the most trips?
@@ -765,10 +765,10 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 815201920c
+*** =key2: bcc5ad713c
 
 *** =instructions2
-How many trips were made on Christmas Day?
+How many trips were made on New Year's Day?
 *** =solution2
 ```{sql}
 SELECT COUNT(*)
@@ -794,7 +794,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 3c9834a5c1
+*** =key3: 605066b226
 
 *** =instructions3
 How many trips were made on Christmas Day?
