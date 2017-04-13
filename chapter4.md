@@ -368,7 +368,7 @@ count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUN
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-from_clause = sel.check_field('from_clause')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     count_call,
@@ -397,7 +397,7 @@ count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUN
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-from_clause = sel.check_field('from_clause')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     count_call,
@@ -428,7 +428,7 @@ count_call = sel.check_field('target_list').has_equal_ast('Are you calling `COUN
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 cloud_cover1 = test_student_typed("cloud_cover = 0", msg='Did you check `cloud_cover = 0`?')
-cloud_cover2 = test_student_typed("cloud_cover = 0", msg='Did you check `cloud_cover IS NULL`?')
+cloud_cover2 = test_student_typed("cloud_cover IS NULL", msg='Did you check `cloud_cover IS NULL`?')
 
 where_clause = check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -438,7 +438,7 @@ Ex().test_correct(check_result(), [
     cloud_cover2,
     where_clause,
     from_clause,
-    test_correct()
+    test_error()
 ])
 ```
 
