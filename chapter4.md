@@ -137,7 +137,7 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.chck_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
 
 distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
 
@@ -166,7 +166,7 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.chck_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
 
 distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
 
@@ -617,7 +617,7 @@ connect('postgresql', 'nycbikes15')
 Which station was started from the most?
 *** =solution1
 ```{sql}
-SELECT id as station_id, COUNT(id)
+SELECT id AS station_id, COUNT(id)
 FROM trips
 GROUP BY station_id;
 ```
@@ -705,7 +705,7 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:4eba7f9dc9
 ## Times
-The mayor is planning a publicity stunt, and wants to wants to know about how CitiBike usage changes depending on the time of the year. 
+The mayor is planning a publicity stunt, and wants to wants to know how CitiBike usage changes depending on the time of year. 
 
 *** =pre_exercise_code
 ```{python}
@@ -803,7 +803,7 @@ star = sel.check_node('Star').has_equal_ast('Are you selecting all the columns?'
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
     star, 
