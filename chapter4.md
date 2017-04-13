@@ -595,10 +595,16 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:f03a901d7a
+--- type:NormalExercise lang:sql xp:100 skills:1 key:3125502e11
 ## Stations
 
 The mayor wants to know which stations are the most popular.
+
+*** =instructions
+Get the `start_station_id` of the station which was started from the most.
+
+*** =hint
+Count the number of times each `start_station_id` appears in the `trips` table!
 
 *** =pre_exercise_code
 ```{python}
@@ -607,21 +613,23 @@ connect('postgresql', 'nycbikes15')
 
 *** =sample_code
 ```{sql}
-
-```
-
-*** =type1: NormalExercise
-*** =key1: 716df6c898
-
-*** =instructions1
-Which station was started from the most?
-*** =solution1
-```{sql}
-SELECT id AS station_id, COUNT(id)
+SELECT ___, ___(___)
 FROM trips
-GROUP BY station_id;
+___ start_station_id
+ORDER BY ___ ___
+___ ___;
 ```
-*** =sct1
+
+*** =solution
+```{sql}
+SELECT start_station_id, COUNT(start_station_id)
+FROM trips
+GROUP BY start_station_id
+ORDER BY count DESC
+LIMIT 1;
+```
+
+*** =sct
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -629,7 +637,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly'?)
+count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
 
 Ex().test_correct(check_result(), [
     count_call,
@@ -639,12 +647,33 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type2: NormalExercise
-*** =key2: bcc5ad713c
 
-*** =instructions2
-What were the top ten most popular stations to start from?
-*** =solution2
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:58fd297b05
+## Stations (2)
+
+The mayor wants to know which stations are the most popular.
+
+*** =instructions
+Get the `start_station_id`s of the top ten most popular stations to start from.
+*** =hint
+Count the number of times each `start_station_id` appears in the `trips` table!
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+SELECT ___, ___(___)
+FROM trips
+___ start_station_id
+ORDER BY ___ ___
+___ 10;
+```
+
+*** =solution
 ```{sql}
 SELECT start_station_id, COUNT(start_station_id)
 FROM trips
@@ -652,7 +681,8 @@ GROUP BY start_station_id
 ORDER BY count DESC
 LIMIT 10;
 ```
-*** =sct2
+
+*** =sct
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -676,13 +706,31 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
+--- type:NormalExercise lang:sql xp:100 skills:1 key:8927185f5b
+## Stations (3)
+The mayor wants to know which stations are the least popular to determine if they need to be renovated.
 
-*** =type3: NormalExercise
-*** =key3: 605066b226
+*** =instructions
+Get the `start_station_id`s of the ten least popular stations to start from. 
 
-*** =instructions3
-What were the top ten least popular stations to start from?
-*** =solution3
+*** =hint
+Count the number of times each `start_station_id` appears in the `trips` table!
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+SELECT start_station_id, ___(___)
+FROM ___
+___ BY start_station_id
+___ ___ count
+___ 10;
+```
+
+*** =solution
 ```{sql}
 SELECT start_station_id, COUNT(start_station_id)
 FROM trips
@@ -690,7 +738,8 @@ GROUP BY start_station_id
 ORDER BY count
 LIMIT 10;
 ```
-*** =sct3
+
+*** =sct
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -710,8 +759,6 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
-
-
 --- type:BulletExercise lang:sql xp:100 key:ae5e7b765b
 ## Times
 
@@ -728,16 +775,14 @@ connect('postgresql', 'nycbikes15')
 ```
 
 *** =type1: NormalExercise
-*** =key1: b8ae19c6bc
+*** =key1: 716df6c898
 
 *** =instructions1
 Which date had the most trips?
 *** =solution1
 ```{sql}
-SELECT start_date, COUNT(*)
+SELECT start_date
 FROM trips
-GROUP BY start_date
-ORDER BY count DESC
 LIMIT 10;
 ```
 *** =sct1
@@ -765,7 +810,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 5e56c25c82
+*** =key2: bcc5ad713c
 
 *** =instructions2
 How many trips were made on New Year's Day?
@@ -794,7 +839,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 5761bbe61f
+*** =key3: 605066b226
 
 *** =instructions3
 How many trips were made on Christmas Day?
