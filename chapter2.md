@@ -510,12 +510,22 @@ sel = check_node('SelectStmt')
 left = sel.check_node('BinaryExpr').check_field('left')
 right = sel.check_node('BinaryExpr').check_field('right')
 
-release_year1 = test_student_typed("release_year = 1992", msg='Did you check the year 1990?', fixed=True)
-release_year2 = test_student_typed("release_year = 2000", msg='Did you check the year 2000?', fixed=True)
-french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
-spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+release_year1 = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the year 1992?')
+
+release_year2 = where_clause.has_equal_ast(sql='release_year = 2000', start='expression', exact=False, msg='Did you check the year 2000?')
+
+french = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check for French?')
+
+spanish = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check for Spanish?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+# release_year1 = test_student_typed("release_year = 1992", msg='Did you check the year 1992?', fixed=True)
+# release_year2 = test_student_typed("release_year = 2000", msg='Did you check the year 2000?', fixed=True)
+# french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
+# spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
 
 Ex().test_correct(check_result(), [
     release_year1, 
@@ -548,14 +558,22 @@ sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
 
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the year 2000?')
+
+french = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check for French?')
+
+spanish = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check for Spanish?')
+
+gross = where_clause.has_equal_ast(sql='gross > 20000000', exact=False, msg='Did you check the `gross`?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-release_year = test_student_typed("release_year > 2000", msg='Did you check the year 2000?', fixed=True)
-french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
-spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
-gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?', fixed=True)
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+# release_year = test_student_typed("release_year > 2000", msg='Did you check the year 2000?', fixed=True)
+# french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
+# spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
+# gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?', fixed=True)
 
 Ex().test_correct(check_result(), [
     release_year, 
