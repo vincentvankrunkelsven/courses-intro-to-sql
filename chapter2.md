@@ -368,9 +368,13 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = test_student_typed("release_year < 2000", msg='Did you check the `release_year`?', fixed=True)
+release_year = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year`?')
 
-language = test_student_typed("language = 'Spanish'", msg='Did you check the `language`?', fixed=True)
+language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', match=False, msg='Did you check the `language`?')
+
+# release_year = test_student_typed("release_year < 2000", msg='Did you check the `release_year`?', fixed=True)
+
+# language = test_student_typed("language = 'Spanish'", msg='Did you check the `language`?', fixed=True)
 
 Ex().test_correct(check_result(), [
     release_year,
@@ -403,9 +407,13 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = test_student_typed("release_year > 2000", msg='Did you check the `release_year` correctly?', fixed=True)
+release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
-language = test_student_typed("language = 'Spanish'", msg='Did you check the `language` correctly?', fixed=True)
+language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
+
+# release_year = test_student_typed("release_year > 2000", msg='Did you check the `release_year` correctly?', fixed=True)
+
+# language = test_student_typed("language = 'Spanish'", msg='Did you check the `language` correctly?', fixed=True)
 
 Ex().test_correct(check_result(), [
     release_year,
@@ -436,11 +444,15 @@ avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` corre
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?', fixed=True)
-
-country = test_student_typed("country = 'French'", msg='Did you check the `country` correctly?', fixed=True)
-
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+release_year = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the `release_year`?')
+
+release_year = where_clause.has_equal_ast(sql="country = 'France'", start='expression', exact=False, msg='Did you check the `country` correctly?')
+
+# release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?', fixed=True)
+
+# country = test_student_typed("country = 'France'", msg='Did you check the `country` correctly?', fixed=True)
 
 Ex().test_correct(check_result(), [
     avg_call, 
@@ -640,14 +652,21 @@ alias = test_column('average_duration', match='exact')
 
 avg_call = sel.check_node('AliasExpr').has_equal_ast('Are you calling `AVG` correctly?')
 
-release_year = test_student_typed("release_year = 2012", msg='Did you check the `release_year` correctly?', fixed=True)
-country = test_student_typed("country = UK", msg='Did you check the `country` correctly?', fixed=True)
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+release_year = where_clause.has_equal_ast(sql='release_year = 2012', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+country = where_clause.has_equal_ast(sql="country = 'UK'", start='expression', exact=False,msg='Did you check the `country` correctly?')
+
+# release_year = test_student_typed("release_year = 2012", msg='Did you check the `release_year` correctly?', fixed=True)
+# country = test_student_typed("country = UK", msg='Did you check the `country` correctly?', fixed=True)
 
 Ex().test_correct(check_result(), [
     alias,
     from_clause,
     release_year,
     country,
+    where_clause,
     test_error()
 ])
 ```
@@ -894,17 +913,22 @@ count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `C
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_node('Unshaped').check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+between = where_clause.has_equal_ast(sql='release_year BETWEEN 1994 AND 2004', start='expression', exact=False, msg='Check your use of `BETWEEN`!')
 
-certification = test_student_typed("certification = 'R'", msg='Did you check `certification` correctly in your `WHERE` clause?', fixed=True)
+certification = where_clause.has_equal_ast(sql="certification = 'R'", start='expression', exact=False, msg='Did you check `certification` correctly in your `WHERE` clause?')
+
+# between = where_clause.check_node('Unshaped').check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+
+# certification = test_student_typed("certification = 'R'", msg='Did you check `certification` correctly in your `WHERE` clause?', fixed=True)
 
 Ex().test_correct(check_result(), [
     count_call,
     from_clause,
     between,
     certification,
+    where_clause,
     test_error()
 ])
 
@@ -933,11 +957,17 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_node('Unshaped', priority=99).check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+between = where_clause.has_equal_ast(sql='release_year BETWEEN 1950 AN', start='expression', exact=False, msg='Check your use of `BETWEEN`!')
 
-language = test_student_typed("language = 'French'", msg="Did you check `language = 'French'`?", fixed=True)
+language = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg="Did you check `language = 'French'`?")
 
-country = test_student_typed("country = 'USA'", msg="Did you check `country = 'USA'`?", fixed=True)
+country = where_clause.has_equal_ast(sql="country = 'USA'", start='expression', exact=False, msg="Did you check `language = 'French'`?")
+
+# between = where_clause.check_node('Unshaped', priority=99).check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+
+# language = test_student_typed("language = 'French'", msg="Did you check `language = 'French'`?", fixed=True)
+
+# country = test_student_typed("country = 'USA'", msg="Did you check `country = 'USA'`?", fixed=True)
 
 Ex().test_correct(check_result(), [
     count_call,
