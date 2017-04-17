@@ -468,6 +468,17 @@ OR release_year = 2000;
 
 will give you the names of all the films released in _either_ 1994 or 2000.
 
+When combining `AND` and `OR`, or  clauses, be sure to enclose the individual clauses in parentheses, like so:
+
+```
+SELECT title
+FROM films
+WHERE (release_year = 1994 OR release_year = 1995)
+AND (certification = 'PG' OR certification = 'R');
+```
+
+Otherwise, due to PostgreSQL's precedence ruels, you may not get the results you're expecting!
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -477,8 +488,8 @@ connect('postgresql', 'films')
 ```{sql}
 SELECT ___, ___
 FROM ___
-___ release_year = 1990 ___ release_year = 2000
-___ language = 'English' ___ language = 'Spanish';
+___ (release_year = 1990 ___ release_year = 2000)
+___ (language = 'English' ___ language = 'Spanish');
 ```
 
 *** =type1: NormalExercise
@@ -490,8 +501,8 @@ Get the title and release year of films released in 1990 or 2000 in English or S
 ```{sql}
 SELECT title, release_year
 FROM films
-WHERE release_year = 1990 OR release_year = 2000
-AND language = 'French' OR language = 'Spanish';
+WHERE (release_year = 1990 OR release_year = 2000)
+AND (language = 'French' OR language = 'Spanish');
 ```
 *** =sct1
 ```{python}
@@ -528,7 +539,7 @@ Get films released since 2000 that are in French or Spanish, and made more than 
 SELECT *
 FROM films
 WHERE release_year > 2000
-AND language = 'French' OR language = 'Spanish'
+AND (language = 'French' OR language = 'Spanish')
 AND gross > 20000000;
 ```
 *** =sct2
