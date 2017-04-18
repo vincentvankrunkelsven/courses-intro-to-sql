@@ -318,7 +318,7 @@ sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
 
-language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `language` column correctly?')
+language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `country` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
