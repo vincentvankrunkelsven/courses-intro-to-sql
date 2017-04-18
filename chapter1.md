@@ -918,6 +918,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+# note to future Colin: using test_student_typed here because sqlwhateviewer doesn't support modulo yet
 sel = test_student_typed('SELECT')
 distinct = test_student_typed('distinct|DISTINCT', msg='Did you use `DISTINCT`?')
 count_call = test_student_typed('(count|COUNT)\(((distinct|DISTINCT)\slanguage\))', msg='Are you calling `COUNT` correctly?')
