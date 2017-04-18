@@ -506,7 +506,7 @@ GROUP BY release_year;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Is your `COUNT` call correct?')
+count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Is your `COUNT` call correct?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -581,7 +581,7 @@ group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GRO
 
 alias = test_column('films_released', match='exact')
 
-count_call = sel.check_node('AliasExpr').check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('AliasExpr').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -618,7 +618,7 @@ group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GRO
 
 alias = test_column('films_released', match='exact')
 
-count_call = sel.check_node('AliasExpr').check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('AliasExpr').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -652,7 +652,7 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -682,7 +682,7 @@ from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clau
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-sum_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `SUM` correctly?')
+sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
 
 Ex().test_correct(check_result(), [
     group_by_clause,
@@ -711,7 +711,7 @@ from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clau
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-sum_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `SUM` correctly?')
+sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
 
 Ex().test_correct(check_result(), [
     group_by_clause,
@@ -763,7 +763,7 @@ group_by_clause1 = sel.check_field('group_by_clause', 0).has_equal_ast('Is the f
 
 group_by_clause2 = sel.check_field('group_by_clause').has_equal_ast('Is the second column of your `GROUP BY` clause correct?')
 
-max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -799,7 +799,7 @@ group_by_clause1 = sel.check_field('group_by_clause', 0).has_equal_ast('Is the f
 
 group_by_clause2 = sel.check_field('group_by_clause').has_equal_ast('Is the second column of your `GROUP BY` clause correct?')
 
-min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
