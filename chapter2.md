@@ -448,7 +448,7 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 
 release_year = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the `release_year`?')
 
-release_year = where_clause.has_equal_ast(sql="country = 'France'", start='expression', exact=False, msg='Did you check the `country` correctly?')
+country = where_clause.has_equal_ast(sql="country = 'France'", start='expression', exact=False, msg='Did you check the `country` correctly?')
 
 # release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?', fixed=True)
 
