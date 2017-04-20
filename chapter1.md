@@ -753,7 +753,18 @@ SELECT COUNT(title) AS title_count
 FROM films;
 ```
 
-gives you a result set with a single column named `title_count`. Aliases are helpful for making results more readable!
+gives you a result set with a single column named `title_count`.
+
+Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. For example:
+
+```
+SELECT title, duration * 60 AS duration_seconds
+FROM films;
+```
+
+gives the duration of each film in seconds in a column called `duration_seconds`.
+
+Aliases are helpful for making results more readable!
 
 *** =pre_exercise_code
 ```{python}
@@ -771,7 +782,7 @@ FROM films;
 *** =key1: ec33c2353b
 
 *** =instructions1
-Get the title and profit or loss for each movie, where possible. Let's define the profit or loss as being the amount the movie made, less the amount the movie cost to make. Alias the profit or loss as `profit_or_loss`. 
+Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, less the amount the film cost to make. Alias the profit or loss as `profit_or_loss`. 
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS profit_or_loss
@@ -800,8 +811,7 @@ Get the title and duration in hours for each film. Alias the duration in hours a
 
 *** =solution2
 ```{sql}
-SELECT title, duration / 60
-AS duration_hours
+SELECT title, duration / 60 AS duration_hours
 FROM films;
 ```
 *** =sct2
@@ -824,12 +834,11 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 497f8d2a8a
 *** =instructions3
-Get the average film duration in hours for each movie. Alias the duration in hours as `avg_duration_hours`.
+Get the average film duration in hours for all films, aliased as `avg_duration_hours`.
 
 *** =solution3
 ```{sql}
-SELECT AVG(duration) / 60
-AS avg_duration_hours  
+SELECT AVG(duration) / 60 AS avg_duration_hours  
 FROM films;
 ```
 *** =sct3

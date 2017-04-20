@@ -123,7 +123,7 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 *** =key3: 7b872a3af0
 
 *** =instructions3
-Get the number of Hindi movies.
+Get the number of Hindi films.
 *** =solution3
 ```{sql}
 SELECT COUNT(*)
