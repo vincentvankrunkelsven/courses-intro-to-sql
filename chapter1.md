@@ -863,7 +863,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:8612897f35
 ## Even more aliasing
 
-Nice work! Practice your newfound aliasing skills before moving on to the next chapter. 
+Nice work! Let's practice your newfound aliasing skills before moving on to the next chapter.
 
 *** =pre_exercise_code
 ```{python}
@@ -881,7 +881,7 @@ FROM people;
 *** =key1: e14dc7c1a2
 
 *** =instructions1
-Get the percentage of people who have died. Alias the result as `percentage_dead`.
+Get the percentage of `people` who are no longer alive. Alias the result as `percentage_dead`.
 *** =solution1
 ```{sql}
 SELECT COUNT(deathdate) * 100 / COUNT(*)
@@ -915,49 +915,17 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 5a50009c41
-
+*** =key2: c2bbd9a806
 *** =instructions2
-Check if there's an even number of unique languages. (0 = yes, 1 = no). Alias the result as `result`.
-*** =solution2
-```{sql}
-SELECT COUNT(DISTINCT language) % 2
-AS result
-FROM films;
-```
-*** =sct2
-```{python}
-# note to future Colin: using test_student_typed here because sqlwhateviewer doesn't support modulo yet
-sel = test_student_typed('SELECT')
-distinct = test_student_typed('distinct|DISTINCT', msg='Did you use `DISTINCT`?')
-count_call = test_student_typed('(count|COUNT)\(((distinct|DISTINCT)\slanguage\))', msg='Are you calling `COUNT` correctly?')
-alias = test_student_typed('(as|AS)\sresult', msg='Did you alias your result correctly?')
-from_clause = test_student_typed('(from|FROM)\sfilms', msg='Is your `FROM` clause correct?')
-modulo = test_student_typed('% 2', msg='Did you use the modulo operator (`%`)?', fixed=True)
-
-Ex().test_correct(check_result(), [
-    sel,
-    distinct,
-    count_call,
-    modulo,
-    alias,
-    from_clause,
-    test_error()
-])
-```
-
-*** =type3: NormalExercise
-*** =key3: c2bbd9a806
-*** =instructions3
 Get the of years between the oldest film and newest film. Alias the result as `difference`.
 
-*** =solution3
+*** =solution2
 ```{sql}
 SELECT MAX(release_year) - MIN(release_year)
 AS difference
 FROM films;
 ```
-*** =sct3
+*** =sct2
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -976,18 +944,18 @@ Ex().test_correct(check_result(), [
 
 ```
 
-*** =type4: NormalExercise
-*** =key4: f272486b68
+*** =type3: NormalExercise
+*** =key3: f272486b68
 
-*** =instructions4
+*** =instructions3
 Get the number of decades this dataset covers. Alias the result as `number_of_decades`.
-*** =solution4
+*** =solution3
 ```{sql}
 SELECT (MAX(release_year) - MIN(release_year)) / 10
 AS number_of_decades
 FROM films;
 ```
-*** =sct4
+*** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -1005,19 +973,19 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type5: NormalExercise
+*** =type4: NormalExercise
 
-*** =key5: 52d3616e78
+*** =key4: 52d3616e78
 
-*** =instructions5
+*** =instructions4
 Get the duration in hours for each film. Alias the duration in hours as `duration_hours`.
 
-*** =solution5
+*** =solution4
 ```{sql}
 SELECT title, duration / 60 AS duration_hours
 FROM films;
 ```
-*** =sct5
+*** =sct4
 ```{python}
 sel = check_node('SelectStmt')
 
