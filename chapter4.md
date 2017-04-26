@@ -138,9 +138,9 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
-distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
+distinct = count_call.check_field('pref', 'Are you using the `DISTINCT` keyword?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -167,9 +167,9 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
-distinct = count_call.check_field('arr', 2).has_equal_ast('Are you using the `DISTINCT` keyword?')
+distinct = count_call.check_field('pref', 'Are you using the `DISTINCT` keyword?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -207,7 +207,7 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -232,7 +232,7 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -257,7 +257,7 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -285,7 +285,7 @@ sel = check_node('SelectStmt')
 
 alias = test_column('duration_minutes', match='exact')
 
-avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -312,12 +312,13 @@ FROM trips;
 ```{python}
 sel = check_node('SelectStmt')
 
-sum_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').check_field('left').check_node('Unshaped').has_equal_ast('Did you use `SUM` on `duration`?')
+sum_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').check_field('left').check_node('Call').has_equal_ast('Did you use `SUM` on `duration`?')
 
 alias = test_column('duration_days', match='exact')
 
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
+# MC-Note: Are these supposed to be inside of a test_or?
 division_check1 = test_student_typed('/ 60 / 60 / 24', msg='Make sure your division is correct!')
 
 division_check2 = test_student_typed('/ 60 / 24 / 60', msg='Make sure your division is correct!')
@@ -590,7 +591,7 @@ sel = check_node('SelectStmt')
 
 alias = test_column('avg_mean_temp', match='exact')
 
-avg_call = sel.check_field('target_list').check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -645,7 +646,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 Ex().test_correct(check_result(), [
     count_call,
@@ -694,7 +695,7 @@ LIMIT 10;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Unshaped', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list').check_node('Call', 0).has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -751,7 +752,7 @@ LIMIT 10;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Unshaped', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -797,6 +798,7 @@ LIMIT 10;
 ```{python}
 sel = check_node('SelectStmt')
 
+# MC-Note this SCT doesn't seem to match the solution
 count_call = sel.check_field('target_list', 1).has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')

@@ -318,7 +318,7 @@ sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
 
-language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `language` column correctly?')
+language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `country` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -622,16 +622,16 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+sel = check_node('SelectStmt')
 
-sum_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `SUM` correctly?')
+sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
     sum_call, 
-    sel,
+    sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
 ```
@@ -649,16 +649,16 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+sel = check_node('SelectStmt')
 
-avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_field('from_clause').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
     avg_call, 
-    sel,
+    sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
 ```
@@ -676,16 +676,16 @@ FROM films;
 ```
 *** =sct3
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+sel = check_node('SelectStmt')
 
-min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
     min_call, 
-    sel,
+    sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
 ```
@@ -703,16 +703,16 @@ FROM films;
 ```
 *** =sct4
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+sel = check_node('SelectStmt')
 
-max_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MAX` correctly?')
+max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
     max_call, 
-    sel,
+    sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
 ```
@@ -729,16 +729,16 @@ FROM films;
 ```
 *** =sct5
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Is your `SELECT` statement correct?')
+sel = check_node('SelectStmt')
 
-min_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
     min_call, 
-    sel,
+    sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
 ```

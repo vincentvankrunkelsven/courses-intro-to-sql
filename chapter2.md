@@ -440,7 +440,7 @@ AND country = 'France';
 ```{python}
 sel = check_node('SelectStmt')
 
-avg_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -909,7 +909,7 @@ AND certification = 'R';
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list', 0).check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -1027,9 +1027,11 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
 
-in_op = where_clause.check_node('Unshaped', priority=99).has_equal_ast('Is your use of `IN` correct?')
+in_op = where_clause.has_equal_ast(
+        'Is your use of `IN` correct?',
+        sql='release_year IN (1990, 2000)', start='binary_expression', exact = False)
 
 duration = where_clause.check_node('BinaryExpr').has_equal_ast('Did you check `duration` correctly?')
 
@@ -1037,7 +1039,7 @@ Ex().test_correct(check_result(), [
     in_op, 
     duration,
     from_clause,
-    where_clause,
+    where_clause.has_equal_ast('Is your `WHERE` clause correct?'),
     test_error()
 ])
 ```
@@ -1198,7 +1200,7 @@ WHERE language IS NULL;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Unshaped').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
