@@ -431,7 +431,7 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
 ## Introduction to GROUP BY
 
-In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is used with aggregate functions like `COUNT()` or `MAX`. For example, 
+In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is commonly used with aggregate functions like `COUNT()` or `MAX`. For example, 
 
 ```
 SELECT title, COUNT(title) 
@@ -444,27 +444,28 @@ will give you the number of films released in each year.
 What is `GROUP BY` used for?
 
 *** =instructions
-- Sorting results by column
-- Sorting results by creation order
-- Sorting results in alphabetical order
-- Sorting results from aggregate functions
+- Performing operations by column
+- Performing operations all at once
+- Performing operations in a particular order
+- Performing operations by group
 
 *** =hint
 You use `GROUP BY` when you want to compute results from many records.
 
 *** =sct
 ```{python}
-success_msg = 'Correct! `GROUP BY` is speficially for sorting the results of aggregate functions.'
 one = 'Incorrect. While `GROUP BY` does sort by column, we could just use `ORDER BY` for this.'
 two = 'Incorrect.'
-three = 'Incorrect. While `GROUP BY` can sort in alphabetical order, we could just use `ORDER BY` for this.'
+three = 'Incorrect. While `GROUP BY` does sort results, it\'s not designed to control order of operations.'
+success_msg = 'Correct! `GROUP BY` is for performing operations within groups.'
 
 Ex().test_mc(4, [one, two, three, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:98e30a6131
+--- type:TabExercise lang:sql xp:100 key:98e30a6131
 ## GROUP BY on multiple columns
-Now that you understand what `GROUP BY` is and how to use it, give the exercises a go!
+
+Now that you understand what `GROUP BY` is and how to use it, let's try some exercises!
 
 *** =pre_exercise_code
 ```{python}
@@ -511,7 +512,7 @@ Ex().test_correct(check_result(), [
 *** =key2: ebee043890
 
 *** =instructions2
-Get the count of films group by release year then order by release year. Alias the count as `films_released`.
+Get the count of films grouped by release year, then order by release year. Alias the count as `films_released`.
 *** =solution2
 ```{sql}
 SELECT release_year, COUNT(title) AS films_released
@@ -548,7 +549,7 @@ Ex().test_correct(check_result(), [
 *** =key3: b4341b8451
 
 *** =instructions3
-Get the count of films released in each year, ordered by count, lowest to highest. Alias the count as `films_released`.
+Get the count of films released in each year, ordered by count from lowest to highest. Alias the count as `films_released`.
 *** =solution3
 ```{sql}
 SELECT release_year, COUNT(title) AS films_released
@@ -585,7 +586,7 @@ Ex().test_correct(check_result(), [
 *** =key4: 66d0c5198a
 
 *** =instructions4
-Get the count of films released in each year, ordered by count, highest to lowest.
+Get the count of films released in each year, ordered by count from highest to lowest.
 *** =solution4
 ```{sql}
 SELECT release_year, COUNT(title) AS films_released
@@ -621,7 +622,7 @@ Ex().test_correct(check_result(), [
 *** =key5: 53ad6da98c
 
 *** =instructions5
-Get the lowest box office earnings per year, ordered by year, 
+Get the lowest box office earnings per year, ordered by year.
 *** =solution5
 ```{sql}
 SELECT release_year, MIN(gross)
@@ -708,10 +709,10 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:38a7c62434
+--- type:TabExercise lang:sql xp:100 key:38a7c62434
 ## Combining with aggregate functions
 
-Try out your skills by combining `GROUP BY` and `ORDER BY` with some aggregate functions!
+Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions!
 
 *** =pre_exercise_code
 ```{python}
@@ -802,9 +803,7 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:4d55b1adf8
 ## HAVING a great time
 
-In SQL, `WHERE` cannot be used with aggregate functions. To deal with this, you can instead use the `HAVING` keyword. 
-
-For example, 
+In SQL, `WHERE` cannot be used with aggregate functions. Instead, you can use the `HAVING` keyword to filter based on the results of grouped operations. For example, 
 
 ```
 SELECT release_year 
@@ -813,9 +812,7 @@ GROUP BY release_year
 HAVING COUNT(title) > 10;
 ```
 
-will show only those years in which more than 10 films were released.
-
-Why do we need the `HAVING` keyword?
+will show only those years in which more than 10 films were released. Why do we need the `HAVING` keyword?
 
 *** =instructions
 - To order by creation date
@@ -836,10 +833,10 @@ numeric = 'Incorrect. `WHERE` can sort with numeric values, so why would we need
 Ex().test_mc(4, [creation, text, numeric, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
+--- type:TabExercise lang:sql xp:100 key:f7dcb9e122
 ## All together now
 
-Practice using `ORDER BY`, `GROUP BY` and `HAVING` together.
+Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together!
 
 *** =pre_exercise_code
 ```{python}
@@ -852,7 +849,7 @@ SELECT release_year, ___(___(budget)) AS avg_budget, ROUND(AVG(___)) AS avg_box_
 FROM ___
 ___ release_year > 1990
 GROUP BY ___
-___ (budget) > 20000000
+___ (budget) > 60000000
 ___ ___ release_year ___;
 ```
 *** =type1: NormalExercise
@@ -866,7 +863,7 @@ SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_
 FROM films
 WHERE release_year > 1990
 GROUP BY release_year
-HAVING AVG(budget) > 20000000
+HAVING AVG(budget) > 60000000
 ORDER BY release_year DESC;
 ```
 *** =sct1
@@ -879,7 +876,7 @@ sel = check_node('SelectStmt')
 
 *** =type2: NormalExercise
 *** =instructions2
-Get the name, average budget, average box office take of countries who have made more than 10 films. Order by name, and get the top five.
+Get the name, average budget, and average box office take of countries that have made more than 10 films. Order by name, and only show the top five.
 *** =solution2
 ```{sql}
 SELECT country, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
