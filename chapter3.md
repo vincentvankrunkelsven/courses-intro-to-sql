@@ -803,7 +803,7 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:4d55b1adf8
 ## HAVING a great time
 
-In SQL, `WHERE` cannot be used with aggregate functions. Instead, you can use the `HAVING` keyword to filter based on the results of grouped operations. For example, 
+In SQL, aggregate functions can't be used in `WHERE` clauses. This means that if you want to filter based on the result of an aggregate function, you need another way! That's where `HAVING` comes in. For example,
 
 ```
 SELECT release_year 
@@ -818,7 +818,7 @@ will show only those years in which more than 10 films were released. Why do we 
 - To order by creation date
 - To sort using text values
 - To sort using numeric values
-- `WHERE` cannot be used with aggregate functions
+- Aggregate functions can't be used in `WHERE` clauses
 
 *** =hint
 What kind of functions can `WHERE` not be used with? 
@@ -876,7 +876,7 @@ sel = check_node('SelectStmt')
 
 *** =type2: NormalExercise
 *** =instructions2
-Get the name, average budget, and average box office take of countries that have made more than 10 films. Order by name, and only show the top five.
+Get the name, average budget, and average box office take of countries that have made more than 10 films. Order the result by name.
 *** =solution2
 ```{sql}
 SELECT country, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
