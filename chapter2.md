@@ -291,7 +291,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
-You can build up your `WHERE`queries by combining multiple conditions with the `AND` keyword. For example, 
+You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword. For example, 
 
 ```
 SELECT title 
@@ -431,12 +431,10 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
+--- type:TabExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND, OR
 
-You can also build up your `WHERE`query using the `OR` keyword. 
-
-For example, 
+You can also build up your `WHERE` queries using the `OR` keyword. For example, 
 
 ```
 SELECT title 
@@ -447,7 +445,7 @@ OR release_year = 2000;
 
 will give you the names of all the films released in _either_ 1994 or 2000.
 
-When combining `AND` and `OR`, or  clauses, be sure to enclose the individual clauses in parentheses, like so:
+When combining `AND` and `OR`, be sure to enclose the individual clauses in parentheses, like so:
 
 ```
 SELECT title
@@ -456,7 +454,7 @@ WHERE (release_year = 1994 OR release_year = 1995)
 AND (certification = 'PG' OR certification = 'R');
 ```
 
-Otherwise, due to PostgreSQL's precedence ruels, you may not get the results you're expecting!
+Otherwise, due to PostgreSQL's precedence rules, you may not get the results you're expecting!
 
 *** =pre_exercise_code
 ```{python}
@@ -468,14 +466,14 @@ connect('postgresql', 'films')
 SELECT ___, ___
 FROM ___
 ___ (release_year = 1990 ___ release_year = 2000)
-___ (language = 'English' ___ language = 'Spanish');
+___ (language = 'French' ___ language = 'Spanish');
 ```
 
 *** =type1: NormalExercise
 *** =key1: 969ed73542
 
 *** =instructions1
-Get the title and release year of films released in 1990 or 2000 in English or Spanish.
+Get the title and release year of films released in 1990 or 2000 in French or Spanish.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -576,7 +574,7 @@ Get films released in the 90s.
 ```{sql}
 SELECT title, release_year
 FROM films
-WHERE release_year >= 1990 AND release_year <= 2000;
+WHERE release_year >= 1990 AND release_year < 2000;
 ```
 *** =sct3
 ```{python}
