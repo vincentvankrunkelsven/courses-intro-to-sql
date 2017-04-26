@@ -832,7 +832,7 @@ Why do we need the `HAVING` keyword?
 
 *** =instructions
 - To order by creation date
-- To sort using textual values
+- To sort using text values
 - To sort using numeric values
 - `WHERE` cannot be used with aggregate functions
 
@@ -848,10 +848,10 @@ connect('postgresql', 'films')
 ```{python}
 success_msg = 'Correct! `HAVING` is needed because `WHERE` cannot deal with aggregate functions.'
 creation = 'Incorrect. `HAVING` does not have anything to do with creation date.'
-textual = 'Incorrect. `WHERE` can sort with textual values, so why would we need `HAVING`?'
+text = 'Incorrect. `WHERE` can sort with text values, so why would we need `HAVING`?'
 numeric = 'Incorrect. `WHERE` can sort with numeric values, so why would we need `HAVING`?'
 
-Ex().test_mc(4, [creation, textual, numeric, success_msg])
+Ex().test_mc(4, [creation, text, numeric, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:f7dcb9e122

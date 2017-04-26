@@ -17,13 +17,13 @@ FROM films
 WHERE release_year > 2000;
 ```
 
-gives you the titles of all films released since the year 2000. 
+gives you the titles of all films released after the year 2000.
 
 What types of data can be filtered using `WHERE`?
 *** =instructions
-- Numeric data
-- Textual data
-- Numeric and textual data
+- Only numeric data
+- Only text data
+- Both numeric and text data
 - None of the above
 
 *** =hint
@@ -35,9 +35,9 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-success_msg = "Correct! `WHERE` can be used to filter on both numeric and textual data."
+success_msg = "Correct! `WHERE` can be used to filter on both numeric and text data."
 msg2 = "Incorrect. `WHERE` can be used with more than just numeric data!"
-msg3 = "Incorrect. `WHERE` can be used with more than just textual data!"
+msg3 = "Incorrect. `WHERE` can be used with more than just text data!"
 msg4 = "Incorrect, it's not one of the above!"
 
 Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
@@ -46,7 +46,7 @@ Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
-As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on textual data, which gets the titles of all films which were rated `'R'`:
+As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on text data, which gets the titles of all films which were rated `'R'`:
 
 ```
 SELECT title 
@@ -692,7 +692,7 @@ What does the `BETWEEN` keyword do?
 
 *** =instructions
 - Filter numeric values
-- Filter textual values
+- Filter text values
 - Filter values in a specified list
 - Filter values in a specified range
 
@@ -708,10 +708,10 @@ connect('postgresql', 'films')
 ```{python}
 success_msg = 'Correct!'
 numeric = 'Incorrect. `BETWEEN` does not just filter numeric values.'
-textual = 'Incorrect. `BETWEEN` does not just filter textual values.'
+text = 'Incorrect. `BETWEEN` does not just filter text values.'
 lst = 'Incorrect!'
 
-Ex().test_mc(4, [numeric, textual, lst, success_msg])
+Ex().test_mc(4, [numeric, text, lst, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:9c11f67712

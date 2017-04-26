@@ -743,7 +743,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:6db52132a0
+--- type:TabExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS aliasing
 
 In SQL, the `AS` keyword allows you to specify an _alias_ (temporary name) for a column in the result set. For example, 
@@ -816,7 +816,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60`?')
+sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60` and alias the result as `duration_hours`?')
 
 alias = test_column('duration_hours', match='exact')
 
@@ -860,10 +860,10 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:8612897f35
+--- type:TabExercise lang:sql xp:100 key:8612897f35
 ## Even more aliasing
 
-Nice work! Let's practice your newfound aliasing skills before moving on to the next chapter.
+Nice work! Let's practice your newfound aliasing skills before moving on.
 
 *** =pre_exercise_code
 ```{python}
@@ -872,8 +872,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT (COUNT(___) * 100 / COUNT(___))
-AS percentage_dead
+SELECT (COUNT(___) * 100 / COUNT(___)) AS percentage_dead
 FROM people;
 ```
 
@@ -884,8 +883,7 @@ FROM people;
 Get the percentage of `people` who are no longer alive. Alias the result as `percentage_dead`.
 *** =solution1
 ```{sql}
-SELECT COUNT(deathdate) * 100 / COUNT(*)
-AS percentage_dead
+SELECT COUNT(deathdate) * 100 / COUNT(*) AS percentage_dead
 FROM people;
 ```
 *** =sct1
