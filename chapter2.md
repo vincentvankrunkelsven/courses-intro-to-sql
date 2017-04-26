@@ -29,10 +29,6 @@ What types of data can be filtered using `WHERE`?
 *** =hint
 It's not none of the above! 
 
-```{python}
-connect('postgresql', 'films')
-```
-
 *** =sct
 ```{python}
 success_msg = "Correct! `WHERE` can be used to filter on both numeric and text data."
@@ -664,11 +660,6 @@ What does the `BETWEEN` keyword do?
 *** =hint
 Think about looking for values **between** a beginning and end point. 
 
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
 *** =sct
 ```{python}
 success_msg = 'Correct!'
@@ -1091,11 +1082,6 @@ What does `NULL` represent?
 
 *** =hint
 Remember, `NULL` represents values which we can not determine. 
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
 
 *** =sct
 ```{python}

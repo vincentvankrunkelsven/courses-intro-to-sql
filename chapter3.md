@@ -33,11 +33,6 @@ What way does `ORDER BY` sort results by default?
 *** =hint
 By default, `ORDER BY` behaves as if it was using the `ASC` keyword.
 
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
 *** =sct
 ```{python}
 success_msg = 'Correct!'
@@ -460,11 +455,6 @@ What is `GROUP BY` used for?
 *** =hint
 You use `GROUP BY` when you want to compute results from many records.
 
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
 *** =sct
 ```{python}
 success_msg = 'Correct! `GROUP BY` is speficially for sorting the results of aggregate functions.'
@@ -838,11 +828,6 @@ Why do we need the `HAVING` keyword?
 
 *** =hint
 What kind of functions can `WHERE` not be used with? 
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
 
 *** =sct
 ```{python}
