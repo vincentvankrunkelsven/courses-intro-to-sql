@@ -12,24 +12,19 @@ description: >-
 
 Wow, you've come a long way! Congrats on making it this far.
 
-Imagine the mayor of NYC has caught wind of your new SQL skills, and wants you to produce an analysis of CitiBike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it! 
+The mayor of New York City has caught wind of your new SQL skills and wants you to produce an analysis of Citi Bike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it!
 
-Before you take on the job, you should get a feel for the data you'll be working with. 
+Before you take this on, you should get a feel for the data you'll be working with.
 
-**these questions need to be in each MCE tab - can we do that?**
+**TODO: these questions need to be in each MCE tab - can we do that?**
 
 - How many trips were made in total?
 - How many stations are there?
 - How many days of the year does the `weather` table cover?
 
-
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'nycbikes15')
-```
-
-*** =sample_code
-```{sql}
 ```
 
 *** =type1: MultipleChoiceExercise
@@ -83,12 +78,12 @@ msg2 = "Incorrect."
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:dce32a0d9a
+--- type:TabExercise lang:sql xp:100 key:dce32a0d9a
 ## The sky's the LIMIT
 
-By now you may have noticed that the CitiBike database is huge! Displaying it is cumbersome, and takes a while. 
+By now you may have noticed that the Citi Bike database is huge! Displaying it is cumbersome and takes a while. 
 
-The mayor wants that report on his desk soon though and you don't have time to wait around! 
+The mayor wants that report on his desk soon though and you don't have time to wait around!
 
 *** =pre_exercise_code
 ```{python}
@@ -182,7 +177,8 @@ Ex().test_correct(check_result(), [
 ```
 --- type:BulletExercise lang:sql xp:100 key:cfd546a48c
 ## Make your way around (the dataset)
-The mayor wants to know some stats about trip durations, to see if people prefer to take long or short trips using CitiBike. 
+
+The mayor wants some stats on trip durations to see if people prefer to take long or short trips using Citi Bike.
 
 *** =pre_exercise_code
 ```{python}
@@ -338,7 +334,8 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:27b5196db3
 ## Weather questions
-The mayor is interested in discovering whether the weather has a large effect on whether people use CitiBike bikes.
+
+The mayor is interested in discovering if the weather has a large effect on whether people use Citi Bike bikes.
 
 *** =pre_exercise_code
 ```{python}
@@ -475,7 +472,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:69853cbb54
 ## Weather questions (2)
 
-From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits. 
+From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits.
 
 *** =pre_exercise_code
 ```{python}
@@ -578,7 +575,7 @@ Ex().test_correct(check_result(), [
 *** =key4: 275308669c
 
 *** =instructions4
-What was the average mean temperature for the year? Alias your answer as `avg_mean_temp`.
+What was the average mean temperature for the year? Alias the result as `avg_mean_temp`.
 *** =solution4
 ```{sql}
 SELECT AVG(mean_temp_f)
@@ -771,7 +768,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:ae5e7b765b
 ## Times
 
-The mayor is planning a publicity stunt, and wants to wants to know how CitiBike usage changes depending on the time of year. 
+The mayor is planning a publicity stunt, and wants to wants to know how Citi Bike usage changes depending on the time of year. 
 
 *** =pre_exercise_code
 ```{python}
