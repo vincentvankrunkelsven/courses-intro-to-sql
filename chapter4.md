@@ -601,7 +601,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:3125502e11
+--- type:TabExercise lang:sql xp:100 skills:1 key:3125502e11
 ## Stations
 
 The mayor wants to know which stations are the most popular.
@@ -652,8 +652,6 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
-
-
 
 --- type:NormalExercise lang:sql xp:100 skills:1 key:58fd297b05
 ## Stations (2)
