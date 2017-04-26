@@ -277,7 +277,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:b2a52993bc
+--- type:TabExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 
 `ORDER BY` can also be used to sort on multiple columns! It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
@@ -308,7 +308,7 @@ ___ ___ ___, ___;
 *** =key1: 9ec6e8ae72
 
 *** =instructions1
-Get people, in order of when they were born, and alphabetical order.
+Get people, in order of when they were born and alphabetically by name.
 *** =solution1
 ```{sql}
 SELECT birthdate, name
@@ -334,7 +334,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 3460b2f14b
 
 *** =instructions2
-Get people, in order of when they were born, and alphabetical order.
+Get release years, durations, and titles of films, ordered by their release year and duration.
 *** =solution2
 ```{sql}
 SELECT release_year, duration, title
@@ -367,7 +367,7 @@ Ex().test_correct(check_result(), [
 *** =key3: c03517c2b9
 
 *** =instructions3
-
+Get certifications, release years, and titles of films, ordered by certification (alphabetically) and release year.
 
 *** =solution3
 ```{sql}
@@ -401,7 +401,7 @@ Ex().test_correct(check_result(), [
 *** =key4: f0ade213ff
 
 *** =instructions4
-Get people whose names start with A, B or C, (redundantly) ordered.
+Get people whose names start with A, B, or C, ordered by date of birth.
 *** =solution4
 ```{sql}
 SELECT name, birthdate
