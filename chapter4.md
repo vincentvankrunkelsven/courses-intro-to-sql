@@ -623,7 +623,7 @@ SELECT ___, ___(___)
 FROM trips
 ___ start_station_id
 ORDER BY ___ ___
-___ ___;
+LIMIT 1;
 ```
 
 *** =solution
@@ -659,7 +659,7 @@ Ex().test_correct(check_result(), [
 The mayor wants to know which stations are the most popular.
 
 *** =instructions
-Get the `start_station_id`s of the top ten most popular stations to start from.
+Get the `start_station_id`s of the top ten most popular stations to start from, sorted from most to least popular.
 *** =hint
 Count the number of times each `start_station_id` appears in the `trips` table!
 
@@ -715,7 +715,7 @@ Ex().test_correct(check_result(), [
 The mayor wants to know which stations are the least popular to determine if they need to be renovated.
 
 *** =instructions
-Get the `start_station_id`s of the ten least popular stations to start from. 
+Get the `start_station_id`s of the ten least popular stations to start from, sorted from least to most popular.
 
 *** =hint
 Count the number of times each `start_station_id` appears in the `trips` table!
@@ -763,10 +763,10 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
---- type:BulletExercise lang:sql xp:100 key:ae5e7b765b
+--- type:TabExercise lang:sql xp:100 key:ae5e7b765b
 ## Times
 
-The mayor is planning a publicity stunt, and wants to wants to know how Citi Bike usage changes depending on the time of year. 
+The mayor is planning a publicity stunt and wants to wants to know how Citi Bike usage changes depending on the time of year. 
 
 *** =pre_exercise_code
 ```{python}
@@ -823,7 +823,7 @@ How many trips were made on New Year's Day?
 ```{sql}
 SELECT COUNT(*)
 FROM trips
-WHERE start_date = '2015-12-25';
+WHERE start_date = '2015-01-01';
 ```
 *** =sct2
 ```{python}
@@ -847,12 +847,12 @@ Ex().test_correct(check_result(), [
 *** =key3: 605066b226
 
 *** =instructions3
-How many trips were made on Christmas Day?
+How many trips were made on Christmas Day (December 25)?
 *** =solution3
 ```{sql}
 SELECT COUNT(*)
 FROM trips
-WHERE start_date = '2015-01-01';
+WHERE start_date = '2015-12-25';
 ```
 *** =sct3
 ```{python}
