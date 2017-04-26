@@ -43,7 +43,7 @@ msg4 = "Incorrect, it's not one of the above!"
 Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:b90db25f33
+--- type:TabExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
 As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on text data, which gets the titles of all films which were rated `'R'`:
@@ -180,9 +180,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34
 ## Simple filtering of numeric values
 
-Remember, the `WHERE` clause can be used to filter numeric records, such as years. 
-
-For example, the following code selects all films with a budget over ten thousand dollars:
+Remember, the `WHERE` clause can be used to filter numeric records, such as years. For example, the following code selects all films with a budget over ten thousand dollars:
 
 ```
 SELECT * 
@@ -235,46 +233,17 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: f1ea8c68b9
+*** =key2: 5e6e1c74c6
 
 *** =instructions2
-Get details for all films released in 2016.
-*** =solution2
-```{sql}
-SELECT *
-FROM films
-WHERE release_year = 2016;
-```
-*** =sct2
-```{python}
-sel = check_node('SelectStmt')
-
-star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-Ex().test_correct(check_result(), [
-    star, 
-    from_clause, 
-    where_clause,
-    test_error()
-])
-```
-
-*** =type3: NormalExercise
-*** =key3: 5e6e1c74c6
-
-*** =instructions3
 Get the number of films released before 2000.
-*** =solution3
+*** =solution2
 ```{sql}
 SELECT COUNT(*)
 FROM films
 WHERE release_year < 2000;
 ```
-*** =sct3
+*** =sct2
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -292,18 +261,18 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type4: NormalExercise
-*** =key4: d66f3d41b7
+*** =type3: NormalExercise
+*** =key3: d66f3d41b7
 
-*** =instructions4
+*** =instructions3
 Get the title and release year of films released since 2000.
-*** =solution4
+*** =solution3
 ```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year > 2000;
 ```
-*** =sct4
+*** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -322,9 +291,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
-You can build up your `WHERE`queries using the `AND` keyword. 
-
-For example, 
+You can build up your `WHERE`queries by combining multiple conditions with the `AND` keyword. For example, 
 
 ```
 SELECT title 
@@ -389,7 +356,7 @@ Ex().test_correct(check_result(), [
 *** =key2: e703c95e46
 
 *** =instructions2
-Get all details for all Spanish films released since 2000.
+Get all details for all Spanish films released after 2000.
 *** =solution2
 ```{sql}
 SELECT *
