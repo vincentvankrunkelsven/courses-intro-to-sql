@@ -10,9 +10,7 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:ac6d71b0e4
 ## ORDER BY in the courtroom
 
-In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you use the `DESC` keyword. 
-
-For example, 
+In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order according the values of one or more columns. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you use the `DESC` keyword. For example, 
 
 ```
 SELECT title 
@@ -22,7 +20,7 @@ ORDER BY release_year;
 
 will give you the titles of films sorted by release year, from newest to oldest. 
 
-What way does `ORDER BY` sort results by default?
+Which way does `ORDER BY` sort results by default?
 
 *** =instructions
 - Alphabetically 
@@ -43,10 +41,10 @@ creation = 'Incorrect. Results are not ordered by creation date by default.'
 Ex().test_mc(3, [alphabetically, descending, success_msg, creation])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:a7b2964ba6
+--- type:TabExercise lang:sql xp:100 key:a7b2964ba6
 ## Sorting single columns (ASC)
 
-Now that you understand how `ORDER BY` works, give the exercises a go!
+Now that you understand how `ORDER BY` works, give these exercises a go!
 
 *** =pre_exercise_code
 ```{python}
@@ -206,10 +204,10 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:a7b2964ba7
+--- type:TabExercise lang:sql xp:100 key:a7b2964ba7
 ## Sorting single columns (DESC)
 
-Try out using `ORDER BY` to sort single columns in descending order! 
+Now use `ORDER BY` to sort single columns in descending order!
 
 *** =pre_exercise_code
 ```{python}
@@ -227,7 +225,7 @@ ___ ___ imdb_score ___;
 *** =key1: 1ed651456d
 
 *** =instructions1
-Get the IMDB score and film id for every film, from highest to lowest.
+Get the IMDB score and film ID for every film, sorted from highest to lowest score.
 
 *** =solution1
 ```{sql}
@@ -282,9 +280,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 
-`ORDER BY` can also be used to sort on multiple columns! `ORDER BY` will sort by the first column specified, then sort by the next and so on. 
-
-For example,
+`ORDER BY` can also be used to sort on multiple columns! It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
 
 ```
 SELECT birthdate, name
@@ -292,9 +288,9 @@ FROM people
 ORDER BY birthdate, name;
 ```
 
-will sort the birth dates first (oldest to newest), and then sort the names in alphabetical order. 
+will sort on birth dates first (oldest to newest) and then sort on names in alphabetical order.
 
-Try out using `ORDER BY` to sort multiple columns! Remember, to specify multiple columns, just separate the column names with a comma.
+Try using `ORDER BY` to sort multiple columns! Remember, to specify multiple columns, separate the column names with a comma.
 
 *** =pre_exercise_code
 ```{python}
@@ -371,6 +367,7 @@ Ex().test_correct(check_result(), [
 *** =key3: c03517c2b9
 
 *** =instructions3
+
 
 *** =solution3
 ```{sql}
