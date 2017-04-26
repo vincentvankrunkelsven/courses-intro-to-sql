@@ -645,9 +645,7 @@ WHERE release_year
 BETWEEN 1994 AND 2000;
 ``` 
 
-gives you the names of all the films released between 1994 and 2000. 
-
-**Remember**: the `BETWEEN` operator is _inclusive_; the beginning and end values are included in the results. 
+gives you the names of all the films released between 1994 and 2000. It's important to remember that `BETWEEN` is _inclusive_, meaning the beginning and end values are included in the results!
 
 What does the `BETWEEN` keyword do?
 
@@ -658,7 +656,7 @@ What does the `BETWEEN` keyword do?
 - Filter values in a specified range
 
 *** =hint
-Think about looking for values **between** a beginning and end point. 
+Think about looking for values **between** a beginning and end point.
 
 *** =sct
 ```{python}
@@ -670,17 +668,18 @@ lst = 'Incorrect!'
 Ex().test_mc(4, [numeric, text, lst, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:9c11f67712
-## BETWEEN (a rock and a hard place)
+--- type:TabExercise lang:sql xp:100 key:9c11f67712
+## BETWEEN (2)
 
 Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` operators, so you can build up your queries and make them even more powerful! 
 
-For example, suppose we have a table called `kids`. We can get the names of all kids under the age of 12, whose ages are multiples of 2, as follows:
+For example, suppose we have a table called `kids`. We can get the names of all kids between the ages of 2 and 12 from the United States:
 
 ```
 SELECT name 
 FROM kids
 WHERE age BETWEEN 2 AND 12
+AND nationality = 'USA';
 ```
 
 Take a go at using `BETWEEN` with `AND`!
@@ -795,10 +794,10 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:84411d78aa
-## BETWEEN (again)
+--- type:TabExercise lang:sql xp:100 key:84411d78aa
+## BETWEEN (3)
 
-Give the exercises a go to master `BETWEEN`.
+Let's practice a bit more with `BETWEEN` so you can master it before moving on!
 
 *** =pre_exercise_code
 ```{python}
@@ -894,7 +893,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 1d71b2f708
 
 *** =instructions3
-Get the number of films released between 1950 and 2000 that were in French, and released in the USA.
+Get the number of films released between 1950 and 2000 that were in French and released in the USA.
 *** =solution3
 ```{sql}
 SELECT COUNT(*)
@@ -937,17 +936,17 @@ Ex().test_correct(check_result(), [
 ```
 
 
---- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
+--- type:TabExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN the world
 
-In SQL, The `IN` operator allows you to specify multiple values in a `WHERE clause`. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right? 
+In SQL, the `IN` operator allows you to specify multiple values in a `WHERE` clause. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right? 
 
 For example, suppose we have a table called `kids`. We can get the names of all kids under the age of 12, whose ages are multiples of 2, as follows:
 
 ```
 SELECT name 
 FROM kids
-WHERE age IN (2, 4, 6, 8, 10)
+WHERE age IN (2, 4, 6, 8, 10);
 ```
 
 Try using the `IN` operator yourself! 
@@ -1033,7 +1032,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 3c947b0d2d
 
 *** =instructions3
-Get the title and certification of all films with an NC-17 or R certification. Note that you'll need to check in this order.
+Get the title and certification of all films with an NC-17 or R certification.
 *** =solution3
 ```{sql}
 SELECT title, certification
@@ -1060,7 +1059,8 @@ Ex().test_correct(check_result(), [
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
 ## Introduction to NULL and IS NULL
-In SQL, `NULL` represents an unknown value. Often, you will want to filter out so we only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. 
+
+In SQL, `NULL` represents a missing value. Often, you will want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. 
 
 For example, 
 
@@ -1070,33 +1070,33 @@ FROM people
 WHERE birthdate IS NOT NULL;
 ``` 
 
-will give you the names of all the people whose birthdate has an entry in the `people` table.
+will give you the names of all the people whose birthdate is not missing in the `people` table.
 
 What does `NULL` represent?
 
 *** =instructions
-- Corrupt values
-- Unknown values
-- Empty values
-- Invalid values
+- Corrupt entry
+- Missing value
+- Empty string
+- Invalid value
 
 *** =hint
 Remember, `NULL` represents values which we can not determine. 
 
 *** =sct
 ```{python}
-success_msg = 'Correct! `NULL` is used to represent unknown values.'
 corrupt = 'Incorrect. We can not be sure that a `NULL` value is actually corrupt.'
-empty = 'Incorrect. We can not be sure that a `NULL` value is actually an empty value.'
+success_msg = 'Correct! `NULL` is used to represent unknown values.'
+empty = 'Incorrect. An empty string is not the same as a `NULL` value.'
 invalid = 'Incorrect!'
 
 Ex().test_mc(2, [corrupt, success_msg, empty, invalid])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:84411d78ab
+--- type:TabExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
 
-Now that you know what `NULL` is, and what it's used for, give the exercises a go!
+Now that you know what `NULL` is and what it's used for, let's get some practice!
 
 *** =pre_exercise_code
 ```{python}
@@ -1195,13 +1195,12 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:84411d78ac
 ## LIKE and NOT LIKE
 
-In `SQL` the `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
+The `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
 
-There are two _wildcards_ you can use with `LIKE`: `%` and `_`. 
+There are two _wildcards_ you can use with `LIKE`:
 
-The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind` and so on.
-
-The `_` wildcard will match a single character. For example, if you filtered with `DataC_mp` you would match `DataCamp` and `DataComp`, and so on.
+* The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind`, and so on.
+* The `_` wildcard will match a single character. For example, if you filtered with `DataC_mp` you would match `DataCamp`, `DataComp`, and so on.
 
 *** =pre_exercise_code
 ```{python}
