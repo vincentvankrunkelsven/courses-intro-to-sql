@@ -78,6 +78,23 @@ msg2 = "Incorrect."
 Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
+*** =type4: NormalExercise
+*** =key2:
+
+*** =instructions4
+Get the name of the station with the ID of `314`.
+
+*** =solution4
+```{sql}
+SELECT name 
+FROM stations 
+WHERE id = 314;
+```
+*** =sct4
+```{python}
+])
+```
+
 --- type:TabExercise lang:sql xp:100 key:dce32a0d9a
 ## The sky's the LIMIT
 
@@ -491,7 +508,7 @@ connect('postgresql', 'nycbikes15')
 How many days did it rain? (All variants).
 *** =solution1
 ```{sql}
-SELECT *
+SELECT COUNT(*)
 FROM weather
 WHERE events LIKE '%Rain';
 ```
@@ -499,14 +516,14 @@ WHERE events LIKE '%Rain';
 ```{python}
 sel = check_node('SelectStmt')
 
-star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    star,
+    count_call,
     where_clause,
     from_clause,
     test_error()
@@ -599,6 +616,81 @@ Ex().test_correct(check_result(), [
     alias,
     test_error()
 ])
+```
+
+
+--- type:TabExercise lang:sql xp:100 skills:1 key:0e24c2e0dd
+## Reading the weather
+
+Now that you've collected data on the weather, it's time to use it to make some deductions. 
+
+You may notice that there is two `SELECT` statements in the code. This is called a __subquery__ (a query within a query), and you can explore them more in our next SQL course.
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+SELECT ___(*) 
+FROM ___
+WHERE start_date IN
+  (SELECT date FROM weather
+    WHERE events = 'Rain');
+```
+
+*** =type1: NormalExercise
+*** =instructions1
+Count the number of trips started on days it rained.
+
+*** =solution1
+```{sql}
+SELECT COUNT(*) 
+FROM trips
+WHERE start_date IN
+  (SELECT date FROM weather
+    WHERE events = 'Rain');
+```
+
+*** =sct1
+```{python}
+
+```
+
+*** =type2: NormalExercise
+*** =instructions2
+Modify your last query to count the number of trips started on days when the weather was not bad.
+
+**TODO: on the next page, we need to be able to add instructions to the MCQ tab.**
+
+*** =solution2
+```{sql}
+SELECT COUNT(*) 
+FROM trips
+WHERE start_date IN
+  (SELECT date FROM weather
+    WHERE events IS NULL);
+```
+
+*** =sct2
+```{python}
+
+```
+
+*** =type3: MultipleChoiceExercise
+*** =key3: 96f73c1255
+
+*** =instructions3
+- There are more trips started on days when it rained
+- There are more trips started on days when the weather was not bad
+
+*** =sct3
+```{python}
+success_msg = "Correct!"
+msg2 = "Incorrect."
+
+Ex().test_mc(2,[msg2, success_msg])
 ```
 
 --- type:NormalExercise lang:sql xp:100 skills:1 key:3125502e11
@@ -872,3 +964,41 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:91232bd7b6
+## You made it!
+
+Congratulations on finishing the work for the mayor, and on finishing this course. 
+
+Your last challenge is below.
+
+*** =instructions
+Run the query to get the address of the Citi Bike station which is closest to the DataCamp Headquarters in New York City!
+
+*** =hint
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'nycbikes15')
+```
+
+*** =sample_code
+```{sql}
+SELECT *
+FROM stations
+WHERE ABS(latitude - 40.741895) < 0.0001
+AND ABS(longitude + 73.989308) > 0.001;
+```
+
+*** =solution
+```{sql}
+SELECT *
+FROM stations
+WHERE ABS(latitude - 40.741895) < 0.0001
+AND ABS(longitude + 73.989308) > 0.001;
+```
+
+*** =sct
+```{sql}
+
+```

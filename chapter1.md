@@ -55,6 +55,7 @@ from people;
 
 That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement — this tells SQL where the end of your query is.
 
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -156,6 +157,9 @@ Sometimes, you may want to select all columns from a table. In this case, there'
 SELECT *
 FROM people;
 ```
+
+Additionally, you can use the `LIMIT` keyword to limit the number of result returned. 
+
 
 *** =pre_exercise_code
 ```{python}
