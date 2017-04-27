@@ -171,14 +171,39 @@ FROM ___;
 *** =type1: NormalExercise
 *** =key1: d561b4df97
 *** =instructions1
-Get the title and release year of every film.
+Get the title of every film.
 
 *** =solution1
+```{sql}
+SELECT title
+FROM films;
+```
+*** =sct1
+```{python}
+sel = check_node('SelectStmt')
+
+title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    title,
+    test_error()
+])
+```
+
+*** =type2: NormalExercise
+*** =key2: 917d7dc533
+*** =instructions2
+Get the title and release year for every film.
+
+*** =solution2
 ```{sql}
 SELECT title, release_year
 FROM films;
 ```
-*** =sct1
+*** =sct2
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -196,17 +221,17 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type2: NormalExercise
-*** =key2: 917d7dc533
-*** =instructions2
-Get the title, release year and country for every film.
+*** =type3: NormalExercise
+*** =key3: eeba078a00
+*** =instructions3
+Get the title, release year and country for every film. 
 
-*** =solution2
+*** =solution3
 ```{sql}
-SELECT title, release_year, country
-FROM films;
+SELECT name, birthdate
+FROM people;
 ```
-*** =sct2
+*** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -227,42 +252,14 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type3: NormalExercise
-*** =key3: eeba078a00
-*** =instructions3
-Get every person's name and date of birth.
-
-*** =solution3
-```{sql}
-SELECT name, birthdate
-FROM people;
-```
-*** =sct3
-```{python}
-sel = check_node('SelectStmt')
-
-name = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `name` column correctly?')
-
-birthdate = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `birthdate` column correctly?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-Ex().test_correct(check_result(), [
-    name,
-    birthdate, 
-    from_clause,
-    test_error()
-])
-```
-
 *** =type4: NormalExercise
 *** =key4: dac27d9aad
 *** =instructions4
-Return all columns from the `people` table.
+Return all columns from the `films` table.
 *** =solution4
 ```{sql}
 SELECT *
-FROM people;
+FROM films;
 ```
 *** =sct4
 ```{python}
