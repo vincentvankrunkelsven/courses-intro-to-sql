@@ -766,7 +766,7 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:ae5e7b765b
 ## Times
 
-The mayor is planning a publicity stunt and wants to wants to know how Citi Bike usage changes depending on the time of year. 
+The mayor is planning a publicity stunt and wants to know how Citi Bike usage changes depending on the time of year. 
 
 *** =pre_exercise_code
 ```{python}
