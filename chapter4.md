@@ -79,7 +79,9 @@ Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
 *** =type4: NormalExercise
-*** =key2:
+*** =key2: c1e94ece9f
+
+*** =key4: 0509295a86
 
 *** =instructions4
 Get the name of the station with the ID of `314`.
@@ -641,6 +643,8 @@ WHERE start_date IN
 ```
 
 *** =type1: NormalExercise
+*** =key1: b3b62bf068
+
 *** =instructions1
 Count the number of trips started on days it rained.
 
@@ -659,6 +663,8 @@ WHERE start_date IN
 ```
 
 *** =type2: NormalExercise
+*** =key2: 0a01c6c201
+
 *** =instructions2
 Modify your last query to count the number of trips started on days when the weather was not bad.
 
@@ -679,7 +685,7 @@ WHERE start_date IN
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: 96f73c1255
+*** =key3: 77683bcd01
 
 *** =instructions3
 - There are more trips started on days when it rained
