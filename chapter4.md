@@ -79,7 +79,7 @@ Ex().test_mc(4,[msg2, msg2, msg2, success_msg])
 ```
 
 *** =type4: NormalExercise
-*** =key4: 1bf303b6b9
+*** =key4:
 
 *** =instructions4
 Get the name of the station with the ID of `314`.
@@ -641,8 +641,6 @@ WHERE start_date IN
 ```
 
 *** =type1: NormalExercise
-*** =key1: df0df475ec
-
 *** =instructions1
 Count the number of trips started on days it rained.
 
@@ -661,8 +659,6 @@ WHERE start_date IN
 ```
 
 *** =type2: NormalExercise
-*** =key2: 10aeb885fa
-
 *** =instructions2
 Modify your last query to count the number of trips started on days when the weather was not bad.
 
@@ -683,7 +679,7 @@ WHERE start_date IN
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: b79e9c5bfb
+*** =key3: 96f73c1255
 
 *** =instructions3
 - There are more trips started on days when it rained
@@ -972,7 +968,7 @@ Ex().test_correct(check_result(), [
 --- type:NormalExercise lang:sql xp:100 skills:1 key:91232bd7b6
 ## You made it!
 
-Congratulations on finishing the work for the mayor, and on finishing this course. 
+Congratulations on finishing your work for the mayor, and on finishing this course. 
 
 Your last challenge is below.
 
