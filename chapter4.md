@@ -693,10 +693,9 @@ WHERE start_date IN
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key1:
+*** =key1: 8bce0d20cd
 
-*** =question3
-From your analysis, which of the following statements is true?
+*** =key3: ad831fb534
 
 *** =possible_answers1
 - There are more trips started on days when it rained
