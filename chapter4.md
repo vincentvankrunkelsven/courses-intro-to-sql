@@ -693,9 +693,10 @@ WHERE start_date IN
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key1: 8bce0d20cd
+*** =key1:
 
-*** =key3: ad831fb534
+*** =question3
+From your analysis, which of the following statements is true?
 
 *** =possible_answers1
 - There are more trips started on days when it rained
@@ -716,6 +717,7 @@ Ex().test_mc(2,[msg2, success_msg])
 
 Clearly, weather plays a large role in the usage of Citi Bike in New York City. 
 
+However, the location of currently existing stations may also influence usage. 
 
 
 *** =instructions
@@ -749,7 +751,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
-    group_by_clause,
+    order_by_clause,
     from_clause,
     test_error()
 ])
