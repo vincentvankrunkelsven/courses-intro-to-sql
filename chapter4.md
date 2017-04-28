@@ -340,7 +340,6 @@ alias = test_column('duration_days', match='exact')
 
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-# MC-Note: Are these supposed to be inside of a test_or?
 division_check1 = test_student_typed('/ 60 / 60 / 24', msg='Make sure your division is correct!')
 
 division_check2 = test_student_typed('/ 60 / 24 / 60', msg='Make sure your division is correct!')
@@ -351,9 +350,7 @@ Ex().test_correct(check_result(), [
     alias,
     from_clause,
     sum_call,
-    division_check1,
-    division_check2,
-    division_check3,
+    test_or(division_check1, division_check2, division_check3),
     test_error()
 ])
 ```
@@ -890,29 +887,26 @@ connect('postgresql', 'nycbikes15')
 Which date had the most trips?
 *** =solution1
 ```{sql}
-SELECT start_date
+SELECT start_date, COUNT(*)
 FROM trips
-LIMIT 10;
+GROUP BY start_date
+LIMIT 1;
 ```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
 
-# MC-Note this SCT doesn't seem to match the solution
-count_call = sel.check_field('target_list', 1).has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
-
-order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 limit_clause = sel.check_field('limit_clause').has_equal_ast('Is your `LIMIT` clause correct?')
 
 Ex().test_correct(check_result(), [
     count_call,
     limit_clause,
-    order_by_clause,
     group_by_clause,
     from_clause,
     test_error()
