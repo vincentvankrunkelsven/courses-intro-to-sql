@@ -16,12 +16,6 @@ The mayor of New York City has caught wind of your new SQL skills and wants you 
 
 Before you take this on, you should get a feel for the data you'll be working with.
 
-**TODO: these questions need to be in each MCE tab - can we do that?**
-
-- How many trips were made in total?
-- How many stations are there?
-- How many days of the year does the `weather` table cover?
-
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'nycbikes15')
@@ -30,7 +24,10 @@ connect('postgresql', 'nycbikes15')
 *** =type1: MultipleChoiceExercise
 *** =key1: 96f73c1255
 
-*** =instructions1
+*** =question1
+How many trips were made in total?
+
+*** =possible_answers1
 - 26,259,032
 - 19,937,968
 - 5,126
@@ -47,7 +44,10 @@ Ex().test_mc(2,[msg2, success_msg, msg2, msg2])
 *** =type2: MultipleChoiceExercise
 *** =key2: 36239dc2bb
 
-*** =instructions2
+*** =question2
+How many stations are there?
+
+*** =possible_answers2
 - 498
 - 562
 - 892
@@ -64,7 +64,10 @@ Ex().test_mc(1,[success_msg, msg2, msg2, msg2])
 *** =type3: MultipleChoiceExercise
 *** =key3: 0c3fd16aad
 
-*** =instructions3
+*** =question3
+How many days of the year does the `weather` table cover?
+
+*** =possible_answers3
 - 360
 - 362
 - 730
@@ -104,7 +107,7 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:dce32a0d9a
 ## The sky's the LIMIT
 
-By now you may have noticed that the Citi Bike database is huge! Displaying it is cumbersome and takes a while. 
+By now you may have noticed that the Citi Bike database is huge! Displaying it is cumbersome and takes a while.
 
 The mayor wants that report on his desk soon though and you don't have time to wait around!
 
@@ -163,7 +166,7 @@ distinct = count_call.check_field('pref', 'Are you using the `DISTINCT` keyword?
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
+    count_call,
     distinct,
     from_clause,
     test_error()
@@ -192,7 +195,7 @@ distinct = count_call.check_field('pref', 'Are you using the `DISTINCT` keyword?
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
+    count_call,
     distinct,
     from_clause,
     test_error()
@@ -231,7 +234,7 @@ max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    max_call, 
+    max_call,
     from_clause,
     test_error()
 ])
@@ -256,7 +259,7 @@ min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    min_call, 
+    min_call,
     from_clause,
     test_error()
 ])
@@ -281,7 +284,7 @@ avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    avg_call, 
+    avg_call,
     from_clause,
     test_error()
 ])
@@ -309,7 +312,7 @@ avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    avg_call, 
+    avg_call,
     from_clause,
     alias,
     test_error()
@@ -868,7 +871,7 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:ae5e7b765b
 ## Times
 
-The mayor is planning a publicity stunt and wants to know how Citi Bike usage changes depending on the time of year. 
+The mayor is planning a publicity stunt and wants to wants to know how Citi Bike usage changes depending on the time of year.
 
 *** =pre_exercise_code
 ```{python}
@@ -973,8 +976,6 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
-
-
 --- type:NormalExercise lang:sql xp:100 skills:1 key:91232bd7b6
 ## You made it!
 
