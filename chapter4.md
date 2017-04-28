@@ -693,9 +693,10 @@ WHERE start_date IN
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key1: 893930edb6
+*** =key1:
 
-*** =key3: 1eed019c1c
+*** =question3
+From your analysis, which of the following statements is true?
 
 *** =possible_answers1
 - There are more trips started on days when it rained
@@ -897,7 +898,7 @@ LIMIT 1;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('call').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
