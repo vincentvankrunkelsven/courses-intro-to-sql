@@ -701,7 +701,7 @@ WHERE start_date IN
 - There are more trips started on days when it rained
 - There are more trips started on days when the weather was not bad
 - There are more trips started on days when it was snowing
-- There are more strips started on days when it was not raining
+- There are more trips started on days when it was not raining
 
 *** =sct3
 ```{python}
