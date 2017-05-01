@@ -14,7 +14,9 @@ Wow, you've come a long way! Congrats on making it this far.
 
 The mayor of New York City has caught wind of your new SQL skills and wants you to produce an analysis of Citi Bike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it!
 
-Before you take this on, you should get a feel for the data you'll be working with.
+Before you take this on, you should get a feel for the data you'll be working with, so go ahead and explore in the editor to the right.
+
+When you're ready, you can answer the questions below. Good luck! 
 
 *** =pre_exercise_code
 ```{python}
@@ -111,6 +113,8 @@ By now you may have noticed that the Citi Bike database is huge! Displaying it i
 
 The mayor wants that report on his desk soon though and you don't have time to wait around!
 
+Remember, you can use the `LIMIT` clause to constrain the number of results you get.
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'nycbikes15')
@@ -204,7 +208,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:cfd546a48c
 ## Make your way around (the dataset)
 
-The mayor wants some stats on trip durations to see if people prefer to take long or short trips using Citi Bike.
+Now the mayor wants some stats on trip durations to see if people prefer to take long or short trips using Citi Bike.
 
 *** =pre_exercise_code
 ```{python}
@@ -340,7 +344,6 @@ alias = test_column('duration_days', match='exact')
 
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-# MC-Note: Are these supposed to be inside of a test_or?
 division_check1 = test_student_typed('/ 60 / 60 / 24', msg='Make sure your division is correct!')
 
 division_check2 = test_student_typed('/ 60 / 24 / 60', msg='Make sure your division is correct!')
@@ -351,9 +354,7 @@ Ex().test_correct(check_result(), [
     alias,
     from_clause,
     sum_call,
-    division_check1,
-    division_check2,
-    division_check3,
+    test_or(division_check1, division_check2, division_check3),
     test_error()
 ])
 ```
@@ -362,6 +363,8 @@ Ex().test_correct(check_result(), [
 ## Weather questions
 
 The mayor is interested in discovering if the weather has a large effect on whether people use Citi Bike bikes.
+
+To this end, he asks you to collect some preliminary data on the weather.
 
 *** =pre_exercise_code
 ```{python}
@@ -406,7 +409,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 5731e34718
 
 *** =instructions2
-How many days is there no data for?
+How many days had no bad weather event? 
 *** =solution2
 ```{sql}
 SELECT COUNT(*)
@@ -498,7 +501,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:69853cbb54
 ## Weather questions (2)
 
-From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits.
+From your preliminary findings, it seems that the weather does play a role in people's cycling habits. However, the mayor knows not 'seems'. He asks you to do some further analysis concerning the effect of weather on biking habits. Go for it!
 
 *** =pre_exercise_code
 ```{python}
@@ -673,9 +676,7 @@ WHERE start_date IN
 *** =key2: d6145d4a12
 
 *** =instructions2
-Modify your last query to count the number of trips started on days when the weather was not bad.
-
-**TODO: on the next page, we need to be able to add instructions to the MCQ tab.**
+Modify your last query to count the number of trips started on days when the weather was not bad, i.e. it wasn't raining, snowing, or foggy.
 
 *** =solution2
 ```{sql}
@@ -692,11 +693,15 @@ WHERE start_date IN
 ```
 
 *** =type3: MultipleChoiceExercise
-*** =key3: a69a7fb11e
+*** =key1: 7cf2f49e15
 
-*** =instructions3
+*** =key3: 4de099b886
+
+*** =possible_answers1
 - There are more trips started on days when it rained
 - There are more trips started on days when the weather was not bad
+- There are more trips started on days when it was snowing
+- There are more trips started on days when it was not raining
 
 *** =sct3
 ```{python}
@@ -709,13 +714,16 @@ Ex().test_mc(2,[msg2, success_msg])
 --- type:NormalExercise lang:sql xp:100 skills:1 key:3125502e11
 ## Stations
 
-The mayor wants to know which stations are the most popular.
+Clearly, weather plays a large role in the usage of Citi Bike in New York City. 
+
+However, the location of currently existing stations may also influence usage. 
+
 
 *** =instructions
-Get the `start_station_id` of the station which was started from the most.
+Get the ID and name for each station in the `stations` table, in alphabetical order.
 
 *** =hint
-Count the number of times each `start_station_id` appears in the `trips` table!
+Don't forget to separate column names with a comma. 
 
 *** =pre_exercise_code
 ```{python}
@@ -724,20 +732,13 @@ connect('postgresql', 'nycbikes15')
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___(___)
-FROM trips
-___ start_station_id
-ORDER BY ___ ___
-LIMIT 1;
 ```
 
 *** =solution
 ```{sql}
-SELECT start_station_id, COUNT(start_station_id)
-FROM trips
-GROUP BY start_station_id
-ORDER BY count DESC
-LIMIT 1;
+SELECT id, name
+FROM stations
+ORDER BY name;
 ```
 
 *** =sct
@@ -746,13 +747,10 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
-
-count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call,
-    group_by_clause,
+    order_by_clause,
     from_clause,
     test_error()
 ])
@@ -761,7 +759,7 @@ Ex().test_correct(check_result(), [
 --- type:NormalExercise lang:sql xp:100 skills:1 key:58fd297b05
 ## Stations (2)
 
-The mayor wants to know which stations are the most popular.
+The mayor also wants to know which stations are the most popular so the city can apportion maintenance efforts accordingly. 
 
 *** =instructions
 Get the `start_station_id`s of the top ten most popular stations to start from, sorted from most to least popular.
@@ -890,29 +888,26 @@ connect('postgresql', 'nycbikes15')
 Which date had the most trips?
 *** =solution1
 ```{sql}
-SELECT start_date
+SELECT start_date, COUNT(*)
 FROM trips
-LIMIT 10;
+GROUP BY start_date
+LIMIT 1;
 ```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
 
-# MC-Note this SCT doesn't seem to match the solution
-count_call = sel.check_field('target_list', 1).has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
-
-order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 limit_clause = sel.check_field('limit_clause').has_equal_ast('Is your `LIMIT` clause correct?')
 
 Ex().test_correct(check_result(), [
     count_call,
     limit_clause,
-    order_by_clause,
     group_by_clause,
     from_clause,
     test_error()
