@@ -14,7 +14,7 @@ Wow, you've come a long way! Congrats on making it this far.
 
 The mayor of New York City has caught wind of your new SQL skills and wants you to produce an analysis of Citi Bike usage to determine whether the bikes are useful to people living in the city. It's a big job, but you can handle it!
 
-Before you take this on, you should get a feel for the data you'll be working with, so go ahead and explore in the console to the right.
+Before you take this on, you should get a feel for the data you'll be working with, so go ahead and explore in the editor to the right.
 
 When you're ready, you can answer the questions below. Good luck! 
 
