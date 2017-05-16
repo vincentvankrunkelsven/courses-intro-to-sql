@@ -1,11 +1,11 @@
 title: Intro to SQL for Data Science
-description: "The role of a data scientist is to turn raw data into actionable insights. 
-  Much of the world\'s raw data—from electronic medical records to customer transaction 
-  histories—lives in organized collections of tables called <em>relational databases</em>. 
-  Therefore, to be an effective data scientist, you must know how to wrangle and extract 
-  data from these databases using a language called SQL (pronounced <em>ess-que-ell</em>, or 
-  <em>sequel</em>). This course teaches you everything you need to know to begin working with 
-  databases, then finishes with a real-world case study where you\'ll apply your new
+description: "The role of a data scientist is to turn raw data into actionable insights.
+  Much of the world's raw data—from electronic medical records to customer transaction
+  histories—lives in organized collections of tables called <em>relational databases</em>.
+  Therefore, to be an effective data scientist, you must know how to wrangle and extract
+  data from these databases using a language called SQL (pronounced <em>ess-que-ell</em>, or
+  <em>sequel</em>). This course teaches you everything you need to know to begin working with
+  databases, then finishes with a real-world case study where you'll apply your new
   database wizardry to analyze New York City Bike data!"
 programming_language: sql
 from: 'postgresql-base-prod:22'
