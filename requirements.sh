@@ -7,7 +7,7 @@ apt-get update && apt-get install -y unzip
 
 # get repos
 wget $NYCBIKES_REPO
-unzip nycbikes15.zip
+unzip nycbikes15_db_scripts.zip
 
 mkdir -p courses-intro-to-sql/data
 wget $FILMS_REPO
