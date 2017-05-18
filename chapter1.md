@@ -917,7 +917,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: c2bbd9a806
 *** =instructions2
-Get the of years between the oldest film and newest film. Alias the result as `difference`.
+Get the number of years between the oldest film and newest film. Alias the result as `difference`.
 
 *** =solution2
 ```{sql}
