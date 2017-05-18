@@ -94,7 +94,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 4a74270ecd
 *** =instructions2
-Modify your query to return the `release_year` for every film.
+Modify your query to return only the `release_year` for every film.
 
 *** =solution2
 ```{sql}
@@ -168,7 +168,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___
+SELECT ___
 FROM ___;
 ```
 
@@ -948,7 +948,7 @@ Ex().test_correct(check_result(), [
 *** =key3: f272486b68
 
 *** =instructions3
-Get the number of decades this dataset covers. Alias the result as `number_of_decades`.
+Get the number of decades the `films` table covers. Alias the result as `number_of_decades`.
 *** =solution3
 ```{sql}
 SELECT (MAX(release_year) - MIN(release_year)) / 10
