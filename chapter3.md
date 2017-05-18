@@ -870,6 +870,34 @@ ORDER BY release_year DESC;
 ```{python}
 sel = check_node('SelectStmt')
 
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+having = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
+order_by = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+alias1 = test_column('avg_budget', match='exact', msg='Are you aliasing `avg_budget` correctly?')
+alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg_box_office` correctly?')
+
+first_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(budget))` correctly?')
+
+second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(gross))` correctly?')
+avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
+
+Ex().test_correct(check_result(), [
+    first_round,
+    second_round,
+    having,
+    from_clause,
+    where_clause,
+    group_by,
+    order_by,
+    alias1, 
+    alias2,
+    test_error()
+])
+
+
 ```
 
 *** =key2: 1ed0ce7d61
@@ -889,4 +917,32 @@ LIMIT 5;
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+having = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
+order_by = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+
+alias1 = test_column('avg_budget', match='exact', msg='Are you aliasing `avg_budget` correctly?')
+alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg_box_office` correctly?')
+
+first_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(budget))` correctly?')
+
+second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(gross))` correctly?')
+avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
+
+Ex().test_correct(check_result(), [
+    first_round,
+    second_round,
+    having,
+    from_clause,
+    where_clause,
+    group_by,
+    order_by,
+    alias1, 
+    alias2,
+    test_error()
+])
+
 ```
