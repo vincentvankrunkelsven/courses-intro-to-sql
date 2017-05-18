@@ -872,7 +872,6 @@ avg_call = test_or(avg1, avg2)
 Ex().test_correct(check_result(), [
     avg_call,
     alias,
-    test_or(avg1, avg2),
     test_error()
 ])
 ```
