@@ -9,9 +9,14 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
-Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions.
+Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions. A simple table might be:
 
-One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. Each column, or *field*, contains a single *attribute* of all entities in the table.
+| id | Name | Age |
+|----|----|----|
+| 1 | Colin | 23 |
+| 2 | Gabriel | 23 |
+
+One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. As we can see from the above table, each row refers to a single person. Each column, or *field*, contains a single *attribute* of all entities in the table. In the table above, each column refers to a piece of information about a person. 
 
 In a table called `people`, each record represents which of the following?
 
@@ -119,7 +124,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 323bd5ddf5
 *** =instructions3
-Get the `name` of all `people` involved in the films.
+Get the `name` of each person in the `films` table. 
 
 *** =solution3
 ```{sql}
@@ -757,14 +762,16 @@ FROM films;
 
 gives you a result set with a single column named `title_count`.
 
-Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. For example:
+Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. 
+
+In the `films` table, the `duration` is measured in minutes. Perhaps you want to know how many seconds are in a given movie. Then, for  example you could do:
 
 ```
 SELECT title, duration * 60 AS duration_seconds
 FROM films;
 ```
 
-gives the duration of each film in seconds in a column called `duration_seconds`.
+which givs the duration of each film **in seconds** in a column called `duration_seconds`.
 
 Aliases are helpful for making results more readable!
 
@@ -845,19 +852,22 @@ FROM films;
 ```
 *** =sct3
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you use `AVG`?')
+# TODO: come back to this with better solution
+sel = check_node('SelectStmt')
 
-alias = test_column('avg_duration_hours', match='exact')
+alias = test_column('avg_duration_hours', match='exact', msg='Did you alias your result as `avg_duration_hours`?')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the average duration in hours correctly?')
+avg1 = test_student_typed('AVG(duration) / 60', msg='Are you calling `AVG` correctly?')
+avg2 = test_student_typed('AVG(duration / 60)', msg='Are you calling `AVG` correctly?')
 
-avg_call = sel.check_node('AliasExpr').check_field('left').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = test_or(avg1, avg2)
+
+# avg_call = sel.check_node('AliasExpr').check_field('left').has_equal_ast('Are you calling `AVG` correctly?')
 
 Ex().test_correct(check_result(), [
     avg_call,
-    alias_eqn, 
     alias,
-    sel,
+    test_or(avg1, avg2),
     test_error()
 ])
 ```
@@ -978,7 +988,7 @@ Ex().test_correct(check_result(), [
 *** =key4: 52d3616e78
 
 *** =instructions4
-Get the duration in hours for each film. Alias the duration in hours as `duration_hours`.
+Get the title and duration in hours for each film. Alias the duration in hours as `duration_hours`.
 
 *** =solution4
 ```{sql}

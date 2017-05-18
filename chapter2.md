@@ -9,12 +9,20 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
-In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. For example, 
+In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. For example, filtering numeric records such as the `release_year`:
 
 ```
 SELECT title 
 FROM films 
 WHERE release_year > 2000;
+```
+
+And filtering text records such as `title`:
+
+```
+SELECT title 
+FROM films 
+WHERE title = 'Metropolis';
 ```
 
 gives you the titles of all films released after the year 2000.
@@ -52,7 +60,7 @@ WHERE certification = 'R';
 
 Now it's your turn to practice using `WHERE`!
 
-**Note: in PostgreSQL (the flavor of SQL we're using), you must use single quotes with `WHERE`.**
+**Note: in PostgreSQL (the version of SQL we're using), you must use single quotes with `WHERE`.**
 
 *** =pre_exercise_code
 ```{python}
@@ -401,7 +409,7 @@ AND country = 'France';
 ```
 *** =sct3
 ```{python}
-sel = check_node('SelectStmt')
+sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
 
 avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
@@ -409,7 +417,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the `release_year`?')
+release_year = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
 country = where_clause.has_equal_ast(sql="country = 'France'", start='expression', exact=False, msg='Did you check the `country` correctly?')
 
@@ -423,6 +431,7 @@ Ex().test_correct(check_result(), [
     country,
     where_clause,
     from_clause,
+    sel,
     test_error()
 ])
 ```
