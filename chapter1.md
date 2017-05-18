@@ -232,8 +232,8 @@ Get the title, release year and country for every film.
 
 *** =solution3
 ```{sql}
-SELECT name, birthdate
-FROM people;
+SELECT title, release_year, country
+FROM films;
 ```
 *** =sct3
 ```{python}
