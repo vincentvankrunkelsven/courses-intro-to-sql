@@ -46,7 +46,7 @@ Ex().test_mc(4, [msg1, msg2, msg3, success_msg])
 --- type:BulletExercise lang:sql xp:100 key:c0bb58f7f9
 ## SELECTing single columns
 
-While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data or information from a database table or combination of tables. Querying is an essential skill for a data scientist, since the data we need to perform our analyses often live in databases.
+While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data from a database table or combination of tables. Querying is an essential skill for a data scientist, since the data we need for our analyses often live in databases.
 
 In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects the `name` column from the `people` table:
 
