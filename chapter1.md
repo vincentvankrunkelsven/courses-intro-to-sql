@@ -764,14 +764,14 @@ gives you a result set with a single column named `title_count`.
 
 Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. 
 
-In the `films` table, the `duration` is measured in minutes. Perhaps you want to know how many seconds are in a given movie. Then, for  example you could do:
+In the `films` table, the `duration` is measured in minutes. Perhaps you want to know how many seconds are in a given movie. Then, for example you could do:
 
 ```
 SELECT title, duration * 60 AS duration_seconds
 FROM films;
 ```
 
-which givs the duration of each film **in seconds** in a column called `duration_seconds`.
+which gives the duration of each film **in seconds** in a column called `duration_seconds`.
 
 Aliases are helpful for making results more readable!
 
