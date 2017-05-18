@@ -9,40 +9,44 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
-Structured Query Language, better known as SQL, is a language for interacting with data stored in *relational databases*. A relational database is simply a collection of tables satisfying some special conditions. A simple table might be:
+SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*. You can think of a relational database as a collection of tables, where each table contains rows and columns like a spreadsheet and represents exactly one type of entity, like people, cars, or purchases.
 
-| id | Name | Age |
-|----|----|----|
-| 1 | Colin | 23 |
-| 2 | Gabriel | 23 |
+Each row, or *record*, of a table contains information about a single entity (e.g. a person). Each column, or *field*, contains an attribute of all entities in the table (e.g. name).
 
-One of these conditions is that each table, consisting of rows and columns, contains information on a collection of entities, such as people, computers, or transactions. Each row, or *record*, contains information about a single entity. As we can see from the above table, each row refers to a single person. Each column, or *field*, contains a single *attribute* of all entities in the table. In the table above, each column refers to a piece of information about a person. 
+For example, this table contains information about people:
 
-In a table called `people`, each record represents which of the following?
+| id | name | age | nationality |
+|----|----|----|----|
+| 1 | Laura | 36 | USA
+| 2 | Gabriel | 22 | France |
+| 3 | Lisa | 52 | India |
+
+<br>
+How many fields does the table contain?
 
 *** =instructions
-- A single attribute about people
-- A collection of entities
-- A single person
+- One
+- Two
+- Three
+- Four
 
 *** =hint
-Think about what one entity in the `people` table represents.
+Remember that in database lingo, a column is called a *field*. How many columns does the table contain?
 
 *** =sct
 ```{python}
-msg1 = "Incorrect, a single attribute about people would be a column!"
-msg2 = "Sorry, that would be a table!"
-success_msg = "Correct! In a database table, each record contains information on exactly one entity."
+msg1 = "Incorrect, a table contains information about one type of entity, but generally has multiple fields."
+msg2 = "Sorry, try again!"
+msg3 = "Incorrect, the table contains three records, but how many fields does it have?"
+success_msg = "Correct! The table contains four columns, or fields."
 
-Ex().test_mc(3, [msg1, msg2, success_msg])
+Ex().test_mc(4, [msg1, msg2, msg3, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:c0bb58f7f9
 ## SELECTing single columns
 
-While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data or information from a database table or combination of tables. 
-
-Querying is an essential skill for a data scientist, as the data we need to perform our analyses often live in databases.
+While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data or information from a database table or combination of tables. Querying is an essential skill for a data scientist, since the data we need to perform our analyses often live in databases.
 
 In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects the `name` column from the `people` table:
 
@@ -60,8 +64,7 @@ from people;
 
 That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names. 
 
-Additionally, it's also good practice to include a semicolon at the end of your query (in this case, your `SELECT` statement) - this tells SQL where the end of your query is!
-
+Additionally, it's also good practice to include a semicolon at the end of your query. This tells SQL where the end of your query is!
 
 *** =pre_exercise_code
 ```{python}
