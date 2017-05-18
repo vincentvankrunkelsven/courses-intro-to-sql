@@ -856,7 +856,7 @@ ___ ___ release_year ___;
 *** =key1: a141cd669f
 
 *** =instructions1
-Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year.
+Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year. Order by release year, in descending order.
 *** =solution1
 ```{sql}
 SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
@@ -869,7 +869,6 @@ ORDER BY release_year DESC;
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
-
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
@@ -896,8 +895,6 @@ Ex().test_correct(check_result(), [
     alias2,
     test_error()
 ])
-
-
 ```
 
 *** =key2: 1ed0ce7d61
