@@ -1,10 +1,20 @@
 BASE_DIR=$(pwd)
 NYCBIKES_DATA="https://assets.datacamp.com/course/sql/nycbikes15.zip"
+NYCBIKES_REPO="https://assets.datacamp.com/course/tmp_fixme_filip/nycbikes15_db_scripts.zip"
+FILMS_REPO="https://assets.datacamp.com/course/tmp_fixme_filip/films.zip"
 
 apt-get update && apt-get install -y unzip
 
-git clone https://$GITHUB_TOKEN@github.com/datacamp/courses-intro-to-sql.git
-git clone https://$GITHUB_TOKEN@github.com/datacamp/nycbikes15.git
+# get repos
+wget $NYCBIKES_REPO
+unzip nycbikes15.zip
+
+mkdir -p courses-intro-to-sql/data
+wget $FILMS_REPO
+unzip films.zip -d courses-intro-to-sql/data
+
+#git clone https://$GITHUB_TOKEN@github.com/datacamp/courses-intro-to-sql.git
+#git clone https://$GITHUB_TOKEN@github.com/datacamp/nycbikes15.git
 
 # get data for nycbikes15
 wget $NYCBIKES_DATA
