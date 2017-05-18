@@ -417,7 +417,8 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
--- You can test out queries here! 
+-- You can test out queries here!
+
 ```
 
 *** =sct
