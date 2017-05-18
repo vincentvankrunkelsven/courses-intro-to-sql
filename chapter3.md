@@ -334,7 +334,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 3460b2f14b
 
 *** =instructions2
-Get release years, durations, and titles of films, ordered by their release year and duration.
+Get release years, durations, and titles of films released in 2000 or 2015, ordered by their release year and duration.
 *** =solution2
 ```{sql}
 SELECT release_year, duration, title
@@ -367,7 +367,7 @@ Ex().test_correct(check_result(), [
 *** =key3: c03517c2b9
 
 *** =instructions3
-Get certifications, release years, and titles of films, ordered by certification (alphabetically) and release year.
+Get certifications, release years, and titles of films released in 2000 or 2015, ordered by certification (alphabetically) and release year.
 
 *** =solution3
 ```{sql}
@@ -758,7 +758,7 @@ Ex().test_correct(check_result(), [
     group_by_clause1,
     group_by_clause2,
     from_clause,
-    sum_call,
+    max_call,
     test_error()
 ])
 ```
@@ -794,7 +794,7 @@ Ex().test_correct(check_result(), [
     group_by_clause1,
     group_by_clause2,
     from_clause,
-    sum_call,
+    min_call,
     test_error()
 ])
 ```
