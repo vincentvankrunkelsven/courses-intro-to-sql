@@ -516,7 +516,7 @@ Ex().test_correct(check_result(), [
 *** =key2: aee831c1d8
 
 *** =instructions2
-Get films released since 2000 that are in French or Spanish, and made more than $20m.
+Get all columns from the `films` table for films released since 2000 that are in French or Spanish and made more than $20M.
 *** =solution2
 ```{sql}
 SELECT *
