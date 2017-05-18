@@ -58,7 +58,9 @@ select name
 from people;
 ```
 
-That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names. Also note the semicolon at the end of the `SELECT` statement — this tells SQL where the end of your query is.
+That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names. 
+
+Additionally, it's also good practice to include a semi colon at the end of your query (in this case, your `SELECT` statement) - this tells SQL where the end of your query is!
 
 
 *** =pre_exercise_code
