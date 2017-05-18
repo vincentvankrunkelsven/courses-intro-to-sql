@@ -34,7 +34,7 @@ It's not none of the above!
 success_msg = "Correct! `WHERE` can be used to filter on both numeric and text data."
 msg2 = "Incorrect. `WHERE` can be used with more than just numeric data!"
 msg3 = "Incorrect. `WHERE` can be used with more than just text data!"
-msg4 = "Incorrect, it's not one of the above!"
+msg4 = "Incorrect, try again!"
 
 Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 ```
