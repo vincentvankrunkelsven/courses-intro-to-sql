@@ -444,7 +444,6 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
-Ex().test_ncols()
 success_msg = 'Correct!'
 msg2 = "Use the syntax provided in the example. Be sure to swap out `people` for `reviews`!"
 
