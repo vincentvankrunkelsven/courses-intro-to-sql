@@ -990,33 +990,3 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
-
-*** =type4: NormalExercise
-
-*** =key4: 52d3616e78
-
-*** =instructions4
-Get the title and duration in hours for each film. Alias the duration in hours as `duration_hours`.
-
-*** =solution4
-```{sql}
-SELECT title, duration / 60.0 AS duration_hours
-FROM films;
-```
-*** =sct4
-```{python}
-sel = check_node('SelectStmt')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-alias = test_column('duration_hours', match='exact')
-
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact duration in hours correctly?')
-
-Ex().test_correct(check_result(), [
-    from_clause, 
-    alias_eqn, 
-    alias, 
-    test_error()
-])
-```
