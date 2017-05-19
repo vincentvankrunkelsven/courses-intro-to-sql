@@ -8,7 +8,7 @@ description: >-
   your data within groups — a very powerful paradigm!
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:ac6d71b0e4
-## ORDER BY in the courtroom
+## ORDER BY
 
 In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order according the values of one or more columns. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you use the `DESC` keyword. For example, 
 

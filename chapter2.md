@@ -804,7 +804,7 @@ Ex().test_correct(check_result(), [
 ```
 
 --- type:TabExercise lang:sql xp:100 key:4fc7e638f8
-## WHERE IN the world
+## WHERE IN
 
 In SQL, the `IN` operator allows you to specify multiple values in a `WHERE` clause. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right? 
 
