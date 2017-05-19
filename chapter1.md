@@ -31,7 +31,7 @@ How many fields does the table contain?
 - Four
 
 *** =hint
-Remember that in database lingo, a column is called a *field*. How many columns does the table contain?
+Remember that in database lingo, a column is called a *field*. How many fields does the table contain?
 
 *** =sct
 ```{python}
