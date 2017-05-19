@@ -767,16 +767,20 @@ FROM films;
 
 gives you a result set with a single column named `title_count`.
 
-Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. 
-
-In the `films` table, the `duration` is measured in minutes. Perhaps you want to know how many seconds are in a given movie. Then, for example you could do:
+Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. Be careful when dividing, though. PostgreSQL assumes that, if you divide an integer by an integer, you want to get an integer back. For example, 
 
 ```
-SELECT title, duration * 60 AS duration_seconds
+SELECT title, (release_year - 2017)/10 as decades_ago
 FROM films;
 ```
 
-which gives the duration of each film **in seconds** in a column called `duration_seconds`.
+returns the title of each film and the **integer part** of the number of decades since the film was released as a field called `decades_ago`.
+To get the field `decades_ago` as a decimal value, you have to specify the constant as a decimal to let PostreSQL know that you want more precision. So, if we wanted the exact number of decades since a film was released, we could use the query
+
+```
+SELECT title, (release_year - 2017)/10.0 as decades_ago
+FROM films;
+```
 
 Aliases are helpful for making results more readable!
 
@@ -825,12 +829,12 @@ Get the title and duration in hours for each film. Alias the duration in hours a
 
 *** =solution2
 ```{sql}
-SELECT title, duration / 60 AS duration_hours
+SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
 *** =sct2
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60` and alias the result as `duration_hours`?')
+sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60.0` and alias the result as `duration_hours`?')
 
 alias = test_column('duration_hours', match='exact')
 
@@ -852,7 +856,7 @@ Get the average film duration in hours for all films, aliased as `avg_duration_h
 
 *** =solution3
 ```{sql}
-SELECT AVG(duration) / 60 AS avg_duration_hours  
+SELECT AVG(duration) / 60.0 AS avg_duration_hours  
 FROM films;
 ```
 *** =sct3
@@ -862,8 +866,8 @@ sel = check_node('SelectStmt')
 
 alias = test_column('avg_duration_hours', match='exact', msg='Did you alias your result as `avg_duration_hours`?')
 
-avg1 = test_student_typed('AVG(duration) / 60', msg='Are you calling `AVG` correctly?')
-avg2 = test_student_typed('AVG(duration / 60)', msg='Are you calling `AVG` correctly?')
+avg1 = test_student_typed('AVG(duration) / 60.0', msg='Are you calling `AVG` correctly?')
+avg2 = test_student_typed('AVG(duration / 60.0)', msg='Are you calling `AVG` correctly?')
 
 avg_call = test_or(avg1, avg2)
 
@@ -888,7 +892,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT (COUNT(___) * 100 / COUNT(___)) AS percentage_dead
+SELECT (COUNT(___) * 100.0 / COUNT(___)) AS percentage_dead
 FROM people;
 ```
 
@@ -899,7 +903,7 @@ FROM people;
 Get the percentage of `people` who are no longer alive. Alias the result as `percentage_dead`.
 *** =solution1
 ```{sql}
-SELECT COUNT(deathdate) * 100 / COUNT(*) AS percentage_dead
+SELECT COUNT(deathdate) * 100.0 / COUNT(*) AS percentage_dead
 FROM people;
 ```
 *** =sct1
@@ -965,7 +969,7 @@ Ex().test_correct(check_result(), [
 Get the number of decades the `films` table covers. Alias the result as `number_of_decades`.
 *** =solution3
 ```{sql}
-SELECT (MAX(release_year) - MIN(release_year)) / 10
+SELECT (MAX(release_year) - MIN(release_year)) / 10.0
 AS number_of_decades
 FROM films;
 ```
@@ -977,7 +981,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('number_of_decades', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the number of decades correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact number of decades correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
@@ -996,7 +1000,7 @@ Get the title and duration in hours for each film. Alias the duration in hours a
 
 *** =solution4
 ```{sql}
-SELECT title, duration / 60 AS duration_hours
+SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
 *** =sct4
@@ -1007,7 +1011,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('duration_hours', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact duration in hours correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause, 
