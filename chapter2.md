@@ -55,7 +55,7 @@ As we have seen, the `WHERE` clause allows you to filter your results. The follo
 ```
 SELECT title 
 FROM films 
-WHERE certification = 'R';
+WHERE country = "China";
 ```
 
 Now it's your turn to practice using `WHERE`!
@@ -269,7 +269,7 @@ Ex().test_correct(check_result(), [
 *** =key3: d66f3d41b7
 
 *** =instructions3
-Get the title and release year of films released since 2000.
+Get the title and release year of films released after 2000.
 *** =solution3
 ```{sql}
 SELECT title, release_year
@@ -323,7 +323,7 @@ ___ language = ___;
 *** =key1: 7ccf93b215
 
 *** =instructions1
-Get the title and release year for all Spanish films released before 2000.
+Get the title and release year for all Spanish language films released before 2000.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -437,7 +437,7 @@ Ex().test_correct(check_result(), [
 ```
 
 --- type:TabExercise lang:sql xp:100 key:ecc1838fc7
-## WHERE AND, OR
+## WHERE AND OR
 
 You can also build up your `WHERE` queries using the `OR` keyword. For example, 
 
@@ -525,7 +525,7 @@ Ex().test_correct(check_result(), [
 *** =key2: aee831c1d8
 
 *** =instructions2
-Get all columns from the `films` table for films released since 2000 that are in French or Spanish and made more than $20M.
+Get all columns from the `films` table for films released since 2000 that are in French or Spanish and took in more than $20M at the box office.
 *** =solution2
 ```{sql}
 SELECT *
@@ -574,7 +574,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 510b387baa
 
 *** =instructions3
-Get films released in the 90s.
+Get the title and year of films released in the 90s.
 *** =solution3
 ```{sql}
 SELECT title, release_year
@@ -1069,7 +1069,8 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
 ## Introduction to NULL and IS NULL
 
-In SQL, `NULL` represents a missing value. Often, you will want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. 
+In SQL, `NULL` represents a missing value. You can check if a record has a field with the value `NULL` using the expression `IS NULL` . 
+This is useful when combined with `WHERE` to figure out what data you're missing. Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. 
 
 For example, 
 
@@ -1079,7 +1080,7 @@ FROM people
 WHERE birthdate IS NOT NULL;
 ``` 
 
-will give you the names of all the people whose birthdate is not missing in the `people` table.
+will give you the names of all the people whose birthdate is not missing in the `people` table. 
 
 What does `NULL` represent?
 
@@ -1208,8 +1209,10 @@ The `LIKE` operator can be used in a `WHERE` clause to search for a specific pat
 
 There are two _wildcards_ you can use with `LIKE`:
 
-* The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind`, and so on.
-* The `_` wildcard will match a single character. For example, if you filtered with `DataC_mp` you would match `DataCamp`, `DataComp`, and so on.
+* The `'%'` wildcard will match zero, one, or many characters in text. For example, if you filtered with `'Data%'` you could match `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on.
+* The `'_'` wildcard will match a single character. For example, if you filtered with `'DataC_mp'` you would match `'DataCamp'`, `'DataComp'`, and so on.
+
+You can also use the expression `NOT LIKE' to find records that **don't** match the pattern you specify.
 
 *** =pre_exercise_code
 ```{python}

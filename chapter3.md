@@ -62,7 +62,7 @@ ___ ___ ___;
 *** =key1: e3a06cce15
 
 *** =instructions1
-Get the names of people, sorted by name.
+Get the names of people, sorted alphabetically.
 *** =solution1
 ```{sql}
 SELECT name
@@ -175,7 +175,7 @@ Ex().test_correct(check_result(), [
 *** =key5: 5c84507976
 
 *** =instructions5
-Get all details for all films except those released in 2015 and order them so we can see the results.
+Get all details for all films except those released in 2015 and order them by year.
 *** =solution5
 ```{sql}
 SELECT *
@@ -401,7 +401,7 @@ Ex().test_correct(check_result(), [
 *** =key4: f0ade213ff
 
 *** =instructions4
-Get people whose names start with A, B, or C, ordered by date of birth.
+Get the names and birthdates of people whose names start with A, B, or C, ordered by date of birth.
 *** =solution4
 ```{sql}
 SELECT name, birthdate
@@ -431,10 +431,10 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
 ## Introduction to GROUP BY
 
-In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is commonly used with aggregate functions like `COUNT()` or `MAX`. For example, 
+In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is commonly used with aggregate functions like `COUNT()` or `MAX()`. For example, 
 
 ```
-SELECT title, COUNT(title) 
+SELECT release_year, COUNT(title) 
 FROM films 
 GROUP BY release_year;
 ``` 
@@ -466,6 +466,9 @@ Ex().test_mc(4, [one, two, three, success_msg])
 ## GROUP BY on multiple columns
 
 Now that you understand what `GROUP BY` is and how to use it, let's try some exercises!
+In general, the correct output for each of these tasks will contain a field for the grouped values and a field for some kind of calculated value, with one value for each group.
+PostgresSQL will return an error if you try to `SELECT` a field that is not in your `GROUP BY` clause without using it to calculate some kind of value about the entire group.
+You'll see in the next section that these kinds of calculations, done by *aggregate functions*, make `GROUP BY` incredibly powerful.
 
 *** =pre_exercise_code
 ```{python}
@@ -655,7 +658,7 @@ Ex().test_correct(check_result(), [
 *** =key6: cff5924de5
 
 *** =instructions6
-Get the total amount made in each language.
+Get the total amount films in each language brought in at the box office.
 *** =solution6
 ```{sql}
 SELECT language, SUM(gross)
@@ -684,7 +687,7 @@ Ex().test_correct(check_result(), [
 *** =key7: 83944ff64f
 
 *** =instructions7
-Get the total amount spent by each country.
+Get the total amount spent seeing movies in each country.
 *** =solution7
 ```{sql}
 SELECT country, SUM(gross)
@@ -713,6 +716,8 @@ Ex().test_correct(check_result(), [
 ## Combining with aggregate functions
 
 Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions!
+Make sure to always put the `ORDER BY` clause at the end of your query.
+You can't sort values that you haven't calculated yet!
 
 *** =pre_exercise_code
 ```{python}
