@@ -71,6 +71,7 @@ ORDER BY name;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -99,6 +100,7 @@ ORDER BY birthdate;
 ```
 *** =sct2
 ```{sql}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -125,6 +127,7 @@ ORDER BY birthdate;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -152,6 +155,7 @@ ORDER BY release_year;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -236,6 +240,7 @@ ORDER BY imdb_score DESC;
 
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -264,6 +269,7 @@ ORDER BY title DESC;
 
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -317,6 +323,7 @@ ORDER BY birthdate, name;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -344,6 +351,7 @@ ORDER BY release_year, duration;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -378,6 +386,7 @@ ORDER BY certification, release_year;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -411,6 +420,7 @@ ORDER BY birthdate;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -492,6 +502,7 @@ GROUP BY release_year;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Is your `COUNT` call correct?')
@@ -522,6 +533,7 @@ ORDER BY release_year;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 alias = test_column('films_released', match='exact')
@@ -559,6 +571,7 @@ ORDER BY films_released;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -596,6 +609,7 @@ ORDER BY films_released DESC;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -632,6 +646,7 @@ ORDER BY release_year;
 ```
 *** =sct5
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -664,6 +679,7 @@ GROUP BY language;
 ```
 *** =sct6
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -693,6 +709,7 @@ GROUP BY country;
 ```
 *** =sct7
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -741,6 +758,7 @@ ORDER BY release_year, country;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -777,6 +795,7 @@ ORDER BY release_year, country;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -856,7 +875,7 @@ ___ ___ release_year ___;
 *** =key1: a141cd669f
 
 *** =instructions1
-Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year. Order by release year, in descending order.
+Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year.
 *** =solution1
 ```{sql}
 SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
@@ -868,7 +887,9 @@ ORDER BY release_year DESC;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
@@ -895,6 +916,8 @@ Ex().test_correct(check_result(), [
     alias2,
     test_error()
 ])
+
+
 ```
 
 *** =key2: 1ed0ce7d61
@@ -913,6 +936,7 @@ LIMIT 5;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')

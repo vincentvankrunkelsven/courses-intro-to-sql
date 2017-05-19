@@ -88,6 +88,8 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
+
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `title` correctly?')
@@ -113,6 +115,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 release_year = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
@@ -138,6 +141,7 @@ FROM people;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 name = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
@@ -194,6 +198,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
@@ -219,6 +224,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
@@ -247,6 +253,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
@@ -277,6 +284,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Have you used `*` in your `SELECT` statement?')
@@ -325,6 +333,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
@@ -352,6 +361,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
@@ -380,6 +390,7 @@ FROM roles;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
@@ -433,6 +444,7 @@ connect('postgresql', 'films')
 
 *** =sct
 ```{python}
+Ex().test_ncols()
 success_msg = 'Correct!'
 msg2 = "Use the syntax provided in the example. Be sure to swap out `people` for `reviews`!"
 
@@ -479,6 +491,7 @@ FROM people;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -503,6 +516,7 @@ FROM people;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -529,6 +543,7 @@ FROM people;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -555,6 +570,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -581,6 +597,7 @@ FROM films;
 ```
 *** =sct5
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -634,6 +651,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
@@ -661,6 +679,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 avg_call = sel.check_field('from_clause').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
@@ -688,6 +707,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
@@ -715,6 +735,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
@@ -741,6 +762,7 @@ FROM films;
 ```
 *** =sct5
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
@@ -804,6 +826,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 alias = test_column('profit_or_loss', match='exact')
@@ -830,6 +853,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60` and alias the result as `duration_hours`?')
 
 alias = test_column('duration_hours', match='exact')
@@ -857,6 +881,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 # TODO: come back to this with better solution
 sel = check_node('SelectStmt')
 
@@ -904,6 +929,7 @@ FROM people;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 alias = test_column('percentage_dead', match='exact')
@@ -941,6 +967,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -971,6 +998,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1001,6 +1029,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')

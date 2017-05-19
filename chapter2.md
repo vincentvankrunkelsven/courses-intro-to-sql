@@ -87,6 +87,7 @@ WHERE language = 'French';
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -116,6 +117,7 @@ WHERE birthdate = '1974-11-11';
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -136,6 +138,7 @@ WHERE language = 'Hindi';
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -165,6 +168,7 @@ WHERE certification = 'R';
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -220,6 +224,7 @@ WHERE release_year = 2016;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -249,6 +254,7 @@ WHERE release_year < 2000;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -278,6 +284,7 @@ WHERE release_year > 2000;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -333,6 +340,7 @@ AND language = 'Spanish';
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -370,6 +378,7 @@ AND language = 'Spanish';
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -409,6 +418,7 @@ AND country = 'France';
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
 
 avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
@@ -488,6 +498,7 @@ AND (language = 'French' OR language = 'Spanish');
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 left = sel.check_node('BinaryExpr').check_field('left')
 right = sel.check_node('BinaryExpr').check_field('right')
@@ -536,6 +547,7 @@ AND gross > 20000000;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -583,6 +595,7 @@ WHERE release_year >= 1990 AND release_year < 2000;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -614,6 +627,7 @@ OR country = 'UK';
 ```
 *** =sct4
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -719,6 +733,7 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -749,6 +764,7 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0)
@@ -784,6 +800,7 @@ AND budget > 100000000;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -835,6 +852,7 @@ AND duration > 120;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -871,6 +889,7 @@ AND certification = 'R';
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
@@ -913,6 +932,7 @@ AND country = 'USA';
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -987,6 +1007,7 @@ AND duration > 120;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1021,6 +1042,7 @@ WHERE language IN ('English', 'Spanish', 'French');
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1050,6 +1072,7 @@ WHERE certification IN ('NC-17', 'R');
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1132,6 +1155,7 @@ WHERE deathdate IS NULL;
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1158,6 +1182,7 @@ WHERE language IS NULL;
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
@@ -1188,6 +1213,7 @@ WHERE budget IS NULL;
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1236,6 +1262,7 @@ WHERE name LIKE 'B%';
 ```
 *** =sct1
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1262,6 +1289,7 @@ WHERE name LIKE '_r%';
 ```
 *** =sct2
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1288,6 +1316,7 @@ WHERE name NOT LIKE 'A%';
 ```
 *** =sct3
 ```{python}
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
