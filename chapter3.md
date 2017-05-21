@@ -732,8 +732,7 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:38a7c62434
 ## Combining with aggregate functions
 
-Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions! Make sure to always put the `ORDER BY` clause at the end of your query.
-You can't sort values that you haven't calculated yet!
+Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions! Make sure to always put the `ORDER BY` clause at the end of your query. You can't sort values that you haven't calculated yet!
 
 *** =pre_exercise_code
 ```{python}
