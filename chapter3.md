@@ -477,7 +477,7 @@ Ex().test_mc(4, [one, two, three, success_msg])
 
 Now that you understand what `GROUP BY` is and how to use it, let's try some exercises!
 In general, the correct output for each of these tasks will contain a field for the grouped values and a field for some kind of calculated value, with one value for each group.
-PostgresSQL will return an error if you try to `SELECT` a field that is not in your `GROUP BY` clause without using it to calculate some kind of value about the entire group.
+PostgreSQL will return an error if you try to `SELECT` a field that is not in your `GROUP BY` clause without using it to calculate some kind of value about the entire group.
 You'll see in the next section that these kinds of calculations, done by *aggregate functions*, make `GROUP BY` incredibly powerful.
 
 *** =pre_exercise_code
