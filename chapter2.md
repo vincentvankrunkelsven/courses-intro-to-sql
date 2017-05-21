@@ -55,7 +55,7 @@ As we have seen, the `WHERE` clause allows you to filter your results. The follo
 ```
 SELECT title
 FROM films
-WHERE country = "China";
+WHERE country = 'China';
 ```
 
 Now it's your turn to practice using `WHERE`!
