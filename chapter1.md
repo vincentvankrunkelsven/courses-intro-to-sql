@@ -62,7 +62,7 @@ select name
 from people;
 ```
 
-That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names. 
+That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names.
 
 Additionally, it's also good practice to include a semicolon at the end of your query. This tells SQL where the end of your query is!
 
@@ -98,7 +98,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 Ex().test_correct(check_result(), [
     from_clause,
-    title, 
+    title,
     test_error()
 ])
 ```
@@ -123,7 +123,7 @@ release_year = sel.check_node('Identifier').has_equal_ast('Are you sure you sele
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    release_year, 
+    release_year,
     from_clause,
     test_error()
 ])
@@ -132,7 +132,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 323bd5ddf5
 *** =instructions3
-Get the `name` of each person in the `films` table. 
+Get the `name` of each person in the `films` table.
 
 *** =solution3
 ```{sql}
@@ -149,7 +149,7 @@ name = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `re
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    name, 
+    name,
     from_clause,
     test_error()
 ])
@@ -172,7 +172,7 @@ SELECT *
 FROM people;
 ```
 
-Additionally, you can use the `LIMIT` keyword to limit the number of result returned. 
+Additionally, you can use the `LIMIT` keyword to limit the number of result returned.
 
 
 *** =pre_exercise_code
@@ -244,7 +244,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: eeba078a00
 *** =instructions3
-Get the title, release year and country for every film. 
+Get the title, release year and country for every film.
 
 *** =solution3
 ```{sql}
@@ -301,7 +301,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
-If you want to `SELECT` all unique values from a column, you can use the `DISTINCT` keyword. 
+If you want to `SELECT` all unique values from a column, you can use the `DISTINCT` keyword.
 
 This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
 
@@ -343,9 +343,9 @@ language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `co
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    distinct, 
+    distinct,
     language,
-    from_clause, 
+    from_clause,
     test_error()
 ])
 ```
@@ -371,9 +371,9 @@ certification = sel.check_node('Identifier', 0).has_equal_ast('Did you select th
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    distinct, 
+    distinct,
     certification,
-    from_clause, 
+    from_clause,
     test_error()
 ])
 ```
@@ -400,9 +400,9 @@ role = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `role` 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    distinct, 
+    distinct,
     role,
-    from_clause, 
+    from_clause,
     test_error()
 ])
 ```
@@ -462,7 +462,7 @@ FROM roles;
 It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. For example, this query counts the number of distinct roles contained in the `roles` table:
 
 ```sql
-SELECT COUNT(DISTINCT role) 
+SELECT COUNT(DISTINCT role)
 FROM roles;
 ```
 
@@ -499,7 +499,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 Ex().test_correct(check_result(), [
     count_call,
-    from_clause, 
+    from_clause,
     test_error()
 ])
 ```
@@ -523,7 +523,7 @@ count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `CO
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
+    from_clause,
     count,
     test_error()
 ])
@@ -550,7 +550,7 @@ count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `CO
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
+    from_clause,
     count,
     test_error()
 ])
@@ -577,7 +577,7 @@ count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `CO
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
+    from_clause,
     count,
     test_error()
 ])
@@ -604,8 +604,8 @@ count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `CO
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    count, 
+    from_clause,
+    count,
     test_error()
 ])
 ```
@@ -613,16 +613,16 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 
-Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this. 
+Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this.
 
-For example, 
+For example,
 
 ```
-SELECT AVG(budget) 
+SELECT AVG(budget)
 FROM films;
-``` 
+```
 
-gives you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget. 
+gives you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget.
 
 The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
 
@@ -658,8 +658,8 @@ sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    sum_call, 
+    from_clause,
+    sum_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
@@ -686,8 +686,8 @@ avg_call = sel.check_field('from_clause').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    avg_call, 
+    from_clause,
+    avg_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
@@ -714,8 +714,8 @@ min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    min_call, 
+    from_clause,
+    min_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
@@ -742,8 +742,8 @@ max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    max_call, 
+    from_clause,
+    max_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
@@ -769,8 +769,8 @@ min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    min_call, 
+    from_clause,
+    min_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
     test_error()
 ])
@@ -779,25 +779,29 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS aliasing
 
-In SQL, the `AS` keyword allows you to specify an _alias_ (temporary name) for a column in the result set. For example, 
+In SQL, the `AS` keyword allows you to specify an _alias_ (temporary name) for a column in the result set. For example,
 
 ```
-SELECT COUNT(title) AS title_count 
+SELECT COUNT(title) AS title_count
 FROM films;
 ```
 
 gives you a result set with a single column named `title_count`.
 
-Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. 
-
-In the `films` table, the `duration` is measured in minutes. Perhaps you want to know how many seconds are in a given movie. Then, for example you could do:
+Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. Be careful when dividing, though. PostgreSQL assumes that, if you divide an integer by an integer, you want to get an integer back. For example,
 
 ```
-SELECT title, duration * 60 AS duration_seconds
+SELECT title, (release_year - 2017)/10 as decades_ago
 FROM films;
 ```
 
-which gives the duration of each film **in seconds** in a column called `duration_seconds`.
+returns the title of each film and the **integer part** of the number of decades since the film was released as a field called `decades_ago`.
+To get the field `decades_ago` as a decimal value, you have to specify the constant as a decimal to let PostreSQL know that you want more precision. So, if we wanted the exact number of decades since a film was released, we could use the query
+
+```
+SELECT title, (release_year - 2017)/10.0 as decades_ago
+FROM films;
+```
 
 Aliases are helpful for making results more readable!
 
@@ -817,7 +821,7 @@ FROM films;
 *** =key1: ec33c2353b
 
 *** =instructions1
-Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, less the amount the film cost to make. Alias the profit or loss as `profit_or_loss`. 
+Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, less the amount the film cost to make. Alias the profit or loss as `profit_or_loss`.
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS profit_or_loss
@@ -833,7 +837,7 @@ alias = test_column('profit_or_loss', match='exact')
 alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the profit or loss correctly?')
 
 Ex().test_correct(check_result(), [
-    alias_eqn, 
+    alias_eqn,
     alias,
     test_error()
 ])
@@ -847,20 +851,22 @@ Get the title and duration in hours for each film. Alias the duration in hours a
 
 *** =solution2
 ```{sql}
-SELECT title, duration / 60 AS duration_hours
+SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
 *** =sct2
 ```{python}
+
 Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60` and alias the result as `duration_hours`?')
+
 
 alias = test_column('duration_hours', match='exact')
 
 alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
 
 Ex().test_correct(check_result(), [
-    alias_eqn, 
+    alias_eqn,
     alias,
     sel,
     test_error()
@@ -875,7 +881,7 @@ Get the average film duration in hours for all films, aliased as `avg_duration_h
 
 *** =solution3
 ```{sql}
-SELECT AVG(duration) / 60 AS avg_duration_hours  
+SELECT AVG(duration) / 60.0 AS avg_duration_hours  
 FROM films;
 ```
 *** =sct3
@@ -886,8 +892,8 @@ sel = check_node('SelectStmt')
 
 alias = test_column('avg_duration_hours', match='exact', msg='Did you alias your result as `avg_duration_hours`?')
 
-avg1 = test_student_typed('AVG(duration) / 60', msg='Are you calling `AVG` correctly?')
-avg2 = test_student_typed('AVG(duration / 60)', msg='Are you calling `AVG` correctly?')
+avg1 = test_student_typed('AVG(duration) / 60.0', msg='Are you calling `AVG` correctly?')
+avg2 = test_student_typed('AVG(duration / 60.0)', msg='Are you calling `AVG` correctly?')
 
 avg_call = test_or(avg1, avg2)
 
@@ -912,7 +918,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT (COUNT(___) * 100 / COUNT(___)) AS percentage_dead
+SELECT (COUNT(___) * 100.0 / COUNT(___)) AS percentage_dead
 FROM people;
 ```
 
@@ -923,7 +929,7 @@ FROM people;
 Get the percentage of `people` who are no longer alive. Alias the result as `percentage_dead`.
 *** =solution1
 ```{sql}
-SELECT COUNT(deathdate) * 100 / COUNT(*) AS percentage_dead
+SELECT COUNT(deathdate) * 100.0 / COUNT(*) AS percentage_dead
 FROM people;
 ```
 *** =sct1
@@ -947,7 +953,7 @@ Ex().test_correct(check_result(), [
     count_call1,
     count_call2,
     alias_eqn,
-    alias, 
+    alias,
     from_clause,
     test_error()
 ])
@@ -976,8 +982,8 @@ alias = test_column('difference', match='exact')
 alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the difference correctly?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    alias_eqn, 
+    from_clause,
+    alias_eqn,
     alias,
     test_error()
 ])
@@ -991,7 +997,7 @@ Ex().test_correct(check_result(), [
 Get the number of decades the `films` table covers. Alias the result as `number_of_decades`.
 *** =solution3
 ```{sql}
-SELECT (MAX(release_year) - MIN(release_year)) / 10
+SELECT (MAX(release_year) - MIN(release_year)) / 10.0
 AS number_of_decades
 FROM films;
 ```
@@ -1004,43 +1010,12 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('number_of_decades', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the number of decades correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact number of decades correctly?')
 
 Ex().test_correct(check_result(), [
-    from_clause, 
-    alias_eqn, 
+    from_clause,
+    alias_eqn,
     alias,
-    test_error()
-])
-```
-
-*** =type4: NormalExercise
-
-*** =key4: 52d3616e78
-
-*** =instructions4
-Get the title and duration in hours for each film. Alias the duration in hours as `duration_hours`.
-
-*** =solution4
-```{sql}
-SELECT title, duration / 60 AS duration_hours
-FROM films;
-```
-*** =sct4
-```{python}
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-alias = test_column('duration_hours', match='exact')
-
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
-
-Ex().test_correct(check_result(), [
-    from_clause, 
-    alias_eqn, 
-    alias, 
     test_error()
 ])
 ```

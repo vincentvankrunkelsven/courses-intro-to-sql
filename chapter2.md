@@ -5,23 +5,23 @@ description: >-
   summarize columns of interest, but to filter tables for records satisfying
   some criteria of interest. You'll learn how to use basic comparison operators,
   combine multiple criteria, match patterns in text, and much more.
-  
+
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
 In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. For example, filtering numeric records such as the `release_year`:
 
 ```
-SELECT title 
-FROM films 
+SELECT title
+FROM films
 WHERE release_year > 2000;
 ```
 
 And filtering text records such as `title`:
 
 ```
-SELECT title 
-FROM films 
+SELECT title
+FROM films
 WHERE title = 'Metropolis';
 ```
 
@@ -35,7 +35,7 @@ What types of data can be filtered using `WHERE`?
 - None of the above
 
 *** =hint
-It's not none of the above! 
+It's not none of the above!
 
 *** =sct
 ```{python}
@@ -53,9 +53,9 @@ Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on text data, which gets the titles of all films which were rated `'R'`:
 
 ```
-SELECT title 
-FROM films 
-WHERE certification = 'R';
+SELECT title
+FROM films
+WHERE country = "China";
 ```
 
 Now it's your turn to practice using `WHERE`!
@@ -148,8 +148,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
-    from_clause, 
+    count_call,
+    from_clause,
     where_clause,
     test_error()
 ])
@@ -178,8 +178,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    star, 
-    from_clause, 
+    star,
+    from_clause,
     where_clause,
     test_error()
 ])
@@ -191,12 +191,12 @@ Ex().test_correct(check_result(), [
 Remember, the `WHERE` clause can be used to filter numeric records, such as years. For example, the following code selects all films with a budget over ten thousand dollars:
 
 ```
-SELECT * 
+SELECT *
 FROM films
 WHERE budget > 10000;
 ```
 
-Now it's your turn to use the `WHERE` clause to filter numeric values! 
+Now it's your turn to use the `WHERE` clause to filter numeric values!
 
 *** =pre_exercise_code
 ```{python}
@@ -234,8 +234,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    star, 
-    from_clause, 
+    star,
+    from_clause,
     where_clause,
     test_error()
 ])
@@ -264,8 +264,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
-    from_clause, 
+    count_call,
+    from_clause,
     where_clause,
     test_error()
 ])
@@ -275,7 +275,7 @@ Ex().test_correct(check_result(), [
 *** =key3: d66f3d41b7
 
 *** =instructions3
-Get the title and release year of films released since 2000.
+Get the title and release year of films released after 2000.
 *** =solution3
 ```{sql}
 SELECT title, release_year
@@ -292,8 +292,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
-    from_clause, 
+    count_call,
+    from_clause,
     where_clause,
     test_error()
 ])
@@ -302,16 +302,16 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
-You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword. For example, 
+You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword. For example,
 
 ```
-SELECT title 
-FROM films 
-WHERE release_year > 1994 
+SELECT title
+FROM films
+WHERE release_year > 1994
 AND release_year < 2000;
 ```
 
-gives you the titles of films released between 1994 and 2000. 
+gives you the titles of films released between 1994 and 2000.
 
 *** =pre_exercise_code
 ```{python}
@@ -330,7 +330,7 @@ ___ language = ___;
 *** =key1: 7ccf93b215
 
 *** =instructions1
-Get the title and release year for all Spanish films released before 2000.
+Get the title and release year for all Spanish language films released before 2000.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -436,7 +436,7 @@ country = where_clause.has_equal_ast(sql="country = 'France'", start='expression
 # country = test_student_typed("country = 'France'", msg='Did you check the `country` correctly?', fixed=True)
 
 Ex().test_correct(check_result(), [
-    avg_call, 
+    avg_call,
     release_year,
     country,
     where_clause,
@@ -447,14 +447,14 @@ Ex().test_correct(check_result(), [
 ```
 
 --- type:TabExercise lang:sql xp:100 key:ecc1838fc7
-## WHERE AND, OR
+## WHERE AND OR
 
-You can also build up your `WHERE` queries using the `OR` keyword. For example, 
+You can also build up your `WHERE` queries using the `OR` keyword. For example,
 
 ```
-SELECT title 
-FROM films 
-WHERE release_year = 1994 
+SELECT title
+FROM films
+WHERE release_year = 1994
 OR release_year = 2000;
 ```
 
@@ -521,8 +521,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 # spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
 
 Ex().test_correct(check_result(), [
-    release_year1, 
-    release_year2, 
+    release_year1,
+    release_year2,
     french,
     spanish,
     where_clause,
@@ -536,7 +536,7 @@ Ex().test_correct(check_result(), [
 *** =key2: aee831c1d8
 
 *** =instructions2
-Get all columns from the `films` table for films released since 2000 that are in French or Spanish and made more than $20M.
+Get all columns from the `films` table for films released since 2000 that are in French or Spanish and took in more than $20M at the box office.
 *** =solution2
 ```{sql}
 SELECT *
@@ -570,7 +570,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 # gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?', fixed=True)
 
 Ex().test_correct(check_result(), [
-    release_year, 
+    release_year,
     french,
     spanish,
     gross,
@@ -586,7 +586,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 510b387baa
 
 *** =instructions3
-Get films released in the 90s.
+Get the title and year of films released in the 90s.
 *** =solution3
 ```{sql}
 SELECT title, release_year
@@ -659,14 +659,14 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
 ## BETWEEN
 
-In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example, 
+In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example,
 
 ```
-SELECT title 
-FROM films 
-WHERE release_year 
+SELECT title
+FROM films
+WHERE release_year
 BETWEEN 1994 AND 2000;
-``` 
+```
 
 gives you the names of all the films released between 1994 and 2000. It's important to remember that `BETWEEN` is _inclusive_, meaning the beginning and end values are included in the results!
 
@@ -694,12 +694,12 @@ Ex().test_mc(4, [numeric, text, lst, success_msg])
 --- type:TabExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (2)
 
-Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` operators, so you can build up your queries and make them even more powerful! 
+Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` operators, so you can build up your queries and make them even more powerful!
 
 For example, suppose we have a table called `kids`. We can get the names of all kids between the ages of 2 and 12 from the United States:
 
 ```
-SELECT name 
+SELECT name
 FROM kids
 WHERE age BETWEEN 2 AND 12
 AND nationality = 'USA';
@@ -813,172 +813,27 @@ and_op = where_clause.check_field('right').has_equal_ast('Is your `AND` operator
 
 Ex().test_correct(check_result(), [
     from_clause,
-    between, 
-    and_op,
-    where_clause,
-    test_error()
-])
-```
-
---- type:TabExercise lang:sql xp:100 key:84411d78aa
-## BETWEEN (3)
-
-Let's practice a bit more with `BETWEEN` so you can master it before moving on!
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-```
-
-*** =sample_code
-```{sql}
-SELECT ___(___)
-FROM films
-___ release_year ___ 2000 ___ 2015
-___ duration > 120;
-```
-
-*** =type1: NormalExercise
-*** =key1: 1d71b2f706
-
-*** =instructions1
-Get the number of films released between 2000 and 2015 that were longer than two hours.
-*** =solution1
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 2000 AND 2015
-AND duration > 120;
-```
-*** =sct1
-```{python}
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-between = where_clause.check_field('left').check_field('arr', 1).has_equal_ast('Is your use of `BETWEEN` correct?')
-
-and_op = where_clause.check_field('right').has_equal_ast('Is your `AND` operator correct?')
-
-Ex().test_correct(check_result(), [
-    count_call, 
-    from_clause,
     between,
     and_op,
     where_clause,
     test_error()
 ])
 ```
-
-*** =type2: NormalExercise
-*** =key2: 1d71b2f707
-
-*** =instructions2
-Get the number of films released between 1994 and 2004 that were rated R.
-*** =solution2
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 1994 AND 2004
-AND certification = 'R';
-```
-*** =sct2
-```{python}
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-count_call = sel.check_field('target_list', 0).check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-between = where_clause.has_equal_ast(sql='release_year BETWEEN 1994 AND 2004', start='expression', exact=False, msg='Check your use of `BETWEEN`!')
-
-certification = where_clause.has_equal_ast(sql="certification = 'R'", start='expression', exact=False, msg='Did you check `certification` correctly in your `WHERE` clause?')
-
-# between = where_clause.check_node('Unshaped').check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
-
-# certification = test_student_typed("certification = 'R'", msg='Did you check `certification` correctly in your `WHERE` clause?', fixed=True)
-
-Ex().test_correct(check_result(), [
-    count_call,
-    from_clause,
-    between,
-    certification,
-    where_clause,
-    test_error()
-])
-
-```
-
-*** =type3: NormalExercise
-*** =key3: 1d71b2f708
-
-*** =instructions3
-Get the number of films released between 1950 and 2000 that were in French and released in the USA.
-*** =solution3
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year BETWEEN 1950 AND 2000
-AND language = 'French' 
-AND country = 'USA';
-```
-*** =sct3
-```{python}
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-between = where_clause.has_equal_ast(sql='release_year BETWEEN 1950 AN', start='expression', exact=False, msg='Check your use of `BETWEEN`!')
-
-language = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg="Did you check `language = 'French'`?")
-
-country = where_clause.has_equal_ast(sql="country = 'USA'", start='expression', exact=False, msg="Did you check `language = 'French'`?")
-
-# between = where_clause.check_node('Unshaped', priority=99).check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
-
-# language = test_student_typed("language = 'French'", msg="Did you check `language = 'French'`?", fixed=True)
-
-# country = test_student_typed("country = 'USA'", msg="Did you check `country = 'USA'`?", fixed=True)
-
-Ex().test_correct(check_result(), [
-    count_call,
-    from_clause,
-    between,
-    language,
-    country,
-    where_clause,
-    test_error()
-])
-```
-
 
 --- type:TabExercise lang:sql xp:100 key:4fc7e638f8
-## WHERE IN the world
+## WHERE IN
 
-In SQL, the `IN` operator allows you to specify multiple values in a `WHERE` clause. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right? 
+In SQL, the `IN` operator allows you to specify multiple values in a `WHERE` clause. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right?
 
 For example, suppose we have a table called `kids`. We can get the names of all kids under the age of 12, whose ages are multiples of 2, as follows:
 
 ```
-SELECT name 
+SELECT name
 FROM kids
 WHERE age IN (2, 4, 6, 8, 10);
 ```
 
-Try using the `IN` operator yourself! 
+Try using the `IN` operator yourself!
 
 *** =pre_exercise_code
 ```{python}
@@ -1021,7 +876,7 @@ in_op = where_clause.has_equal_ast(
 duration = where_clause.check_node('BinaryExpr').has_equal_ast('Did you check `duration` correctly?')
 
 Ex().test_correct(check_result(), [
-    in_op, 
+    in_op,
     duration,
     from_clause,
     where_clause.has_equal_ast('Is your `WHERE` clause correct?'),
@@ -1033,7 +888,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 3a84c097d2
 
 *** =instructions2
-Get the title and language of all films which were in English, Spanish or French. 
+Get the title and language of all films which were in English, Spanish or French.
 *** =solution2
 ```{sql}
 SELECT title, language
@@ -1092,15 +947,15 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
 ## Introduction to NULL and IS NULL
 
-In SQL, `NULL` represents a missing value. Often, you will want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator. 
+In SQL, `NULL` represents a missing value. You can check if a record has a field with the value `NULL` using the expression `IS NULL`. This is useful when combined with `WHERE` to figure out what data you're missing. Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
 
-For example, 
+For example,
 
 ```
-SELECT name 
-FROM people 
+SELECT name
+FROM people
 WHERE birthdate IS NOT NULL;
-``` 
+```
 
 will give you the names of all the people whose birthdate is not missing in the `people` table.
 
@@ -1113,7 +968,7 @@ What does `NULL` represent?
 - Invalid value
 
 *** =hint
-Remember, `NULL` represents values which we can not determine. 
+Remember, `NULL` represents values which we can not determine.
 
 *** =sct
 ```{python}
@@ -1234,8 +1089,10 @@ The `LIKE` operator can be used in a `WHERE` clause to search for a specific pat
 
 There are two _wildcards_ you can use with `LIKE`:
 
-* The `%` wildcard will match zero, one, or many characters in text. For example, if you filtered with `Data%` you could match `Data`, `DataC` `DataCamp`, `DataMind`, and so on.
-* The `_` wildcard will match a single character. For example, if you filtered with `DataC_mp` you would match `DataCamp`, `DataComp`, and so on.
+* The `'%'` wildcard will match zero, one, or many characters in text. For example, if you filtered with `'Data%'` you could match `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on.
+* The `'_'` wildcard will match a single character. For example, if you filtered with `'DataC_mp'` you would match `'DataCamp'`, `'DataComp'`, and so on.
+
+You can also use the expression `NOT LIKE' to find records that **don't** match the pattern you specify.
 
 *** =pre_exercise_code
 ```{python}
