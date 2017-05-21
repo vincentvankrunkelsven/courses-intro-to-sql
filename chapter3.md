@@ -10,20 +10,20 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:ac6d71b0e4
 ## ORDER BY
 
-In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order according the values of one or more columns. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you use the `DESC` keyword. For example, 
+In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order according the values of one or more columns. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you use the `DESC` keyword. For example,
 
 ```
-SELECT title 
-FROM films 
+SELECT title
+FROM films
 ORDER BY release_year;
 ```
 
-will give you the titles of films sorted by release year, from newest to oldest. 
+will give you the titles of films sorted by release year, from newest to oldest.
 
 Which way does `ORDER BY` sort results by default?
 
 *** =instructions
-- Alphabetically 
+- Alphabetically
 - Descending
 - Ascending
 - In order of creation date
@@ -290,7 +290,7 @@ Ex().test_correct(check_result(), [
 
 ```
 SELECT birthdate, name
-FROM people 
+FROM people
 ORDER BY birthdate, name;
 ```
 
@@ -441,13 +441,13 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
 ## Introduction to GROUP BY
 
-In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is commonly used with aggregate functions like `COUNT()` or `MAX()`. For example, 
+In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is commonly used with aggregate functions like `COUNT()` or `MAX()`. For example,
 
 ```
-SELECT release_year, COUNT(title) 
-FROM films 
+SELECT release_year, COUNT(title)
+FROM films
 GROUP BY release_year;
-``` 
+```
 
 will give you the number of films released in each year.
 
@@ -515,7 +515,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 order_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call, 
+    count_call,
     from_clause,
     order_by_clause,
     test_error()
@@ -732,8 +732,7 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:38a7c62434
 ## Combining with aggregate functions
 
-Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions!
-Make sure to always put the `ORDER BY` clause at the end of your query.
+Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions! Make sure to always put the `ORDER BY` clause at the end of your query.
 You can't sort values that you haven't calculated yet!
 
 *** =pre_exercise_code
@@ -830,9 +829,9 @@ Ex().test_correct(check_result(), [
 In SQL, aggregate functions can't be used in `WHERE` clauses. This means that if you want to filter based on the result of an aggregate function, you need another way! That's where `HAVING` comes in. For example,
 
 ```
-SELECT release_year 
-FROM films 
-GROUP BY release_year 
+SELECT release_year
+FROM films
+GROUP BY release_year
 HAVING COUNT(title) > 10;
 ```
 
@@ -845,7 +844,7 @@ will show only those years in which more than 10 films were released. Why do we 
 - Aggregate functions can't be used in `WHERE` clauses
 
 *** =hint
-What kind of functions can `WHERE` not be used with? 
+What kind of functions can `WHERE` not be used with?
 
 *** =sct
 ```{python}
@@ -917,7 +916,7 @@ Ex().test_correct(check_result(), [
     where_clause,
     group_by,
     order_by,
-    alias1, 
+    alias1,
     alias2,
     test_error()
 ])
@@ -966,7 +965,7 @@ Ex().test_correct(check_result(), [
     where_clause,
     group_by,
     order_by,
-    alias1, 
+    alias1,
     alias2,
     test_error()
 ])

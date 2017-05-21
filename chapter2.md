@@ -947,8 +947,7 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
 ## Introduction to NULL and IS NULL
 
-In SQL, `NULL` represents a missing value. You can check if a record has a field with the value `NULL` using the expression `IS NULL` .
-This is useful when combined with `WHERE` to figure out what data you're missing. Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
+In SQL, `NULL` represents a missing value. You can check if a record has a field with the value `NULL` using the expression `IS NULL`. This is useful when combined with `WHERE` to figure out what data you're missing. Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
 
 For example,
 
