@@ -13,6 +13,15 @@ Congrats on finishing the first chapter! You now know how to select, summarize a
 
 In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. 
 
+There are a few different comparison operators you can use:
+
+- `=` equal
+- `<>` not equal
+- `<` less than
+- `>` greater than
+- `<` less than or equal to
+- `>=` greater than or equal to
+
 For example, you can filter text records such as `title`. The following code selects any films with the title 'Metropolis':
 
 ```
@@ -21,7 +30,7 @@ FROM films
 WHERE title = 'Metropolis';
 ```
 
-And you can filter numeric records such as the `release_year`. The following code select any films released after the year 2000:
+And you can filter numeric records such as the `release_year`. The following query select any films released after the year 2000:
 
 ```
 SELECT title
@@ -29,7 +38,7 @@ FROM films
 WHERE release_year > 2000;
 ```
 
-Note that the `WHERE` clause always comes after the `SELECT` statement!
+Note that the `WHERE` clause always comes after the `FROM` statement!
 
 <hr>
 What types of data can be filtered using `WHERE`?
@@ -57,7 +66,7 @@ Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 
 As we have seen, the `WHERE` clause allows you to filter your results.
 
-The following code is another example of filtering on text data. The following code gets the titles of all films which were filmed in China:
+The following query is another example of filtering on text data. The query gets the titles of all films which were filmed in China:
 
 ```
 SELECT title
@@ -195,7 +204,7 @@ Ex().test_correct(check_result(), [
 
 Remember, the `WHERE` clause can be also be used to filter numeric records, such as years or ages.
 
-For example, the following code selects all details for films with a budget over ten thousand dollars:
+For example, the following query selects all details for films with a budget over ten thousand dollars:
 
 ```
 SELECT *
@@ -839,7 +848,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: d9f583eda7
+*** =key4: d21a4bec02
 
 *** =instructions4
 Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.

@@ -19,12 +19,13 @@ The employees table might look something like this:
 
 | id | name | age | nationality |
 |----|----|----|----|
-| 1 | Laura | 36 | USA
-| 2 | Gabriel | 22 | France |
-| 3 | Lisa | 52 | India |
+| 1 | Jessica | 22 | Ireland
+| 2 | Gabriel | 48 | France |
+| 3 | Laura | 36 | USA |
 
 
-Take a look at the employees table, how many fields does it contain?
+<br>
+Take a look at the employees table; how many fields does it contain?
 
 *** =instructions
 - 1
@@ -50,7 +51,7 @@ Ex().test_mc(4, [msg1, msg2, msg3, success_msg])
 
 While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data from a database table or combination of tables. Querying is an essential skill for a data scientist, since the data we need for our analyses often live in databases.
 
-In SQL, you can select data from a table using a `SELECT` statement. For example, the following code selects the `name` column from the `people` table:
+In SQL, you can select data from a table using a `SELECT` statement. For example, the following query selects the `name` column from the `people` table:
 
 ```sql
 SELECT name

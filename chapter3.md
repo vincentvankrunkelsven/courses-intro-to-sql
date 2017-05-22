@@ -10,7 +10,13 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:ac6d71b0e4
 ## ORDER BY
 
-In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order according the values of one or more columns. By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you use the `DESC` keyword. For example,
+Congratulations on making it this far! You now know how to select and filter your results. 
+
+In this chapter you'll learn how to sort and group your results to gain further insight. Let's go! 
+
+In SQL, the `ORDER BY` keyword is used to sort the result set in ascending or descending order according the values of one or more columns. 
+
+By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you can use the `DESC` keyword. For example:
 
 ```
 SELECT title
@@ -20,6 +26,8 @@ ORDER BY release_year;
 
 will give you the titles of films sorted by release year, from newest to oldest.
 
+
+<hr>
 Which way does `ORDER BY` sort results by default?
 
 *** =instructions
@@ -29,7 +37,7 @@ Which way does `ORDER BY` sort results by default?
 - In order of creation date
 
 *** =hint
-By default, `ORDER BY` behaves as if it was using the `ASC` keyword.
+By default, `ORDER BY` behaves as if it was used with the `ASC` keyword.
 
 *** =sct
 ```{python}
@@ -53,16 +61,14 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___
-FROM ___
-___ ___ ___;
+
 ```
 
 *** =type1: NormalExercise
 *** =key1: e3a06cce15
 
 *** =instructions1
-Get the names of people, sorted alphabetically.
+Get the names of people from the `people` table, sorted alphabetically.
 *** =solution1
 ```{sql}
 SELECT name
@@ -91,7 +97,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 14a2792baa
 
 *** =instructions2
-Get the names of people, sorted by birthdate.
+Get the names of people, sorted by birth date.
 *** =solution2
 ```{sql}
 SELECT name
@@ -179,7 +185,7 @@ Ex().test_correct(check_result(), [
 *** =key5: 5c84507976
 
 *** =instructions5
-Get all details for all films except those released in 2015 and order them by year.
+Get all details for all films except those released in 2015 and order them by release year.
 *** =solution5
 ```{sql}
 SELECT *
@@ -286,7 +292,9 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 
-`ORDER BY` can also be used to sort on multiple columns! It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
+Good work! 
+
+`ORDER BY` can also be used to sort on multiple columns. It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
 
 ```
 SELECT birthdate, name
@@ -294,9 +302,9 @@ FROM people
 ORDER BY birthdate, name;
 ```
 
-will sort on birth dates first (oldest to newest) and then sort on names in alphabetical order.
+will sort on birth dates first (oldest to newest) and then sort on the names in alphabetical order.
 
-Try using `ORDER BY` to sort multiple columns! Remember, to specify multiple columns, separate the column names with a comma.
+Try using `ORDER BY` to sort multiple columns! Remember, to specify multiple columns you can separate the column names with a comma.
 
 *** =pre_exercise_code
 ```{python}
@@ -305,9 +313,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT birthdate, name
-FROM ___
-___ ___ ___, ___;
+
 ```
 
 *** =type1: NormalExercise
@@ -441,16 +447,27 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:81987a99cf
 ## Introduction to GROUP BY
 
-In SQL, `GROUP BY` allows you to group a result set by one or more columns. `GROUP BY` is commonly used with aggregate functions like `COUNT()` or `MAX()`. For example,
+Now you know how to sort results. Often you'll need to aggregate results. For example, you might want to get count the number of male and female employees in your company. Here, what you want is to group all the males together and count them, and group all the females together and count them. In SQL, `GROUP BY` allows you to group a result set by one or more columns, like so:
 
 ```
-SELECT release_year, COUNT(title)
-FROM films
-GROUP BY release_year;
+SELECT gender, count(*)
+FROM employees
+GROUP BY gender;
 ```
 
-will give you the number of films released in each year.
+which gives for example:
 
+| gender | count |
+|----|----|
+| male | 15 |
+| female | 19 |
+
+<br>
+Commonly, `GROUP BY` is used with _aggregate functions_ like `COUNT()` or `MAX()`. 
+
+Note that `GROUP BY` always goes after the `FROM` clause!
+
+<hr>
 What is `GROUP BY` used for?
 
 *** =instructions
@@ -473,12 +490,34 @@ Ex().test_mc(4, [one, two, three, success_msg])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:98e30a6131
-## GROUP BY on multiple columns
+## GROUP BY practice
+
+As you saw, these kinds of calculations, done by *aggregate functions*, make `GROUP BY` incredibly powerful.
+
+SQL will return an error if you try to `SELECT` a field that is not in your `GROUP BY` clause without using it to calculate some kind of value about the entire group.
+
+Note that you can combine `GROUP BY` with `ORDER BY` to group your results, calculate something about them, and then order your results. For example:
+
+```
+SELECT gender, count(*)
+FROM employees
+GROUP BY gender
+ORDER BY count DESC;
+```
+
+gives for example:
+
+| gender | count |
+|----|----|
+| female | 19 |
+| male | 15 |
+
+because there are more females at our company than males.
+
+Note also that `ORDER BY` always goes after `GROUP BY`!
 
 Now that you understand what `GROUP BY` is and how to use it, let's try some exercises!
-In general, the correct output for each of these tasks will contain a field for the grouped values and a field for some kind of calculated value, with one value for each group.
-PostgreSQL will return an error if you try to `SELECT` a field that is not in your `GROUP BY` clause without using it to calculate some kind of value about the entire group.
-You'll see in the next section that these kinds of calculations, done by *aggregate functions*, make `GROUP BY` incredibly powerful.
+
 
 *** =pre_exercise_code
 ```{python}
@@ -487,19 +526,17 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT release_year, ___(___)
-FROM ___
-___ ___ release_year;
+
 ```
 
 *** =type1: NormalExercise
 *** =key1: 0b29eb4ff3
 
 *** =instructions1
-Get the count of films made in each year.
+Get the count of films grouped by release year.
 *** =solution1
 ```{sql}
-SELECT release_year, COUNT(title)
+SELECT release_year, COUNT(*)
 FROM films
 GROUP BY release_year;
 ```
@@ -574,6 +611,7 @@ ORDER BY films_released;
 ```
 *** =sct3
 ```{python}
+# TODO: might be useful to add a check that student didn't type ASC
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -639,7 +677,7 @@ Ex().test_correct(check_result(), [
 *** =key5: 53ad6da98c
 
 *** =instructions5
-Get the lowest box office earnings per year, ordered by year.
+Get the lowest box office earnings per release year, ordered by release year.
 *** =solution5
 ```{sql}
 SELECT release_year, MIN(gross)
@@ -703,7 +741,7 @@ Ex().test_correct(check_result(), [
 *** =key7: 83944ff64f
 
 *** =instructions7
-Get the total amount spent seeing movies in each country.
+Get the total amount spent making movies in each country.
 *** =solution7
 ```{sql}
 SELECT country, SUM(gross)
@@ -732,7 +770,11 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:38a7c62434
 ## Combining with aggregate functions
 
-Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions! Make sure to always put the `ORDER BY` clause at the end of your query. You can't sort values that you haven't calculated yet!
+Great work! 
+
+Now practice your new skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions! 
+
+Make sure to always put the `ORDER BY` clause at the end of your query. You can't sort values that you haven't calculated yet!
 
 *** =pre_exercise_code
 ```{python}
@@ -741,10 +783,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT release_year, country, ___(___)
-FROM ___
-___ ___ release_year, country
-___ ___ release_year, country;
+
 ```
 
 *** =type1: NormalExercise
@@ -825,7 +864,16 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:4d55b1adf8
 ## HAVING a great time
 
-In SQL, aggregate functions can't be used in `WHERE` clauses. This means that if you want to filter based on the result of an aggregate function, you need another way! That's where `HAVING` comes in. For example,
+In SQL, aggregate functions can't be used in `WHERE` clauses. For example, the following query is invalid:
+
+```
+SELECT release_year
+FROM films
+GROUP BY release_year
+WHERE COUNT(title) > 10;
+```
+
+This means that if you want to filter based on the result of an aggregate function, you need another way! That's where the `HAVING` clause comes in. For example:
 
 ```
 SELECT release_year
@@ -834,7 +882,10 @@ GROUP BY release_year
 HAVING COUNT(title) > 10;
 ```
 
-will show only those years in which more than 10 films were released. Why do we need the `HAVING` keyword?
+will show only those years in which more than 10 films were released.
+
+<hr>
+Why do we need the `HAVING` keyword?
 
 *** =instructions
 - To order by creation date
@@ -858,7 +909,7 @@ Ex().test_mc(4, [creation, text, numeric, success_msg])
 --- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
 ## All together now
 
-Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together!
+Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together. These are going to be some big queries, but you can handle it!
 
 *** =pre_exercise_code
 ```{python}
@@ -867,18 +918,13 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT release_year, ___(___(budget)) AS avg_budget, ROUND(AVG(___)) AS avg_box_office
-FROM ___
-___ release_year > 1990
-GROUP BY ___
-___ (budget) > 60000000
-___ ___ release_year ___;
+
 ```
 *** =type1: NormalExercise
 *** =key1: a141cd669f
 
 *** =instructions1
-Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year.
+Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year. Remember, you can use the `ROUND()` function.
 *** =solution1
 ```{sql}
 SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
@@ -927,7 +973,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =instructions2
-Get the name, average budget, and average box office take of countries that have made more than 10 films. Order the result by name.
+Get the name, average budget, and average box office take of countries that have made more than 10 films. Order the result by name. Remember, you can use the `ROUND()` function.
 *** =solution2
 ```{sql}
 SELECT country, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
