@@ -41,7 +41,7 @@ creation = 'Incorrect. Results are not ordered by creation date by default.'
 Ex().test_mc(3, [alphabetically, descending, success_msg, creation])
 ```
 
---- type:TabExercise lang:sql xp:100 key:a7b2964ba6
+--- type:BulletExercise lang:sql xp:100 key:a7b2964ba6
 ## Sorting single columns (ASC)
 
 Now that you understand how `ORDER BY` works, give these exercises a go!
@@ -208,7 +208,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:a7b2964ba7
+--- type:BulletExercise lang:sql xp:100 key:a7b2964ba7
 ## Sorting single columns (DESC)
 
 Now use `ORDER BY` to sort single columns in descending order!
@@ -283,7 +283,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:b2a52993bc
+--- type:BulletExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 
 `ORDER BY` can also be used to sort on multiple columns! It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
@@ -472,7 +472,7 @@ success_msg = 'Correct! `GROUP BY` is for performing operations within groups.'
 Ex().test_mc(4, [one, two, three, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:98e30a6131
+--- type:BulletExercise lang:sql xp:100 key:98e30a6131
 ## GROUP BY on multiple columns
 
 Now that you understand what `GROUP BY` is and how to use it, let's try some exercises!
@@ -729,7 +729,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:38a7c62434
+--- type:BulletExercise lang:sql xp:100 key:38a7c62434
 ## Combining with aggregate functions
 
 Try out your skills by combining `GROUP BY` and `ORDER BY` with some more aggregate functions! Make sure to always put the `ORDER BY` clause at the end of your query. You can't sort values that you haven't calculated yet!
@@ -855,7 +855,7 @@ numeric = 'Incorrect. `WHERE` can sort with numeric values, so why would we need
 Ex().test_mc(4, [creation, text, numeric, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:f7dcb9e122
+--- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
 ## All together now
 
 Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together!

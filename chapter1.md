@@ -862,7 +862,7 @@ msg2 = "Incorrect, try out the query in the editor!"
 
 Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
---- type:TabExercise lang:sql xp:100 key:6db52132a0
+--- type:BulletExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS aliasing
 
 You may have noticed in the previous exercise that the column name of your result set was just the name of the function you used. For example:
@@ -989,7 +989,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:8612897f35
+--- type:BulletExercise lang:sql xp:100 key:8612897f35
 ## Even more aliasing
 
 Nice work! Let's practice your newfound aliasing skills some more before moving on.

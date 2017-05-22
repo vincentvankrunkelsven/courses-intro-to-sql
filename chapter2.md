@@ -47,7 +47,7 @@ msg4 = "Incorrect, try again!"
 Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 ```
 
---- type:TabExercise lang:sql xp:100 key:b90db25f33
+--- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
 As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on text data, which gets the titles of all films which were rated `'R'`:
@@ -446,7 +446,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:ecc1838fc7
+--- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND OR
 
 You can also build up your `WHERE` queries using the `OR` keyword. For example,
@@ -691,7 +691,7 @@ lst = 'Incorrect!'
 Ex().test_mc(4, [numeric, text, lst, success_msg])
 ```
 
---- type:TabExercise lang:sql xp:100 key:9c11f67712
+--- type:BulletExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (2)
 
 Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` operators, so you can build up your queries and make them even more powerful!
@@ -820,7 +820,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:4fc7e638f8
+--- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN
 
 In SQL, the `IN` operator allows you to specify multiple values in a `WHERE` clause. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right?
@@ -980,7 +980,7 @@ invalid = 'Incorrect!'
 Ex().test_mc(2, [corrupt, success_msg, empty, invalid])
 ```
 
---- type:TabExercise lang:sql xp:100 key:84411d78ab
+--- type:BulletExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
 
 Now that you know what `NULL` is and what it's used for, let's get some practice!
