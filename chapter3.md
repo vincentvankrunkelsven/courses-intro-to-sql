@@ -294,7 +294,7 @@ Ex().test_correct(check_result(), [
 
 Good work! 
 
-`ORDER BY` can also be used to sort on multiple columns. It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
+`ORDER BY` can also be used to sort on multiple columns. It will sort by the first column specified, then sort by the next, then the next, and so on. For example:
 
 ```
 SELECT birthdate, name
@@ -320,7 +320,7 @@ connect('postgresql', 'films')
 *** =key1: 9ec6e8ae72
 
 *** =instructions1
-Get people, in order of when they were born and alphabetically by name.
+Get the birth date and name of people in the `people` table, in order of when they were born and alphabetically by name.
 *** =solution1
 ```{sql}
 SELECT birthdate, name
@@ -347,7 +347,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 3460b2f14b
 
 *** =instructions2
-Get release years, durations, and titles of films released in 2000 or 2015, ordered by their release year and duration.
+Get the release year, duration, and title of films released `IN` 2000 or 2015, ordered by their release year and duration.
 *** =solution2
 ```{sql}
 SELECT release_year, duration, title
@@ -381,7 +381,7 @@ Ex().test_correct(check_result(), [
 *** =key3: c03517c2b9
 
 *** =instructions3
-Get certifications, release years, and titles of films released in 2000 or 2015, ordered by certification (alphabetically) and release year.
+Get certifications, release years, and titles of films released `IN` 2000 or 2015, ordered by certification (alphabetically) and release year.
 
 *** =solution3
 ```{sql}
@@ -563,7 +563,7 @@ Ex().test_correct(check_result(), [
 *** =key2: ebee043890
 
 *** =instructions2
-Get the count of films grouped by release year, then order by release year. Alias the count as `films_released`.
+Get the count of films grouped by release year, sorted by release year. Alias the count as `films_released`.
 *** =solution2
 ```{sql}
 SELECT release_year, COUNT(title) AS films_released
@@ -677,7 +677,7 @@ Ex().test_correct(check_result(), [
 *** =key5: 53ad6da98c
 
 *** =instructions5
-Get the lowest box office earnings per release year, ordered by release year.
+Get the lowest gross box office earnings per release year, ordered by release year.
 *** =solution5
 ```{sql}
 SELECT release_year, MIN(gross)
@@ -711,7 +711,7 @@ Ex().test_correct(check_result(), [
 *** =key6: cff5924de5
 
 *** =instructions6
-Get the total amount films in each language brought in at the box office.
+Get the total gross amount films in each language brought in at the box office.
 *** =solution6
 ```{sql}
 SELECT language, SUM(gross)
@@ -741,10 +741,10 @@ Ex().test_correct(check_result(), [
 *** =key7: 83944ff64f
 
 *** =instructions7
-Get the total amount spent making movies in each country.
+Get the total budget spent making movies in each country.
 *** =solution7
 ```{sql}
-SELECT country, SUM(gross)
+SELECT country, SUM(budget)
 FROM films
 GROUP BY country;
 ```
@@ -790,7 +790,7 @@ connect('postgresql', 'films')
 *** =key1: eac5f722a5
 
 *** =instructions1
-Get the highest amount of money spent making a film for each year, for each country.
+Get the highest budget spent making a film for each year, for each country.
 *** =solution1
 ```{sql}
 SELECT release_year, country, MAX(budget)
@@ -909,7 +909,9 @@ Ex().test_mc(4, [creation, text, numeric, success_msg])
 --- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
 ## All together now
 
-Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together. These are going to be some big queries, but you can handle it!
+Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together. 
+
+This is going to be a big query, but you can handle it!
 
 *** =pre_exercise_code
 ```{python}
@@ -924,17 +926,140 @@ connect('postgresql', 'films')
 *** =key1: a141cd669f
 
 *** =instructions1
-Get the rounded average budget and average box office earnings for films since 1990, but only if the average budget was greater than $60M in that year. Remember, you can use the `ROUND()` function.
+Get the release year, budget and box office earnings for each film in the `films` table.
 *** =solution1
+```{sql}
+SELECT release_year, budget AS gross
+FROM films;
+```
+*** =sct1
+```{python}
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    test_error()
+])
+
+```
+
+*** =type1: NormalExercise
+*** =key1: a141cd669f
+
+*** =instructions2
+Modify your query so that only results since 1990 are included.
+*** =solution2
+```{sql}
+SELECT release_year, budget, gross
+FROM films
+WHERE release_year > 1990;
+```
+*** =sct2
+```{python}
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    test_error()
+])
+
+```
+
+*** =type3: NormalExercise
+*** =key3: a141cd669f
+
+*** =instructions3
+Modify your query to group your results by release year. 
+*** =solution3
+```{sql}
+SELECT release_year, budget, gross
+FROM films
+WHERE release_year > 1990
+GROUP BY release_year;
+```
+*** =sct3
+```{python}
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    group_by,
+    test_error()
+])
+
+
+```
+
+*** =type4: NormalExercise
+*** =key4: a141cd669f
+
+*** =instructions4
+Modify your query to get the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
+*** =solution4
+```{sql}
+SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
+FROM films
+WHERE release_year > 1990
+GROUP BY release_year;
+```
+*** =sct4
+```{python}
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
+
+alias1 = test_column('avg_budget', match='exact', msg='Are you aliasing `avg_budget` correctly?')
+alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg_box_office` correctly?')
+
+first_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(budget))` correctly?')
+
+second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(gross))` correctly?')
+
+Ex().test_correct(check_result(), [
+    first_round,
+    second_round,
+    from_clause,
+    where_clause,
+    group_by,
+    alias1,
+    alias2,
+    test_error()
+])
+```
+
+*** =type5: NormalExercise
+*** =key5: a141cd669f
+
+*** =instructions5
+Modify your query so that only films with an average budget of greater than $60 million are included.
+
+*** =solution5
 ```{sql}
 SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
 FROM films
 WHERE release_year > 1990
 GROUP BY release_year
-HAVING AVG(budget) > 60000000
-ORDER BY release_year DESC;
+HAVING AVG(budget) > 60000000;
 ```
-*** =sct1
+*** =sct5
 ```{python}
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -943,7 +1068,6 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 having = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
-order_by = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 alias1 = test_column('avg_budget', match='exact', msg='Are you aliasing `avg_budget` correctly?')
 alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg_box_office` correctly?')
@@ -951,6 +1075,7 @@ alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg
 first_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(budget))` correctly?')
 
 second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(gross))` correctly?')
+
 avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
 
 Ex().test_correct(check_result(), [
@@ -960,30 +1085,29 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
     group_by,
-    order_by,
     alias1,
     alias2,
     test_error()
 ])
 
-
 ```
 
-*** =key2: 1ed0ce7d61
+*** =type6: NormalExercise
+*** =key6: a141cd669f
 
-*** =type2: NormalExercise
-*** =instructions2
-Get the name, average budget, and average box office take of countries that have made more than 10 films. Order the result by name. Remember, you can use the `ROUND()` function.
-*** =solution2
+*** =instructions6
+Finally, modify your query to order the results from highest average box office earnings to lowest. 
+
+*** =solution6
 ```{sql}
-SELECT country, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
+SELECT release_year, ROUND(AVG(budget)) AS avg_budget, ROUND(AVG(gross)) AS avg_box_office
 FROM films
-GROUP BY country
-HAVING COUNT(title) > 10
-ORDER BY country
-LIMIT 5;
+WHERE release_year > 1990
+GROUP BY release_year
+HAVING AVG(budget) > 60000000
+ORDER BY avg_box_office DESC;
 ```
-*** =sct2
+*** =sct6
 ```{python}
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1000,6 +1124,7 @@ alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg
 first_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(budget))` correctly?')
 
 second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(gross))` correctly?')
+
 avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
 
 Ex().test_correct(check_result(), [
