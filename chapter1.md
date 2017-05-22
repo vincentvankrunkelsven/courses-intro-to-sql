@@ -9,11 +9,13 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
-SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*. You can think of a relational database as a collection of tables, where each table contains rows and columns like a spreadsheet and represents exactly one type of entity, like people, cars, or purchases.
+Welcome to the course! Let's get straight into it. SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*. 
 
-Each row, or *record*, of a table contains information about a single entity (e.g. a person). Each column, or *field*, contains an attribute of all entities in the table (e.g. name).
+You can think of a relational database as a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company, or purchases made.
 
-For example, this table contains information about people:
+Each row, or *record*, of a table contains information about a single entity -- E.g., in a table representing employees, each row represents a single person. Each column, or *field*, contains a single attribute for all rows in the table -- E.g., in a table representing employees, we might have a column for an employee's first and last name.
+
+The employees table might look something like this:
 
 | id | name | age | nationality |
 |----|----|----|----|
@@ -21,14 +23,14 @@ For example, this table contains information about people:
 | 2 | Gabriel | 22 | France |
 | 3 | Lisa | 52 | India |
 
-<br>
-How many fields does the table contain?
+
+Take a look at the employees table, how many fields does it contain?
 
 *** =instructions
-- One
-- Two
-- Three
-- Four
+- 1
+- 2
+- 3
+- 4
 
 *** =hint
 Remember that in database lingo, a column is called a *field*. How many fields does the table contain?
@@ -48,14 +50,14 @@ Ex().test_mc(4, [msg1, msg2, msg3, success_msg])
 
 While SQL can be used to create and modify databases, the focus of this course will be *querying* databases. A *query* is a request for data from a database table or combination of tables. Querying is an essential skill for a data scientist, since the data we need for our analyses often live in databases.
 
-In SQL, you can select data from a table using a `SELECT` statement. For example, the following selects the `name` column from the `people` table:
+In SQL, you can select data from a table using a `SELECT` statement. For example, the following code selects the `name` column from the `people` table:
 
 ```sql
 SELECT name
 FROM people;
 ```
 
-In this query, `SELECT` and `FROM` are called keywords. In SQL, keywords are not case-sensitive, which means you could write the same query as:
+In this query, `SELECT` and `FROM` are called keywords. In SQL, keywords are not case-sensitive, which means you can write the same query as:
 
 ```sql
 select name
@@ -64,7 +66,7 @@ from people;
 
 That said, it's good practice to make SQL keywords uppercase to distinguish them from other parts of your query, like column and table names.
 
-Additionally, it's also good practice to include a semicolon at the end of your query. This tells SQL where the end of your query is!
+Additionally, it's also good practice (but not necessary for the exercises in this course) to include a semicolon at the end of your query. This tells SQL where the end of your query is!
 
 *** =pre_exercise_code
 ```{python}
@@ -73,14 +75,13 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___
-FROM films;
+
 ```
 
 *** =type1: NormalExercise
 *** =key1: a41cc766d5
 *** =instructions1
-Get the `title` of every film in the `films` table.
+Select the `title` column from the `films` table. You can see your results in the query result tab to the right!
 *** =solution1
 ```{sql}
 SELECT title
@@ -106,7 +107,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 4a74270ecd
 *** =instructions2
-Modify your query to return only the `release_year` for every film.
+Modify your query to get the `release_year` column from the `films table`.
 
 *** =solution2
 ```{sql}
@@ -132,7 +133,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 323bd5ddf5
 *** =instructions3
-Get the `name` of each person in the `films` table.
+Now modify your query to get the `name` of each person in the `people` table.
 
 *** =solution3
 ```{sql}
@@ -158,22 +159,31 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:09f21bae4c
 ## SELECTing multiple columns
 
-To `SELECT` multiple columns from a table, you separate the columns with commas. For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
+Well done! Now you know how to select single columns. In the real world, you will often want to select multiple columns. Thankfully, SQL makes it really easy to select multiple columns. To select multiple columns from a table, you can simply separate the columns with commas!
+
+For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
 
 ```sql
 SELECT name, birthdate
 FROM people;
 ```
 
-Sometimes, you may want to select all columns from a table. In this case, there's a handy shortcut so you don't have to type every column name:
+Sometimes, you may want to select all columns from a table. Typing out every column name would be a pain, so there's a handy shortcut:
 
 ```sql
 SELECT *
 FROM people;
 ```
 
-Additionally, you can use the `LIMIT` keyword to limit the number of result returned.
+If you only want to return a certain number of results, you can use the `LIMIT` keyword to limit the number of rows returned:
 
+```sql
+SELECT *
+FROM people
+LIMIT 10;
+```
+
+You can check out the column names in the tables by clicking on the tabs to the right under the editor!
 
 *** =pre_exercise_code
 ```{python}
@@ -182,14 +192,12 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___
-FROM ___;
 ```
 
 *** =type1: NormalExercise
 *** =key1: d561b4df97
 *** =instructions1
-Get the title of every film.
+Get the `title` of every film from the `films` table.
 
 *** =solution1
 ```{sql}
@@ -215,7 +223,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 917d7dc533
 *** =instructions2
-Get the title and release year for every film.
+Get the `title` and `release_year` for every film. 
 
 *** =solution2
 ```{sql}
@@ -276,7 +284,7 @@ Ex().test_correct(check_result(), [
 *** =type4: NormalExercise
 *** =key4: dac27d9aad
 *** =instructions4
-Return all columns from the `films` table.
+Get all columns from the `films` table.
 *** =solution4
 ```{sql}
 SELECT *
@@ -301,7 +309,9 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
-If you want to `SELECT` all unique values from a column, you can use the `DISTINCT` keyword.
+Good work! 
+
+Often your results will include many duplicate values. If you want to select all the unique values from a column, you can use the `DISTINCT` keyword.
 
 This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
 
@@ -310,6 +320,8 @@ SELECT DISTINCT language
 FROM films;
 ```
 
+Remember, you can check out the data in the tables by clicking on the tabs to the right under the editor!
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -317,14 +329,12 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___ ___
-FROM ___;
 ```
 
 *** =type1: NormalExercise
 *** =key1: e6b81711f1
 *** =instructions1
-Get all unique countries represented in the `films` table.
+Get all the unique countries represented in the `films` table.
 
 *** =solution1
 ```{sql}
@@ -353,7 +363,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 2cb9a4bf6a
 *** =instructions2
-Get all the different film certifications.
+Get all the different film certifications from the `films` table.
 *** =solution2
 ```{sql}
 SELECT DISTINCT certification
@@ -381,7 +391,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 *** =key3: 26835d3029
 *** =instructions3
-Get the different types of film roles.
+Get the different types of film roles from the `roles` table.
 
 *** =solution3
 ```{sql}
@@ -410,15 +420,18 @@ Ex().test_correct(check_result(), [
 --- type:MultipleChoiceExercise lang:sql xp:50 key:97f97f5766
 ## Learning to COUNT
 
-The `COUNT` statement returns the number of records in one or more columns.
+Nice work!
 
-The following simply gives the number of records in the `people` table:
+What if you want to count the number of employees in your employees table? The `COUNT` statement lets you do this! `COUNT` returns the number of rows in one or more columns.
+
+So, the following code simply gives the number of rows in the `people` table:
 
 ```sql
 SELECT COUNT(*)
 FROM people;
 ```
 
+<hr>
 How many records are contained in the `reviews` table?
 
 *** =instructions
@@ -452,17 +465,21 @@ Ex().test_mc(3,[msg2, msg2, success_msg, msg2, msg2])
 --- type:BulletExercise lang:sql xp:100 key:7643365e67
 ## Practice with COUNT
 
-If you want to count the number of non-missing values in a particular column, you can call `COUNT` on just that column:
+As you saw, `COUNT(*)` will tell you how many rows are in the table. However, if you want to count the number of non-missing values in a particular column, you can call `COUNT` on just that column.
+
+For example, to count the number of birth dates present in the `roles` table:
 
 ```sql
 SELECT COUNT(birthdate)
 FROM roles;
 ```
 
-It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. For example, this query counts the number of distinct roles contained in the `roles` table:
+It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. 
+
+For example, this query counts the number of *unique* birth dates contained in the `roles` table:
 
 ```sql
-SELECT COUNT(DISTINCT role)
+SELECT COUNT(DISTINCT birthdate)
 FROM roles;
 ```
 
@@ -475,8 +492,6 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT COUNT(___)
-FROM ___;
 ```
 
 *** =type1: NormalExercise
@@ -613,9 +628,11 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 
+Great work. 
+
 Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this.
 
-For example,
+For example:
 
 ```
 SELECT AVG(budget)
@@ -624,7 +641,18 @@ FROM films;
 
 gives you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget.
 
-The `SUM()` function returns the result of adding up the numeric values in a column. Can you guess what the `MIN()` function does?
+```
+SELECT MAX(budget)
+FROM films;
+```
+
+The `SUM()` function returns the result of adding up the numeric values in a column:
+```
+SELECT SUM(budget)
+FROM films;
+```
+
+We're sure you can guess what the `MIN()` function does! Now it's your turn to try out some SQL functions.
 
 *** =pre_exercise_code
 ```{python}
@@ -633,8 +661,6 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___(___)
-FROM films;
 ```
 
 *** =type1: NormalExercise
@@ -642,7 +668,7 @@ FROM films;
 *** =key1: 80fd462ae1
 
 *** =instructions1
-Get the total duration of all films.
+Get the total (sum) duration of all films.
 *** =solution1
 ```{sql}
 SELECT SUM(duration)
@@ -776,30 +802,89 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
+
+--- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:9ec3f029a9
+## A note on arithmetic
+In addition to using the built in SQL functions, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`. 
+
+So, for example: 
+
+```
+SELECT (4 * 3);
+```
+
+gives you a result of `12`. 
+
+However:
+
+```
+SELECT (4 / 3);
+```
+
+gives you a result of `1`. What's going on here?
+
+Well, SQL assumes that if you divide an integer by an integer, that you want to get an integer back. So be careful when dividing! 
+
+If you want to get more precision when dividing, you can add decimal places to your numbers:
+
+```
+SELECT (4.0 / 3.0) AS result;
+```
+
+which gives you the result you would expect: `1.333..` 
+
+<hr>
+What is the result of `SELECT (10 / 3);`?
+*** =instructions
+- 2.333
+- 3.333
+- 3
+- 3.0
+
+*** =hint
+Run a query in the editor to the right. 
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sample_code
+```{sql}
+-- You can test out queries here!
+
+```
+
+*** =sct
+```{python}
+success_msg = 'Correct!'
+msg2 = "Incorrect, try out the query in the editor!"
+
+Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
+```
 --- type:TabExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS aliasing
 
-In SQL, the `AS` keyword allows you to specify an _alias_ (temporary name) for a column in the result set. For example,
+You may have noticed in the previous exercise that the column name of your result set was just the name of the function you used. For example:
 
 ```
-SELECT COUNT(title) AS title_count
+SELECT MAX(budget)
 FROM films;
 ```
 
-gives you a result set with a single column named `title_count`.
-
-Similarly, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`, then name the resulting column using an alias. Be careful when dividing, though. PostgreSQL assumes that, if you divide an integer by an integer, you want to get an integer back. For example,
+gives you a result set with one column, named `max`. But what if you used two functions like this?:
 
 ```
-SELECT title, (release_year - 2017)/10 as decades_ago
+SELECT MAX(budget), MAX(duration)
 FROM films;
 ```
 
-returns the title of each film and the **integer part** of the number of decades since the film was released as a field called `decades_ago`.
-To get the field `decades_ago` as a decimal value, you have to specify the constant as a decimal to let PostreSQL know that you want more precision. So, if we wanted the exact number of decades since a film was released, we could use the query
+Well, then you'd have two columns named `max`, which isn't very useful!
+
+To avoid situations like this, SQL allows you to do something called _aliasing_. Aliasing simply means you assign a temporary name to something. To alias, you use the `AS` keyword. For example, in the above example we could use aliases to make the result set clearer:
 
 ```
-SELECT title, (release_year - 2017)/10.0 as decades_ago
+SELECT MAX(budget) AS max_budget, MAX(duration) AS max_duration
 FROM films;
 ```
 
@@ -821,7 +906,7 @@ FROM films;
 *** =key1: ec33c2353b
 
 *** =instructions1
-Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, less the amount the film cost to make. Alias the profit or loss as `profit_or_loss`.
+Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, minus the amount the film cost to make. Alias the profit or loss as `profit_or_loss`.
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS profit_or_loss
@@ -847,7 +932,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 1351c6f6bb
 
 *** =instructions2
-Get the title and duration in hours for each film. Alias the duration in hours as `duration_hours`.
+Get the title and duration in hours for each film. Currently the duration is in seconds, so you'll need to divide by 60.0 to get the duration in hours. Alias the duration in hours as `duration_hours`.
 
 *** =solution2
 ```{sql}
@@ -907,7 +992,7 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:8612897f35
 ## Even more aliasing
 
-Nice work! Let's practice your newfound aliasing skills before moving on.
+Nice work! Let's practice your newfound aliasing skills some more before moving on.
 
 *** =pre_exercise_code
 ```{python}
