@@ -9,15 +9,11 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
-In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. For example, filtering numeric records such as the `release_year`:
+Congrats on finishing the first chapter! You now know how to select, summarize and alias columns. This chapter will focus on filtering your results to make them more specific. 
 
-```
-SELECT title
-FROM films
-WHERE release_year > 2000;
-```
+In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. 
 
-And filtering text records such as `title`:
+For example, you can filter text records such as `title`. The following code selects any films with the title 'Metropolis':
 
 ```
 SELECT title
@@ -25,8 +21,17 @@ FROM films
 WHERE title = 'Metropolis';
 ```
 
-gives you the titles of all films released after the year 2000.
+And you can filter numeric records such as the `release_year`. The following code select any films released after the year 2000:
 
+```
+SELECT title
+FROM films
+WHERE release_year > 2000;
+```
+
+Note that the `WHERE` clause always comes after the `SELECT` statement!
+
+<hr>
 What types of data can be filtered using `WHERE`?
 *** =instructions
 - Only numeric data
@@ -50,7 +55,9 @@ Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
-As we have seen, the `WHERE` clause allows you to filter your results. The following code is an example of filtering on text data, which gets the titles of all films which were rated `'R'`:
+As we have seen, the `WHERE` clause allows you to filter your results.
+
+The following code is another example of filtering on text data. The following code gets the titles of all films which were filmed in China:
 
 ```
 SELECT title
@@ -69,9 +76,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___
-FROM ___
-___ language = ___;
+
 ```
 
 *** =type1: NormalExercise
@@ -94,7 +99,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Check your `WHERE` clause!')
 
-star = sel.check_node('Star').has_equal_ast('Are you selecting the right columns?')
+star = sel.check_node('Star').has_equal_ast('Are you selecting all the columns?')
 
 Ex().test_correct(check_result(), [
     from_clause,
@@ -108,7 +113,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 051f6fb8ec
 
 *** =instructions2
-Get the name and birth date of the person born on November 11th, 1974. Remember to use ISO date format (yyyy-mm-dd)!
+Get the name and birth date of the person born on November 11th, 1974. Remember to use ISO date format, e.g. '1974-11-11'!
 *** =solution2
 ```{sql}
 SELECT name, birthdate
@@ -129,7 +134,7 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 *** =key3: 7b872a3af0
 
 *** =instructions3
-Get the number of Hindi films.
+Get the number of Hindi language films.
 *** =solution3
 ```{sql}
 SELECT COUNT(*)
@@ -188,7 +193,9 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34
 ## Simple filtering of numeric values
 
-Remember, the `WHERE` clause can be used to filter numeric records, such as years. For example, the following code selects all films with a budget over ten thousand dollars:
+Remember, the `WHERE` clause can be also be used to filter numeric records, such as years or ages.
+
+For example, the following code selects all details for films with a budget over ten thousand dollars:
 
 ```
 SELECT *
@@ -205,9 +212,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___
-FROM ___
-___ release_year = ___;
+
 ```
 
 *** =type1: NormalExercise
@@ -302,7 +307,11 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
-You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword. For example,
+Great work filtering those values!
+
+Oftentimes you'll want to select data based on multiple conditions. You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword. 
+
+For example:
 
 ```
 SELECT title
@@ -313,6 +322,16 @@ AND release_year < 2000;
 
 gives you the titles of films released between 1994 and 2000.
 
+Note that you need to specify the column for every `AND` condition, so the following would be invalid:
+
+```
+SELECT title
+FROM films
+WHERE release_year > 1994 AND < 2000;
+```
+
+You can add as many `AND` conditions as you need!
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -320,10 +339,6 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT title, release_year
-FROM ___
-___ ___ < 2000
-___ language = ___;
 ```
 
 *** =type1: NormalExercise
@@ -351,10 +366,6 @@ release_year = where_clause.has_equal_ast(sql='release_year < 2000', start='expr
 
 language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language`?')
 
-# release_year = test_student_typed("release_year < 2000", msg='Did you check the `release_year`?', fixed=True)
-
-# language = test_student_typed("language = 'Spanish'", msg='Did you check the `language`?', fixed=True)
-
 Ex().test_correct(check_result(), [
     release_year,
     language,
@@ -368,7 +379,7 @@ Ex().test_correct(check_result(), [
 *** =key2: e703c95e46
 
 *** =instructions2
-Get all details for all Spanish films released after 2000.
+Get all details for Spanish language films released after 2000.
 *** =solution2
 ```{sql}
 SELECT *
@@ -391,10 +402,6 @@ release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expr
 
 language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
 
-# release_year = test_student_typed("release_year > 2000", msg='Did you check the `release_year` correctly?', fixed=True)
-
-# language = test_student_typed("language = 'Spanish'", msg='Did you check the `language` correctly?', fixed=True)
-
 Ex().test_correct(check_result(), [
     release_year,
     language,
@@ -408,7 +415,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 7f2ba5c82f
 
 *** =instructions3
-Get the average duration for films released in France in 1992.
+Get the average duration of films made in France in 1992.
 *** =solution3
 ```{sql}
 SELECT AVG(duration)
@@ -431,10 +438,6 @@ release_year = where_clause.has_equal_ast(sql='release_year = 1992', start='expr
 
 country = where_clause.has_equal_ast(sql="country = 'France'", start='expression', exact=False, msg='Did you check the `country` correctly?')
 
-# release_year = test_student_typed("release_year = 1992", msg='Did you check the `release_year`?', fixed=True)
-
-# country = test_student_typed("country = 'France'", msg='Did you check the `country` correctly?', fixed=True)
-
 Ex().test_correct(check_result(), [
     avg_call,
     release_year,
@@ -449,7 +452,18 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND OR
 
-You can also build up your `WHERE` queries using the `OR` keyword. For example,
+Oftentimes you'll want to select data based on multiple conditions, where only one or more conditions need to be correct. For this, SQL has the `OR` clause.
+
+For example, you might want to get data on all employees who work with _either_ Python or R. 
+
+```
+SELECT name
+FROM employees
+WHERE technology = 'Python'
+OR technology = 'R';
+```
+
+A numeric example would be:
 
 ```
 SELECT title
@@ -458,7 +472,15 @@ WHERE release_year = 1994
 OR release_year = 2000;
 ```
 
-will give you the names of all the films released in _either_ 1994 or 2000.
+which gives you the names of all the films released in _either_ 1994 or 2000.
+
+Note that you need to specify the column for every `OR` condition, so the following would be invalid:
+
+```
+SELECT title
+FROM films
+WHERE release_year = 1994 OR 2000;
+```
 
 When combining `AND` and `OR`, be sure to enclose the individual clauses in parentheses, like so:
 
@@ -469,7 +491,7 @@ WHERE (release_year = 1994 OR release_year = 1995)
 AND (certification = 'PG' OR certification = 'R');
 ```
 
-Otherwise, due to PostgreSQL's precedence rules, you may not get the results you're expecting!
+Otherwise, due to SQL's precedence rules, you may not get the results you're expecting!
 
 *** =pre_exercise_code
 ```{python}
@@ -478,10 +500,6 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___
-FROM ___
-___ (release_year = 1990 ___ release_year = 2000)
-___ (language = 'French' ___ language = 'Spanish');
 ```
 
 *** =type1: NormalExercise
@@ -515,11 +533,6 @@ spanish = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expressi
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-# release_year1 = test_student_typed("release_year = 1992", msg='Did you check the year 1992?', fixed=True)
-# release_year2 = test_student_typed("release_year = 2000", msg='Did you check the year 2000?', fixed=True)
-# french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
-# spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
-
 Ex().test_correct(check_result(), [
     release_year1,
     release_year2,
@@ -536,7 +549,7 @@ Ex().test_correct(check_result(), [
 *** =key2: aee831c1d8
 
 *** =instructions2
-Get all columns from the `films` table for films released since 2000 that are in French or Spanish and took in more than $20M at the box office.
+Get all details for films released since 2000 that are in French or Spanish and took in more than $20M at the box office.
 *** =solution2
 ```{sql}
 SELECT *
@@ -564,11 +577,6 @@ gross = where_clause.has_equal_ast(sql='gross > 20000000', exact=False, msg='Did
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-# release_year = test_student_typed("release_year > 2000", msg='Did you check the year 2000?', fixed=True)
-# french = test_student_typed("language = 'French'", msg='Did you check for French?', fixed=True)
-# spanish = test_student_typed("language = 'Spanish'", msg='Did you check for Spanish?', fixed=True)
-# gross = test_student_typed("gross > 20000000", msg='Did you check the `gross`?', fixed=True)
-
 Ex().test_correct(check_result(), [
     release_year,
     french,
@@ -586,7 +594,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 510b387baa
 
 *** =instructions3
-Get the title and year of films released in the 90s.
+Get the title and release year for films released in the 90s.
 *** =solution3
 ```{sql}
 SELECT title, release_year
@@ -616,7 +624,7 @@ Ex().test_correct(check_result(), [
 *** =key4: aa938f1976
 
 *** =instructions4
-Get average duration for films released in the UK or which were released in 2012. Alias the result as `average_duration`.
+Get the average duration for films which were made in the UK or which were released in 2012. Alias the result as `average_duration`.
 *** =solution4
 ```{sql}
 SELECT AVG(duration)
@@ -642,9 +650,6 @@ release_year = where_clause.has_equal_ast(sql='release_year = 2012', start='expr
 
 country = where_clause.has_equal_ast(sql="country = 'UK'", start='expression', exact=False,msg='Did you check the `country` correctly?')
 
-# release_year = test_student_typed("release_year = 2012", msg='Did you check the `release_year` correctly?', fixed=True)
-# country = test_student_typed("country = UK", msg='Did you check the `country` correctly?', fixed=True)
-
 Ex().test_correct(check_result(), [
     alias,
     from_clause,
@@ -659,7 +664,18 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
 ## BETWEEN
 
-In SQL, the `BETWEEN` keyword allows you filter values within a specified range. For example,
+Great work! 
+
+As you saw, you could do:
+
+```
+SELECT title
+FROM films
+WHERE release_year > 1994 
+AND release_year < 2000;
+```
+
+It turns out that checking for ranges like this is very common, so in SQL, the `BETWEEN` keyword allows you filter values within a specified range:
 
 ```
 SELECT title
@@ -668,8 +684,11 @@ WHERE release_year
 BETWEEN 1994 AND 2000;
 ```
 
-gives you the names of all the films released between 1994 and 2000. It's important to remember that `BETWEEN` is _inclusive_, meaning the beginning and end values are included in the results!
+which gives you the names of all the films released between 1994 and 2000. 
 
+It's important to remember that `BETWEEN` is _inclusive_, meaning the beginning and end values are included in the results!
+
+<hr>
 What does the `BETWEEN` keyword do?
 
 *** =instructions
@@ -694,7 +713,7 @@ Ex().test_mc(4, [numeric, text, lst, success_msg])
 --- type:BulletExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (2)
 
-Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` operators, so you can build up your queries and make them even more powerful!
+Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` and `OR` operators, so you can build up your queries and make them even more powerful!
 
 For example, suppose we have a table called `kids`. We can get the names of all kids between the ages of 2 and 12 from the United States:
 
@@ -714,9 +733,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___
-FROM ___
-___ release_year ___ 1990 ___ 2000;
+
 ```
 
 *** =type1: NormalExercise
@@ -724,7 +741,7 @@ ___ release_year ___ 1990 ___ 2000;
 *** =key1: 9252da136b
 
 *** =instructions1
-Get the title and release year of all films released in the 90s.
+Get the title and release year of all films released between 1990 and 2000.
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -820,12 +837,64 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
+*** =type4: NormalExercise
+
+*** =key4: d21a4bec02
+
+*** =instructions4
+Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.
+*** =solution4
+```{sql}
+SELECT title, language
+FROM films
+WHERE release_year
+BETWEEN 1990 AND 1995
+OR language = 'Spanish';
+```
+*** =sct4
+```{python}
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+between = where_clause.check_field('left').check_field('arr', 1).has_equal_ast('Is your use of `BETWEEN` correct?')
+
+or_op = where_clause.check_field('right').has_equal_ast('Is your `OR` operator correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    between,
+    or_op,
+    where_clause,
+    test_error()
+])
+```
+
 --- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN
 
-In SQL, the `IN` operator allows you to specify multiple values in a `WHERE` clause. Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right?
+Well done! 
 
-For example, suppose we have a table called `kids`. We can get the names of all kids under the age of 12, whose ages are multiples of 2, as follows:
+As you've seen, `WHERE` is very useful for filtering results. However, if you want to filter based on many conditions, `WHERE` can get unwieldy. For example:
+
+```
+SELECT name
+FROM kids
+WHERE age = 2 
+OR age = 4
+OR age = 6
+OR age = 8 
+OR age = 10;
+```
+
+Enter the `IN` operator! The `IN` operator allows you to specify multiple values in a `WHERE` clause.
+
+Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right?
+
+So, the above example would become simply:
 
 ```
 SELECT name
@@ -842,17 +911,15 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___
-FROM ___
-___ release_year ___ (1990, 2000)
-AND ___ > 120;
+
 ```
 
 *** =type1: NormalExercise
 *** =key1: dc7674d358
 
 *** =instructions1
-Get the title and release year of all films released in 1990 or released in 2000 that were longer than two hours.
+Get the title and release year of all films released in 1990 or released in 2000 that were longer than two hours. Remember, duration is in seconds!
+
 *** =solution1
 ```{sql}
 SELECT title, release_year
@@ -947,9 +1014,19 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
 ## Introduction to NULL and IS NULL
 
-In SQL, `NULL` represents a missing value. You can check if a record has a field with the value `NULL` using the expression `IS NULL`. This is useful when combined with `WHERE` to figure out what data you're missing. Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
+In SQL, `NULL` represents a missing or unknown value. You can check if a row has a column with the value `NULL` using the expression `IS NULL`. For example, to count the number of missing birth dates in the people table:
 
-For example,
+```
+SELECT COUNT(*)
+FROM people
+WHERE birthdate IS NULL;
+```
+
+As you can see, `IS NULL` is useful when combined with `WHERE` to figure out what data you're missing.
+
+Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
+
+For example:
 
 ```
 SELECT name
@@ -957,18 +1034,19 @@ FROM people
 WHERE birthdate IS NOT NULL;
 ```
 
-will give you the names of all the people whose birthdate is not missing in the `people` table.
+will give you the names of all the people whose birth date is _not_ missing in the `people` table.
 
+<hr>
 What does `NULL` represent?
 
 *** =instructions
-- Corrupt entry
-- Missing value
-- Empty string
-- Invalid value
+- A Corrupt entry
+- A Missing value
+- A Empty string
+- A Invalid value
 
 *** =hint
-Remember, `NULL` represents values which we can not determine.
+Remember, `NULL` represents values which are missing or unknown.
 
 *** =sct
 ```{python}
@@ -992,16 +1070,14 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT ___
-FROM ___
-___ deathdate ___ ___ ;
+
 ```
 
 *** =type1: NormalExercise
 *** =key1: 3c646ada87
 
 *** =instructions1
-Get the names of people who are still alive.
+Get the names of people who are still alive, i.e. whose death date is missing.
 *** =solution1
 ```{sql}
 SELECT name
@@ -1085,14 +1161,41 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:84411d78ac
 ## LIKE and NOT LIKE
 
-The `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
+Good work! 
 
-There are two _wildcards_ you can use with `LIKE`:
+As you have seen, the `WHERE` column can be used to filter text data. However, so far you've only been able to filter based on specific text string. In the real world, often you'll want to search for a specific pattern rather than a specific text string.
 
-* The `'%'` wildcard will match zero, one, or many characters in text. For example, if you filtered with `'Data%'` you could match `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on.
-* The `'_'` wildcard will match a single character. For example, if you filtered with `'DataC_mp'` you would match `'DataCamp'`, `'DataComp'`, and so on.
+In SQL, the `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
 
-You can also use the expression `NOT LIKE' to find records that **don't** match the pattern you specify.
+In relation to the `LIKE` operator, a _wildcard_ is a placeholder for some other values. There are two wildcards you can use with `LIKE`:
+
+* The `'%'` wildcard will match zero, one, or many characters in text.
+
+For example, the following query:
+
+```
+SELECT name
+FROM companies
+WHERE name LIKE 'Data%';
+```
+
+matches companies like `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on.
+
+* The `'_'` wildcard will match a _single_ character.
+
+For example, the following query: 
+
+```
+SELECT name
+FROM companies
+WHERE name LIKE 'DataC_mp';
+```
+
+matches companies like `'DataCamp'`, `'DataComp'`, and so on:
+
+You can also use the `NOT LIKE' operator to find records that **don't** match the pattern you specify.
+
+Got it? Let's practice!
 
 *** =pre_exercise_code
 ```{python}
@@ -1101,16 +1204,14 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT name
-FROM ___
-___ name ___ ___
+
 ```
 
 *** =type1: NormalExercise
 *** =key1: 9e3c3ef68f
 
 *** =instructions1
-Get people whose names begin with 'B'.
+Get people from the `people` table whose names begin with 'B'.
 *** =solution1
 ```{sql}
 SELECT name
