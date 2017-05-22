@@ -897,8 +897,6 @@ avg2 = test_student_typed('AVG(duration / 60.0)', msg='Are you calling `AVG` cor
 
 avg_call = test_or(avg1, avg2)
 
-# avg_call = sel.check_node('AliasExpr').check_field('left').has_equal_ast('Are you calling `AVG` correctly?')
-
 Ex().test_correct(check_result(), [
     avg_call,
     alias,
