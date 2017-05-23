@@ -523,7 +523,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 497ffa962e
 *** =instructions2
-Count the number of non-missing birth dates in the `people` table.
+Count the number of rows in the birth date column in the `people` table.
 *** =solution2
 ```{sql}
 SELECT COUNT(birthdate)
