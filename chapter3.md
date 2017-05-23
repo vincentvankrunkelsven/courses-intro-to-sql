@@ -885,25 +885,25 @@ HAVING COUNT(title) > 10;
 will show only those years in which more than 10 films were released.
 
 <hr>
-Why do we need the `HAVING` keyword?
+What does the `HAVING` keyword let you do?
 
 *** =instructions
-- To order by creation date
-- To sort using text values
-- To sort using numeric values
-- Aggregate functions can't be used in `WHERE` clauses
+- Filter based on results of rounding functions
+- Filter based on results of exponential functions
+- Filter based on results of recursive functions
+- Filter based on results of aggregate functions
 
 *** =hint
 What kind of functions can `WHERE` not be used with?
 
 *** =sct
 ```{python}
-success_msg = 'Correct! `HAVING` is needed because `WHERE` cannot deal with aggregate functions.'
-creation = 'Incorrect. `HAVING` does not have anything to do with creation date.'
-text = 'Incorrect. `WHERE` can sort with text values, so why would we need `HAVING`?'
-numeric = 'Incorrect. `WHERE` can sort with numeric values, so why would we need `HAVING`?'
+rounding = 'Incorrect. `HAVING` is not used with rounding functions.'
+summing = 'Incorrect. `HAVING` is not used with exponential functions.'
+recursive = 'Incorrect. `HAVING` is not used with recursive functions.' 
+aggregate = 'Correct!. `HAVING` is used to filter based on the results of aggregate functions.'
 
-Ex().test_mc(4, [creation, text, numeric, success_msg])
+Ex().test_mc(4, [rounding, summing, recursive, aggregate])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
@@ -947,7 +947,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 6f8cf83f3a
+*** =key2: a141cd669f
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -974,7 +974,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 5f297e49f6
+*** =key3: a141cd669f
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1006,7 +1006,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: 184df4f476
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1046,7 +1046,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 6d9089817e
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1093,7 +1093,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: f3277a62c0
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
