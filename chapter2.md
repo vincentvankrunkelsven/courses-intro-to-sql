@@ -9,7 +9,7 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
-Congrats on finishing the first chapter! You now know how to select, summarize and alias columns. This chapter will focus on filtering your results to make them more specific. 
+Congrats on doing the first chapter! You now know how to select, summarize and alias columns. This chapter will focus on filtering your results to make them more specific. 
 
 In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. 
 
@@ -848,7 +848,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 89343eaf75
+*** =key4: d21a4bec02
 
 *** =instructions4
 Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.
