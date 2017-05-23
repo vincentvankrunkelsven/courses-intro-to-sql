@@ -67,7 +67,7 @@ AS welcome;
 
 *** =sct
 ```{python}
-Ex().test_student_typed('SELECT\s+', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
+Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
