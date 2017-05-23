@@ -6,10 +6,61 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
+--- type:NormalExercise lang:sql xp:100 skills:1 key:0cbd791cc8
+## Welcome!
+Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight. Before you start, take some time to familiarize yourself with the interface. If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface. 
+
+For SQL however, we're introducing some new features. 
+
+For this course, we'll be using a database of film information. To the right, underneath the editor, you can see the data that's in your this. Have a click through the tabs to check it out!
+
+You'll also notice a **query result** tab. This is where the results of your SQL queries will be displayed. Try running the SQL query that's already in the editor by clicking **Submit Answer**!
+
+You'll see that you get two types of errors. SQL errors are shown below the editor. You should see:
+
+```
+syntax error at or near "'Welcome to the course!'" LINE 2: 'Welcome to the course!' ^
+```
+
+DataCamp errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
+
+```
+You need to add `SELECT` at the start of line 2!
+```
+
+So, go ahead and add `SELECT`, and run your code to start the course. See you on the other side!
+
+*** =instructions
+Run the code in the editor!
+*** =hint
+Run the code in the editor!
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sample_code
+```{sql}
+-- try running me!
+'Welcome to the course!' 
+AS welcome;
+```
+
+*** =solution
+```{sql}
+SELECT 'Welcome to the course!'
+AS welcome;
+```
+
+*** =sct
+```{python}
+Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 1!')
+```
+
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
-Welcome to the course! Let's get straight into it. SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*. 
+Now that you're familiar with the interface, let's get straight into it. SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*. 
 
 You can think of a relational database as a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company, or purchases made.
 
