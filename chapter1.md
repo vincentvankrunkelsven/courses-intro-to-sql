@@ -32,7 +32,7 @@ syntax error at or near "'Welcome to the course!'" LINE 2: 'Welcome to the cours
 _DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
 
 ```
-You need to add `SELECT` at the start of line 2!
+You need to add SELECT at the start of line 2!
 ```
 
 So, go ahead and add `SELECT` and run your code to start the course. See you on the other side!
