@@ -1002,8 +1002,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
-SELECT (COUNT(___) * 100.0 / COUNT(___)) AS percentage_dead
-FROM people;
+
 ```
 
 *** =type1: NormalExercise

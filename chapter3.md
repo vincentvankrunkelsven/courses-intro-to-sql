@@ -974,7 +974,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: d54962cd05
+*** =key3: a141cd669f
 
 *** =instructions3
 Modify your query to group your results by release year. 
@@ -1006,7 +1006,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: 400fb481ed
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to get the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1046,7 +1046,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 37a9d0e47d
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1093,7 +1093,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: 7c5b5398d1
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
@@ -1141,9 +1141,6 @@ Ex().test_correct(check_result(), [
 ])
 
 ```
-
-
-
 
 --- type:NormalExercise lang:sql xp:100 skills:1 key:0bbc6da34d
 ## All together now (2)
