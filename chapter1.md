@@ -8,30 +8,42 @@ description: >-
 
 --- type:NormalExercise lang:sql xp:100 skills:1 key:0cbd791cc8
 ## Welcome!
-Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight. Before you start, take some time to familiarize yourself with the interface. If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface. 
+Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight. 
+
+If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface. 
 
 For SQL however, we're introducing some new features. 
 
-For this course, we'll be using a database of film information. To the right, underneath the editor, you can see the data that's in your this. Have a click through the tabs to check it out!
+For this course, you'll be using a database of film information. To the right, underneath the editor, you can see the data that's in this database by clicking through the tabs.
 
-You'll also notice a **query result** tab. This is where the results of your SQL queries will be displayed. Try running the SQL query that's already in the editor by clicking **Submit Answer**!
+You'll also notice a **query result** tab. This is where the results of your SQL queries will be displayed. You can run your queries by clicking the **Submit Answer** button. 
 
-You'll see that you get two types of errors. SQL errors are shown below the editor. You should see:
+Go ahead and read the **Instructions** for this exercise. 
+
+<hr>
+**A note on errors**
+
+If you submit the code to the right, you'll see that you get two types of errors. _SQL_ errors are shown below the editor. You should see:
 
 ```
 syntax error at or near "'Welcome to the course!'" LINE 2: 'Welcome to the course!' ^
 ```
 
-DataCamp errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
+_DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
 
 ```
 You need to add `SELECT` at the start of line 2!
 ```
 
-So, go ahead and add `SELECT`, and run your code to start the course. See you on the other side!
+So, go ahead and add `SELECT` and run your code to start the course. See you on the other side!
 
 *** =instructions
-Run the code in the editor!
+- Check out the tabs underneath the editor
+- Run the query supplied
+- Read the note on errors above
+- Make the required fix to the code
+- Run the code again!
+
 *** =hint
 Run the code in the editor!
 *** =pre_exercise_code
@@ -48,13 +60,14 @@ AS welcome;
 
 *** =solution
 ```{sql}
+-- try running me!
 SELECT 'Welcome to the course!'
 AS welcome;
 ```
 
 *** =sct
 ```{python}
-Ex().test_student_typed('SELECT\s+', msg='You need to add `SELECT` at the start of line 2!')
+Ex().test_student_typed('SELECT\s+', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
