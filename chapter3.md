@@ -334,7 +334,7 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-order_by_clause = check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -947,7 +947,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 50e78581e5
+*** =key2: a141cd669f
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -974,7 +974,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: c2bd50aeba
+*** =key3: a141cd669f
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1006,7 +1006,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: 507eb87108
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1046,7 +1046,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: a6086d2076
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1093,7 +1093,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: def6dd4ad8
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
