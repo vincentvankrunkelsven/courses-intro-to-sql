@@ -81,6 +81,8 @@ Now it's your turn to practice using `WHERE`!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
+
 ```
 
 *** =sample_code
@@ -217,6 +219,8 @@ Now it's your turn to use the `WHERE` clause to filter numeric values!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
@@ -344,6 +348,8 @@ You can add as many `AND` conditions as you need!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
@@ -505,6 +511,8 @@ Otherwise, due to SQL's precedence rules, you may not get the results you're exp
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
@@ -738,6 +746,8 @@ Take a go at using `BETWEEN` with `AND`!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
@@ -848,7 +858,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: f797eaa3f8
+*** =key4: d21a4bec02
 
 *** =instructions4
 Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.
@@ -916,6 +926,7 @@ Try using the `IN` operator yourself!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
 ```
 
 *** =sample_code
@@ -1075,6 +1086,7 @@ Now that you know what `NULL` is and what it's used for, let's get some practice
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
 ```
 
 *** =sample_code
@@ -1209,6 +1221,7 @@ Got it? Let's practice!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['people'])
 ```
 
 *** =sample_code
