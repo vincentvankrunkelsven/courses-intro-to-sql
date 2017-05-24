@@ -774,7 +774,7 @@ FROM films;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-avg_call = sel.check_field('from_clause').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
