@@ -301,7 +301,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:b2a52993bc
+--- type:TabExercise lang:sql xp:100 key:b2a52993bc
 ## Sorting multiple columns
 
 Good work!
@@ -932,7 +932,7 @@ aggregate = 'Correct!. `HAVING` is used to filter based on the results of aggreg
 Ex().test_mc(4, [rounding, summing, recursive, aggregate])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:f7dcb9e122
+--- type:TabExercise lang:sql xp:100 key:f7dcb9e122
 ## All together now
 
 Time to practice using `ORDER BY`, `GROUP BY` and `HAVING` together.
