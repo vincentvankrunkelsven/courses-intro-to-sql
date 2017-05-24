@@ -36,8 +36,7 @@ AS welcome_column;
 ```
 
 *** =type1:NormalExercise
-*** =key1: 094d368863
-
+*** =key1:
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
@@ -61,8 +60,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2: 92fb0605d2
-
+*** =key2:
 *** =question2
 Good work! 
 
@@ -114,8 +112,7 @@ AS result
 ```
 
 *** =type1:NormalExercise
-*** =key1: c54b1bde98
-
+*** =key1:
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
 
@@ -137,8 +134,7 @@ Ex().check_result()
 ```
 
 *** =type2:NormalExercise
-*** =key2: 810cd38d0b
-
+*** =key2:
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
 
@@ -160,8 +156,7 @@ Ex().check_result()
 ```
 
 *** =type3:NormalExercise
-*** =key3: 6e24891b28
-
+*** =key3:
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
 
@@ -1217,7 +1212,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 1351c6f6bb
 
 *** =instructions2
-Get the title and duration in hours for each film. Currently the duration is in seconds, so you'll need to divide by 60.0 to get the duration in hours. Alias the duration in hours as `duration_hours`.
+Get the title and duration in hours for each film. Currently the duration is in minutes, so you'll need to divide by 60.0 to get the duration in hours. Alias the duration in hours as `duration_hours`.
 
 *** =solution2
 ```{sql}

@@ -61,10 +61,131 @@ msg4 = "Incorrect, try again!"
 Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
 ```
 
+--- type:BulletExercise lang:sql xp:100 key:b90db25f34
+## Simple filtering of numeric values
+
+Remember, the `WHERE` clause can be be used to filter numeric records, such as years or ages.
+
+For example, the following query selects all details for films with a budget over ten thousand dollars:
+
+```
+SELECT *
+FROM films
+WHERE budget > 10000;
+```
+
+Now it's your turn to use the `WHERE` clause to filter numeric values!
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
+```
+
+*** =sample_code
+```{sql}
+
+```
+
+*** =type1: NormalExercise
+*** =key1: 8a4615ada8
+
+*** =instructions1
+Get all details for all films released in 2016.
+
+*** =solution1
+```{sql}
+SELECT *
+FROM films
+WHERE release_year = 2016;
+```
+*** =sct1
+```{python}
+Ex().test_has_columns()
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    star,
+    from_clause,
+    where_clause,
+    test_error()
+])
+```
+
+*** =type2: NormalExercise
+*** =key2: 5e6e1c74c6
+
+*** =instructions2
+Get the number of films released before 2000.
+*** =solution2
+```{sql}
+SELECT COUNT(*)
+FROM films
+WHERE release_year < 2000;
+```
+*** =sct2
+```{python}
+Ex().test_has_columns()
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
+```
+
+*** =type3: NormalExercise
+*** =key3: d66f3d41b7
+
+*** =instructions3
+Get the title and release year of films released after 2000.
+*** =solution3
+```{sql}
+SELECT title, release_year
+FROM films
+WHERE release_year > 2000;
+```
+*** =sct3
+```{python}
+Ex().test_has_columns()
+Ex().test_ncols()
+sel = check_node('SelectStmt')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+
+Ex().test_correct(check_result(), [
+    count_call,
+    from_clause,
+    where_clause,
+    test_error()
+])
+```
+
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
-As we have seen, the `WHERE` clause allows you to filter your results.
+As we have seen, the `WHERE` clause allows you to filter your numerical results.
+
+Remember, the `WHERE` clause can be also be used to filter text results, such as years or ages.
 
 The following query is another example of filtering on text data. The query gets the titles of all films which were filmed in China:
 
@@ -74,7 +195,7 @@ FROM films
 WHERE country = 'China';
 ```
 
-Now it's your turn to practice using `WHERE`!
+Now it's your turn to practice using `WHERE` with text values!
 
 **Note: in PostgreSQL (the version of SQL we're using), you must use single quotes with `WHERE`.**
 
@@ -216,124 +337,6 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:b90db25f34
-## Simple filtering of numeric values
-
-Remember, the `WHERE` clause can be also be used to filter numeric records, such as years or ages.
-
-For example, the following query selects all details for films with a budget over ten thousand dollars:
-
-```
-SELECT *
-FROM films
-WHERE budget > 10000;
-```
-
-Now it's your turn to use the `WHERE` clause to filter numeric values!
-
-*** =pre_exercise_code
-```{python}
-connect('postgresql', 'films')
-set_options(visible_tables = ['films'])
-
-```
-
-*** =sample_code
-```{sql}
-
-```
-
-*** =type1: NormalExercise
-*** =key1: 8a4615ada8
-
-*** =instructions1
-Get all details for all films released in 2016.
-
-*** =solution1
-```{sql}
-SELECT *
-FROM films
-WHERE release_year = 2016;
-```
-*** =sct1
-```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-Ex().test_correct(check_result(), [
-    star,
-    from_clause,
-    where_clause,
-    test_error()
-])
-```
-
-*** =type2: NormalExercise
-*** =key2: 5e6e1c74c6
-
-*** =instructions2
-Get the number of films released before 2000.
-*** =solution2
-```{sql}
-SELECT COUNT(*)
-FROM films
-WHERE release_year < 2000;
-```
-*** =sct2
-```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-Ex().test_correct(check_result(), [
-    count_call,
-    from_clause,
-    where_clause,
-    test_error()
-])
-```
-
-*** =type3: NormalExercise
-*** =key3: d66f3d41b7
-
-*** =instructions3
-Get the title and release year of films released after 2000.
-*** =solution3
-```{sql}
-SELECT title, release_year
-FROM films
-WHERE release_year > 2000;
-```
-*** =sct3
-```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
-sel = check_node('SelectStmt')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-Ex().test_correct(check_result(), [
-    count_call,
-    from_clause,
-    where_clause,
-    test_error()
-])
-```
 
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
@@ -485,7 +488,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
+--- type:TabExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND OR
 
 Oftentimes you'll want to select data based on multiple conditions, where only one or more conditions need to be correct. For this, SQL has the `OR` clause.
@@ -752,7 +755,7 @@ lst = 'Incorrect!'
 Ex().test_mc(4, [numeric, text, lst, success_msg])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:9c11f67712
+--- type:TabExercise lang:sql xp:100 key:9c11f67712
 ## BETWEEN (2)
 
 Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `AND` and `OR` operators, so you can build up your queries and make them even more powerful!
@@ -959,7 +962,7 @@ set_options(visible_tables = ['films'])
 *** =key1: dc7674d358
 
 *** =instructions1
-Get the title and release year of all films released in 1990 or released in 2000 that were longer than two hours. Remember, duration is in seconds!
+Get the title and release year of all films released in 1990 or released in 2000 that were longer than two hours. Remember, duration is in minutes!
 
 *** =solution1
 ```{sql}
