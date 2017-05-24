@@ -1240,3 +1240,35 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:d101be707a
+## One more thing..
+
+Congrats on making it to the end of the course! By now you should have a good understanding of the basics of SQL. 
+
+There's one more concept we're going to ... 
+
+*** =instructions
+R
+
+*** =hint
+
+*** =pre_exercise_code
+```{sql}
+
+```
+
+*** =sample_code
+```{sql}
+
+```
+
+*** =solution
+```{sql}
+
+```
+
+*** =sct
+```{sql}
+
+```
