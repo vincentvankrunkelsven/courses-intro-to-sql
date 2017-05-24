@@ -49,7 +49,7 @@ creation = 'Incorrect. Results are not ordered by creation date by default.'
 Ex().test_mc(3, [alphabetically, descending, success_msg, creation])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:a7b2964ba6
+--- type:TabExercise lang:sql xp:100 key:a7b2964ba6
 ## Sorting single columns (ASC)
 
 Now that you understand how `ORDER BY` works, give these exercises a go!
