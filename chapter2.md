@@ -101,6 +101,9 @@ SELECT *
 FROM films
 WHERE language = 'French';
 ```
+*** =hint1
+Remember, to get all details you can use `SELECT *`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -132,6 +135,10 @@ SELECT name, birthdate
 FROM people
 WHERE birthdate = '1974-11-11';
 ```
+
+*** =hint2
+Your `WHERE` clause should be `WHERE birthdate = '1974-11-11';`
+
 *** =sct2
 ```{python}
 Ex().test_has_columns()
@@ -154,6 +161,10 @@ SELECT COUNT(*)
 FROM films
 WHERE language = 'Hindi';
 ```
+
+*** =hint3
+Remember, you can use `COUNT(*)` to count the number of rows. 
+
 *** =sct3
 ```{python}
 Ex().test_has_columns()
@@ -957,6 +968,10 @@ FROM films
 WHERE release_year IN (1990, 2000)
 AND duration > 120;
 ```
+
+*** =hint1
+The first part of your `WHERE` clause should be `WHERE release_year IN (1990, 2000)`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -993,6 +1008,10 @@ SELECT title, language
 FROM films
 WHERE language IN ('English', 'Spanish', 'French');
 ```
+
+*** =hint2
+Your `WHERE` clause should be `WHERE language IN ('English', 'Spanish', 'French');`
+
 *** =sct2
 ```{python}
 Ex().test_has_columns()
@@ -1021,6 +1040,10 @@ SELECT title, certification
 FROM films
 WHERE certification IN ('NC-17', 'R');
 ```
+
+*** =hint3
+Your `WHERE` clause should be `WHERE certification IN ('NC-17', 'R');`
+
 *** =sct3
 ```{python}
 Ex().test_has_columns()
@@ -1112,6 +1135,10 @@ SELECT name
 FROM people
 WHERE deathdate IS NULL;
 ```
+
+*** =hint1
+Your `WHERE` clause should be `WHERE deathdate IS NULL;`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -1140,6 +1167,9 @@ SELECT COUNT(title)
 FROM films
 WHERE language IS NULL;
 ```
+*** =hint2
+Your `WHERE` clause should be `WHERE language IS NULL;`
+
 *** =sct2
 ```{python}
 Ex().test_has_columns()
@@ -1250,6 +1280,10 @@ SELECT name
 FROM people
 WHERE name LIKE 'B%';
 ```
+
+*** =hint1
+Your `WHERE` clause should be `WHERE name LIKE 'B%';`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -1278,6 +1312,10 @@ SELECT name
 FROM people
 WHERE name LIKE '_r%';
 ```
+
+*** =hint2
+Your `WHERE` clause should be `WHERE name LIKE '_r%';`
+
 *** =sct2
 ```{python}
 Ex().test_has_columns()
@@ -1306,6 +1344,10 @@ SELECT name
 FROM people
 WHERE name NOT LIKE 'A%';
 ```
+
+*** =hint3
+Your `WHERE` clause should be `WHERE name NOT LIKE 'A%';`
+
 *** =sct3
 ```{python}
 Ex().test_has_columns()
