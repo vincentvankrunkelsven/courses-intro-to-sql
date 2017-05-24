@@ -1241,34 +1241,85 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:d101be707a
+--- type:TabExercise lang:sql xp:100 skills:1 key:d101be707a
 ## One more thing..
 
 Congrats on making it to the end of the course! By now you should have a good understanding of the basics of SQL. 
 
-There's one more concept we're going to ... 
+There's one more concept we're going to introduce. You may have noticed that all our results so far have been from just one table. For example, from the `films` or `people` tables. 
 
-*** =instructions
-R
+In the real world however, you will often want to query multiple tables. For example, what if you want to see the IMDB score for a particular movie? 
 
-*** =hint
+In this case, you'd want to get the ID of the movie from the `films` table and then use it to get IMDB information from the `reviews` table. In SQL, this concept is known as a **join**, and a basic join is shown in the editor to the right. 
+
+The query in the editor gets the IMDB score for the film _To Kill a Mockingbird_! Cool right? 
+
+As you can see, joins are incredibly useful and important to understand for anyone using SQL. 
+
+We'll have a whole course dedicated to them coming soon!
 
 *** =pre_exercise_code
 ```{sql}
+connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'reviews'])
 
 ```
 
 *** =sample_code
 ```{sql}
-
+SELECT title, imdb_score
+FROM films
+JOIN reviews
+ON films.id=reviews.id
+WHERE title = 'To Kill a Mockingbird';
 ```
 
-*** =solution
+*** =type1:NormalExercise
+*** =key1:
+*** =instructions1
+Submit the code in the editor and inspect the results. 
+
+*** =hint1
+Submit the code in the editor!
+
+*** =solution1
 ```{sql}
-
+SELECT title, imdb_score
+FROM films
+JOIN reviews
+ON films.id=reviews.id
+WHERE title = 'To Kill a Mockingbird';
 ```
 
-*** =sct
+*** =sct1
 ```{sql}
+Ex().test_error()
+Ex().test_has_columns()
+
+Ex().check_result()
 
 ```
+
+*** =type2:MultipleChoiceExercise
+*** =key2:
+*** =question2
+What rating does _To Kill a Mockingbird_ have on IMDB? 
+
+*** =possible_answers2
+- 8.1
+- 7.7
+- 7.6
+- 9.3
+
+*** =hint2
+Look at the query results tab!
+
+*** =sct2
+```{python}
+msg1 = 'Nope, look at the query results!'
+correct = 'Correct!'
+
+Ex().test_mc(2,[msg1, correct, msg1, msg1])
+```
+
+
