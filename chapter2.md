@@ -806,10 +806,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_node('BinaryExpr').has_equal_ast('Check your use of `BETWEEN`!')
-
 Ex().test_correct(check_result(), [
-    between,
     from_clause,
     where_clause,
     test_error()

@@ -408,10 +408,7 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_field('arr', 1).has_equal_ast('Are you using `IN` correctly?')
-
 Ex().test_correct(check_result(), [
-    in_op,
     where_clause,
     order_by_clause,
     from_clause,
