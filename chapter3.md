@@ -164,7 +164,7 @@ ORDER BY release_year;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-from_clause = check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
@@ -578,7 +578,7 @@ sel = check_node('SelectStmt')
 
 alias = test_column('films_released', match='exact')
 
-count_call = alias.check_field('expr').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_field('AliasExpr').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -947,7 +947,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: a4a66afd00
+*** =key2: a141cd669f
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -974,7 +974,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: c1dd6f0b78
+*** =key3: a141cd669f
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1006,7 +1006,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: 681fde7684
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1046,7 +1046,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 67c58226bd
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1093,7 +1093,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: c2487d663c
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
