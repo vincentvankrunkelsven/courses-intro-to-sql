@@ -103,7 +103,6 @@ WHERE language = 'French';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -135,7 +134,6 @@ WHERE birthdate = '1974-11-11';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -158,7 +156,6 @@ WHERE language = 'Hindi';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -190,7 +187,6 @@ WHERE certification = 'R';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -250,7 +246,6 @@ WHERE release_year = 2016;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -282,7 +277,6 @@ WHERE release_year < 2000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -314,7 +308,6 @@ WHERE release_year > 2000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -384,7 +377,6 @@ AND language = 'Spanish';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -420,7 +412,6 @@ AND language = 'Spanish';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -458,7 +449,6 @@ AND country = 'France';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
@@ -553,7 +543,6 @@ AND (language = 'French' OR language = 'Spanish');
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -599,7 +588,6 @@ AND gross > 20000000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -644,7 +632,6 @@ WHERE release_year >= 1990 AND release_year < 2000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -678,7 +665,6 @@ OR country = 'UK';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -797,7 +783,6 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -827,7 +812,6 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -863,7 +847,6 @@ AND budget > 100000000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -898,7 +881,6 @@ OR language = 'Spanish';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -977,7 +959,6 @@ AND duration > 120;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1014,7 +995,6 @@ WHERE language IN ('English', 'Spanish', 'French');
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1043,7 +1023,6 @@ WHERE certification IN ('NC-17', 'R');
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1135,7 +1114,7 @@ WHERE deathdate IS NULL;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -1163,7 +1142,6 @@ WHERE language IS NULL;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1196,7 +1174,6 @@ WHERE budget IS NULL;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1275,7 +1252,6 @@ WHERE name LIKE 'B%';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1304,7 +1280,6 @@ WHERE name LIKE '_r%';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1333,7 +1308,6 @@ WHERE name NOT LIKE 'A%';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
