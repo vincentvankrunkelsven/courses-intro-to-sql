@@ -29,3 +29,5 @@ service postgresql start \
   && cd $BASE_DIR/nycbikes15 \
   && sudo -u postgres psql nycbikes15 < sql-setup/create-db-postgres.sql \
   && service postgresql stop
+
+pip3 install git+https://github.com/datacamp/sqlwhat.git@staging
