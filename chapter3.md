@@ -57,6 +57,7 @@ Now that you understand how `ORDER BY` works, give these exercises a go!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
 ```
 
 *** =sample_code
@@ -222,6 +223,7 @@ Now use `ORDER BY` to sort single columns in descending order!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'reviews'])
 ```
 
 *** =sample_code
@@ -309,6 +311,7 @@ Try using `ORDER BY` to sort multiple columns! Remember, to specify multiple col
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
 ```
 
 *** =sample_code
@@ -522,6 +525,7 @@ Now that you understand what `GROUP BY` is and how to use it, let's try some exe
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
 ```
 
 *** =sample_code
@@ -779,6 +783,7 @@ Make sure to always put the `ORDER BY` clause at the end of your query. You can'
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
 ```
 
 *** =sample_code
@@ -916,6 +921,7 @@ This is going to be a big query, but you can handle it!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
 ```
 
 *** =sample_code
@@ -947,7 +953,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 75130d0d26
+*** =key2: a141cd669f
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -974,7 +980,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: dfb327eff9
+*** =key3: a141cd669f
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1006,7 +1012,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: f96d92a241
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1046,7 +1052,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 736195ba3a
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1093,7 +1099,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: f80fa2ae53
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
@@ -1156,6 +1162,7 @@ You can refer back to the previous exercise!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
 ```
 
 *** =sample_code
