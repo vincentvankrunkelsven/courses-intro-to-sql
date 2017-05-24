@@ -21,13 +21,19 @@ unzip films.zip -d courses-intro-to-sql/data
 #unzip nycbikes15.zip -d ./nycbikes15/data
 
 # build databases
-service postgresql start \
-  && sudo -u postgres createdb -O repl films \
- # && sudo -u postgres createdb -O repl nycbikes15 \
-  && cd courses-intro-to-sql \
-  && sudo -u postgres psql films < data/films/films.sql \
+#service postgresql start \
+  #&& sudo -u postgres createdb -O repl films \
+  #&& sudo -u postgres createdb -O repl nycbikes15 \
+  #&& cd courses-intro-to-sql \
+  #&& sudo -u postgres psql films < data/films/films.sql \
   #&& cd $BASE_DIR/nycbikes15 \
   #&& sudo -u postgres psql nycbikes15 < sql-setup/create-db-postgres.sql \
+  #&& service postgresql stop
+
+service postgresql start \
+  && sudo -u postgres createdb -O repl films \
+  && cd courses-intro-to-sql \
+  && sudo -u postgres psql films < data/films/films.sql \
   && service postgresql stop
 
 pip3 install git+https://github.com/datacamp/sqlwhat.git@staging
