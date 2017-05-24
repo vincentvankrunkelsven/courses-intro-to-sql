@@ -1275,7 +1275,8 @@ WHERE title = 'To Kill a Mockingbird';
 ```
 
 *** =type1:NormalExercise
-*** =key1:
+*** =key1: 7c4fc7a484
+
 *** =instructions1
 Submit the code in the editor and inspect the results. 
 
@@ -1301,7 +1302,8 @@ Ex().check_result()
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2:
+*** =key2: fc288db979
+
 *** =question2
 What rating does _To Kill a Mockingbird_ have on IMDB? 
 
