@@ -138,6 +138,8 @@ Additionally, it's also good practice (but not necessary for the exercises in th
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
+
 ```
 
 *** =sample_code
@@ -255,6 +257,8 @@ You can check out the column names in the tables by clicking on the tabs to the 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
@@ -392,6 +396,8 @@ Remember, you can check out the data in the tables by clicking on the tabs to th
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'roles'])
+
 ```
 
 *** =sample_code
@@ -513,7 +519,7 @@ Run a query to count the number of records in the `reviews` table!
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'films')
+connect('postgresql', 'reviews')
 ```
 
 *** =sample_code
@@ -555,6 +561,8 @@ Let's get some practice with `COUNT`!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
+
 ```
 
 *** =sample_code
@@ -724,6 +732,8 @@ We're sure you can guess what the `MIN()` function does! Now it's your turn to t
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
@@ -960,12 +970,13 @@ Aliases are helpful for making results more readable!
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+
 ```
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___ - ___ AS profit_or_loss
-FROM films;
+
 ```
 
 *** =type1: NormalExercise
@@ -1064,6 +1075,8 @@ Nice work! Let's practice your newfound aliasing skills some more before moving 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
+set_options(visible_tables = ['films', 'people'])
+
 ```
 
 *** =sample_code
