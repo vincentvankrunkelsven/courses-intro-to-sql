@@ -369,10 +369,7 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_node('BinaryExpr').has_equal_ast('Are you using `IN` correctly?')
-
 Ex().test_correct(check_result(), [
-    in_op,
     where_clause,
     order_by_clause,
     from_clause,
@@ -553,12 +550,12 @@ count_call = sel.check_node('Call').has_equal_ast('Is your `COUNT` call correct?
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-order_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
+group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
 Ex().test_correct(check_result(), [
     count_call,
     from_clause,
-    order_by_clause,
+    group_by_clause,
     test_error()
 ])
 ```
@@ -953,7 +950,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: ff2a55720c
+*** =key2: a141cd669f
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -980,7 +977,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: c885ddac0b
+*** =key3: a141cd669f
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1012,7 +1009,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: 9deaf90b63
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1052,7 +1049,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 7a25fd9225
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1099,7 +1096,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: 1d469f18a8
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
