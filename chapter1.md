@@ -36,7 +36,8 @@ AS welcome_column;
 ```
 
 *** =type1:NormalExercise
-*** =key1:
+*** =key1: 7aae7667c8
+
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
@@ -60,7 +61,8 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2:
+*** =key2: 54646d3ea9
+
 *** =question2
 Good work! 
 
@@ -112,7 +114,8 @@ AS result
 ```
 
 *** =type1:NormalExercise
-*** =key1:
+*** =key1: 3b36ebc75e
+
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
 
@@ -134,7 +137,8 @@ Ex().check_result()
 ```
 
 *** =type2:NormalExercise
-*** =key2:
+*** =key2: 291ec2eaa4
+
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
 
@@ -156,7 +160,8 @@ Ex().check_result()
 ```
 
 *** =type3:NormalExercise
-*** =key3:
+*** =key3: 0a07fe56ee
+
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
 
