@@ -437,7 +437,7 @@ AND country = 'France';
 Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
 
-avg_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
+avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -848,7 +848,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 32edaa142f
+*** =key4: d21a4bec02
 
 *** =instructions4
 Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.
@@ -1125,7 +1125,7 @@ WHERE language IS NULL;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
+count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 

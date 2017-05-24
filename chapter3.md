@@ -366,7 +366,7 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_field('arr', 1).has_equal_ast('Are you using `IN` correctly?')
+in_op = where_clause.check_node('BinaryExpr').has_equal_ast('Are you using `IN` correctly?')
 
 Ex().test_correct(check_result(), [
     in_op,
@@ -545,7 +545,7 @@ GROUP BY release_year;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Is your `COUNT` call correct?')
+count_call = sel.check_node('Call').has_equal_ast('Is your `COUNT` call correct?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -696,7 +696,7 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -727,7 +727,7 @@ from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clau
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
+sum_call = sel.check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
 
 Ex().test_correct(check_result(), [
     group_by_clause,
@@ -757,7 +757,7 @@ from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clau
 
 group_by_clause = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
 
-sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
+sum_call = sel.check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
 
 Ex().test_correct(check_result(), [
     group_by_clause,
@@ -811,7 +811,7 @@ group_by_clause1 = sel.check_field('group_by_clause', 0).has_equal_ast('Is the f
 
 group_by_clause2 = sel.check_field('group_by_clause').has_equal_ast('Is the second column of your `GROUP BY` clause correct?')
 
-max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
+max_call = sel.check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -848,7 +848,7 @@ group_by_clause1 = sel.check_field('group_by_clause', 0).has_equal_ast('Is the f
 
 group_by_clause2 = sel.check_field('group_by_clause').has_equal_ast('Is the second column of your `GROUP BY` clause correct?')
 
-min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
@@ -947,7 +947,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: c75636750f
+*** =key2: a141cd669f
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -974,7 +974,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: a547af3ff2
+*** =key3: a141cd669f
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1006,7 +1006,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: d95385fc54
+*** =key4: a141cd669f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1046,7 +1046,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 1cccfda1be
+*** =key5: a141cd669f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1093,7 +1093,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: 818e4a5111
+*** =key6: a141cd669f
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 

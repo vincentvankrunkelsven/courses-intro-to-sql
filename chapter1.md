@@ -8,6 +8,7 @@ description: >-
 
 --- type:NormalExercise lang:sql xp:100 skills:1 key:0cbd791cc8
 ## Welcome!
+
 Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight. 
 
 If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface. 
@@ -46,6 +47,7 @@ So, go ahead and add `SELECT` and run your code to start the course. See you on 
 
 *** =hint
 Run the code in the editor!
+
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
@@ -744,7 +746,7 @@ FROM films;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-sum_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
+sum_call = sel.check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -800,7 +802,7 @@ FROM films;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -828,7 +830,7 @@ FROM films;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-max_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
+max_call = sel.check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -855,7 +857,7 @@ FROM films;
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-min_call = sel.check_field('target_list').check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
+min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
