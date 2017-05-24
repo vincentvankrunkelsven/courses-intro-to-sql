@@ -519,7 +519,7 @@ Run a query to count the number of records in the `reviews` table!
 
 *** =pre_exercise_code
 ```{python}
-connect('postgresql', 'reviews')
+connect('postgresql', 'films')
 ```
 
 *** =sample_code
