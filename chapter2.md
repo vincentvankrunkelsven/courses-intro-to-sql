@@ -9,9 +9,9 @@ description: >-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
-Congrats on finishing the first chapter! You now know how to select, summarize and alias columns. This chapter will focus on filtering your results to make them more specific. 
+Congrats on finishing the first chapter! You now know how to select, summarize and alias columns. This chapter will focus on filtering your results to make them more specific.
 
-In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions. 
+In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions.
 
 There are a few different comparison operators you can use:
 
@@ -103,7 +103,8 @@ WHERE language = 'French';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -133,7 +134,8 @@ WHERE birthdate = '1974-11-11';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -154,7 +156,8 @@ WHERE language = 'Hindi';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -184,7 +187,8 @@ WHERE certification = 'R';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -242,7 +246,8 @@ WHERE release_year = 2016;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -272,7 +277,8 @@ WHERE release_year < 2000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -302,7 +308,8 @@ WHERE release_year > 2000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -322,7 +329,7 @@ Ex().test_correct(check_result(), [
 
 Great work filtering those values!
 
-Oftentimes you'll want to select data based on multiple conditions. You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword. 
+Oftentimes you'll want to select data based on multiple conditions. You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword.
 
 For example:
 
@@ -370,7 +377,8 @@ AND language = 'Spanish';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -404,7 +412,8 @@ AND language = 'Spanish';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -440,7 +449,8 @@ AND country = 'France';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
 
 avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
@@ -469,7 +479,7 @@ Ex().test_correct(check_result(), [
 
 Oftentimes you'll want to select data based on multiple conditions, where only one or more conditions need to be correct. For this, SQL has the `OR` clause.
 
-For example, you might want to get data on all employees who work with _either_ Python or R. 
+For example, you might want to get data on all employees who work with _either_ Python or R.
 
 ```
 SELECT name
@@ -533,7 +543,8 @@ AND (language = 'French' OR language = 'Spanish');
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 left = sel.check_node('BinaryExpr').check_field('left')
 right = sel.check_node('BinaryExpr').check_field('right')
@@ -577,7 +588,8 @@ AND gross > 20000000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -620,7 +632,8 @@ WHERE release_year >= 1990 AND release_year < 2000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -652,7 +665,8 @@ OR country = 'UK';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -681,14 +695,14 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
 ## BETWEEN
 
-Great work! 
+Great work!
 
 As you saw, you could do:
 
 ```
 SELECT title
 FROM films
-WHERE release_year > 1994 
+WHERE release_year > 1994
 AND release_year < 2000;
 ```
 
@@ -701,7 +715,7 @@ WHERE release_year
 BETWEEN 1994 AND 2000;
 ```
 
-which gives you the names of all the films released between 1994 and 2000. 
+which gives you the names of all the films released between 1994 and 2000.
 
 It's important to remember that `BETWEEN` is _inclusive_, meaning the beginning and end values are included in the results!
 
@@ -769,7 +783,8 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -800,7 +815,8 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0)
@@ -836,7 +852,8 @@ AND budget > 100000000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -872,7 +889,8 @@ OR language = 'Spanish';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -895,17 +913,17 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN
 
-Well done! 
+Well done!
 
 As you've seen, `WHERE` is very useful for filtering results. However, if you want to filter based on many conditions, `WHERE` can get unwieldy. For example:
 
 ```
 SELECT name
 FROM kids
-WHERE age = 2 
+WHERE age = 2
 OR age = 4
 OR age = 6
-OR age = 8 
+OR age = 8
 OR age = 10;
 ```
 
@@ -949,7 +967,8 @@ AND duration > 120;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -984,7 +1003,8 @@ WHERE language IN ('English', 'Spanish', 'French');
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1014,7 +1034,8 @@ WHERE certification IN ('NC-17', 'R');
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1107,7 +1128,8 @@ WHERE deathdate IS NULL;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1134,7 +1156,8 @@ WHERE language IS NULL;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
@@ -1165,7 +1188,8 @@ WHERE budget IS NULL;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1182,7 +1206,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:84411d78ac
 ## LIKE and NOT LIKE
 
-Good work! 
+Good work!
 
 As you have seen, the `WHERE` column can be used to filter text data. However, so far you've only been able to filter based on specific text string. In the real world, often you'll want to search for a specific pattern rather than a specific text string.
 
@@ -1204,7 +1228,7 @@ matches companies like `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on
 
 * The `'_'` wildcard will match a _single_ character.
 
-For example, the following query: 
+For example, the following query:
 
 ```
 SELECT name
@@ -1242,7 +1266,8 @@ WHERE name LIKE 'B%';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1269,7 +1294,8 @@ WHERE name LIKE '_r%';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1296,7 +1322,8 @@ WHERE name NOT LIKE 'A%';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() Ex().test_ncols()
+Ex().test_has_columns() Ex().test_has_columns()
+Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')

@@ -9,17 +9,17 @@ description: >-
 --- type:NormalExercise lang:sql xp:100 skills:1 key:0cbd791cc8
 ## Welcome!
 
-Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight. 
+Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight.
 
-If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface. 
+If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface.
 
-For SQL however, we're introducing some new features. 
+For SQL however, we're introducing some new features.
 
 For this course, you'll be using a database of film information. To the right, underneath the editor, you can see the data that's in this database by clicking through the tabs.
 
-You'll also notice a **query result** tab. This is where the results of your SQL queries will be displayed. You can run your queries by clicking the **Submit Answer** button. 
+You'll also notice a **query result** tab. This is where the results of your SQL queries will be displayed. You can run your queries by clicking the **Submit Answer** button.
 
-Go ahead and read the **Instructions** for this exercise. 
+Go ahead and read the **Instructions** for this exercise.
 
 <hr>
 **A note on errors**
@@ -56,7 +56,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 -- try running me!
-'Welcome to the course!' 
+'Welcome to the course!'
 AS welcome;
 ```
 
@@ -75,7 +75,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
-Now that you're familiar with the interface, let's get straight into it. SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*. 
+Now that you're familiar with the interface, let's get straight into it. SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*.
 
 You can think of a relational database as a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company, or purchases made.
 
@@ -158,6 +158,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 
 sel = check_node('SelectStmt')
@@ -185,6 +186,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -211,6 +213,7 @@ FROM people;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -277,6 +280,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -294,7 +298,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 917d7dc533
 *** =instructions2
-Get the `title` and `release_year` for every film. 
+Get the `title` and `release_year` for every film.
 
 *** =solution2
 ```{sql}
@@ -303,6 +307,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -332,6 +337,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -363,6 +369,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -380,7 +387,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
-Good work! 
+Good work!
 
 Often your results will include many duplicate values. If you want to select all the unique values from a column, you can use the `DISTINCT` keyword.
 
@@ -416,6 +423,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -444,6 +452,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -473,6 +482,7 @@ FROM roles;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -547,7 +557,7 @@ SELECT COUNT(birthdate)
 FROM roles;
 ```
 
-It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column. 
+It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column.
 
 For example, this query counts the number of *unique* birth dates contained in the `roles` table:
 
@@ -580,6 +590,7 @@ FROM people;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -605,6 +616,7 @@ FROM people;
 ```
 *** =sct2
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -632,6 +644,7 @@ FROM people;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -659,6 +672,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -686,6 +700,7 @@ FROM films;
 ```
 *** =sct5
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -703,7 +718,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
 
-Great work. 
+Great work.
 
 Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this.
 
@@ -753,6 +768,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -781,6 +797,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -809,6 +826,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -837,6 +855,7 @@ FROM films;
 ```
 *** =sct4
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -864,6 +883,7 @@ FROM films;
 ```
 *** =sct5
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -882,15 +902,15 @@ Ex().test_correct(check_result(), [
 
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:9ec3f029a9
 ## A note on arithmetic
-In addition to using the built in SQL functions, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`. 
+In addition to using the built in SQL functions, you can perform basic arithmetic with symbols like `+`, `-`, `*`, and `/`.
 
-So, for example: 
+So, for example:
 
 ```
 SELECT (4 * 3);
 ```
 
-gives you a result of `12`. 
+gives you a result of `12`.
 
 However:
 
@@ -900,7 +920,7 @@ SELECT (4 / 3);
 
 gives you a result of `1`. What's going on here?
 
-Well, SQL assumes that if you divide an integer by an integer, that you want to get an integer back. So be careful when dividing! 
+Well, SQL assumes that if you divide an integer by an integer, that you want to get an integer back. So be careful when dividing!
 
 If you want to get more precision when dividing, you can add decimal places to your numbers:
 
@@ -908,7 +928,7 @@ If you want to get more precision when dividing, you can add decimal places to y
 SELECT (4.0 / 3.0) AS result;
 ```
 
-which gives you the result you would expect: `1.333..` 
+which gives you the result you would expect: `1.333..`
 
 <hr>
 What is the result of `SELECT (10 / 3);`?
@@ -919,7 +939,7 @@ What is the result of `SELECT (10 / 3);`?
 - 3.0
 
 *** =hint
-Run a query in the editor to the right. 
+Run a query in the editor to the right.
 
 *** =pre_exercise_code
 ```{python}
@@ -992,6 +1012,7 @@ FROM films;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -1020,6 +1041,7 @@ FROM films;
 *** =sct2
 ```{python}
 
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60` and alias the result as `duration_hours`?')
 
@@ -1049,6 +1071,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 # TODO: come back to this with better solution
 sel = check_node('SelectStmt')
@@ -1096,6 +1119,7 @@ FROM people;
 ```
 *** =sct1
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -1134,6 +1158,7 @@ FROM films;
 ```
 *** =sct2
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -1165,6 +1190,7 @@ FROM films;
 ```
 *** =sct3
 ```{python}
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
