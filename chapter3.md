@@ -950,7 +950,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: edb56a8a8c
+*** =key2: 06851c015c
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -977,7 +977,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 08962c3ea5
+*** =key3: 769b7e6113
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year. 
@@ -1009,7 +1009,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type4: NormalExercise
-*** =key4: 31e917f0e8
+*** =key4: 265c8fa02f
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1049,7 +1049,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type5: NormalExercise
-*** =key5: 05e29f5fa7
+*** =key5: 179899b43f
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1096,7 +1096,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type6: NormalExercise
-*** =key6: 10b7231d3b
+*** =key6: 1b65ce7c6c
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest. 
