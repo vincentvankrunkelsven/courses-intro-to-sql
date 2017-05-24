@@ -6,47 +6,22 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
---- type:NormalExercise lang:sql xp:100 skills:1 key:0cbd791cc8
-## Welcome!
 
-Welcome to the Intro SQL for Data Science course. In this course you'll learn all about the basics of querying databases in SQL, and how to filter your results to gain further insight.
+
+--- type:VideoExercise lang:sql xp:50 skills:1 key:84fda3605e
+## Welcome Video
+
+*** =projector_key
+7dcad2579b06ad68a6c1186b1d25a3a3
+
+--- type:TabExercise lang:sql xp:100 skills:1 key:0cbd791cc8
+## Onboarding
 
 If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface.
 
-For SQL however, we're introducing some new features.
+For SQL however, we're introducing some new features. 
 
-For this course, you'll be using a database of film information. To the right, underneath the editor, you can see the data that's in this database by clicking through the tabs.
-
-You'll also notice a **query result** tab. This is where the results of your SQL queries will be displayed. You can run your queries by clicking the **Submit Answer** button.
-
-Go ahead and read the **Instructions** for this exercise.
-
-<hr>
-**A note on errors**
-
-If you submit the code to the right, you'll see that you get two types of errors. _SQL_ errors are shown below the editor. You should see:
-
-```
-syntax error at or near "'Welcome to the course!'" LINE 2: 'Welcome to the course!' ^
-```
-
-_DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
-
-```
-You need to add SELECT at the start of line 2!
-```
-
-So, go ahead and add `SELECT` and run your code to start the course. See you on the other side!
-
-*** =instructions
-- Check out the tabs underneath the editor
-- Run the query supplied
-- Read the note on errors above
-- Make the required fix to the code
-- Run the code again!
-
-*** =hint
-Run the code in the editor!
+In the real world you will often need to incrementally build up your queries. To reflect this, we're introducing _tab exercises_. Check it out below!
 
 *** =pre_exercise_code
 ```{python}
@@ -56,23 +31,199 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 -- try running me!
-'Welcome to the course!'
-AS welcome;
+SELECT 'Welcome to the course!'
+AS welcome_column;
+```
+
+*** =type1:NormalExercise
+*** =key1:
+*** =instructions1
+Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
+
+Run the query in the editor and check out the results in the **query result** tab to the right! 
+
+*** =hint1
+Run the code in the editor!
+
+*** =solution1
+```{sql}
+-- try running me!
+SELECT 'Welcome to the course!'
+AS welcome_column;
+```
+
+*** =sct1
+```{python}
+Ex().test_has_columns()
+Ex().test_error()
+Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
+```
+
+*** =type2:MultipleChoiceExercise
+*** =key2:
+*** =question2
+Good work! 
+
+For this course, you'll be using a film database. 
+
+To the right, underneath the editor, you can see the data that's in this database by clicking through the tabs.
+
+From looking at the tables, who is the first person in the `people` table?
+
+*** =possible_answers2
+- Kanye West
+- Biggy Smalls
+- 50 Cent
+- Jay Z
+
+*** =hint2
+Run the code in the editor!
+
+
+*** =sct2
+```{python}
+msg1 = 'Nope, look at the `people` table!'
+correct = 'Correct!'
+
+Ex().test_mc(3,[msg1, msg1, correct, msg1])
+```
+
+
+
+
+--- type:BulletExercise lang:sql xp:100 skills:1 key:f76443aff1
+## Onboarding (2)
+
+Good work! 
+
+Another new feature we're introducing is bullet exercises. 
+
+These allow you to repeat and practice a new concept easily, check it out below!
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+```
+
+*** =sample_code
+```{sql}
+SELECT 'SQL'
+AS result
+```
+
+*** =type1:NormalExercise
+*** =key1:
+*** =instructions1
+Submit the query in the editor! Don't worry, you'll learn how it works soon.
+
+*** =hint1
+Submit the query!
+
+*** =solution1
+```{sql}
+SELECT 'SQL'
+AS result
+```
+
+*** =sct1
+```{sql}
+Ex().test_error()
+Ex().test_has_columns()
+Ex().check_result()
+
+```
+
+*** =type2:NormalExercise
+*** =key2:
+*** =instructions2
+Now change 'SQL' to 'SQL is' and click Submit!
+
+*** =hint2
+Change the code and submit the query!
+
+*** =solution2
+```{sql}
+SELECT 'SQL is'
+AS result
+```
+
+*** =sct2
+```{sql}
+Ex().test_error()
+Ex().test_has_columns()
+Ex().check_result()
+
+```
+
+*** =type3:NormalExercise
+*** =key3:
+*** =instructions3
+Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
+
+*** =hint3
+Change the code and submit the query!
+
+*** =solution3
+```{sql}
+SELECT 'SQL is cool!'
+AS result
+```
+
+*** =sct3
+```{sql}
+Ex().test_error()
+Ex().test_has_columns()
+
+Ex().check_result()
+```
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:7d7e325a12
+## A note on errors
+
+Good work so far!
+
+If you submit the code to the right, you'll see that you get two types of errors. _SQL_ errors are shown below the editor. You should see:
+
+```
+syntax error at or near "'DataCamp <3 SQL'" LINE 2: 'DataCamp <3 SQL' ^
+```
+
+_DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
+
+```
+You need to add SELECT at the start of line 2!
+```
+
+*** =instructions
+Submit the code to the right, check out the errors then fix them to start the course!
+
+*** =hint
+Change line 2 to be: `SELECT 'DataCamp + SQL = <3'`.
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+
+```
+
+*** =sample_code
+```{sql}
+-- try running me!
+'DataCamp <3 SQL'
+AS result
 ```
 
 *** =solution
 ```{sql}
 -- try running me!
-SELECT 'Welcome to the course!'
-AS welcome;
+SELECT 'DataCamp <3 SQL'
+AS result
 ```
 
 *** =sct
-```{python}
-Ex().test_has_columns()
+```{sql}
 Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
 ```
-
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
@@ -157,6 +308,7 @@ Select the `title` column from the `films` table. You can see your results in th
 SELECT title
 FROM films;
 ```
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
