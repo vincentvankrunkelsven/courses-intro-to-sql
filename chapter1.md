@@ -36,8 +36,7 @@ AS welcome_column;
 ```
 
 *** =type1:NormalExercise
-*** =key1: 7aae7667c8
-
+*** =key1:
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
@@ -61,8 +60,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2: 54646d3ea9
-
+*** =key2:
 *** =question2
 Good work! 
 
@@ -114,8 +112,7 @@ AS result
 ```
 
 *** =type1:NormalExercise
-*** =key1: 3b36ebc75e
-
+*** =key1:
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
 
@@ -137,8 +134,7 @@ Ex().check_result()
 ```
 
 *** =type2:NormalExercise
-*** =key2: 291ec2eaa4
-
+*** =key2:
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
 
@@ -160,8 +156,7 @@ Ex().check_result()
 ```
 
 *** =type3:NormalExercise
-*** =key3: 0a07fe56ee
-
+*** =key3:
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
 
@@ -190,7 +185,7 @@ Good work so far!
 If you submit the code to the right, you'll see that you get two types of errors. _SQL_ errors are shown below the editor. You should see:
 
 ```
-syntax error at or near "'DataCamp <3 SQL'" LINE 2: 'DataCamp <3 SQL' ^
+syntax error at or near "'Welcome to the course!'" LINE 2: 'Welcome to the course!' ^
 ```
 
 _DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
@@ -314,6 +309,9 @@ SELECT title
 FROM films;
 ```
 
+*** =hint1
+Try `SELECT title FROM films;`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -436,6 +434,10 @@ Get the `title` of every film from the `films` table.
 SELECT title
 FROM films;
 ```
+
+*** =hint1
+Try `SELECT title FROM films;`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -525,6 +527,10 @@ Get all columns from the `films` table.
 SELECT *
 FROM films;
 ```
+
+*** =hint4
+Remember, to get all columns, you can use `SELECT *`;
+
 *** =sct4
 ```{python}
 Ex().test_has_columns()
@@ -579,6 +585,10 @@ Get all the unique countries represented in the `films` table.
 SELECT DISTINCT country
 FROM films;
 ```
+
+*** =hint1
+Remember, to get unique countries you can use `SELECT DISTINCT country`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -746,6 +756,10 @@ Count the number of rows in the `people` table.
 SELECT COUNT(*)
 FROM people;
 ```
+
+*** =hint1
+Remember, to count the number of rows you can use `SELECT COUNT(*)`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -800,6 +814,9 @@ Count the number of unique birth dates in the `people` table.
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
+***=hint3
+Remember, to count unique values you can use `COUNT(DISTINCT column_name)`
+
 *** =sct3
 ```{python}
 Ex().test_has_columns()
@@ -924,6 +941,9 @@ Get the total (sum) duration of all films.
 SELECT SUM(duration)
 FROM films;
 ```
+
+*** =hint1
+To get the total duration, you can use `SUM(duration)`
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -1168,6 +1188,9 @@ Get the title and profit or loss for each film, where possible. Let's define the
 SELECT title, gross - budget AS profit_or_loss
 FROM films;
 ```
+
+*** =hint1
+The profit / loss will be `gross - budget`
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -1196,6 +1219,9 @@ Get the title and duration in hours for each film. Currently the duration is in 
 SELECT title, duration / 60.0 AS duration_hours
 FROM films;
 ```
+
+*** =hint2
+The duration in hours is `duration / 60.0`
 *** =sct2
 ```{python}
 
@@ -1227,6 +1253,8 @@ Get the average film duration in hours for all films, aliased as `avg_duration_h
 SELECT AVG(duration) / 60.0 AS avg_duration_hours  
 FROM films;
 ```
+*** =hint3
+The average duration in hours is `AVG(duration) / 60.0`
 *** =sct3
 ```{python}
 Ex().test_has_columns()
@@ -1275,6 +1303,9 @@ Get the percentage of `people` who are no longer alive. Alias the result as `per
 SELECT COUNT(deathdate) * 100.0 / COUNT(*) AS percentage_dead
 FROM people;
 ```
+*** =hint1
+The percentage is calculated as `COUNT(deathdate) * 100.0 / COUNT(*)`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns()
@@ -1314,6 +1345,8 @@ SELECT MAX(release_year) - MIN(release_year)
 AS difference
 FROM films;
 ```
+*** =hint2
+The difference will be `MAX(release_year) - MIN(release_year)`
 *** =sct2
 ```{python}
 Ex().test_has_columns()
@@ -1346,6 +1379,9 @@ SELECT (MAX(release_year) - MIN(release_year)) / 10.0
 AS number_of_decades
 FROM films;
 ```
+*** =hint3
+The number of decades is calculated as `(MAX(release_year) - MIN(release_year)) / 10.0`
+
 *** =sct3
 ```{python}
 Ex().test_has_columns()
@@ -1356,7 +1392,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 alias = test_column('number_of_decades', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact number of decades correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact number of decades correctly? Remember to use parentheses in the right places!')
 
 Ex().test_correct(check_result(), [
     from_clause,
