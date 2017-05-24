@@ -36,8 +36,7 @@ AS welcome_column;
 ```
 
 *** =type1:NormalExercise
-*** =key1: db29cc6bf5
-
+*** =key1:
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
@@ -61,8 +60,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2: a593989845
-
+*** =key2:
 *** =question2
 Good work! 
 
@@ -114,8 +112,7 @@ AS result
 ```
 
 *** =type1:NormalExercise
-*** =key1: 59658abfcb
-
+*** =key1:
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
 
@@ -137,8 +134,7 @@ Ex().check_result()
 ```
 
 *** =type2:NormalExercise
-*** =key2: 647f561732
-
+*** =key2:
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
 
@@ -160,8 +156,7 @@ Ex().check_result()
 ```
 
 *** =type3:NormalExercise
-*** =key3: 4a3a9e0aef
-
+*** =key3:
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
 
@@ -432,7 +427,7 @@ set_options(visible_tables = ['films'])
 *** =type1: NormalExercise
 *** =key1: d561b4df97
 *** =instructions1
-Get the `title` of every film from the `films` table.
+Get the title of every film from the `films` table.
 
 *** =solution1
 ```{sql}
@@ -463,7 +458,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 917d7dc533
 *** =instructions2
-Get the `title` and `release_year` for every film.
+Get the title and release year for every film.
 
 *** =solution2
 ```{sql}
@@ -1142,7 +1137,7 @@ msg2 = "Incorrect, try out the query in the editor!"
 
 Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
---- type:BulletExercise lang:sql xp:100 key:6db52132a0
+--- type:TabExercise lang:sql xp:100 key:6db52132a0
 ## It's AS simple AS aliasing
 
 You may have noticed in the previous exercise that the column name of your result set was just the name of the function you used. For example:
@@ -1281,7 +1276,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:8612897f35
+--- type:TabExercise lang:sql xp:100 key:8612897f35
 ## Even more aliasing
 
 Nice work! Let's practice your newfound aliasing skills some more before moving on.

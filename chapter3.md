@@ -76,6 +76,10 @@ SELECT name
 FROM people
 ORDER BY name;
 ```
+
+*** =hint1
+You need to use `ORDER BY name;`
+
 *** =sct1
 ```{python}
 Ex().test_has_columns() 
@@ -230,9 +234,7 @@ set_options(visible_tables = ['films', 'reviews'])
 
 *** =sample_code
 ```{sql}
-SELECT ___, ___
-FROM ___
-___ ___ imdb_score ___;
+
 ```
 
 *** =type1: NormalExercise
@@ -247,6 +249,9 @@ SELECT imdb_score, film_id
 FROM reviews
 ORDER BY imdb_score DESC;
 ```
+
+*** =hint1
+You need to use `ORDER BY imdb_score DESC;`
 
 *** =sct1
 ```{python}
@@ -277,7 +282,8 @@ SELECT title
 FROM films
 ORDER BY title DESC;
 ```
-
+*** =hint2
+You need to use `ORDER BY title DESC;`
 *** =sct2
 ```{python}
 Ex().test_has_columns() 
@@ -308,7 +314,7 @@ FROM people
 ORDER BY birthdate, name;
 ```
 
-will sort on birth dates first (oldest to newest) and then sort on the names in alphabetical order.
+will sort on birth dates first (oldest to newest) and then sort on the names in alphabetical order. **The order of columns is important!**
 
 Try using `ORDER BY` to sort multiple columns! Remember, to specify multiple columns you can separate the column names with a comma.
 
@@ -327,13 +333,17 @@ set_options(visible_tables = ['films', 'people'])
 *** =key1: 9ec6e8ae72
 
 *** =instructions1
-Get the birth date and name of people in the `people` table, in order of when they were born and alphabetically by name.
+Get the birth date and name of people in the `people` table, in order of when they were born and alphabetically by name. 
 *** =solution1
 ```{sql}
 SELECT birthdate, name
 FROM people
 ORDER BY birthdate, name;
 ```
+*** =hint1
+You need to use `ORDER BY birthdate, name;`
+
+
 *** =sct1
 ```{python}
 Ex().test_has_columns() 
