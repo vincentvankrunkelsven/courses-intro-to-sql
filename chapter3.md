@@ -174,13 +174,10 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_field('arr', 1).has_equal_ast('Is your `IN` operation correct?')
-
 order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 Ex().test_correct(check_result(), [
     order_by_clause,
-    in_op,
     from_clause,
     where_clause,
     test_error()

@@ -806,7 +806,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
+between = where_clause.check_node('BinaryExpr').has_equal_ast('Check your use of `BETWEEN`!')
 
 Ex().test_correct(check_result(), [
     between,
@@ -841,11 +841,9 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_field('arr', 1).has_equal_ast('Check your use of `BETWEEN`!')
 
 Ex().test_correct(check_result(), [
     count_call,
-    between,
     from_clause,
     where_clause,
     test_error()
@@ -877,14 +875,11 @@ from_clause = sel.check_field('from_clause')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_field('left').check_field('arr', 1).has_equal_ast('Is your use of `BETWEEN` correct?')
-
-and_op = where_clause.check_field('right').has_equal_ast('Is your `AND` operator correct?')
+between = where_clause.check_node('BinaryExpr').has_equal_ast('Is your use of `BETWEEN` correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     between,
-    and_op,
     where_clause,
     test_error()
 ])
@@ -915,7 +910,7 @@ from_clause = sel.check_field('from_clause')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-between = where_clause.check_field('left').check_field('arr', 1).has_equal_ast('Is your use of `BETWEEN` correct?')
+between = where_clause.check_field('left').has_equal_ast('Is your use of `BETWEEN` correct?')
 
 or_op = where_clause.check_field('right').has_equal_ast('Is your `OR` operator correct?')
 
@@ -1031,10 +1026,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_field('arr', 1).has_equal_ast('Are you using `IN` correctly?')
-
 Ex().test_correct(check_result(), [
-    in_op,
     from_clause,
     where_clause,
     test_error()
@@ -1063,10 +1055,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-in_op = where_clause.check_field('arr', 1).has_equal_ast('Are you using `IN` correctly?')
-
 Ex().test_correct(check_result(), [
-    in_op,
     from_clause,
     where_clause,
     test_error()
