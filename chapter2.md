@@ -1136,7 +1136,6 @@ WHERE deathdate IS NULL;
 *** =sct1
 ```{python}
 Ex().test_has_columns() 
-Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 

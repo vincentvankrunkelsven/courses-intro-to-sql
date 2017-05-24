@@ -69,6 +69,7 @@ AS welcome;
 
 *** =sct
 ```{python}
+Ex().test_has_columns()
 Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
 ```
 
