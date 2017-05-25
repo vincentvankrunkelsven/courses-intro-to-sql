@@ -1248,7 +1248,7 @@ Ex().test_correct(check_result(), [
 ```
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:d101be707a
-## One more thing..
+## A taste of things to come
 
 Congrats on making it to the end of the course! By now you should have a good understanding of the basics of SQL.
 
