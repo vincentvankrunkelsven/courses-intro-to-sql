@@ -36,8 +36,7 @@ AS welcome_column;
 ```
 
 *** =type1:NormalExercise
-*** =key1: b39fdaf8b6
-
+*** =key1:
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
@@ -61,8 +60,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2: 9068ef57ee
-
+*** =key2:
 *** =question2
 Good work! 
 
@@ -114,8 +112,7 @@ AS result
 ```
 
 *** =type1:NormalExercise
-*** =key1: f35e2555b7
-
+*** =key1:
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
 
@@ -137,8 +134,7 @@ Ex().check_result()
 ```
 
 *** =type2:NormalExercise
-*** =key2: d1d2ae0f60
-
+*** =key2:
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
 
@@ -160,8 +156,7 @@ Ex().check_result()
 ```
 
 *** =type3:NormalExercise
-*** =key3: 2d92f473f6
-
+*** =key3:
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
 
@@ -623,6 +618,10 @@ Get all the different film certifications from the `films` table.
 SELECT DISTINCT certification
 FROM films;
 ```
+
+*** =hint2
+Remember, to get unique certifications you can use `SELECT DISTINCT certification`
+
 *** =sct2
 ```{python}
 Ex().test_has_columns()
@@ -767,6 +766,7 @@ Remember, to count the number of rows you can use `SELECT COUNT(*)`
 
 *** =sct1
 ```{python}
+# TODO: if student selects from wrong table, there's no results and error is for 'no cols' rather than for 'incorret from clause'
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -1009,8 +1009,6 @@ FROM films;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
@@ -1021,6 +1019,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     min_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
