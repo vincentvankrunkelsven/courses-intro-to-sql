@@ -19,7 +19,7 @@ In SQL, the `WHERE` keyword allows you to filter based on both text and numeric 
 - `<=` less than or equal to
 - `>=` greater than or equal to
 
-For example, you can filter text records such as `title`. The following code returns all films with the title 'Metropolis':
+For example, you can filter text records such as `title`. The following code returns all films with the title `'Metropolis'`:
 
 ```
 SELECT title
@@ -57,7 +57,7 @@ Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34
 ## Simple filtering of numeric values
 
-Remember, the `WHERE` clause can be be used to filter numeric records, such as years or ages.
+As you learned in the previous exercise, the `WHERE` clause can be be used to filter numeric records, such as years or ages.
 
 For example, the following query selects all details for films with a budget over ten thousand dollars:
 
@@ -176,11 +176,9 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:b90db25f33
 ## Simple filtering of text
 
-As we have seen, the `WHERE` clause allows you to filter your numerical results.
+Remember, the `WHERE` clause can be also be used to filter text results, such as names or countries.
 
-Remember, the `WHERE` clause can be also be used to filter text results, such as years or ages.
-
-The following query is another example of filtering on text data. The query gets the titles of all films which were filmed in China:
+For example, this query gets the titles of all films which were filmed in China:
 
 ```
 SELECT title
@@ -196,7 +194,6 @@ Now it's your turn to practice using `WHERE` with text values!
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films', 'people'])
-
 ```
 
 *** =sample_code
@@ -242,7 +239,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 051f6fb8ec
 
 *** =instructions2
-Get the name and birth date of the person born on November 11th, 1974. Remember to use ISO date format, e.g. '1974-11-11'!
+Get the name and birth date of the person born on November 11th, 1974. Remember to use ISO date format (`'1974-11-11'`)!
 *** =solution2
 ```{sql}
 SELECT name, birthdate
@@ -332,9 +329,7 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:5bda32d7c8
 ## WHERE AND
 
-Great work filtering those values!
-
-Oftentimes you'll want to select data based on multiple conditions. You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword.
+Often, you'll want to select data based on multiple conditions. You can build up your `WHERE` queries by combining multiple conditions with the `AND` keyword.
 
 For example:
 
@@ -347,7 +342,7 @@ AND release_year < 2000;
 
 gives you the titles of films released between 1994 and 2000.
 
-Note that you need to specify the column for every `AND` condition, so the following would be invalid:
+Note that you need to specify the column name separately for every `AND` condition, so the following would be invalid:
 
 ```
 SELECT title
@@ -361,7 +356,6 @@ You can add as many `AND` conditions as you need!
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films'])
-
 ```
 
 *** =sample_code
@@ -444,32 +438,26 @@ Ex().test_correct(check_result(), [
 *** =key3: 7f2ba5c82f
 
 *** =instructions3
-Get the average duration of films made in France in 1992.
+Get all details for Spanish language films released after 2000, but before 2010.
 *** =solution3
 ```{sql}
-SELECT AVG(duration)
+SELECT *
 FROM films
-WHERE release_year = 1995
-AND country = 'France';
+WHERE release_year > 2000
+AND release_year < 2010
+AND language = 'Spanish';
 ```
 *** =sct3
 ```{python}
-sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
+# TODO: rewrite SCTs since Nick modified this subexercise
 
-avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
+sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
-
-country = where_clause.has_equal_ast(sql="country = 'France'", start='expression', exact=False, msg='Did you check the `country` correctly?')
-
 Ex().test_correct(check_result(), [
-    avg_call,
-    release_year,
-    country,
     where_clause,
     from_clause,
     sel,
