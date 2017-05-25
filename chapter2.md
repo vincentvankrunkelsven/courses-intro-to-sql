@@ -470,18 +470,9 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND OR
 
-Oftentimes you'll want to select data based on multiple conditions, where only one or more conditions need to be correct. For this, SQL has the `OR` clause.
+What if you want to select rows based on multiple conditions where some, but not necessarily all, of the conditions need to be met? For this, SQL has the `OR` clause.
 
-For example, you might want to get data on all employees who work with _either_ Python or R.
-
-```
-SELECT name
-FROM employees
-WHERE technology = 'Python'
-OR technology = 'R';
-```
-
-A numeric example would be:
+For example, the following returns all films released in *either* 1994 or 2000:
 
 ```
 SELECT title
@@ -490,9 +481,7 @@ WHERE release_year = 1994
 OR release_year = 2000;
 ```
 
-which gives you the names of all the films released in _either_ 1994 or 2000.
-
-Note that you need to specify the column for every `OR` condition, so the following would be invalid:
+Note that you need to specify the column for every `OR` condition, so the following is invalid:
 
 ```
 SELECT title
@@ -515,7 +504,6 @@ Otherwise, due to SQL's precedence rules, you may not get the results you're exp
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films'])
-
 ```
 
 *** =sample_code
@@ -523,107 +511,24 @@ set_options(visible_tables = ['films'])
 ```
 
 *** =type1: NormalExercise
-*** =key1: 969ed73542
+
+*** =key1: 510b387baa
 
 *** =instructions1
-Get the title and release year of films released in 1990 or 2000 in French or Spanish.
-*** =solution1
-```{sql}
-SELECT title, release_year
-FROM films
-WHERE (release_year = 1990 OR release_year = 2000)
-AND (language = 'French' OR language = 'Spanish');
-```
-*** =sct1
-```{python}
-sel = check_node('SelectStmt')
-left = sel.check_node('BinaryExpr').check_field('left')
-right = sel.check_node('BinaryExpr').check_field('right')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-release_year1 = where_clause.has_equal_ast(sql='release_year = 1992', start='expression', exact=False, msg='Did you check the year 1992?')
-
-release_year2 = where_clause.has_equal_ast(sql='release_year = 2000', start='expression', exact=False, msg='Did you check the year 2000?')
-
-french = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check for French?')
-
-spanish = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check for Spanish?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-Ex().test_correct(check_result(), [
-    release_year1,
-    release_year2,
-    french,
-    spanish,
-    where_clause,
-    from_clause,
-    test_has_columns(),
-    test_ncols(),
-    test_error()
-])
-
-```
-
-*** =type2: NormalExercise
-*** =key2: aee831c1d8
-
-*** =instructions2
-Get all details for films released since 2000 that are in French or Spanish and took in more than $20M at the box office.
-*** =solution2
-```{sql}
-SELECT *
-FROM films
-WHERE release_year > 2000
-AND (language = 'French' OR language = 'Spanish')
-AND gross > 20000000;
-```
-*** =sct2
-```{python}
-sel = check_node('SelectStmt')
-
-star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the year 2000?')
-
-french = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check for French?')
-
-spanish = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check for Spanish?')
-
-gross = where_clause.has_equal_ast(sql='gross > 20000000', exact=False, msg='Did you check the `gross`?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-Ex().test_correct(check_result(), [
-    release_year,
-    french,
-    spanish,
-    gross,
-    where_clause,
-    from_clause,
-    star,
-    test_has_columns(),
-    test_ncols(),
-    test_error()
-])
-```
-
-*** =type3: NormalExercise
-
-*** =key3: 510b387baa
-
-*** =instructions3
 Get the title and release year for films released in the 90s.
-*** =solution3
+*** =hint1
+```{sql}
+SELECT ___, ___
+FROM ___
+WHERE ___ >= 1990 AND ___ < 2000;
+```
+*** =solution1
 ```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year >= 1990 AND release_year < 2000;
 ```
-*** =sct3
+*** =sct1
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -643,47 +548,47 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type4: NormalExercise
-*** =key4: aa938f1976
+*** =type2: NormalExercise
+*** =key2: 969ed73542
 
-*** =instructions4
-Get the average duration for films which were made in the UK or which were released in 2012. Alias the result as `average_duration`.
-*** =solution4
+*** =instructions2
+Get the title and release year of French or Spanish films released in the 90s.
+*** =hint2
 ```{sql}
-SELECT AVG(duration)
-AS average_duration
+SELECT ___, ___
+FROM ___
+WHERE (___ >= 1990 AND ___ < 2000)
+AND (___ = 'French' OR ___ = 'Spanish');
+```
+*** =solution2
+```{sql}
+SELECT title, release_year
 FROM films
-WHERE release_year = 2012
-OR country = 'UK';
+WHERE (release_year >= 1990 AND release_year < 2000)
+AND (language = 'French' OR language = 'Spanish');
 ```
-*** =sct4
+*** =sct2
 ```{python}
-sel = check_node('SelectStmt')
-
-from_clause = sel.check_field('from_clause')
-
-alias = test_column('average_duration', match='exact')
-
-avg_call = sel.check_node('AliasExpr').has_equal_ast('Are you calling `AVG` correctly?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
-
-release_year = where_clause.has_equal_ast(sql='release_year = 2012', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
-
-country = where_clause.has_equal_ast(sql="country = 'UK'", start='expression', exact=False,msg='Did you check the `country` correctly?')
-
-Ex().test_correct(check_result(), [
-    alias,
-    from_clause,
-    release_year,
-    country,
-    where_clause,
-    test_has_columns(),
-    test_ncols(),
-    test_error()
-])
+# TODO
 ```
 
+*** =type3: NormalExercise
+*** =key3: aee831c1d8
+
+*** =instructions3
+Get the title and release year of French or Spanish films released in the 90s that took in more than $20M at the box office.
+*** =solution3
+```{sql}
+SELECT title, release_year
+FROM films
+WHERE (release_year >= 1990 AND release_year < 2000)
+AND (language = 'French' OR language = 'Spanish')
+AND gross > 20000000;
+```
+*** =sct3
+```{python}
+# TODO
+```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
 ## BETWEEN
