@@ -102,8 +102,6 @@ WHERE release_year = 2016;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -116,6 +114,8 @@ Ex().test_correct(check_result(), [
     star,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -133,8 +133,6 @@ WHERE release_year < 2000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -147,6 +145,8 @@ Ex().test_correct(check_result(), [
     count_call,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -164,8 +164,6 @@ WHERE release_year > 2000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -176,6 +174,8 @@ Ex().test_correct(check_result(), [
     count_call,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -227,8 +227,6 @@ Remember, to get all details you can use `SELECT *`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -241,6 +239,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
     star,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -262,8 +262,6 @@ Your `WHERE` clause should be `WHERE birthdate = '1974-11-11';`
 
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -284,12 +282,10 @@ WHERE language = 'Hindi';
 ```
 
 *** =hint3
-Remember, you can use `COUNT(*)` to count the number of rows. 
+Remember, you can use `COUNT(*)` to count the number of rows.
 
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
@@ -302,6 +298,8 @@ Ex().test_correct(check_result(), [
     count_call,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -319,8 +317,6 @@ WHERE certification = 'R';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -333,6 +329,8 @@ Ex().test_correct(check_result(), [
     star,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -391,8 +389,6 @@ AND language = 'Spanish';
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -408,6 +404,8 @@ Ex().test_correct(check_result(), [
     language,
     where_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -426,8 +424,6 @@ AND language = 'Spanish';
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -445,6 +441,8 @@ Ex().test_correct(check_result(), [
     language,
     where_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -463,8 +461,6 @@ AND country = 'France';
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt').has_equal_ast(msg='Check your `SELECT` statement.')
 
 avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
@@ -484,6 +480,8 @@ Ex().test_correct(check_result(), [
     where_clause,
     from_clause,
     sel,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -557,8 +555,6 @@ AND (language = 'French' OR language = 'Spanish');
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 left = sel.check_node('BinaryExpr').check_field('left')
 right = sel.check_node('BinaryExpr').check_field('right')
@@ -582,6 +578,8 @@ Ex().test_correct(check_result(), [
     spanish,
     where_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -602,8 +600,6 @@ AND gross > 20000000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
@@ -628,6 +624,8 @@ Ex().test_correct(check_result(), [
     where_clause,
     from_clause,
     star,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -646,8 +644,6 @@ WHERE release_year >= 1990 AND release_year < 2000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -660,6 +656,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_one,
     where_two,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -679,8 +677,6 @@ OR country = 'UK';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -701,6 +697,8 @@ Ex().test_correct(check_result(), [
     release_year,
     country,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -797,8 +795,6 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -808,6 +804,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -826,8 +824,6 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_field('target_list', 0)
@@ -841,6 +837,8 @@ Ex().test_correct(check_result(), [
     count_call,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -861,8 +859,6 @@ AND budget > 100000000;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -875,6 +871,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     between,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -895,8 +893,6 @@ OR language = 'Spanish';
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -912,6 +908,8 @@ Ex().test_correct(check_result(), [
     between,
     or_op,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -977,8 +975,6 @@ The first part of your `WHERE` clause should be `WHERE release_year IN (1990, 20
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -996,6 +992,8 @@ Ex().test_correct(check_result(), [
     duration,
     from_clause,
     where_clause.has_equal_ast('Is your `WHERE` clause correct?'),
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1017,8 +1015,6 @@ Your `WHERE` clause should be `WHERE language IN ('English', 'Spanish', 'French'
 
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1028,6 +1024,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1049,8 +1047,6 @@ Your `WHERE` clause should be `WHERE certification IN ('NC-17', 'R');`
 
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1060,6 +1056,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1144,8 +1142,6 @@ Your `WHERE` clause should be `WHERE deathdate IS NULL;`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1155,6 +1151,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `
 Ex().test_correct(check_result(), [
     where_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1175,8 +1173,6 @@ Your `WHERE` clause should be `WHERE language IS NULL;`
 
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
@@ -1189,6 +1185,8 @@ Ex().test_correct(check_result(), [
     where_clause,
     count_call,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -1207,8 +1205,6 @@ WHERE budget IS NULL;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1218,6 +1214,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `
 Ex().test_correct(check_result(), [
     where_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1289,8 +1287,6 @@ Your `WHERE` clause should be `WHERE name LIKE 'B%';`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1300,6 +1296,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1321,8 +1319,6 @@ Your `WHERE` clause should be `WHERE name LIKE '_r%';`
 
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1332,6 +1328,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1353,8 +1351,6 @@ Your `WHERE` clause should be `WHERE name NOT LIKE 'A%';`
 
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1364,6 +1360,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```

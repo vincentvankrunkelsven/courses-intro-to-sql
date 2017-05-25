@@ -19,7 +19,7 @@ description: >-
 
 If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-introduction-to-r) or [Python](https://www.datacamp.com/courses/intro-to-python-for-data-science), you'll be familiar with the interface.
 
-For SQL however, we're introducing some new features. 
+For SQL however, we're introducing some new features.
 
 In the real world you will often need to incrementally build up your queries. To reflect this, we're introducing _tab exercises_. Check it out below!
 
@@ -41,7 +41,7 @@ AS welcome_column;
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
-Run the query in the editor and check out the results in the **query result** tab to the right! 
+Run the query in the editor and check out the results in the **query result** tab to the right!
 
 *** =hint1
 Run the code in the editor!
@@ -64,9 +64,9 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 *** =key2: 97d9538682
 
 *** =question2
-Good work! 
+Good work!
 
-For this course, you'll be using a film database. 
+For this course, you'll be using a film database.
 
 To the right, underneath the editor, you can see the data that's in this database by clicking through the tabs.
 
@@ -96,9 +96,9 @@ Ex().test_mc(3,[msg1, msg1, correct, msg1])
 --- type:BulletExercise lang:sql xp:100 skills:1 key:f76443aff1
 ## Onboarding (2)
 
-Good work! 
+Good work!
 
-Another new feature we're introducing is bullet exercises. 
+Another new feature we're introducing is bullet exercises.
 
 These allow you to repeat and practice a new concept easily, check it out below!
 
@@ -319,8 +319,6 @@ Try `SELECT title FROM films;`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 
 sel = check_node('SelectStmt')
 
@@ -331,6 +329,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     title,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -347,8 +347,6 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 release_year = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
@@ -358,6 +356,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     release_year,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -374,8 +374,6 @@ FROM people;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 name = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
@@ -385,6 +383,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     name,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -445,8 +445,6 @@ Try `SELECT title FROM films;`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
@@ -456,6 +454,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause
 Ex().test_correct(check_result(), [
     from_clause,
     title,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -472,8 +472,6 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
@@ -486,6 +484,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     title,
     release_year,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -502,8 +502,6 @@ FROM films;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
@@ -519,6 +517,8 @@ Ex().test_correct(check_result(), [
     title,
     release_year,
     country,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -538,8 +538,6 @@ Remember, to get all columns, you can use `SELECT *`;
 
 *** =sct4
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 star = sel.check_node('Star').has_equal_ast('Have you used `*` in your `SELECT` statement?')
@@ -549,6 +547,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     star,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -596,8 +596,6 @@ Remember, to get unique countries you can use `SELECT DISTINCT country`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
@@ -610,6 +608,8 @@ Ex().test_correct(check_result(), [
     distinct,
     language,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -629,8 +629,6 @@ Remember, to get unique certifications you can use `SELECT DISTINCT certificatio
 
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
@@ -643,6 +641,8 @@ Ex().test_correct(check_result(), [
     distinct,
     certification,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -659,8 +659,6 @@ FROM roles;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
@@ -673,6 +671,8 @@ Ex().test_correct(check_result(), [
     distinct,
     role,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -783,6 +783,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     count_call,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -798,8 +800,6 @@ FROM people;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -809,6 +809,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     count,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -829,8 +831,6 @@ Remember, to count unique values you can use `COUNT(DISTINCT column_name)`
 
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -840,6 +840,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     count,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -857,8 +859,6 @@ FROM films;
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -868,6 +868,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     count,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -885,8 +887,6 @@ FROM films;
 ```
 *** =sct5
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
@@ -896,6 +896,8 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     count,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -956,8 +958,6 @@ FROM films;
 To get the total duration, you can use `SUM(duration)`
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 sum_call = sel.check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
@@ -968,6 +968,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     sum_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -985,8 +987,6 @@ FROM films;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
@@ -997,6 +997,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     avg_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1043,8 +1045,6 @@ FROM films;
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 max_call = sel.check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
@@ -1055,6 +1055,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     max_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1071,8 +1073,6 @@ FROM films;
 ```
 *** =sct5
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
@@ -1083,6 +1083,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     min_call,
     sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1203,8 +1205,6 @@ FROM films;
 The profit / loss will be `gross - budget`
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 alias = test_column('profit_or_loss', match='exact')
@@ -1214,6 +1214,8 @@ alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('
 Ex().test_correct(check_result(), [
     alias_eqn,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1248,6 +1250,8 @@ Ex().test_correct(check_result(), [
     alias_eqn,
     alias,
     sel,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1267,8 +1271,6 @@ FROM films;
 The average duration in hours is `AVG(duration) / 60.0`
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 # TODO: come back to this with better solution
 sel = check_node('SelectStmt')
 
@@ -1282,6 +1284,8 @@ avg_call = test_or(avg1, avg2)
 Ex().test_correct(check_result(), [
     avg_call,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1318,8 +1322,6 @@ The percentage is calculated as `COUNT(deathdate) * 100.0 / COUNT(*)`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 alias = test_column('percentage_dead', match='exact')
@@ -1340,6 +1342,8 @@ Ex().test_correct(check_result(), [
     alias_eqn,
     alias,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1359,8 +1363,6 @@ FROM films;
 The difference will be `MAX(release_year) - MIN(release_year)`
 *** =sct2
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1373,6 +1375,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     alias_eqn,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -1394,8 +1398,6 @@ The number of decades is calculated as `(MAX(release_year) - MIN(release_year)) 
 
 *** =sct3
 ```{python}
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1408,6 +1410,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     alias_eqn,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```

@@ -82,8 +82,6 @@ You need to use `ORDER BY name;`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 
 sel = check_node('SelectStmt')
 
@@ -94,6 +92,8 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -113,7 +113,7 @@ ORDER BY birthdate;
 ```
 *** =sct2
 ```{sql}
-Ex().test_has_columns() 
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -124,6 +124,8 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -141,8 +143,6 @@ ORDER BY birthdate;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -152,6 +152,8 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -170,8 +172,6 @@ ORDER BY release_year;
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -184,6 +184,8 @@ Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -217,6 +219,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     order_by_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -255,8 +259,6 @@ You need to use `ORDER BY imdb_score DESC;`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -266,6 +268,8 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -286,8 +290,6 @@ ORDER BY title DESC;
 You need to use `ORDER BY title DESC;`
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -297,6 +299,8 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -333,7 +337,7 @@ set_options(visible_tables = ['films', 'people'])
 *** =key1: 9ec6e8ae72
 
 *** =instructions1
-Get the birth date and name of people in the `people` table, in order of when they were born and alphabetically by name. 
+Get the birth date and name of people in the `people` table, in order of when they were born and alphabetically by name.
 *** =solution1
 ```{sql}
 SELECT birthdate, name
@@ -346,8 +350,6 @@ You need to use `ORDER BY birthdate, name;`
 
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -357,6 +359,8 @@ order_by_clause = sel.check_field('order_by_clause').has_equal_ast('Is your `ORD
 Ex().test_correct(check_result(), [
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -375,8 +379,6 @@ ORDER BY release_year, duration;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -389,6 +391,8 @@ Ex().test_correct(check_result(), [
     where_clause,
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -408,8 +412,6 @@ ORDER BY certification, release_year;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -422,6 +424,8 @@ Ex().test_correct(check_result(), [
     where_clause,
     order_by_clause,
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -440,8 +444,6 @@ ORDER BY birthdate;
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause')
@@ -455,6 +457,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
     order_by_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -558,8 +562,6 @@ GROUP BY release_year;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 count_call = sel.check_node('Call').has_equal_ast('Is your `COUNT` call correct?')
@@ -572,6 +574,8 @@ Ex().test_correct(check_result(), [
     count_call,
     from_clause,
     group_by_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -590,8 +594,6 @@ ORDER BY release_year;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 alias = test_column('films_released', match='exact')
@@ -610,6 +612,8 @@ Ex().test_correct(check_result(), [
     group_by_clause,
     from_clause,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -630,7 +634,7 @@ ORDER BY films_released;
 *** =sct3
 ```{python}
 # TODO: might be useful to add a check that student didn't type ASC
-Ex().test_has_columns() 
+Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
 
@@ -650,6 +654,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     count_call,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -669,8 +675,6 @@ ORDER BY films_released DESC;
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -689,6 +693,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     count_call,
     alias,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -707,8 +713,6 @@ ORDER BY release_year;
 ```
 *** =sct5
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -724,6 +728,8 @@ Ex().test_correct(check_result(), [
     group_by_clause,
     from_clause,
     min_call,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -741,8 +747,6 @@ GROUP BY language;
 ```
 *** =sct6
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -755,6 +759,8 @@ Ex().test_correct(check_result(), [
     group_by_clause,
     from_clause,
     sum_call,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -772,8 +778,6 @@ GROUP BY country;
 ```
 *** =sct7
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -786,6 +790,8 @@ Ex().test_correct(check_result(), [
     group_by_clause,
     from_clause,
     sum_call,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -824,8 +830,6 @@ ORDER BY release_year, country;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -844,6 +848,8 @@ Ex().test_correct(check_result(), [
     group_by_clause2,
     from_clause,
     max_call,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -862,8 +868,6 @@ ORDER BY release_year, country;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -882,6 +886,8 @@ Ex().test_correct(check_result(), [
     group_by_clause2,
     from_clause,
     min_call,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -961,14 +967,14 @@ FROM films;
 ```
 *** =sct1
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -987,8 +993,6 @@ WHERE release_year > 1990;
 ```
 *** =sct2
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -997,6 +1001,8 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -1016,8 +1022,6 @@ GROUP BY release_year;
 ```
 *** =sct3
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1029,6 +1033,8 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
     group_by,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -1049,8 +1055,6 @@ GROUP BY release_year;
 ```
 *** =sct4
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1072,6 +1076,8 @@ Ex().test_correct(check_result(), [
     group_by,
     alias1,
     alias2,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1092,8 +1098,6 @@ HAVING AVG(budget) > 60000000;
 ```
 *** =sct5
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1119,6 +1123,8 @@ Ex().test_correct(check_result(), [
     group_by,
     alias1,
     alias2,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -1141,8 +1147,6 @@ ORDER BY avg_box_office DESC;
 ```
 *** =sct6
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1170,6 +1174,8 @@ Ex().test_correct(check_result(), [
     order_by,
     alias1,
     alias2,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 
@@ -1209,8 +1215,6 @@ LIMIT 5;
 
 *** =sct
 ```{python}
-Ex().test_has_columns() 
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
@@ -1237,6 +1241,8 @@ Ex().test_correct(check_result(), [
     order_by,
     alias1,
     alias2,
+    test_has_columns(),
+    test_ncols(),
     test_error()
 ])
 ```
@@ -1244,17 +1250,17 @@ Ex().test_correct(check_result(), [
 --- type:TabExercise lang:sql xp:100 skills:1 key:d101be707a
 ## One more thing..
 
-Congrats on making it to the end of the course! By now you should have a good understanding of the basics of SQL. 
+Congrats on making it to the end of the course! By now you should have a good understanding of the basics of SQL.
 
-There's one more concept we're going to introduce. You may have noticed that all our results so far have been from just one table. For example, from the `films` or `people` tables. 
+There's one more concept we're going to introduce. You may have noticed that all our results so far have been from just one table. For example, from the `films` or `people` tables.
 
-In the real world however, you will often want to query multiple tables. For example, what if you want to see the IMDB score for a particular movie? 
+In the real world however, you will often want to query multiple tables. For example, what if you want to see the IMDB score for a particular movie?
 
-In this case, you'd want to get the ID of the movie from the `films` table and then use it to get IMDB information from the `reviews` table. In SQL, this concept is known as a **join**, and a basic join is shown in the editor to the right. 
+In this case, you'd want to get the ID of the movie from the `films` table and then use it to get IMDB information from the `reviews` table. In SQL, this concept is known as a **join**, and a basic join is shown in the editor to the right.
 
-The query in the editor gets the IMDB score for the film _To Kill a Mockingbird_! Cool right? 
+The query in the editor gets the IMDB score for the film _To Kill a Mockingbird_! Cool right?
 
-As you can see, joins are incredibly useful and important to understand for anyone using SQL. 
+As you can see, joins are incredibly useful and important to understand for anyone using SQL.
 
 We'll have a whole course dedicated to them coming soon!
 
@@ -1278,7 +1284,7 @@ WHERE title = 'To Kill a Mockingbird';
 *** =key1: 7c4fc7a484
 
 *** =instructions1
-Submit the code in the editor and inspect the results. 
+Submit the code in the editor and inspect the results.
 
 *** =hint1
 Submit the code in the editor!
@@ -1305,7 +1311,7 @@ Ex().check_result()
 *** =key2: fc288db979
 
 *** =question2
-What rating does _To Kill a Mockingbird_ have on IMDB? 
+What rating does _To Kill a Mockingbird_ have on IMDB?
 
 *** =possible_answers2
 - 8.1
@@ -1323,5 +1329,3 @@ correct = 'Correct!'
 
 Ex().test_mc(2,[msg1, correct, msg1, msg1])
 ```
-
-
