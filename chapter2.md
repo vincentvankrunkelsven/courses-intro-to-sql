@@ -456,7 +456,7 @@ Get the average duration of films made in France in 1992.
 ```{sql}
 SELECT AVG(duration)
 FROM films
-WHERE release_year = 1992
+WHERE release_year = 1995
 AND country = 'France';
 ```
 *** =sct3
