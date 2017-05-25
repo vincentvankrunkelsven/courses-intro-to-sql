@@ -88,11 +88,7 @@ Ex().test_mc(3,[msg1, msg1, correct, msg1])
 --- type:BulletExercise lang:sql xp:100 skills:1 key:f76443aff1
 ## Onboarding (2)
 
-Good work!
-
-Another new feature we're introducing is bullet exercises.
-
-These allow you to repeat and practice a new concept easily, check it out below!
+Another new feature we're introducing is *bullet exercises*, which allow you to easily practice a new concept through repetition. Check it out below!
 
 *** =pre_exercise_code
 ```{python}
@@ -102,7 +98,7 @@ connect('postgresql', 'films')
 *** =sample_code
 ```{sql}
 SELECT 'SQL'
-AS result
+AS result;
 ```
 
 *** =type1:NormalExercise
@@ -117,7 +113,7 @@ Submit the query!
 *** =solution1
 ```{sql}
 SELECT 'SQL'
-AS result
+AS result;
 ```
 
 *** =sct1
@@ -140,7 +136,7 @@ Change the code and submit the query!
 *** =solution2
 ```{sql}
 SELECT 'SQL is'
-AS result
+AS result;
 ```
 
 *** =sct2
@@ -148,7 +144,6 @@ AS result
 Ex().test_error()
 Ex().test_has_columns()
 Ex().check_result()
-
 ```
 
 *** =type3:NormalExercise
@@ -163,7 +158,7 @@ Change the code and submit the query!
 *** =solution3
 ```{sql}
 SELECT 'SQL is cool!'
-AS result
+AS result;
 ```
 
 *** =sct3
@@ -177,50 +172,48 @@ Ex().check_result()
 --- type:NormalExercise lang:sql xp:100 skills:1 key:7d7e325a12
 ## A note on errors
 
-Good work so far!
-
 If you submit the code to the right, you'll see that you get two types of errors. _SQL_ errors are shown below the editor. You should see:
 
 ```
 syntax error at or near "'DataCamp <3 SQL'" LINE 2: 'DataCamp <3 SQL' ^
 ```
 
-_DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
+_DataCamp_ errors are shown in the the **Instructions** box. These will let you know in plain English where you went wrong in your code! You should see:
 
 ```
 You need to add SELECT at the start of line 2!
 ```
 
 *** =instructions
-Submit the code to the right, check out the errors then fix them to start the course!
+Submit the code to the right, check out the errors, then fix them to start the course!
 
 *** =hint
-Change line 2 to be: `SELECT 'DataCamp + SQL = <3'`.
+In the editor, change line 2 to `SELECT 'DataCamp <3 SQL'`.
 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
-
 ```
 
 *** =sample_code
 ```{sql}
 -- try running me!
 'DataCamp <3 SQL'
-AS result
+AS result;
 ```
 
 *** =solution
 ```{sql}
 -- try running me!
 SELECT 'DataCamp <3 SQL'
-AS result
+AS result;
 ```
 
 *** =sct
 ```{sql}
 Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
 ```
+
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
