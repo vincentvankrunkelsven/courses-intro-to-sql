@@ -282,7 +282,6 @@ It's also good practice (but not necessary for the exercises in this course) to 
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films', 'people'])
-
 ```
 
 *** =sample_code
@@ -378,7 +377,9 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:09f21bae4c
 ## SELECTing multiple columns
 
-Well done! Now you know how to select single columns. In the real world, you will often want to select multiple columns. Thankfully, SQL makes it really easy to select multiple columns. To select multiple columns from a table, you can simply separate the columns with commas!
+Well done! Now you know how to select single columns. 
+
+In the real world, you will often want to select multiple columns. Thankfully, SQL makes this really easy. To select multiple columns from a table, you can simply separate the column names with commas!
 
 For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
 
@@ -402,13 +403,12 @@ FROM people
 LIMIT 10;
 ```
 
-You can check out the column names in the tables by clicking on the tabs to the right under the editor!
+Before getting started with the instructions below, check out the column names in the `films` table by clicking on the `films` tab to the right!
 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films'])
-
 ```
 
 *** =sample_code
@@ -427,7 +427,7 @@ FROM films;
 ```
 
 *** =hint1
-Try `SELECT title FROM films;`
+Try `SELECT title FROM films;`.
 
 *** =sct1
 ```{python}
@@ -520,7 +520,7 @@ FROM films;
 ```
 
 *** =hint4
-Remember, to get all columns, you can use `SELECT *`;
+Remember, to get all columns, you can use `SELECT *`.
 
 *** =sct4
 ```{python}
