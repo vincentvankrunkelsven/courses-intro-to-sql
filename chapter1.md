@@ -28,7 +28,7 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
--- try running me!
+-- Try running me!
 SELECT 'Welcome to the course!'
 AS welcome_column;
 ```
@@ -46,7 +46,7 @@ Run the code in the editor!
 
 *** =solution1
 ```{sql}
--- try running me!
+-- Try running me!
 SELECT 'Welcome to the course!'
 AS welcome_column;
 ```
@@ -121,7 +121,6 @@ AS result;
 Ex().test_error()
 Ex().test_has_columns()
 Ex().check_result()
-
 ```
 
 *** =type2:NormalExercise
@@ -197,14 +196,14 @@ connect('postgresql', 'films')
 
 *** =sample_code
 ```{sql}
--- try running me!
+-- Try running me!
 'DataCamp <3 SQL'
 AS result;
 ```
 
 *** =solution
 ```{sql}
--- try running me!
+-- Try running me!
 SELECT 'DataCamp <3 SQL'
 AS result;
 ```
@@ -542,8 +541,6 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:de52236965
 ## SELECT DISTINCT
 
-Good work!
-
 Often your results will include many duplicate values. If you want to select all the unique values from a column, you can use the `DISTINCT` keyword.
 
 This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
@@ -559,7 +556,6 @@ Remember, you can check out the data in the tables by clicking on the tabs to th
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films', 'roles'])
-
 ```
 
 *** =sample_code
@@ -666,11 +662,9 @@ Ex().test_correct(check_result(), [
 --- type:MultipleChoiceExercise lang:sql xp:50 key:97f97f5766
 ## Learning to COUNT
 
-Nice work!
+What if you want to count the number of employees in your employees table? The `COUNT` statement lets you do this by returning the number of rows in one or more columns.
 
-What if you want to count the number of employees in your employees table? The `COUNT` statement lets you do this! `COUNT` returns the number of rows in one or more columns.
-
-So, the following code simply gives the number of rows in the `people` table:
+For example, this code gives the number of rows in the `people` table:
 
 ```sql
 SELECT COUNT(*)
@@ -921,7 +915,6 @@ We're sure you can guess what the `MIN()` function does! Now it's your turn to t
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films'])
-
 ```
 
 *** =sample_code
