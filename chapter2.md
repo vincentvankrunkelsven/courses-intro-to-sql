@@ -1,28 +1,25 @@
 ---
-title: Filtering Records
+title: Filtering rows
 description: >-
-  This chapter builds on the first by teaching you not only how to select and
-  summarize columns of interest, but to filter tables for records satisfying
-  some criteria of interest. You'll learn how to use basic comparison operators,
-  combine multiple criteria, match patterns in text, and much more.
+  This chapter builds on the first by teaching you how to filter tables for rows 
+  satisfying some criteria of interest. You'll learn how to use basic comparison 
+  operators, combine multiple criteria, match patterns in text, and much more.
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:bfc80ff2e5
 ## Filtering results
 
-Congrats on finishing the first chapter! You now know how to select, summarize and alias columns. This chapter will focus on filtering your results to make them more specific.
+Congrats on finishing the first chapter! You now know how to select columns and perform basic counts. This chapter will focus on filtering your results.
 
-In SQL, the `WHERE` keyword allows you to filter both text and numeric records based on certain conditions.
-
-There are a few different comparison operators you can use:
+In SQL, the `WHERE` keyword allows you to filter based on both text and numeric values in a table. There are a few different comparison operators you can use:
 
 - `=` equal
 - `<>` not equal
 - `<` less than
 - `>` greater than
-- `<` less than or equal to
+- `<=` less than or equal to
 - `>=` greater than or equal to
 
-For example, you can filter text records such as `title`. The following code selects any films with the title 'Metropolis':
+For example, you can filter text records such as `title`. The following code returns all films with the title 'Metropolis':
 
 ```
 SELECT title
@@ -30,7 +27,9 @@ FROM films
 WHERE title = 'Metropolis';
 ```
 
-And you can filter numeric records such as the `release_year`. The following query select any films released after the year 2000:
+Note that the `WHERE` clause always comes after the `FROM` statement!
+
+What will the following query return?
 
 ```
 SELECT title
@@ -38,27 +37,21 @@ FROM films
 WHERE release_year > 2000;
 ```
 
-Note that the `WHERE` clause always comes after the `FROM` statement!
-
-<hr>
-What types of data can be filtered using `WHERE`?
 *** =instructions
-- Only numeric data
-- Only text data
-- Both numeric and text data
-- None of the above
+- Films released before the year 2000
+- Films released after the year 2000
+- Films released after the year 2001
+- Films released in 2000
 
 *** =hint
-It's not none of the above!
+If you're stuck, refer to the list of comparison operators above!
 
 *** =sct
 ```{python}
-success_msg = "Correct! `WHERE` can be used to filter on both numeric and text data."
-msg2 = "Incorrect. `WHERE` can be used with more than just numeric data!"
-msg3 = "Incorrect. `WHERE` can be used with more than just text data!"
-msg4 = "Incorrect, try again!"
+success_msg = "Correct!"
+msg2 = "Incorrect. `>` means *strictly* greater than and *not* equal to."
 
-Ex().test_mc(3,[msg2, msg3, success_msg, msg4])
+Ex().test_mc(2, [msg2, success_msg, msg2, msg2])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:b90db25f34

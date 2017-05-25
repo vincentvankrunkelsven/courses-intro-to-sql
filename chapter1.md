@@ -1,5 +1,5 @@
 ---
-title: Selecting and summarizing columns
+title: Selecting columns
 description: >-
   This chapter provides a brief introduction to working with relational
   databases. You'll learn about their structure, how to talk about them using

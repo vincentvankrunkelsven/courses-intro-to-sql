@@ -1,5 +1,5 @@
 ---
-title: Sorting and Grouping
+title: Sorting and grouping
 description: >-
   Now that you've learned how to select the rows and columns you're most
   interested in, you'll take your analyses to the next level by learning how to
