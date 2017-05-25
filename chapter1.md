@@ -19,7 +19,7 @@ If you've used DataCamp to learn [R](https://www.datacamp.com/courses/free-intro
 
 For SQL however, we're introducing some new features.
 
-In the real world you will often need to incrementally build up your queries. To reflect this, we're introducing _tab exercises_. Check it out below!
+In the real world you will often need to incrementally build up your queries. To reflect this, we're introducing *tab exercises*. Check it out below!
 
 *** =pre_exercise_code
 ```{python}
@@ -37,9 +37,9 @@ AS welcome_column;
 *** =key1: 0e1942875c
 
 *** =instructions1
-Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
+Notice the **query result** tab in the bottom right corner of your screen. This is where the results of your SQL queries will be displayed.
 
-Run the query in the editor and check out the results in the **query result** tab to the right!
+Run the query in the editor and check out the results in the **query result** tab!
 
 *** =hint1
 Run the code in the editor!
@@ -62,13 +62,11 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 *** =key2: 97d9538682
 
 *** =question2
-Good work!
+Good work! 
 
-For this course, you'll be using a film database.
+For this course, you'll be using a database containing information on almost 5000 films. To the right, underneath the editor, you can see the tables in this database by clicking through the tabs.
 
-To the right, underneath the editor, you can see the data that's in this database by clicking through the tabs.
-
-From looking at the tables, who is the first person in the `people` table?
+From looking at the tables, who is the first person listed in the `people` table?
 
 *** =possible_answers2
 - Kanye West
@@ -77,8 +75,7 @@ From looking at the tables, who is the first person in the `people` table?
 - Jay Z
 
 *** =hint2
-Look at the people tab under the editor!
-
+Look at the `people` tab under the editor!
 
 *** =sct2
 ```{python}
@@ -87,9 +84,6 @@ correct = 'Correct!'
 
 Ex().test_mc(3,[msg1, msg1, correct, msg1])
 ```
-
-
-
 
 --- type:BulletExercise lang:sql xp:100 skills:1 key:f76443aff1
 ## Onboarding (2)
