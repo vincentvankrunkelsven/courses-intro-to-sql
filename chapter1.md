@@ -217,13 +217,15 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
 ## Beginning your SQL journey
 
-Now that you're familiar with the interface, let's get straight into it. SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*.
+Now that you're familiar with the interface, let's get straight into it. 
 
-You can think of a relational database as a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company, or purchases made.
+SQL, which stands for *Structured Query Language*, is a language for interacting with data stored in something called a *relational database*.
 
-Each row, or *record*, of a table contains information about a single entity -- E.g., in a table representing employees, each row represents a single person. Each column, or *field*, contains a single attribute for all rows in the table -- E.g., in a table representing employees, we might have a column for an employee's first and last name.
+You can think of a relational database as a collection of tables. A table is just a set of rows and columns, like a spreadsheet, which represents exactly one type of entity. For example, a table might represent employees in a company or purchases made, but not both.
 
-The employees table might look something like this:
+Each row, or *record*, of a table contains information about a single entity. For example, in a table representing employees, each row represents a single person. Each column, or *field*, of a table contains a single attribute for all rows in the table. For example, in a table representing employees, we might have a column containing first and last names for all employees.
+
+The table of employees might look something like this:
 
 | id | name | age | nationality |
 |----|----|----|----|
@@ -231,9 +233,8 @@ The employees table might look something like this:
 | 2 | Gabriel | 48 | France |
 | 3 | Laura | 36 | USA |
 
-
 <br>
-Take a look at the employees table; how many fields does it contain?
+How many fields does the employees table above contain?
 
 *** =instructions
 - 1
