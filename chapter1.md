@@ -705,22 +705,22 @@ Ex().test_mc(3,[msg2, msg2, success_msg, msg2, msg2])
 --- type:BulletExercise lang:sql xp:100 key:7643365e67
 ## Practice with COUNT
 
-As you saw, `COUNT(*)` will tell you how many rows are in the table. However, if you want to count the number of non-missing values in a particular column, you can call `COUNT` on just that column.
+As you've seen, `COUNT(*)` tells you how many rows are in a table. However, if you want to count the number of *non-missing* values in a particular column, you can call `COUNT` on just that column.
 
-For example, to count the number of birth dates present in the `roles` table:
+For example, to count the number of birth dates present in the `people` table:
 
 ```sql
 SELECT COUNT(birthdate)
-FROM roles;
+FROM people;
 ```
 
-It's also common to combine `COUNT` with `DISTINCT` to count the number of distinct values in a column.
+It's also common to combine `COUNT` with `DISTINCT` to count the number of *distinct* values in a column.
 
-For example, this query counts the number of *unique* birth dates contained in the `roles` table:
+For example, this query counts the number of distinct birth dates contained in the `people` table:
 
 ```sql
 SELECT COUNT(DISTINCT birthdate)
-FROM roles;
+FROM people;
 ```
 
 Let's get some practice with `COUNT`!
@@ -729,7 +729,6 @@ Let's get some practice with `COUNT`!
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films', 'people'])
-
 ```
 
 *** =sample_code
@@ -751,7 +750,7 @@ Remember, to count the number of rows you can use `SELECT COUNT(*)`
 
 *** =sct1
 ```{python}
-# TODO: if student selects from wrong table, there's no results and error is for 'no cols' rather than for 'incorret from clause'
+# TODO: if student selects from wrong table, there's no results and error is for 'no cols' rather than for 'incorrect from clause'
 Ex().test_has_columns()
 Ex().test_ncols()
 sel = check_node('SelectStmt')
@@ -772,7 +771,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 *** =key2: 497ffa962e
 *** =instructions2
-Count the number of rows in the birth date column in the `people` table.
+Count the number of *non-missing* birth dates in the `people` table.
 *** =solution2
 ```{sql}
 SELECT COUNT(birthdate)
@@ -884,8 +883,6 @@ Ex().test_correct(check_result(), [
 
 --- type:BulletExercise lang:sql xp:100 key:5260bda57a
 ## SUM, AVG, MIN, MAX
-
-Great work.
 
 Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this.
 
