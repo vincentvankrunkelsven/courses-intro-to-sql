@@ -232,7 +232,7 @@ The table of employees might look something like this:
 | 2 | Gabriel | 48 | France |
 | 3 | Laura | 36 | USA |
 
-<br>
+<hr>
 How many fields does the employees table above contain?
 
 *** =instructions

@@ -29,7 +29,8 @@ WHERE title = 'Metropolis';
 
 Note that the `WHERE` clause always comes after the `FROM` statement!
 
-What will the following query return?
+<hr>
+What does the following query return?
 
 ```
 SELECT title
@@ -188,7 +189,7 @@ WHERE country = 'China';
 
 Now it's your turn to practice using `WHERE` with text values!
 
-**Note: in PostgreSQL (the version of SQL we're using), you must use single quotes with `WHERE`.**
+**Important: in PostgreSQL (the version of SQL we're using), you must use single quotes with `WHERE`.**
 
 *** =pre_exercise_code
 ```{python}
@@ -593,18 +594,16 @@ AND gross > 20000000;
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
 ## BETWEEN
 
-Great work!
-
-As you saw, you could do:
+As you've learned, you can use the following query to get titles of all films released in and between 1994 and 2000:
 
 ```
 SELECT title
 FROM films
-WHERE release_year > 1994
-AND release_year < 2000;
+WHERE release_year >= 1994
+AND release_year <= 2000;
 ```
 
-It turns out that checking for ranges like this is very common, so in SQL, the `BETWEEN` keyword allows you filter values within a specified range:
+Checking for ranges like this is very common, so in SQL the `BETWEEN` keyword provides a useful shorthand for filtering values within a specified range. This query is equivalent to the one above:
 
 ```
 SELECT title
@@ -612,8 +611,6 @@ FROM films
 WHERE release_year
 BETWEEN 1994 AND 2000;
 ```
-
-which gives you the names of all the films released between 1994 and 2000.
 
 It's important to remember that `BETWEEN` is _inclusive_, meaning the beginning and end values are included in the results!
 
