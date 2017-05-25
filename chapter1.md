@@ -7,12 +7,11 @@ description: >-
   select and summarize columns from database tables.
 
 
-
---- type:VideoExercise lang:sql xp:50 skills:1 key:84fda3605e
-## Welcome Video
+--- type:VideoExercise lang:sql xp:50 skills:1 key:dcdbb24914
+## Welcome to the course!
 
 *** =projector_key
-7dcad2579b06ad68a6c1186b1d25a3a3
+f05d06ad7807cf476fdb5f674174c9d5
 
 --- type:TabExercise lang:sql xp:100 skills:1 key:0cbd791cc8
 ## Onboarding
