@@ -36,8 +36,7 @@ AS welcome_column;
 ```
 
 *** =type1:NormalExercise
-*** =key1: 7381e8fd76
-
+*** =key1:
 *** =instructions1
 Notice the **query result** tab to the right. This is where the results of your SQL queries will be displayed.
 
@@ -61,8 +60,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 ```
 
 *** =type2:MultipleChoiceExercise
-*** =key2: a483bde6bf
-
+*** =key2:
 *** =question2
 Good work! 
 
@@ -114,8 +112,7 @@ AS result
 ```
 
 *** =type1:NormalExercise
-*** =key1: 9d4beb97dd
-
+*** =key1:
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
 
@@ -137,8 +134,7 @@ Ex().check_result()
 ```
 
 *** =type2:NormalExercise
-*** =key2: 234081c02f
-
+*** =key2:
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
 
@@ -160,8 +156,7 @@ Ex().check_result()
 ```
 
 *** =type3:NormalExercise
-*** =key3: 0724f4cc25
-
+*** =key3:
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
 
@@ -190,7 +185,7 @@ Good work so far!
 If you submit the code to the right, you'll see that you get two types of errors. _SQL_ errors are shown below the editor. You should see:
 
 ```
-syntax error at or near "'Welcome to the course!'" LINE 2: 'Welcome to the course!' ^
+syntax error at or near "'DataCamp <3 SQL'" LINE 2: 'DataCamp <3 SQL' ^
 ```
 
 _DataCamp_ errors are shown in the the **Instructions** box. These will let you know in English where you went wrong in your code! You should see:
