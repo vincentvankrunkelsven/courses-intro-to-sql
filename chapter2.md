@@ -656,7 +656,6 @@ Take a go at using `BETWEEN` with `AND`!
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films'])
-
 ```
 
 *** =sample_code
