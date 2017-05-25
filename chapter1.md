@@ -6,7 +6,6 @@ description: >-
   database lingo, and how to begin an analysis by using simple SQL commands to
   select and summarize columns from database tables.
 
-
 --- type:VideoExercise lang:sql xp:50 skills:1 key:dcdbb24914
 ## Welcome to the course!
 
