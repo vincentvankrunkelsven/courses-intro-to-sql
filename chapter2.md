@@ -1018,8 +1018,7 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: 28715704fa
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1420,17 +1419,11 @@ Ex().test_correct(check_result(), [
 --- type:BulletExercise lang:sql xp:100 key:84411d78ac
 ## LIKE and NOT LIKE
 
-Good work!
+As you've seen, the `WHERE` column can be used to filter text data. However, so far you've only been able to filter by specifying the exact text you're interested in. In the real world, often you'll want to search for a *pattern* rather than a specific text string.
 
-As you have seen, the `WHERE` column can be used to filter text data. However, so far you've only been able to filter based on specific text string. In the real world, often you'll want to search for a specific pattern rather than a specific text string.
+In SQL, the `LIKE` operator can be used in a `WHERE` clause to search for a pattern in a column. To accomplish this, you use something called a _wildcard_ as a placeholder for some other values. There are two wildcards you can use with `LIKE`:
 
-In SQL, the `LIKE` operator can be used in a `WHERE` clause to search for a specific pattern in a column.
-
-In relation to the `LIKE` operator, a _wildcard_ is a placeholder for some other values. There are two wildcards you can use with `LIKE`:
-
-* The `'%'` wildcard will match zero, one, or many characters in text.
-
-For example, the following query:
+The `%` wildcard will match zero, one, or many characters in text. For example, the following query matches companies like `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on:
 
 ```
 SELECT name
@@ -1438,11 +1431,7 @@ FROM companies
 WHERE name LIKE 'Data%';
 ```
 
-matches companies like `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on.
-
-* The `'_'` wildcard will match a _single_ character.
-
-For example, the following query:
+The `_` wildcard will match a _single_ character. For example, the following query matches companies like `'DataCamp'`, `'DataComp'`, and so on:
 
 ```
 SELECT name
@@ -1450,9 +1439,7 @@ FROM companies
 WHERE name LIKE 'DataC_mp';
 ```
 
-matches companies like `'DataCamp'`, `'DataComp'`, and so on:
-
-You can also use the `NOT LIKE' operator to find records that **don't** match the pattern you specify.
+You can also use the `NOT LIKE' operator to find records that *don't* match the pattern you specify.
 
 Got it? Let's practice!
 
@@ -1472,7 +1459,7 @@ set_options(visible_tables = ['people'])
 *** =xp1: 20
 
 *** =instructions1
-Get people from the `people` table whose names begin with 'B'. The pattern you need is `'B'`.
+Get the names of all people whose names begin with 'B'. The pattern you need is `'B%'`.
 *** =solution1
 ```{sql}
 SELECT name
@@ -1511,7 +1498,7 @@ Ex().test_correct(check_result(), [
 *** =xp2: 20
 
 *** =instructions2
-Get people whose names have 'r' as the second letter. The pattern you need is `'_r%'`.
+Get the names of people whose names have 'r' as the second letter. The pattern you need is `'_r%'`.
 *** =solution2
 ```{sql}
 SELECT name
@@ -1551,7 +1538,7 @@ Ex().test_correct(check_result(), [
 *** =xp3: 20
 
 *** =instructions3
-Get people whose names don't start with A. The pattern you need is `'A%'`.
+Get the names of people whose names don't start with A. The pattern you need is `'A%'`.
 *** =solution3
 ```{sql}
 SELECT name
@@ -1563,7 +1550,7 @@ WHERE name NOT LIKE 'A%';
 ```
 SELECT ___
 FROM ___
-WHERE ___ NOT ___ '___';
+WHERE ___ NOT LIKE '___';
 ```
 *** =sct3
 ```{python}
