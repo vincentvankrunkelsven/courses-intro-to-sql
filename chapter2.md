@@ -746,11 +746,12 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: aee831c1d8
+*** =key3: 
 *** =xp3: 20
 
 *** =instructions3
 Get the title and release year of French or Spanish films released in the 90s that took in more than $20M at the box office.
+
 *** =solution3
 ```{sql}
 SELECT title, release_year
