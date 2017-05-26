@@ -931,77 +931,27 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: e189875af9
+
+*** =key2: d21a4bec02
 *** =xp2: 20
 
 *** =instructions2
-Get the number of films released in the 90s.
+Get the title and release year of all films released between 1990 and 2000 with budgets over $100 million.
 *** =solution2
 ```{sql}
-SELECT COUNT(*)
+SELECT title, release_year
 FROM films
-WHERE release_year BETWEEN 1990 AND 2000;
-```
-
-*** =hint2
-```
-SELECT ___(___)
-FROM ___
-WHERE ___ ___ 1990 AND 2000;
-```
-*** =sct2
-```{python}
-sel = check_node('SelectStmt')
-
-temp = sel.check_node('Call')
-
-count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
-
-count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause')
-
-between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
-between_op1 = where_clause.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
-between_op2 = where_clause.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
-
-Ex().test_correct(check_result(), [
-    from_clause,
-    between_left,
-    between_op1,
-    between_op2,
-    count_call,
-    count_args,
-    test_has_columns(),
-    test_ncols(),
-    test_error()
-])
-```
-
-*** =type3: NormalExercise
-
-*** =key3: d21a4bec02
-*** =xp3: 20
-
-*** =instructions3
-Get the title and budget of all films made between 2000 and 2015 with budgets over $100 million.
-*** =solution3
-```{sql}
-SELECT title, budget
-FROM films
-WHERE release_year BETWEEN 2000 AND 2015
+WHERE release_year BETWEEN 1990 AND 2000
 AND budget > 100000000;
 ```
-*** =hint3
+*** =hint2
 ```
 SELECT ___, ___
 FROM ___
-WHERE release_year ___ ___ ___ ___
+WHERE ___ BETWEEN ___ AND ___
 AND ___ > ___;
 ```
-*** =sct3
+*** =sct2
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -1037,14 +987,14 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type4: NormalExercise
+*** =type3: NormalExercise
 
-*** =key4: 9087bf33ac
-*** =xp4: 20
+*** =key3: 9087bf33ac
+*** =xp3: 20
 
-*** =instructions4
-Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.
-*** =solution4
+*** =instructions3
+Get the title and release year of all Spanish language films released between 1990 and 2000 with budgets over $100 million.
+*** =solution3
 ```{sql}
 SELECT title, language
 FROM films
@@ -1052,14 +1002,14 @@ WHERE release_year BETWEEN 1990 AND 1995
 OR language = 'Spanish';
 ```
 
-*** =hint4
+*** =hint3
 ```
 SELECT ___, ___
 FROM ___
 WHERE ___ ___ 1990 ___ 1995
 OR ___ = '___';
 ```
-*** =sct4
+*** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
