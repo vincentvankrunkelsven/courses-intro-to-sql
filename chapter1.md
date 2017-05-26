@@ -333,7 +333,7 @@ Ex().test_correct(check_result(), [
     title,
     test_has_columns(),
     test_ncols(),
-    test_error(),
+    test_error()
 ])
 ```
 
