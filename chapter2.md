@@ -366,7 +366,7 @@ Ex().test_correct(check_result(), [
     from_clause,
     where_language,
     count_call,
-    count_args
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -531,7 +531,7 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 
 where_release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
-where_release_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly? Make sure to use single quotes.')
+where_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly? Make sure to use single quotes.')
 
 Ex().test_correct(check_result(), [
     from_clause,
@@ -1416,7 +1416,7 @@ sel = check_node('SelectStmt')
 
 temp = sel.check_node('Call')
 
-count_call = temp.check_field('title').has_equal_ast('Are you calling the `COUNT` function?')
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
 
 count_args = temp.check_field('args', 0).has_equal_ast('Are you using `COUNT` on the right column?')
 

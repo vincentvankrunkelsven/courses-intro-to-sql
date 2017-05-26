@@ -123,7 +123,7 @@ AS result;
 ```{sql}
 Ex().test_error()
 
-Ex().test_student_typed('SQL', msg="Don't modify the query!")
+Ex().test_student_typed('SQL', msg="Don't modify the query!", fixed=True)
 
 Ex().test_has_columns()
 Ex().check_result()
@@ -150,7 +150,7 @@ AS result;
 ```{sql}
 Ex().test_error()
 
-Ex().test_student_typed('SQL is', msg="Did you change the query correctly?")
+Ex().test_student_typed('SQL is', msg="Did you change the query correctly?", fixed=True)
 
 Ex().test_has_columns()
 Ex().check_result()
@@ -176,7 +176,7 @@ AS result;
 ```{sql}
 Ex().test_error()
 
-Ex().test_student_typed('SQL is cool!', msg="Did you change the query correctly?")
+Ex().test_student_typed('SQL is cool!', msg="Did you change the query correctly?", fixed=True)
 
 Ex().test_has_columns()
 Ex().check_result()
@@ -357,7 +357,7 @@ FROM ___;
 ```{python}
 sel = check_node('SelectStmt')
 
-release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?)
+release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -465,7 +465,7 @@ FROM ___;
 ```{python}
 sel = check_node('SelectStmt')
 
-title = test_column('title', msg='Did you select the `title` column correctly?)
+title = test_column('title', msg='Did you select the `title` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
@@ -636,14 +636,11 @@ sel = check_node('SelectStmt')
 # TODO: this needs to be changed 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
 
-language = test_column('language', msg='Did you select the `language` column?')
-
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     distinct,
-    language,
     test_has_columns(),
     test_ncols(),
     test_error()
