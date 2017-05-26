@@ -967,7 +967,7 @@ where_clause = sel.check_field('where_clause')
 
 between_node = where_clause.check_field('left')
 
-between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
 between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
 between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
 
@@ -1052,8 +1052,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 46587931da
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1089,11 +1088,9 @@ where_clause = sel.check_field('where_clause')
 
 # TODO: when test_not_typed() is a thing, use it here to check that `OR` was not typed instead of `AND` on last line
 
-between_node = where_clause.check_field('left')
-
-between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
-between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
-between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
+between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = where_clause.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = where_clause.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
 
 where_budget = where_clause.has_equal_ast(sql='budget > 100000000', start='expression', exact=False, msg='Did you check the `budget` correctly?')
 
@@ -1104,12 +1101,12 @@ where_language2 = where_clause.has_equal_ast(sql="language = 'French'", start='e
 
 Ex().test_correct(check_result(), [
     from_clause,
-    between_left,
-    between_op1,
-    between_op2,
     where_budget,
     where_language1,
     where_language2,
+    between_left,
+    between_op1,
+    between_op2,
     title,
     release_year,
     test_has_columns(),
