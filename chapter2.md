@@ -746,8 +746,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 0581d70c25
-
+*** =key3: 
 *** =xp3: 20
 
 *** =instructions3
@@ -759,7 +758,7 @@ SELECT title, release_year
 FROM films
 WHERE (release_year >= 1990 AND release_year < 2000)
 AND (language = 'French' OR language = 'Spanish')
-AND gross > 20000000;
+AND gross > 2000000;
 ```
 
 *** =hint3
@@ -791,7 +790,7 @@ where_language1 = where_clause.has_equal_ast(sql="language = 'French'", start='e
 
 where_language2 = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
 
-where_gross = where_clause.has_equal_ast(sql='gross > 20000000', start='expression', exact=False, msg='Did you check the `gross` correctly?')
+where_gross = where_clause.has_equal_ast(sql='gross > 2000000', start='expression', exact=False, msg='Did you check the `gross` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
