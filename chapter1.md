@@ -316,8 +316,10 @@ FROM films;
 ```
 
 *** =hint1
-Try `SELECT title FROM films;`
-
+```
+SELECT ___
+FROM ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -346,6 +348,11 @@ Modify your query to get the `release_year` column from the `films table`.
 SELECT release_year
 FROM films;
 ```
+*** =hint2
+```
+SELECT ___
+FROM ___;
+```
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -373,6 +380,11 @@ Now modify your query to get the `name` of each person in the `people` table.
 ```{sql}
 SELECT name
 FROM people;
+```
+*** =hint3
+```
+SELECT ___
+FROM ___;
 ```
 *** =sct3
 ```{python}
@@ -445,8 +457,10 @@ FROM films;
 ```
 
 *** =hint1
-Try `SELECT title FROM films;`.
-
+```
+SELECT ___
+FROM ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -474,6 +488,11 @@ Get the title and release year for every film.
 ```{sql}
 SELECT title, release_year
 FROM films;
+```
+*** =hint2
+```
+SELECT ___, ___
+FROM ___;
 ```
 *** =sct2
 ```{python}
@@ -505,6 +524,12 @@ Get the title, release year and country for every film.
 ```{sql}
 SELECT title, release_year, country
 FROM films;
+```
+
+*** =hint3
+```
+SELECT ___, ___, ___
+FROM ___;
 ```
 *** =sct3
 ```{python}
@@ -541,7 +566,10 @@ FROM films;
 ```
 
 *** =hint4
-Remember, to get all columns, you can use `SELECT *`.
+```
+SELECT *
+FROM ___;
+```
 
 *** =sct4
 ```{python}
@@ -597,8 +625,10 @@ FROM films;
 ```
 
 *** =hint1
-Remember, to get unique countries you can use `SELECT DISTINCT country`
-
+```
+SELECT DISTINCT ___
+FROM ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -632,7 +662,10 @@ FROM films;
 ```
 
 *** =hint2
-Remember, to get unique certifications you can use `SELECT DISTINCT certification`
+```
+SELECT DISTINCT ___
+FROM ___;
+```
 
 *** =sct2
 ```{python}
@@ -665,6 +698,12 @@ Get the different types of film roles from the `roles` table.
 ```{sql}
 SELECT DISTINCT role
 FROM roles;
+```
+
+*** =hint3
+```
+SELECT DISTINCT ___
+FROM ___;
 ```
 *** =sct3
 ```{python}
@@ -775,8 +814,10 @@ FROM people;
 ```
 
 *** =hint1
-Remember, to count the number of rows you can use `SELECT COUNT(*)`
-
+```
+SELECT COUNT(___)
+FROM ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -808,6 +849,11 @@ Count the number of (non-missing) birth dates in the `people` table.
 ```{sql}
 SELECT COUNT(birthdate)
 FROM people;
+```
+*** =hint2
+```
+SELECT ___(___)
+FROM ___;
 ```
 *** =sct2
 ```{python}
@@ -844,8 +890,10 @@ SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
 ***=hint3
-Remember, to count unique values you can use `COUNT(DISTINCT column_name)`
-
+```
+SELECT ___(DISTINCT ___)
+FROM ___;
+```
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
@@ -883,6 +931,11 @@ Count the number of unique languages in the `films` table.
 ```{sql}
 SELECT COUNT(DISTINCT language)
 FROM films;
+```
+*** =hint4
+```
+SELECT ___(DISTINCT ___)
+FROM ___;
 ```
 *** =sct4
 ```{python}
@@ -922,6 +975,13 @@ Count the number of unique countries in the `films` table.
 SELECT COUNT(DISTINCT country)
 FROM films;
 ```
+
+*** =hint5
+```
+SELECT ___(DISTINCT ___)
+FROM ___;
+```
+
 *** =sct5
 ```{python}
 sel = check_node('SelectStmt')
