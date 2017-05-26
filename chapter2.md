@@ -1051,7 +1051,7 @@ WHERE release_year BETWEEN 1990 AND 1995
 OR language = 'Spanish';
 ```
 
-*** hint4
+*** =hint4
 ```
 SELECT ___, ___
 FROM ___
