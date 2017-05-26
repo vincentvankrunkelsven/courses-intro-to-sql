@@ -957,7 +957,7 @@ sel = check_node('SelectStmt')
 
 title = test_column('title', msg='Did you select the `title` column?')
 
-budget = test_column('budget', msg='Did you select the `budget` column?')
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -980,7 +980,7 @@ Ex().test_correct(check_result(), [
     between_op2,
     where_budget,
     title,
-    budget,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1013,13 +1013,46 @@ AND ___ = '___';
 ```
 *** =sct3
 ```{python}
-# TODO: nick changed the query - add SCT
+sel = check_node('SelectStmt')
+
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+# TODO: when test_not_typed() is a thing, use it here to check that `OR` was not typed
+
+between_node = where_clause.check_field('left')
+
+between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
+
+where_budget = where_clause.has_equal_ast(sql='budget > 100000000', start='expression', exact=False, msg='Did you check the `budget` correctly?')
+
+where_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    between_left,
+    between_op1,
+    between_op2,
+    where_budget,
+    where_language,
+    title,
+    release_year,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
 ```
 
 *** =type4: NormalExercise
 
-*** =key4: 9ad2bf83dd
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1043,7 +1076,45 @@ AND (___ = '___' OR ___ = '___');
 ```
 *** =sct4
 ```{python}
-# TODO: nick changed the query - add SCT
+sel = check_node('SelectStmt')
+
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+# TODO: when test_not_typed() is a thing, use it here to check that `OR` was not typed instead of `AND` on last line
+
+between_node = where_clause.check_field('left')
+
+between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
+
+where_budget = where_clause.has_equal_ast(sql='budget > 100000000', start='expression', exact=False, msg='Did you check the `budget` correctly?')
+
+where_language1 = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the Spanish `language` correctly?')
+
+where_language2 = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check the French `language` correctly?')
+
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    between_left,
+    between_op1,
+    between_op2,
+    where_budget,
+    where_language1,
+    where_language2,
+    title,
+    release_year,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
