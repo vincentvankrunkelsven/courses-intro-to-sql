@@ -500,7 +500,7 @@ sel = check_node('SelectStmt')
 
 title = test_column('title', msg='Did you select the `title` column correctly?')
 
-release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?)
+release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
