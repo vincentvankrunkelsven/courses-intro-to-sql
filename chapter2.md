@@ -103,12 +103,14 @@ star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
+
+where_release_year = where_clause.has_equal_ast(sql='release_year = 2016', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
 Ex().test_correct(check_result(), [
-    star,
     from_clause,
-    where_clause,
+    where_release_year,
+    star,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -131,16 +133,24 @@ WHERE release_year < 2000;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+# TODO: this needs to be changed
+count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
+where_release_year = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
 Ex().test_correct(check_result(), [
-    count_call,
     from_clause,
-    where_clause,
+    where_release_year,
+    count_call,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -163,14 +173,21 @@ WHERE release_year > 2000;
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
+
+where_release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
 Ex().test_correct(check_result(), [
-    count_call,
     from_clause,
-    where_clause,
+    where_release_year,
+    title,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -224,15 +241,17 @@ Remember, to get all details you can use `SELECT *`
 ```{python}
 sel = check_node('SelectStmt')
 
+star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Check your `WHERE` clause! Make sure to use single quotes.')
+where_clause = sel.check_field('where_clause')
 
-star = sel.check_node('Star').has_equal_ast('Are you selecting all the columns?')
+where_language = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check the `language` correctly? Remember to use single quotes.')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    where_language,
     star,
     test_has_columns(),
     test_ncols(),
@@ -260,9 +279,25 @@ Your `WHERE` clause should be `WHERE birthdate = '1974-11-11';`
 ```{python}
 sel = check_node('SelectStmt')
 
+name = test_column('name', msg='Did you select the `title` column?')
+
+birthdate = test_column('name', msg='Did you select the `birthdate` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Check your `WHERE` clause! Make sure to use single quotes.')
+where_clause = sel.check_field('where_clause')
+
+where_birth = where_clause.has_equal_ast(sql="language = '1974-11-11'", start='expression', exact=False, msg='Did you check the `birthdate` correctly? Remember to use single quotes.')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_birth,
+    name,
+    birthdate,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -285,16 +320,23 @@ Remember, you can use `COUNT(*)` to count the number of rows.
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling `COUNT` correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Check your `WHERE` clause! Make sure to use single quotes.')
+where_clause = sel.check_field('where_clause')
+
+where_language = where_clause.has_equal_ast(sql="language = 'Hindi'", start='expression', exact=False, msg='Did you check the `language` correctly?')
 
 Ex().test_correct(check_result(), [
-    count_call,
     from_clause,
-    where_clause,
+    where_language,
+    count_call,
+    count_args
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -321,12 +363,15 @@ star = sel.check_node('Star').has_equal_ast('Are you selecting all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Check your `WHERE` clause! Make sure to use single quotes.')
+where_clause = sel.check_field('where_clause')
+
+where_cert = where_clause.has_equal_ast(sql="certification = 'R'", start='expression', exact=False, msg='Did you check the `certification` correctly?')
+
 
 Ex().test_correct(check_result(), [
-    star,
     from_clause,
-    where_clause,
+    where_cert,
+    star,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -389,22 +434,22 @@ sel = check_node('SelectStmt')
 
 title = test_column('title', msg='Did you include the `title` column?')
 
-release_year_col = test_column('release_year', msg='Did you include the `release_year` column?')
+release_year = test_column('release_year', msg='Did you include the `release_year` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause')
 
-release_year = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year`?')
+where_release_year = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year`?')
 
-language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language`? Make sure to use single quotes.')
+where_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language`? Make sure to use single quotes.')
 
 Ex().test_correct(check_result(), [
-    release_year,
-    language,
     from_clause,
+    where_release_year,
+    where_language,
     title,
-    release_year_col,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -434,16 +479,17 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 
-release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+where_release_year = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
-language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly? Make sure to use single quotes.')
+where_release_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly? Make sure to use single quotes.')
 
 Ex().test_correct(check_result(), [
+    from_clause,
+    where_release_year,
+    where_language,
     star,
     release_year,
     language,
-    where_clause,
-    from_clause,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -472,22 +518,19 @@ star = sel.check_node('Star').has_equal_ast(msg='Are you selecing all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
 
-release_year1 = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+where_release_year1 = where_clause.has_equal_ast(sql='release_year > 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
-release_year2 = where_clause.has_equal_ast(sql='release_year < 2010', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+where_release_year2 = where_clause.has_equal_ast(sql='release_year < 2010', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
-language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly? Make sure to use single quotes.')
-
-
+where_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly? Make sure to use single quotes.')
 
 Ex().test_correct(check_result(), [
-    release_year1, 
-    release_year2,
-    language,
-    where_clause,
     from_clause,
+    where_release_year1, 
+    where_release_year2,
+    where_language,
     star,
     test_has_columns(),
     test_ncols(),
@@ -561,16 +604,24 @@ WHERE release_year >= 1990 AND release_year < 2000;
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
 from_clause = sel.check_field('from_clause')
 
-where_one = sel.check_field('where_clause').check_field('left').has_equal_ast('Is the first part of your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
 
-where_two = sel.check_field('where_clause').check_field('right').has_equal_ast('Is the second part of your `WHERE` clause correct?')
+where_release_year1 = where_clause.has_equal_ast(sql='release_year >= 1990', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+where_release_year2 = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_one,
-    where_two,
+    where_release_year1,
+    where_release_year2,
+    title,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -599,7 +650,37 @@ AND (language = 'French' OR language = 'Spanish');
 ```
 *** =sct2
 ```{python}
-# TODO
+sel = check_node('SelectStmt')
+
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
+from_clause = sel.check_field('from_clause')
+
+where_clause = sel.check_field('where_clause')
+
+where_release_year1 = where_clause.has_equal_ast(sql='release_year >= 1990', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+where_release_year2 = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+where_language1 = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check the `language` correctly?')
+
+where_language2 = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
+
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_release_year1,
+    where_release_year2,
+    where_language1,
+    where_language2,
+    title,
+    release_year,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
 ```
 
 *** =type3: NormalExercise
@@ -618,7 +699,39 @@ AND gross > 20000000;
 ```
 *** =sct3
 ```{python}
-# TODO
+sel = check_node('SelectStmt')
+
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
+from_clause = sel.check_field('from_clause')
+
+where_clause = sel.check_field('where_clause')
+
+where_release_year1 = where_clause.has_equal_ast(sql='release_year >= 1990', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+where_release_year2 = where_clause.has_equal_ast(sql='release_year < 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+where_language1 = where_clause.has_equal_ast(sql="language = 'French'", start='expression', exact=False, msg='Did you check the `language` correctly?')
+
+where_language2 = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
+
+where_gross = where_clause.has_equal_ast(sql='gross > 20000000', start='expression', exact=False, msg='Did you check the `gross` correctly?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_release_year1,
+    where_release_year2,
+    where_language1,
+    where_language2,
+    where_gross,
+    title,
+    release_year,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1827199e2
@@ -710,13 +823,25 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('title', msg='Did you select the `release_year` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
+
+between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = where_clause.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = where_clause.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    between_left,
+    between_op1,
+    between_op2,
+    title,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -740,17 +865,27 @@ WHERE release_year BETWEEN 1990 AND 2000;
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list', 0)
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
 
+between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = where_clause.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = where_clause.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
 
 Ex().test_correct(check_result(), [
-    count_call,
     from_clause,
-    where_clause,
+    between_left,
+    between_op1,
+    between_op2,
+    count_call,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -768,24 +903,39 @@ Get the title and budget of all films made between 2000 and 2015 with budgets ov
 ```{sql}
 SELECT title, budget
 FROM films
-WHERE release_year
-BETWEEN 2000 AND 2015
+WHERE release_year BETWEEN 2000 AND 2015
 AND budget > 100000000;
 ```
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
-from_clause = sel.check_field('from_clause')
+title = test_column('title', msg='Did you select the `title` column?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+budget = test_column('budget', msg='Did you select the `budget` column?')
 
-between = where_clause.check_node('BinaryExpr').has_equal_ast('Is your use of `BETWEEN` correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+# TODO: when test_not_typed() is a thing, use it here to check that `OR` was not typed
+
+between_node = where_clause.check_field('left')
+
+between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
+
+where_budget = where_clause.has_equal_ast(sql='budget > 100000000', start='expression', exact=False, msg='Did you check the `budget` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    between,
-    where_clause,
+    between_left,
+    between_op1,
+    between_op2,
+    where_budget,
+    title,
+    budget,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -811,19 +961,34 @@ OR language = 'Spanish';
 ```{python}
 sel = check_node('SelectStmt')
 
-from_clause = sel.check_field('from_clause')
+title = test_column('title', msg='Did you select the `title` column?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+language = test_column('language', msg='Did you select the `language` column?')
 
-between = where_clause.check_field('left').has_equal_ast('Is your use of `BETWEEN` correct?')
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-or_op = where_clause.check_field('right').has_equal_ast('Is your `OR` operator correct?')
+where_clause = sel.check_field('where_clause')
+
+# TODO: hack to deal with AST morphing
+# typed_or = test_student_typed('or|OR', msg='Make sure to use an `OR` statement in your `WHERE` clause!')
+
+between_node = where_clause.check_field('left')
+
+between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
+
+where_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    between,
-    or_op,
-    where_clause,
+    # typed_or,
+    between_left,
+    between_op1,
+    between_op2,
+    where_language,
+    title,
+    language,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -894,21 +1059,28 @@ The first part of your `WHERE` clause should be `WHERE release_year IN (1990, 20
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column?')
+
+release_year = test_column('release_year', msg='Did you select the `release_year` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 where_clause = sel.check_field('where_clause')
 
-in_op = where_clause.has_equal_ast(
-        'Is your use of `IN` correct?',
-        sql='release_year IN (1990, 2000)', start='binary_expression', exact = False)
+# TODO: hack to deal with AST morphing
+# typed_and = test_student_typed('and|AND', msg='Make sure to use an `AND` statement in your `WHERE` clause!')
 
-duration = where_clause.check_node('BinaryExpr').has_equal_ast('Did you check `duration` correctly?')
+where_duration = where_clause.has_equal_ast(sql="duration > 120", start='expression', exact=False, msg='Did you check the `duration` correctly?')
+
+in_thing = where_clause.has_equal_ast(sql="release_year IN (1990, 2000)", start='expression', exact=False, msg='Did you use `IN` correctly?')
 
 Ex().test_correct(check_result(), [
-    in_op,
-    duration,
     from_clause,
-    where_clause.has_equal_ast('Is your `WHERE` clause correct?'),
+    # typed_and,
+    in_thing,
+    where_duration,
+    title,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -935,13 +1107,25 @@ Your `WHERE` clause should be `WHERE language IN ('English', 'Spanish', 'French'
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column?')
+
+language = test_column('language', msg='Did you select the `language` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
+
+# TODO: hack to deal with AST morphing
+# typed_and = test_student_typed('and|AND', msg='Make sure to use an `AND` statement in your `WHERE` clause!')
+
+in_thing = where_clause.has_equal_ast(sql="WHERE language IN ('English', 'Spanish', 'French')", start='expression', exact=False, msg='Did you use `IN` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    # typed_and,
+    in_thing,
+    title,
+    release_year,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -968,13 +1152,25 @@ Your `WHERE` clause should be `WHERE certification IN ('NC-17', 'R');`
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column?')
+
+certification = test_column('certification', msg='Did you select the `certification` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause')
+
+# TODO: hack to deal with AST morphing
+# typed_and = test_student_typed('and|AND', msg='Make sure to use an `AND` statement in your `WHERE` clause!')
+
+in_thing = where_clause.has_equal_ast(sql="certification IN ('NC-17', 'R')", start='expression', exact=False, msg='Did you use `IN` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    # typed_and,
+    in_thing,
+    title,
+    certification,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1064,13 +1260,16 @@ Your `WHERE` clause should be `WHERE deathdate IS NULL;`
 ```{python}
 sel = check_node('SelectStmt')
 
+name = test_column('name', 'Did you select the `name` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `deathdate IS NULL` in your `WHERE` clause?')
 
 Ex().test_correct(check_result(), [
-    where_clause,
     from_clause,
+    where_clause,
+    name,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1096,16 +1295,21 @@ Your `WHERE` clause should be `WHERE language IS NULL;`
 ```{python}
 sel = check_node('SelectStmt')
 
-count_call = sel.check_node('Call').has_equal_ast('Are you calling `COUNT` correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('title').has_equal_ast('Are you calling the `COUNT` function?')
+
+count_args = temp.check_field('args', 0).has_equal_ast('Are you using `COUNT` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `language IS NULL` in your `WHERE` clause?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     where_clause,
     count_call,
-    from_clause,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1129,13 +1333,16 @@ WHERE budget IS NULL;
 ```{python}
 sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Are you selecting the `title` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `IS NULL` in your `WHERE` clause?')
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `budget IS NULL` in your `WHERE` clause?')
 
 Ex().test_correct(check_result(), [
-    where_clause,
     from_clause,
+    where_clause,
+    title,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1197,7 +1404,7 @@ set_options(visible_tables = ['people'])
 *** =xp1: 20
 
 *** =instructions1
-Get people from the `people` table whose names begin with 'B'.
+Get people from the `people` table whose names begin with 'B'. The pattern you need is `'B'`.
 *** =solution1
 ```{sql}
 SELECT name
@@ -1206,19 +1413,22 @@ WHERE name LIKE 'B%';
 ```
 
 *** =hint1
-Your `WHERE` clause should be `WHERE name LIKE 'B%';`
+Your `WHERE` clause should be `WHERE name LIKE 'B%';`.
 
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
 
+name = test_column('name', msg='Are you selecting the `name` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast("Are you checking `name LIKE 'B%' in your `WHERE` clause?")
 
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    name,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1230,7 +1440,7 @@ Ex().test_correct(check_result(), [
 *** =xp2: 20
 
 *** =instructions2
-Get people whose names have 'r' as the second letter.
+Get people whose names have 'r' as the second letter. The pattern you need is `'_r%'`.
 *** =solution2
 ```{sql}
 SELECT name
@@ -1239,19 +1449,22 @@ WHERE name LIKE '_r%';
 ```
 
 *** =hint2
-Your `WHERE` clause should be `WHERE name LIKE '_r%';`
+Your `WHERE` clause should be `WHERE name LIKE '_r%';`.
 
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
 
+name = test_column('name', msg='Are you selecting the `name` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast("Are you checking `name LIKE '_r%' in your `WHERE` clause?")
 
 Ex().test_correct(check_result(), [
     from_clause,
     where_clause,
+    name,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -1263,7 +1476,7 @@ Ex().test_correct(check_result(), [
 *** =xp3: 20
 
 *** =instructions3
-Get people whose names don't start with A.
+Get people whose names don't start with A. The pattern you need is `'A%'`.
 *** =solution3
 ```{sql}
 SELECT name
@@ -1272,15 +1485,17 @@ WHERE name NOT LIKE 'A%';
 ```
 
 *** =hint3
-Your `WHERE` clause should be `WHERE name NOT LIKE 'A%';`
+Your `WHERE` clause should be `WHERE name NOT LIKE 'A%';`.
 
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
+name = test_column('name', msg='Are you selecting the `name` column?')
+
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
+where_clause = sel.check_field('where_clause').has_equal_ast("Are you checking `name NOT LIKE 'A%' in your `WHERE` clause?")
 
 Ex().test_correct(check_result(), [
     from_clause,
