@@ -1023,7 +1023,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 
 where_clause = sel.check_field('where_clause')
 
-# TODO: when test_not_typed() is a thing, use it here to check that `OR` was not typed
+# TODO: when test_not_typed() is a thing, use it here to check that `OR` was not typed instead of `AND` on last line
 
 between_node = where_clause.check_field('left')
 
@@ -1052,8 +1052,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 08747f3c8c
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
