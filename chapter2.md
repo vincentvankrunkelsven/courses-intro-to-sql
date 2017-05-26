@@ -993,58 +993,56 @@ Ex().test_correct(check_result(), [
 *** =xp3: 20
 
 *** =instructions3
-Get the title and release year of all Spanish language films released between 1990 and 2000 with budgets over $100 million.
+Get the title and release year of all Spanish films released between 1990 and 2000 with budgets over $100 million.
 *** =solution3
 ```{sql}
-SELECT title, language
+SELECT title, release_year
 FROM films
-WHERE release_year BETWEEN 1990 AND 1995
-OR language = 'Spanish';
+WHERE release_year BETWEEN 1990 AND 2000
+AND budget > 100000000;
+AND language = 'Spanish';
 ```
 
 *** =hint3
 ```
 SELECT ___, ___
 FROM ___
-WHERE ___ ___ 1990 ___ 1995
-OR ___ = '___';
+WHERE ___ BETWEEN ___ AND ___
+AND ___ > ___
+AND ___ = '___';
 ```
 *** =sct3
 ```{python}
-sel = check_node('SelectStmt')
+# TODO: nick changed the query - add SCT
+```
 
-title = test_column('title', msg='Did you select the `title` column?')
+*** =type4: NormalExercise
 
-language = test_column('language', msg='Did you select the `language` column?')
+*** =key4: 9087bf33ac
+*** =xp4: 20
 
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+*** =instructions4
+Get the title and release year of all Spanish *or* French films released between 1990 and 2000 with budgets over $100 million.
+*** =solution4
+```{sql}
+SELECT title, release_year
+FROM films
+WHERE release_year BETWEEN 1990 AND 2000
+AND budget > 100000000;
+AND (language = 'Spanish' OR language = 'French');
+```
 
-where_clause = sel.check_field('where_clause')
-
-# TODO: hack to deal with AST morphing
-# typed_or = test_student_typed('or|OR', msg='Make sure to use an `OR` statement in your `WHERE` clause!')
-
-between_node = where_clause.check_field('left')
-
-between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
-between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
-between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
-
-where_language = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
-
-Ex().test_correct(check_result(), [
-    from_clause,
-    # typed_or,
-    between_left,
-    between_op1,
-    between_op2,
-    where_language,
-    title,
-    language,
-    test_has_columns(),
-    test_ncols(),
-    test_error()
-])
+*** =hint4
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ BETWEEN ___ AND ___
+AND ___ > ___
+AND (___ = '___' OR ___ = '___');
+```
+*** =sct4
+```{python}
+# TODO: nick changed the query - add SCT
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
