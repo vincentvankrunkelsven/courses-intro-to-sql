@@ -967,7 +967,7 @@ where_clause = sel.check_field('where_clause')
 
 between_node = where_clause.check_field('left')
 
-between_left = between_node.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
 between_op1 = between_node.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
 between_op2 = between_node.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
 
@@ -1052,8 +1052,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: b1609c554b
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
