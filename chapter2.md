@@ -1018,8 +1018,7 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: 612ed2e80e
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1049,23 +1048,19 @@ AND (___ = '___' OR ___ = '___');
 --- type:BulletExercise lang:sql xp:100 key:4fc7e638f8
 ## WHERE IN
 
-Well done!
-
 As you've seen, `WHERE` is very useful for filtering results. However, if you want to filter based on many conditions, `WHERE` can get unwieldy. For example:
 
 ```
 SELECT name
 FROM kids
-WHERE age = 2
+WHERE age = 2 
 OR age = 4
 OR age = 6
 OR age = 8
 OR age = 10;
 ```
 
-Enter the `IN` operator! The `IN` operator allows you to specify multiple values in a `WHERE` clause.
-
-Basically, `IN` makes it easier and quicker to specify multiple `OR` conditions! Neat, right?
+Enter the `IN` operator! The `IN` operator allows you to specify multiple values in a `WHERE` clause, making it easier and quicker to specify multiple `OR` conditions! Neat, right?
 
 So, the above example would become simply:
 
@@ -1242,7 +1237,7 @@ Ex().test_correct(check_result(), [
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:5cf67b42b3
 ## Introduction to NULL and IS NULL
 
-In SQL, `NULL` represents a missing or unknown value. You can check if a row has a column with the value `NULL` using the expression `IS NULL`. For example, to count the number of missing birth dates in the people table:
+In SQL, `NULL` represents a missing or unknown value. You can check for `NULL` values using the expression `IS NULL`. For example, to count the number of missing birth dates in the `people` table:
 
 ```
 SELECT COUNT(*)
@@ -1252,9 +1247,9 @@ WHERE birthdate IS NULL;
 
 As you can see, `IS NULL` is useful when combined with `WHERE` to figure out what data you're missing.
 
-Often, you will also want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
+Sometimes, you'll want to filter out missing values so you only get results which are not `NULL`. To do this, you can use the `IS NOT NULL` operator.
 
-For example:
+For example, this query gives the names of all people whose birth dates are *not* missing in the `people` table.
 
 ```
 SELECT name
@@ -1262,16 +1257,14 @@ FROM people
 WHERE birthdate IS NOT NULL;
 ```
 
-will give you the names of all the people whose birth date is _not_ missing in the `people` table.
-
 <hr>
 What does `NULL` represent?
 
 *** =instructions
-- A Corrupt entry
-- A Missing value
-- A Empty string
-- A Invalid value
+- A corrupt entry
+- A missing value
+- An empty string
+- An invalid value
 
 *** =hint
 Remember, `NULL` represents values which are missing or unknown.
