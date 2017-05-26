@@ -1018,8 +1018,7 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: 2221da3d4f
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1283,7 +1282,7 @@ Ex().test_mc(2, [corrupt, success_msg, empty, invalid])
 --- type:BulletExercise lang:sql xp:100 key:84411d78ab
 ## NULL and IS NULL
 
-Now that you know what `NULL` is and what it's used for, let's get some practice!
+Now that you know what `NULL` is and what it's used for, it's time for some practice!
 
 *** =pre_exercise_code
 ```{python}
@@ -1336,24 +1335,62 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type2: NormalExercise
-*** =key2: 3c646ada88
+*** =key2: 3c646ada89
 *** =xp2: 20
 
 *** =instructions2
-Get the number of films which don't have a language associated with them.
+Get the title of every film which doesn't have a budget associated with it.
 *** =solution2
+```{sql}
+SELECT title
+FROM films
+WHERE budget IS NULL;
+```
+*** =hint2
+```
+SELECT ___
+FROM ___
+WHERE ___ ___ ___;
+```
+*** =sct2
+```{python}
+sel = check_node('SelectStmt')
+
+title = test_column('title', msg='Are you selecting the `title` column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `budget IS NULL` in your `WHERE` clause?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_clause,
+    title,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+*** =type3: NormalExercise
+*** =key3: 3c646ada88
+*** =xp3: 20
+
+*** =instructions3
+Get the number of films which don't have a language associated with them.
+*** =solution3
 ```{sql}
 SELECT COUNT(title)
 FROM films
 WHERE language IS NULL;
 ```
-*** =hint2
+*** =hint3
 ```
 SELECT ___(___)
 FROM ___
 WHERE language ___ ___;
 ```
-*** =sct2
+*** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -1377,44 +1414,6 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 
-```
-
-*** =type3: NormalExercise
-*** =key3: 3c646ada89
-*** =xp3: 20
-
-*** =instructions3
-Get the title of every film which doesn't have a budget associated with it.
-*** =solution3
-```{sql}
-SELECT title
-FROM films
-WHERE budget IS NULL;
-```
-*** =hint3
-```
-SELECT ___
-FROM ___
-WHERE ___ ___ ___;
-```
-*** =sct3
-```{python}
-sel = check_node('SelectStmt')
-
-title = test_column('title', msg='Are you selecting the `title` column?')
-
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
-
-where_clause = sel.check_field('where_clause').has_equal_ast('Are you checking `budget IS NULL` in your `WHERE` clause?')
-
-Ex().test_correct(check_result(), [
-    from_clause,
-    where_clause,
-    title,
-    test_has_columns(),
-    test_ncols(),
-    test_error()
-])
 ```
 
 --- type:BulletExercise lang:sql xp:100 key:84411d78ac
