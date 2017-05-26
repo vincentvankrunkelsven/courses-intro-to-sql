@@ -84,6 +84,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 *** =key1: 8a4615ada8
+***xp1: 20
 
 *** =instructions1
 Get all details for all films released in 2016.
@@ -116,6 +117,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 5e6e1c74c6
+***xp2: 20
 
 *** =instructions2
 Get the number of films released before 2000.
@@ -147,6 +149,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: d66f3d41b7
+***xp3: 20
 
 *** =instructions3
 Get the title and release year of films released after 2000.
@@ -204,6 +207,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: b645308dcd
+***xp1: 20
 
 *** =instructions1
 Get all details for all French language films.
@@ -238,6 +242,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 051f6fb8ec
+***xp2: 20
 
 *** =instructions2
 Get the name and birth date of the person born on November 11th, 1974. Remember to use ISO date format (`'1974-11-11'`)!
@@ -262,6 +267,7 @@ where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` cl
 
 *** =type3: NormalExercise
 *** =key3: 7b872a3af0
+***xp3: 20
 
 *** =instructions3
 Get the number of Hindi language films.
@@ -297,6 +303,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 *** =key4: 2c87504f11
+***xp4: 20
 
 *** =instructions4
 Get all details for all films with an R certification.
@@ -365,6 +372,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 *** =key1: 7ccf93b215
+***xp1: 20
 
 *** =instructions1
 Get the title and release year for all Spanish language films released before 2000.
@@ -400,6 +408,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: e703c95e46
+***xp2: 20
 
 *** =instructions2
 Get all details for Spanish language films released after 2000.
@@ -437,6 +446,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 7f2ba5c82f
+***xp3: 20
 
 *** =instructions3
 Get all details for Spanish language films released after 2000, but before 2010.
@@ -514,6 +524,7 @@ set_options(visible_tables = ['films'])
 *** =type1: NormalExercise
 
 *** =key1: 510b387baa
+***xp1: 20
 
 *** =instructions1
 Get the title and release year for films released in the 90s.
@@ -551,6 +562,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 969ed73542
+***xp2: 20
 
 *** =instructions2
 Get the title and release year of French or Spanish films released in the 90s.
@@ -575,6 +587,7 @@ AND (language = 'French' OR language = 'Spanish');
 
 *** =type3: NormalExercise
 *** =key3: aee831c1d8
+***xp3: 20
 
 *** =instructions3
 Get the title and release year of French or Spanish films released in the 90s that took in more than $20M at the box office.
@@ -666,6 +679,7 @@ set_options(visible_tables = ['films'])
 *** =type1: NormalExercise
 
 *** =key1: 9252da136b
+***xp1: 20
 
 *** =instructions1
 Get the title and release year of all films released between 1990 and 2000.
@@ -695,6 +709,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: e189875af9
+***xp2: 20
 
 *** =instructions2
 Get the number of films released in the 90s.
@@ -728,6 +743,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 
 *** =key3: d21a4bec02
+***xp3: 20
 
 *** =instructions3
 Get the title and budget of all films made between 2000 and 2015 with budgets over $100 million.
@@ -762,6 +778,7 @@ Ex().test_correct(check_result(), [
 *** =type4: NormalExercise
 
 *** =key4: 9087bf33ac
+***xp4: 20
 
 *** =instructions4
 Get the title and language of all films made between 1990 and 1995 or those in the Spanish language.
@@ -840,6 +857,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 *** =key1: dc7674d358
+***xp1: 20
 
 *** =instructions1
 Get the title and release year of all films released in 1990 or released in 2000 that were longer than two hours. Remember, duration is in minutes!
@@ -882,6 +900,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 3a84c097d2
+***xp2: 20
 
 *** =instructions2
 Get the title and language of all films which were in English, Spanish or French.
@@ -914,6 +933,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 3c947b0d2d
+***xp3: 20
 
 *** =instructions3
 Get the title and certification of all films with an NC-17 or R certification.
@@ -1009,6 +1029,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: 3c646ada87
+***xp1: 20
 
 *** =instructions1
 Get the names of people who are still alive, i.e. whose death date is missing.
@@ -1041,6 +1062,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 3c646ada88
+***xp2: 20
 
 *** =instructions2
 Get the number of films which don't have a language associated with them.
@@ -1076,6 +1098,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 3c646ada89
+***xp3: 20
 
 *** =instructions3
 Get the title of every film which doesn't have a budget associated with it.
@@ -1154,6 +1177,7 @@ set_options(visible_tables = ['people'])
 
 *** =type1: NormalExercise
 *** =key1: 9e3c3ef68f
+***xp1: 20
 
 *** =instructions1
 Get people from the `people` table whose names begin with 'B'.
@@ -1186,6 +1210,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 606b667e1c
+***xp2: 20
 
 *** =instructions2
 Get people whose names have 'r' as the second letter.
@@ -1218,6 +1243,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 2e4f49a528
+***xp3: 20
 
 *** =instructions3
 Get people whose names don't start with A.
