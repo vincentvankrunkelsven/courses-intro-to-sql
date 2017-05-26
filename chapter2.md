@@ -538,8 +538,6 @@ Ex().test_correct(check_result(), [
     where_release_year,
     where_language,
     star,
-    release_year,
-    language,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -894,12 +892,13 @@ FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
 
-*** hint1
+*** =hint1
 ```
 SELECT ___, ___
 FROM ___
 WHERE ___ BETWEEN ___ AND ___;
 ```
+
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
