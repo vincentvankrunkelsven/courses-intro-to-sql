@@ -15,8 +15,8 @@ title: Instructor
 
 Hi, and welcome to Introduction to SQL for Data Science!
 
-If you've been looking to augment your knowledge of Python or R with a databasing language then this is the course for you.
+Most of the world's data live in databases, so learning how to access and unlock insights from these data is an essential skill for every data scientist. SQL, or ess-que-el, is the native language for interacting with databases and is designed for exactly this purpose.
 
-In this course we'll cover querying your data, filtering data, and sorting your results to get further insight.
+This course will give you a basic introduction to SQL. We hope you enjoy it.
 
-We hope you enjoy the course and learn a lot. Let's dive into it!
+Now let's get started!
