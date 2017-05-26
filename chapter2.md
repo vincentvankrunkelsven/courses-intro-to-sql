@@ -1018,7 +1018,8 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: 9087bf33ac
+*** =key4: 2221da3d4f
+
 *** =xp4: 20
 
 *** =instructions4
