@@ -262,7 +262,7 @@ SELECT MAX(budget)
 FROM films;
 ```
 
-gives you a result with one column, named `max`. But what if you used two functions like this?:
+gives you a result with one column, named `max`. But what if you use two functions like this?
 
 ```
 SELECT MAX(budget), MAX(duration)
@@ -271,7 +271,9 @@ FROM films;
 
 Well, then you'd have two columns named `max`, which isn't very useful!
 
-To avoid situations like this, SQL allows you to do something called _aliasing_. Aliasing simply means you assign a temporary name to something. To alias, you use the `AS` keyword. For example, in the above example we could use aliases to make the result clearer:
+To avoid situations like this, SQL allows you to do something called _aliasing_. Aliasing simply means you assign a temporary name to something. To alias, you use the `AS` keyword, which you've already seen earlier in this course. 
+
+For example, in the above example we could use aliases to make the result clearer:
 
 ```
 SELECT MAX(budget) AS max_budget, MAX(duration) AS max_duration
@@ -284,7 +286,6 @@ Aliases are helpful for making results more readable!
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films'])
-
 ```
 
 *** =sample_code
@@ -298,10 +299,10 @@ set_options(visible_tables = ['films'])
 *** =xp1: 20
 
 *** =instructions1
-Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, minus the amount the film cost to make. Alias the profit or loss as `profit_or_loss`.
+Get the title and net profit for each film, where possible. Let's define the net profit as the amount the film grossed, minus the film budget. Alias the net profit as `net_profit`.
 *** =solution1
 ```{sql}
-SELECT title, gross - budget AS profit_or_loss
+SELECT title, gross - budget AS net_profit
 FROM films;
 ```
 
@@ -311,9 +312,9 @@ The profit / loss will be `gross - budget`
 ```{python}
 sel = check_node('SelectStmt')
 
-alias = test_column('profit_or_loss', match='exact')
+alias = test_column('net_profit', match='exact')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the profit or loss correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the net profit correctly?')
 
 Ex().test_correct(check_result(), [
     alias_eqn,
