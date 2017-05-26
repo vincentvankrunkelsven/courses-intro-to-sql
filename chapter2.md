@@ -746,8 +746,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: f7f5d05528
-
+*** =key3: 
 *** =xp3: 20
 
 *** =instructions3
@@ -867,7 +866,7 @@ WHERE age BETWEEN 2 AND 12
 AND nationality = 'USA';
 ```
 
-Take a go at using `BETWEEN` with `AND`!
+Take a go at using `BETWEEN` with `AND` on the films data!
 
 *** =pre_exercise_code
 ```{python}
@@ -928,7 +927,6 @@ Ex().test_correct(check_result(), [
     test_ncols(),
     test_error()
 ])
-
 ```
 
 *** =type2: NormalExercise
