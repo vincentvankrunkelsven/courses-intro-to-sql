@@ -1052,7 +1052,8 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 9087bf33ac
+*** =key4: 46587931da
+
 *** =xp4: 20
 
 *** =instructions4
