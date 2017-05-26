@@ -390,7 +390,7 @@ FROM ___;
 ```{python}
 sel = check_node('SelectStmt')
 
-name = test_column('name', msg='Did you select the `name` column correctly?)
+name = test_column('name', msg='Did you select the `name` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -498,7 +498,7 @@ FROM ___;
 ```{python}
 sel = check_node('SelectStmt')
 
-title = test_column('title', msg='Did you select the `title` column correctly?)
+title = test_column('title', msg='Did you select the `title` column correctly?')
 
 release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?)
 
@@ -535,11 +535,11 @@ FROM ___;
 ```{python}
 sel = check_node('SelectStmt')
 
-title = test_column('title', msg='Did you select the `title` column correctly?)
+title = test_column('title', msg='Did you select the `title` column correctly?')
 
-release_year = test_column('title', msg='Did you select the `release_year` column correctly?)
+release_year = test_column('title', msg='Did you select the `release_year` column correctly?')
 
-country = test_column('country', msg='Did you select the `country` column correctly?)
+country = test_column('country', msg='Did you select the `country` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
