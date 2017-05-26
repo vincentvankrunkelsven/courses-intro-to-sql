@@ -999,7 +999,7 @@ Get the title and release year of all Spanish films released between 1990 and 20
 SELECT title, release_year
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000
-AND budget > 100000000;
+AND budget > 100000000
 AND language = 'Spanish';
 ```
 
@@ -1018,8 +1018,7 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: d492e415ab
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1029,7 +1028,7 @@ Get the title and release year of all Spanish *or* French films released between
 SELECT title, release_year
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000
-AND budget > 100000000;
+AND budget > 100000000
 AND (language = 'Spanish' OR language = 'French');
 ```
 
