@@ -21,7 +21,6 @@ ORDER BY release_year;
 
 will give you the titles of films sorted by release year, from newest to oldest.
 
-
 <hr>
 Which way does `ORDER BY` sort results by default?
 
