@@ -95,6 +95,12 @@ SELECT *
 FROM films
 WHERE release_year = 2016;
 ```
+*** =hint1
+```
+SELECT ___
+FROM ___
+WHERE ___ = ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -129,6 +135,13 @@ SELECT COUNT(*)
 FROM films
 WHERE release_year < 2000;
 ```
+*** =hint2
+```
+SELECT ___(*)
+FROM ___
+WHERE ___ < ___;
+```
+
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -168,6 +181,12 @@ Get the title and release year of films released after 2000.
 SELECT title, release_year
 FROM films
 WHERE release_year > 2000;
+```
+*** =hint3
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ > ___;
 ```
 *** =sct3
 ```{python}
@@ -235,8 +254,11 @@ FROM films
 WHERE language = 'French';
 ```
 *** =hint1
-Remember, to get all details you can use `SELECT *`
-
+```
+SELECT ___
+FROM ___
+WHERE ___ = '___';
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -273,7 +295,11 @@ WHERE birthdate = '1974-11-11';
 ```
 
 *** =hint2
-Your `WHERE` clause should be `WHERE birthdate = '1974-11-11';`
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ = '___';
+```
 
 *** =sct2
 ```{python}
@@ -314,7 +340,11 @@ WHERE language = 'Hindi';
 ```
 
 *** =hint3
-Remember, you can use `COUNT(*)` to count the number of rows.
+```
+SELECT ___(___)
+FROM ___
+WHERE ___ = '___';
+```
 
 *** =sct3
 ```{python}
@@ -354,6 +384,12 @@ Get all details for all films with an R certification.
 SELECT *
 FROM films
 WHERE certification = 'R';
+```
+*** =hint4
+```
+SELECT ___
+FROM ___
+WHERE ___ = '___';
 ```
 *** =sct4
 ```{python}
@@ -428,6 +464,13 @@ FROM films
 WHERE release_year < 2000
 AND language = 'Spanish';
 ```
+*** =hint1
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ < ___
+AND ___ = '___';
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -469,6 +512,13 @@ FROM films
 WHERE release_year > 2000
 AND language = 'Spanish';
 ```
+*** =hint2
+```
+SELECT ___
+FROM ___
+WHERE ___ > ___
+AND ___ = '___';
+```
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -509,6 +559,14 @@ FROM films
 WHERE release_year > 2000
 AND release_year < 2010
 AND language = 'Spanish';
+```
+*** =hint3
+```
+SELECT ___
+FROM ___
+WHERE ___ > ___
+AND ___ < ___
+AND ___ = '___';
 ```
 *** =sct3
 ```{python}
@@ -588,18 +646,21 @@ set_options(visible_tables = ['films'])
 
 *** =instructions1
 Get the title and release year for films released in the 90s.
-*** =hint1
-```{sql}
-SELECT ___, ___
-FROM ___
-WHERE ___ >= 1990 AND ___ < 2000;
-```
+
 *** =solution1
 ```{sql}
 SELECT title, release_year
 FROM films
 WHERE release_year >= 1990 AND release_year < 2000;
 ```
+
+*** =hint1
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ >= 1990 AND ___ < 2000;
+```
+
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -634,13 +695,7 @@ Ex().test_correct(check_result(), [
 
 *** =instructions2
 Get the title and release year of French or Spanish films released in the 90s.
-*** =hint2
-```{sql}
-SELECT ___, ___
-FROM ___
-WHERE (___ >= 1990 AND ___ < 2000)
-AND (___ = 'French' OR ___ = 'Spanish');
-```
+
 *** =solution2
 ```{sql}
 SELECT title, release_year
@@ -648,6 +703,15 @@ FROM films
 WHERE (release_year >= 1990 AND release_year < 2000)
 AND (language = 'French' OR language = 'Spanish');
 ```
+
+*** =hint2
+```
+SELECT ___, ___
+FROM ___
+WHERE (___ >= 1990 AND ___ < 2000)
+AND (___ = 'French' OR ___ = 'Spanish');
+```
+
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -697,6 +761,16 @@ WHERE (release_year >= 1990 AND release_year < 2000)
 AND (language = 'French' OR language = 'Spanish')
 AND gross > 20000000;
 ```
+
+*** =hint3
+```
+SELECT ___, ___
+FROM ___
+WHERE (___ >= 1990 AND ___ < 2000)
+AND (___ = '___' OR ___ = '___')
+AND ___ > ___;
+```
+
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
@@ -819,6 +893,13 @@ SELECT title, release_year
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
 ```
+
+*** hint1
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ BETWEEN ___ AND ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -860,6 +941,13 @@ Get the number of films released in the 90s.
 SELECT COUNT(*)
 FROM films
 WHERE release_year BETWEEN 1990 AND 2000;
+```
+
+*** =hint2
+```
+SELECT ___(___)
+FROM ___
+WHERE ___ ___ 1990 AND 2000;
 ```
 *** =sct2
 ```{python}
@@ -905,6 +993,13 @@ SELECT title, budget
 FROM films
 WHERE release_year BETWEEN 2000 AND 2015
 AND budget > 100000000;
+```
+*** =hint3
+```
+SELECT ___, ___
+FROM ___
+WHERE release_year ___ ___ ___ ___
+AND ___ > ___;
 ```
 *** =sct3
 ```{python}
@@ -953,9 +1048,16 @@ Get the title and language of all films made between 1990 and 1995 or those in t
 ```{sql}
 SELECT title, language
 FROM films
-WHERE release_year
-BETWEEN 1990 AND 1995
+WHERE release_year BETWEEN 1990 AND 1995
 OR language = 'Spanish';
+```
+
+*** hint4
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ ___ 1990 ___ 1995
+OR ___ = '___';
 ```
 *** =sct4
 ```{python}
@@ -1053,8 +1155,12 @@ AND duration > 120;
 ```
 
 *** =hint1
-The first part of your `WHERE` clause should be `WHERE release_year IN (1990, 2000)`
-
+```
+SELECT ___, ___
+FROM ___
+WHERE release_year IN (___, ___)
+AND ___ > ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -1101,7 +1207,11 @@ WHERE language IN ('English', 'Spanish', 'French');
 ```
 
 *** =hint2
-Your `WHERE` clause should be `WHERE language IN ('English', 'Spanish', 'French');`
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ IN ('___', '___', '___');
+```
 
 *** =sct2
 ```{python}
@@ -1146,8 +1256,11 @@ WHERE certification IN ('NC-17', 'R');
 ```
 
 *** =hint3
-Your `WHERE` clause should be `WHERE certification IN ('NC-17', 'R');`
-
+```
+SELECT ___, ___
+FROM ___
+WHERE ___ IN ('NC-17', '___');
+```
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
@@ -1254,8 +1367,11 @@ WHERE deathdate IS NULL;
 ```
 
 *** =hint1
-Your `WHERE` clause should be `WHERE deathdate IS NULL;`
-
+```
+SELECT ___
+FROM ___
+WHERE ___ IS NULL;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -1289,8 +1405,11 @@ FROM films
 WHERE language IS NULL;
 ```
 *** =hint2
-Your `WHERE` clause should be `WHERE language IS NULL;`
-
+```
+SELECT ___(___)
+FROM ___
+WHERE language ___ ___;
+```
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -1328,6 +1447,12 @@ Get the title of every film which doesn't have a budget associated with it.
 SELECT title
 FROM films
 WHERE budget IS NULL;
+```
+*** =hint3
+```
+SELECT ___
+FROM ___
+WHERE ___ ___ ___;
 ```
 *** =sct3
 ```{python}
@@ -1413,8 +1538,11 @@ WHERE name LIKE 'B%';
 ```
 
 *** =hint1
-Your `WHERE` clause should be `WHERE name LIKE 'B%';`.
-
+```
+SELECT ___
+FROM ___
+WHERE ___ LIKE '___';
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -1449,7 +1577,11 @@ WHERE name LIKE '_r%';
 ```
 
 *** =hint2
-Your `WHERE` clause should be `WHERE name LIKE '_r%';`.
+```
+SELECT ___
+FROM ___
+WHERE ___ ___ '___';
+```
 
 *** =sct2
 ```{python}
@@ -1485,8 +1617,11 @@ WHERE name NOT LIKE 'A%';
 ```
 
 *** =hint3
-Your `WHERE` clause should be `WHERE name NOT LIKE 'A%';`.
-
+```
+SELECT ___
+FROM ___
+WHERE ___ NOT ___ '___';
+```
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
