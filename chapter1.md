@@ -122,8 +122,12 @@ AS result;
 *** =sct1
 ```{sql}
 Ex().test_error()
+
+Ex().test_student_typed('SQL', msg="Don't modify the query!")
+
 Ex().test_has_columns()
 Ex().check_result()
+
 ```
 
 *** =type2:NormalExercise
@@ -145,6 +149,9 @@ AS result;
 *** =sct2
 ```{sql}
 Ex().test_error()
+
+Ex().test_student_typed('SQL is', msg="Did you change the query correctly?")
+
 Ex().test_has_columns()
 Ex().check_result()
 ```
@@ -168,8 +175,10 @@ AS result;
 *** =sct3
 ```{sql}
 Ex().test_error()
-Ex().test_has_columns()
 
+Ex().test_student_typed('SQL is cool!', msg="Did you change the query correctly?")
+
+Ex().test_has_columns()
 Ex().check_result()
 ```
 
@@ -216,6 +225,8 @@ AS result;
 *** =sct
 ```{sql}
 Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of line 2!', fixed=True)
+Ex().test_has_columns()
+Ex().test_error()
 ```
 
 --- type:PlainMultipleChoiceExercise lang:sql xp:50 key:a1f556e63f
@@ -309,10 +320,9 @@ Try `SELECT title FROM films;`
 
 *** =sct1
 ```{python}
-
 sel = check_node('SelectStmt')
 
-title = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `title` correctly?')
+title = test_column('title', msg='Did you select the `title` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -321,7 +331,7 @@ Ex().test_correct(check_result(), [
     title,
     test_has_columns(),
     test_ncols(),
-    test_error()
+    test_error(),
 ])
 ```
 
@@ -340,7 +350,7 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-release_year = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
+release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?)
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -368,7 +378,7 @@ FROM people;
 ```{python}
 sel = check_node('SelectStmt')
 
-name = sel.check_node('Identifier').has_equal_ast('Are you sure you selected `release_year` properly?')
+name = test_column('name', msg='Did you select the `name` column correctly?)
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -441,7 +451,7 @@ Try `SELECT title FROM films;`.
 ```{python}
 sel = check_node('SelectStmt')
 
-title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
+title = test_column('title', msg='Did you select the `title` column correctly?)
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
@@ -469,9 +479,9 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
+title = test_column('title', msg='Did you select the `title` column correctly?)
 
-release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `release_year` column correctly?')
+release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?)
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
@@ -500,11 +510,11 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-title = sel.check_node('Identifier', 0).has_equal_ast('Have you selected the `title` column correcty?')
+title = test_column('title', msg='Did you select the `title` column correctly?)
 
-release_year = sel.check_node('Identifier', 1).has_equal_ast('Have you selected the `release_year` column correctly?')
+release_year = test_column('title', msg='Did you select the `release_year` column correctly?)
 
-country = sel.check_node('Identifier', 2).has_equal_ast('Have you selected the `country` column correctly?')
+country = test_column('country', msg='Did you select the `country` column correctly?)
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` cause correct?')
 
@@ -537,7 +547,7 @@ Remember, to get all columns, you can use `SELECT *`.
 ```{python}
 sel = check_node('SelectStmt')
 
-star = sel.check_node('Star').has_equal_ast('Have you used `*` in your `SELECT` statement?')
+star = sel.check_node('Star').has_equal_ast('Did you use `SELECT *` to get all columns?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -593,16 +603,17 @@ Remember, to get unique countries you can use `SELECT DISTINCT country`
 ```{python}
 sel = check_node('SelectStmt')
 
+# TODO: this needs to be changed 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
 
-language = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `country` column correctly?')
+language = test_column('language', msg='Did you select the `language` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     distinct,
     language,
-    from_clause,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -627,16 +638,17 @@ Remember, to get unique certifications you can use `SELECT DISTINCT certificatio
 ```{python}
 sel = check_node('SelectStmt')
 
+# TODO: this needs to be changed 
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
 
-certification = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `certification` column correctly?')
+certification = test_column('certification', msg='Did you select the `certification` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     distinct,
     certification,
-    from_clause,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -658,16 +670,17 @@ FROM roles;
 ```{python}
 sel = check_node('SelectStmt')
 
+# TODO: this needs to be changed
 distinct = sel.check_field('pref').has_equal_ast("Don't forget to use the `DISTINCT` keyword!")
 
-role = sel.check_node('Identifier', 0).has_equal_ast('Did you select the `role` column correctly?')
+role = test_column('role', msg='Did you select the `role` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     distinct,
     role,
-    from_clause,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -766,18 +779,20 @@ Remember, to count the number of rows you can use `SELECT COUNT(*)`
 
 *** =sct1
 ```{python}
-# TODO: if student selects from wrong table, there's no results and error is for 'no cols' rather than for 'incorrect from clause'
-Ex().test_has_columns()
-Ex().test_ncols()
 sel = check_node('SelectStmt')
 
-count_call = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call,
     from_clause,
+    count_call,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -788,7 +803,7 @@ Ex().test_correct(check_result(), [
 *** =key2: 497ffa962e
 *** =xp2: 20
 *** =instructions2
-Count the number of *non-missing* birth dates in the `people` table.
+Count the number of (non-missing) birth dates in the `people` table.
 *** =solution2
 ```{sql}
 SELECT COUNT(birthdate)
@@ -798,13 +813,18 @@ FROM people;
 ```{python}
 sel = check_node('SelectStmt')
 
-count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+temp = sel.check_node('Call')
 
-from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+count_args = temp.check_field('args', 0).has_equal_ast('Are you using `COUNT` on the right column?')
+
+from_clause = count_call.has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    count,
+    count_call,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -830,13 +850,22 @@ Remember, to count unique values you can use `COUNT(DISTINCT column_name)`
 ```{python}
 sel = check_node('SelectStmt')
 
-count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+# TODO: this needs to be changed
+count_distinct_arg = temp.check_field('pref').has_equal_ast('Are you using `DISTINCT` with `COUNT()`?')
+
+count_args = temp.check_field('args', 0).has_equal_ast('Are you using `COUNT` and `DISTINCT` with the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    count,
+    count_call,
+    count_distinct_arg,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -859,13 +888,22 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+# TODO: this needs to be changed
+count_distinct_arg = temp.check_field('pref').has_equal_ast('Are you using `DISTINCT` with `COUNT()`?')
+
+count_args = temp.check_field('args', 0).has_equal_ast('Are you using `COUNT` and `DISTINCT` with the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    count,
+    count_call,
+    count_distinct_arg,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -888,13 +926,22 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-count = sel.check_field('target_list', 0).has_equal_ast('Are you calling the `COUNT` function correctly?')
+temp = sel.check_node('Call')
+
+count_call = temp.check_field('name').has_equal_ast('Are you calling the `COUNT` function?')
+
+# TODO: this needs to be changed
+count_distinct_arg = temp.check_field('pref').has_equal_ast('Are you using `DISTINCT` with `COUNT()`?')
+
+count_args = temp.check_field('args', 0).has_equal_ast('Are you using `COUNT` and `DISTINCT` with the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    count,
+    count_call,
+    count_distinct_arg,
+    count_args,
     test_has_columns(),
     test_ncols(),
     test_error()
