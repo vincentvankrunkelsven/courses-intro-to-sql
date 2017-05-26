@@ -255,14 +255,14 @@ Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 --- type:TabExercise lang:sql xp:100 key:9f4b026fe7
 ## It's AS simple AS aliasing
 
-You may have noticed in the previous exercise that the column name of your result set was just the name of the function you used. For example:
+You may have noticed in the first exercise of this chapter that the column name of your result was just the name of the function you used. For example:
 
 ```
 SELECT MAX(budget)
 FROM films;
 ```
 
-gives you a result set with one column, named `max`. But what if you used two functions like this?:
+gives you a result with one column, named `max`. But what if you used two functions like this?:
 
 ```
 SELECT MAX(budget), MAX(duration)
@@ -271,7 +271,7 @@ FROM films;
 
 Well, then you'd have two columns named `max`, which isn't very useful!
 
-To avoid situations like this, SQL allows you to do something called _aliasing_. Aliasing simply means you assign a temporary name to something. To alias, you use the `AS` keyword. For example, in the above example we could use aliases to make the result set clearer:
+To avoid situations like this, SQL allows you to do something called _aliasing_. Aliasing simply means you assign a temporary name to something. To alias, you use the `AS` keyword. For example, in the above example we could use aliases to make the result clearer:
 
 ```
 SELECT MAX(budget) AS max_budget, MAX(duration) AS max_duration
