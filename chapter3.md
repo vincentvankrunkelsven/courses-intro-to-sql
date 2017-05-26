@@ -252,7 +252,7 @@ msg2 = "Incorrect, try out the query in the editor!"
 
 Ex().test_mc(3,[msg2, msg2, success_msg, msg2])
 ```
---- type:TabExercise lang:sql xp:100 key:9f4b026fe7
+--- type:BulletExercise lang:sql xp:100 key:9f4b026fe7
 ## It's AS simple AS aliasing
 
 You may have noticed in the first exercise of this chapter that the column name of your result was just the name of the function you used. For example:
@@ -299,7 +299,7 @@ set_options(visible_tables = ['films'])
 *** =xp1: 20
 
 *** =instructions1
-Get the title and net profit for each film, where possible. Let's define the net profit as the amount the film grossed, minus the film budget. Alias the net profit as `net_profit`.
+Get the title and net profit—the amount a film grossed, minus its budget—for all films. Alias the net profit as `net_profit`.
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS net_profit
@@ -307,7 +307,7 @@ FROM films;
 ```
 
 *** =hint1
-The profit / loss will be `gross - budget`
+The net profit should be computed as `gross - budget`.
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -330,7 +330,7 @@ Ex().test_correct(check_result(), [
 *** =xp2: 20
 
 *** =instructions2
-Get the title and duration in hours for each film. Currently the duration is in minutes, so you'll need to divide by 60.0 to get the duration in hours. Alias the duration in hours as `duration_hours`.
+Get the title and duration in hours for all films. The duration is in minutes, so you'll need to divide by 60.0 to get the duration in hours. Alias the duration in hours as `duration_hours`.
 
 *** =solution2
 ```{sql}
@@ -339,7 +339,7 @@ FROM films;
 ```
 
 *** =hint2
-The duration in hours is `duration / 60.0`
+The duration in hours is `duration / 60.0`.
 *** =sct2
 ```{python}
 
@@ -367,7 +367,7 @@ Ex().test_correct(check_result(), [
 *** =key3: 497f8d2a8a
 *** =xp3: 20
 *** =instructions3
-Get the average film duration in hours for all films, aliased as `avg_duration_hours`.
+Get the average duration in hours for all films, aliased as `avg_duration_hours`.
 
 *** =solution3
 ```{sql}
@@ -375,7 +375,7 @@ SELECT AVG(duration) / 60.0 AS avg_duration_hours
 FROM films;
 ```
 *** =hint3
-The average duration in hours is `AVG(duration) / 60.0`
+The average duration in hours is `AVG(duration) / 60.0`.
 *** =sct3
 ```{python}
 # TODO: come back to this with better solution
@@ -426,7 +426,7 @@ SELECT COUNT(deathdate) * 100.0 / COUNT(*) AS percentage_dead
 FROM people;
 ```
 *** =hint1
-The percentage is calculated as `COUNT(deathdate) * 100.0 / COUNT(*)`
+The percentage is calculated as `COUNT(deathdate) * 100.0 / COUNT(*)`.
 
 *** =sct1
 ```{python}
@@ -469,7 +469,7 @@ AS difference
 FROM films;
 ```
 *** =hint2
-The difference will be `MAX(release_year) - MIN(release_year)`
+The difference will be `MAX(release_year) - MIN(release_year)`.
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -504,7 +504,7 @@ AS number_of_decades
 FROM films;
 ```
 *** =hint3
-The number of decades is calculated as `(MAX(release_year) - MIN(release_year)) / 10.0`
+The number of decades is calculated as `(MAX(release_year) - MIN(release_year)) / 10.0`.
 
 *** =sct3
 ```{python}
