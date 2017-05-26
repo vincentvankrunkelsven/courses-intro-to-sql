@@ -594,7 +594,7 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:BulletExercise lang:sql xp:100 key:ecc1838fc7
+--- type:TabExercise lang:sql xp:100 key:ecc1838fc7
 ## WHERE AND OR
 
 What if you want to select rows based on multiple conditions where some, but not necessarily all, of the conditions need to be met? For this, SQL has the `OR` clause.
@@ -1018,8 +1018,7 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: 01194374c8
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
