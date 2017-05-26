@@ -751,7 +751,7 @@ Ex().test_correct(check_result(), [
 *** =xp3: 20
 
 *** =instructions3
-Get the title and release year of French or Spanish films released in the 90s that took in more than $20M at the box office.
+Get the title and release year of French or Spanish films released in the 90s that took in more than $2M at the box office.
 
 *** =solution3
 ```{sql}
@@ -759,7 +759,7 @@ SELECT title, release_year
 FROM films
 WHERE (release_year >= 1990 AND release_year < 2000)
 AND (language = 'French' OR language = 'Spanish')
-AND gross > 20000000;
+AND gross > 2000000;
 ```
 
 *** =hint3
@@ -791,7 +791,7 @@ where_language1 = where_clause.has_equal_ast(sql="language = 'French'", start='e
 
 where_language2 = where_clause.has_equal_ast(sql="language = 'Spanish'", start='expression', exact=False, msg='Did you check the `language` correctly?')
 
-where_gross = where_clause.has_equal_ast(sql='gross > 20000000', start='expression', exact=False, msg='Did you check the `gross` correctly?')
+where_gross = where_clause.has_equal_ast(sql='gross > 2000000', start='expression', exact=False, msg='Did you check the `gross` correctly?')
 
 Ex().test_correct(check_result(), [
     from_clause,
@@ -1018,8 +1018,7 @@ AND ___ = '___';
 
 *** =type4: NormalExercise
 
-*** =key4: efe647bb98
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
