@@ -5,7 +5,7 @@ description : Insert the chapter description here
 --- type:BulletExercise lang:sql xp:100 key:b883e7079f
 ## SUM, AVG, MIN, MAX
 
-Often you will want to perform some calculation on the data in a database. SQL provides a few functions to help you out with this.
+Often, you will want to perform some calculation on the data in a database. SQL provides a few functions, called *aggregate functions*, to help you out with this.
 
 For example:
 
@@ -14,20 +14,21 @@ SELECT AVG(budget)
 FROM films;
 ```
 
-gives you a result set where the only row contains the average value from the `budget` column of the `films` table. In the same fashion, the `MAX()` function would return the highest budget.
+gives you the average value from the `budget` column of the `films` table. Similarly, the `MAX` function returns the highest budget:
 
 ```
 SELECT MAX(budget)
 FROM films;
 ```
 
-The `SUM()` function returns the result of adding up the numeric values in a column:
+The `SUM` function returns the result of adding up the numeric values in a column:
+
 ```
 SELECT SUM(budget)
 FROM films;
 ```
 
-We're sure you can guess what the `MIN()` function does! Now it's your turn to try out some SQL functions.
+You can probably guess what the `MIN` function does! Now it's your turn to try out some SQL functions.
 
 *** =pre_exercise_code
 ```{python}
@@ -45,7 +46,7 @@ set_options(visible_tables = ['films'])
 *** =xp1: 20
 
 *** =instructions1
-Get the total (sum) duration of all films.
+Use the `SUM` function to get the total duration of all films.
 *** =solution1
 ```{sql}
 SELECT SUM(duration)
