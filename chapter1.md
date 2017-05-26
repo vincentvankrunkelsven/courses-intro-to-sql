@@ -35,7 +35,7 @@ AS welcome_column;
 
 *** =type1:NormalExercise
 *** =key1: 0e1942875c
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Notice the **query result** tab in the bottom right corner of your screen. This is where the results of your SQL queries will be displayed.
@@ -61,7 +61,7 @@ Ex().test_student_typed('SELECT', msg='You need to add `SELECT` at the start of 
 
 *** =type2:MultipleChoiceExercise
 *** =key2: 97d9538682
-***xp2: 20
+*** =xp2: 20
 
 *** =question2
 Good work!
@@ -105,7 +105,7 @@ AS result;
 
 *** =type1:NormalExercise
 *** =key1: 157ee8d1ad
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Submit the query in the editor! Don't worry, you'll learn how it works soon.
@@ -128,7 +128,7 @@ Ex().check_result()
 
 *** =type2:NormalExercise
 *** =key2: 764f82129d
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Now change 'SQL' to 'SQL is' and click Submit!
@@ -151,7 +151,7 @@ Ex().check_result()
 
 *** =type3:NormalExercise
 *** =key3: 1496605dac
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Finally, change 'SQL is' to 'SQL is cool!' and click Submit!
@@ -295,7 +295,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: a41cc766d5
-***xp1: 20
+*** =xp1: 20
 *** =instructions1
 Select the `title` column from the `films` table. You can see your results in the query result tab to the right!
 *** =solution1
@@ -327,7 +327,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 4a74270ecd
-***xp2: 20
+*** =xp2: 20
 *** =instructions2
 Modify your query to get the `release_year` column from the `films table`.
 
@@ -355,7 +355,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 323bd5ddf5
-***xp3: 20
+*** =xp3: 20
 *** =instructions3
 Now modify your query to get the `name` of each person in the `people` table.
 
@@ -424,7 +424,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 *** =key1: d561b4df97
-***xp1: 20
+*** =xp1: 20
 *** =instructions1
 Get the title of every film from the `films` table.
 
@@ -456,7 +456,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 917d7dc533
-***xp2: 20
+*** =xp2: 20
 *** =instructions2
 Get the title and release year for every film.
 
@@ -487,7 +487,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: eeba078a00
-***xp3: 20
+*** =xp3: 20
 *** =instructions3
 Get the title, release year and country for every film.
 
@@ -521,7 +521,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 *** =key4: dac27d9aad
-***xp4: 20
+*** =xp4: 20
 *** =instructions4
 Get all columns from the `films` table.
 *** =solution4
@@ -576,7 +576,7 @@ set_options(visible_tables = ['films', 'roles'])
 
 *** =type1: NormalExercise
 *** =key1: e6b81711f1
-***xp1: 20
+*** =xp1: 20
 *** =instructions1
 Get all the unique countries represented in the `films` table.
 
@@ -611,7 +611,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 2cb9a4bf6a
-***xp2: 20
+*** =xp2: 20
 *** =instructions2
 Get all the different film certifications from the `films` table.
 *** =solution2
@@ -645,7 +645,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 26835d3029
-***xp3: 20
+*** =xp3: 20
 *** =instructions3
 Get the different types of film roles from the `roles` table.
 
@@ -752,7 +752,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: 4688067e3e
-***xp1: 20
+*** =xp1: 20
 *** =instructions1
 Count the number of rows in the `people` table.
 *** =solution1
@@ -786,7 +786,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 497ffa962e
-***xp2: 20
+*** =xp2: 20
 *** =instructions2
 Count the number of *non-missing* birth dates in the `people` table.
 *** =solution2
@@ -814,7 +814,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 
 *** =key3: 50c903a00a
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Count the number of unique birth dates in the `people` table.
@@ -846,7 +846,7 @@ Ex().test_correct(check_result(), [
 *** =type4: NormalExercise
 
 *** =key4: 511052cbbe
-***xp4: 20
+*** =xp4: 20
 
 *** =instructions4
 Count the number of unique languages in the `films` table.
@@ -875,7 +875,7 @@ Ex().test_correct(check_result(), [
 *** =type5: NormalExercise
 
 *** =key5: 9e1147efe5
-***xp5: 20
+*** =xp5: 20
 
 *** =instructions5
 Count the number of unique countries in the `films` table.

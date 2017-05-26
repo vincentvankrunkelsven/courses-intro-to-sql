@@ -42,7 +42,7 @@ set_options(visible_tables = ['films'])
 *** =type1: NormalExercise
 
 *** =key1: 80fd462ae1
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the total (sum) duration of all films.
@@ -75,7 +75,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 
 *** =key2: 7993b51268
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the average duration of all films.
@@ -105,7 +105,7 @@ Ex().test_correct(check_result(), [
 *** =type3: NormalExercise
 
 *** =key3: a03aeabbc6
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Get the duration of the shortest film.
@@ -135,7 +135,7 @@ Ex().test_correct(check_result(), [
 *** =type4: NormalExercise
 
 *** =key4: fabbc619c6
-***xp4: 20
+*** =xp4: 20
 
 *** =instructions4
 Get the amount made by the highest grossing film.
@@ -164,7 +164,7 @@ Ex().test_correct(check_result(), [
 
 *** =type5: NormalExercise
 *** =key5: e14c21bc81
-***xp5: 20
+*** =xp5: 20
 *** =instructions5
 Get the amount made by the lowest grossing film.
 
@@ -294,7 +294,7 @@ set_options(visible_tables = ['films'])
 *** =type1: NormalExercise
 
 *** =key1: ec33c2353b
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the title and profit or loss for each film, where possible. Let's define the profit or loss as being the amount the film made, minus the amount the film cost to make. Alias the profit or loss as `profit_or_loss`.
@@ -325,7 +325,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 1351c6f6bb
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the title and duration in hours for each film. Currently the duration is in minutes, so you'll need to divide by 60.0 to get the duration in hours. Alias the duration in hours as `duration_hours`.
@@ -363,7 +363,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 497f8d2a8a
-***xp3: 20
+*** =xp3: 20
 *** =instructions3
 Get the average film duration in hours for all films, aliased as `avg_duration_hours`.
 
@@ -414,7 +414,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: e14dc7c1a2
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the percentage of `people` who are no longer alive. Alias the result as `percentage_dead`. Remember to use `100.0` and not `100`!
@@ -456,7 +456,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: c2bbd9a806
-***xp2: 20
+*** =xp2: 20
 *** =instructions2
 Get the number of years between the oldest film and newest film. Alias the result as `difference`.
 
@@ -491,7 +491,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: f272486b68
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Get the number of decades the `films` table covers. Alias the result as `number_of_decades`.

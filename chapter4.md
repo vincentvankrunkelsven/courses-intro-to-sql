@@ -62,7 +62,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: e3a06cce15
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the names of people from the `people` table, sorted alphabetically.
@@ -98,7 +98,7 @@ Ex().test_correct(check_result(), [
 *** =type2: NormalExercise
 
 *** =key2: 14a2792baa
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the names of people, sorted by birth date.
@@ -129,7 +129,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 6cfeca71b1
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Get the birth date and name for every person, in order of when they were born.
@@ -158,7 +158,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 *** =key4: e2702b5933
-***xp4: 20
+*** =xp4: 20
 
 *** =instructions4
 Get the title and release year of films released in 2000 or 2015, in the order they were released.
@@ -191,7 +191,7 @@ Ex().test_correct(check_result(), [
 
 *** =type5: NormalExercise
 *** =key5: 5c84507976
-***xp5: 20
+*** =xp5: 20
 
 *** =instructions5
 Get all details for all films except those released in 2015 and order them by release year.
@@ -243,7 +243,7 @@ set_options(visible_tables = ['films', 'reviews'])
 
 *** =type1: NormalExercise
 *** =key1: 1ed651456d
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the IMDB score and film ID for every film, sorted from highest to lowest score.
@@ -277,7 +277,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 3629dd5dcd
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the titles of films in reverse order.
@@ -337,7 +337,7 @@ set_options(visible_tables = ['films', 'people'])
 
 *** =type1: NormalExercise
 *** =key1: 9ec6e8ae72
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the birth date and name of people in the `people` table, in order of when they were born and alphabetically by name.
@@ -370,7 +370,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 3460b2f14b
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the release year, duration, and title of films released `IN` 2000 or 2015, ordered by their release year and duration.
@@ -403,7 +403,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: c03517c2b9
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Get certifications, release years, and titles of films released `IN` 2000 or 2015, ordered by certification (alphabetically) and release year.
@@ -437,7 +437,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 *** =key4: f0ade213ff
-***xp4: 20
+*** =xp4: 20
 
 *** =instructions4
 Get the names and birthdates of people whose names start with A, B, or C, ordered by date of birth.
@@ -557,7 +557,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 *** =key1: 0b29eb4ff3
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the count of films grouped by release year.
@@ -589,7 +589,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: ebee043890
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the count of films grouped by release year, sorted by release year. Alias the count as `films_released`.
@@ -629,7 +629,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: b4341b8451
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Get the count of films released in each year, ordered by count from lowest to highest. Alias the count as `films_released`.
@@ -672,7 +672,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 *** =key4: 66d0c5198a
-***xp4: 20
+*** =xp4: 20
 
 *** =instructions4
 Get the count of films released in each year, ordered by count from highest to lowest.
@@ -711,7 +711,7 @@ Ex().test_correct(check_result(), [
 
 *** =type5: NormalExercise
 *** =key5: 53ad6da98c
-***xp5: 20
+*** =xp5: 20
 
 *** =instructions5
 Get the lowest gross box office earnings per release year, ordered by release year.
@@ -747,7 +747,7 @@ Ex().test_correct(check_result(), [
 
 *** =type6: NormalExercise
 *** =key6: cff5924de5
-***xp6: 20
+*** =xp6: 20
 
 *** =instructions6
 Get the total gross amount films in each language brought in at the box office.
@@ -779,7 +779,7 @@ Ex().test_correct(check_result(), [
 
 *** =type7: NormalExercise
 *** =key7: 83944ff64f
-***xp7: 20
+*** =xp7: 20
 
 *** =instructions7
 Get the total budget spent making movies in each country.
@@ -831,7 +831,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 *** =key1: eac5f722a5
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the highest budget spent making a film for each year, for each country.
@@ -870,7 +870,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: 48461bd4d3
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Get the lowest box office amount made by each country in each year.
@@ -972,7 +972,7 @@ set_options(visible_tables = ['films'])
 ```
 *** =type1: NormalExercise
 *** =key1: a141cd669f
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Get the release year, budget and box office earnings for each film in the `films` table.
@@ -998,7 +998,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 *** =key2: d80bd57b13
-***xp2: 20
+*** =xp2: 20
 
 *** =instructions2
 Modify your query so that only results since 1990 are included.
@@ -1027,7 +1027,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 *** =key3: 2d5e6bd8cf
-***xp3: 20
+*** =xp3: 20
 
 *** =instructions3
 Remove the budget and gross columns, and group your results by release year.
@@ -1061,7 +1061,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 *** =key4: ee92d8cbaa
-***xp4: 20
+*** =xp4: 20
 
 *** =instructions4
 Modify your query to add in the rounded average budget and average box office earnings for the results you have so far. Alias your results as `avg_budget` and `avg_box_office` respectively. Remember, you can use the `ROUND()` function.
@@ -1103,7 +1103,7 @@ Ex().test_correct(check_result(), [
 
 *** =type5: NormalExercise
 *** =key5: ce0f248734
-***xp5: 20
+*** =xp5: 20
 
 *** =instructions5
 Modify your query so that only films with an average budget of greater than $60 million are included.
@@ -1152,7 +1152,7 @@ Ex().test_correct(check_result(), [
 
 *** =type6: NormalExercise
 *** =key6: 7b3afeed2f
-***xp6: 20
+*** =xp6: 20
 
 *** =instructions6
 Finally, modify your query to order the results from highest average box office earnings to lowest.
@@ -1303,7 +1303,7 @@ WHERE title = 'To Kill a Mockingbird';
 
 *** =type1:NormalExercise
 *** =key1: 7c4fc7a484
-***xp1: 20
+*** =xp1: 20
 
 *** =instructions1
 Submit the code in the editor and inspect the results.
@@ -1331,7 +1331,7 @@ Ex().check_result()
 
 *** =type2:MultipleChoiceExercise
 *** =key2: fc288db979
-***xp2: 20
+*** =xp2: 20
 
 *** =question2
 What rating does _To Kill a Mockingbird_ have on IMDB?
