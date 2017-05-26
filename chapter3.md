@@ -397,16 +397,15 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
---- type:TabExercise lang:sql xp:100 key:7e3a93209c
+--- type:BulletExercise lang:sql xp:100 key:7e3a93209c
 ## Even more aliasing
 
-Nice work! Let's practice your newfound aliasing skills some more before moving on.
+Let's practice your newfound aliasing skills some more before moving on!
 
 *** =pre_exercise_code
 ```{python}
 connect('postgresql', 'films')
 set_options(visible_tables = ['films', 'people'])
-
 ```
 
 *** =sample_code
