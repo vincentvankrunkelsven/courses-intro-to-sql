@@ -54,7 +54,10 @@ FROM films;
 ```
 
 *** =hint1
-To get the total duration, you can use `SUM(duration)`
+```
+SELECT ___(___)
+FROM ___;
+```
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -86,6 +89,11 @@ Get the average duration of all films.
 ```{sql}
 SELECT AVG(duration)
 FROM films;
+```
+*** =hint2
+```
+SELECT ___(___)
+FROM ___;
 ```
 *** =sct2
 ```{python}
@@ -119,6 +127,11 @@ Get the duration of the shortest film.
 SELECT MIN(duration)
 FROM films;
 ```
+*** =hint3
+```
+SELECT ___(___)
+FROM ___;
+```
 *** =sct3
 ```{python}
 sel = check_node('SelectStmt')
@@ -151,6 +164,12 @@ Get the amount made by the highest grossing film.
 SELECT MAX(gross)
 FROM films;
 ```
+*** =hint4
+```
+SELECT ___(___)
+FROM ___;
+```
+
 *** =sct4
 ```{python}
 sel = check_node('SelectStmt')
@@ -181,6 +200,12 @@ Get the amount made by the lowest grossing film.
 ```{sql}
 SELECT MIN(gross)
 FROM films;
+```
+
+*** =hint5
+```
+SELECT ___(___)
+FROM ___;
 ```
 *** =sct5
 ```{python}
@@ -318,7 +343,11 @@ FROM films;
 ```
 
 *** =hint1
-The net profit should be computed as `gross - budget`.
+```
+SELECT ___, ___ - ___ AS ___
+FROM ___;
+```
+
 *** =sct1
 ```{python}
 sel = check_node('SelectStmt')
@@ -365,7 +394,11 @@ FROM films;
 ```
 
 *** =hint2
-The duration in hours is `duration / 60.0`.
+```
+SELECT ___, ___ / 60.0 AS ___
+FROM ___;
+```
+
 *** =sct2
 ```{python}
 
@@ -410,7 +443,11 @@ SELECT AVG(duration) / 60.0 AS avg_duration_hours
 FROM films;
 ```
 *** =hint3
-The average duration in hours is `AVG(duration) / 60.0`.
+```
+SELECT ___(___) / 60.0 AS avg_duration_hours  
+FROM ___;
+```
+
 *** =sct3
 ```{python}
 # TODO: come back to this with better solution once sqlwhat is patched
@@ -463,7 +500,10 @@ SELECT COUNT(deathdate) * 100.0 / COUNT(*) AS percentage_dead
 FROM people;
 ```
 *** =hint1
-The percentage is calculated as `COUNT(deathdate) * 100.0 / COUNT(*)`.
+```
+SELECT ___(___) * 100.0 / ___(___) AS percentage_dead
+FROM ___;
+```
 
 *** =sct1
 ```{python}
@@ -516,7 +556,12 @@ AS difference
 FROM films;
 ```
 *** =hint2
-The difference will be `MAX(release_year) - MIN(release_year)`.
+```
+SELECT ___(___) - ___(___)
+AS difference
+FROM ___;
+```
+
 *** =sct2
 ```{python}
 sel = check_node('SelectStmt')
@@ -558,7 +603,7 @@ Ex().test_correct(check_result(), [
 *** =xp3: 20
 
 *** =instructions3
-Get the number of decades the `films` table covers. Alias the result as `number_of_decades`.
+Get the number of decades the `films` table covers. Alias the result as `number_of_decades`. The top half of your fraction should be enclosed in parentheses.
 *** =solution3
 ```{sql}
 SELECT (MAX(release_year) - MIN(release_year)) / 10.0
@@ -566,7 +611,11 @@ AS number_of_decades
 FROM films;
 ```
 *** =hint3
-The number of decades is calculated as `(MAX(release_year) - MIN(release_year)) / 10.0`.
+```
+SELECT (___(___) - ___(___)) / 10.0
+AS number_of_decades
+FROM ___;
+```
 
 *** =sct3
 ```{python}
