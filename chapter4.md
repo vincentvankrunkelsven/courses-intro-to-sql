@@ -287,8 +287,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: e23174e10b
-
+*** =key3:
 *** =xp3: 20
 
 *** =instructions3
@@ -438,8 +437,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: f0eae7e231
-
+*** =key3:
 *** =xp3: 20
 
 *** =instructions3
@@ -1658,7 +1656,7 @@ Ex().test_correct(check_result(), [
     order_by,
     group_by,
     from_clause,
-    having,
+    having_clause,
     first_round,
     second_round,
     country,
