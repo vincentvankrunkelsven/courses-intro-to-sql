@@ -1052,8 +1052,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 4ebddf5b8f
-
+*** =key4: 9087bf33ac
 *** =xp4: 20
 
 *** =instructions4
@@ -1552,11 +1551,17 @@ name = test_column('name', msg='Are you selecting the `name` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast("Are you checking `name LIKE 'B%' in your `WHERE` clause?")
+where_clause = sel.check_field('where_clause')
+
+left_like = where_clause.check_field('left').has_equal_ast('Are you using `name` with `LIKE`?')
+op_like = where_clause.check_field('op').has_equal_ast('Are you using the `LIKE` operator in your `WHERE` clause?')
+right_like = where_clause.check_field('right').has_equal_ast("Are you using `LIKE` with `'B%'`?")
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    left_like,
+    op_like,
+    right_like,
     name,
     test_has_columns(),
     test_ncols(),
@@ -1592,11 +1597,17 @@ name = test_column('name', msg='Are you selecting the `name` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast("Are you checking `name LIKE '_r%' in your `WHERE` clause?")
+where_clause = sel.check_field('where_clause')
+
+left_like = where_clause.check_field('left').has_equal_ast('Are you using `name` with `LIKE`?')
+op_like = where_clause.check_field('op').has_equal_ast('Are you using the `LIKE` operator in your `WHERE` clause?')
+right_like = where_clause.check_field('right').has_equal_ast("Are you using `LIKE` with `'_r%'`?")
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    left_like,
+    op_like,
+    right_like,
     name,
     test_has_columns(),
     test_ncols(),
@@ -1631,11 +1642,22 @@ name = test_column('name', msg='Are you selecting the `name` column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-where_clause = sel.check_field('where_clause').has_equal_ast("Are you checking `name NOT LIKE 'A%' in your `WHERE` clause?")
+where_clause = sel.check_field('where_clause')
+like_clause = where_clause.check_field('expr')
+
+op_like = where_clause.check_field('op').has_equal_ast('Are you using the `NOT LIKE` operator in your `WHERE` clause?')
+
+left_like = like_clause.check_field('left').has_equal_ast('Are you using `name` with `NOT LIKE`?')
+# TODO: might need to add a test_student_typed()s here
+
+right_like = like_clause.check_field('right').has_equal_ast("Are you using `NOT LIKE` with `'A%'`?")
 
 Ex().test_correct(check_result(), [
     from_clause,
-    where_clause,
+    left_like,
+    right_like,
+    op_like,
+    name,
     test_has_columns(),
     test_ncols(),
     test_error()

@@ -158,7 +158,172 @@ Ex().test_correct(check_result(), [
 *** =xp4: 20
 
 *** =instructions4
-Get the amount made by the highest grossing film.
+Get the duration of the longest film. 
+*** =solution4
+```{sql}
+SELECT MAX(duration)
+FROM films;
+```
+*** =hint4
+```
+SELECT ___(___)
+FROM ___;
+```
+
+*** =sct4
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+max_call = temp.check_field('name').has_equal_ast('Are you calling the `MAX` function?')
+max_call = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    max_call,
+    max_args,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+--- type:BulletExercise lang:sql xp:100 key:e60103b3f1
+## SUM, AVG, MIN, MAX (2)
+
+something something
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
+```
+
+*** =sample_code
+```{sql}
+```
+
+*** =type1: NormalExercise
+
+*** =key1: 80fd462ae1
+*** =xp1: 20
+
+*** =instructions1
+Use the `SUM` function to get the total amount grossed by all films.
+*** =solution1
+```{sql}
+SELECT SUM(gross)
+FROM films;
+```
+
+*** =hint1
+```
+SELECT ___(___)
+FROM ___;
+```
+*** =sct1
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+sum_call = temp.check_field('name').has_equal_ast('Are you calling the `SUM` function?')
+sum_args = temp.check_field('args').has_equal_ast('Are you using using `SUM` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    sum_call,
+    sum_args,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+*** =type2: NormalExercise
+
+*** =key2: 7993b51268
+*** =xp2: 20
+
+*** =instructions2
+Get the average amount grossed by all films.
+*** =solution2
+```{sql}
+SELECT AVG(gross)
+FROM films;
+```
+*** =hint2
+```
+SELECT ___(___)
+FROM ___;
+```
+*** =sct2
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+avg_call = temp.check_field('name').has_equal_ast('Are you calling the `AVG` function?')
+avg_args = temp.check_field('args').has_equal_ast('Are you using using `AVG` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    avg_call,
+    avg_col,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+*** =type3: NormalExercise
+
+*** =key3: a03aeabbc6
+*** =xp3: 20
+
+*** =instructions3
+Get the amount grossed by the worst performing film.
+*** =solution3
+```{sql}
+SELECT MIN(gross)
+FROM films;
+```
+*** =hint3
+```
+SELECT ___(___)
+FROM ___;
+```
+*** =sct3
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+min_call = temp.check_field('name').has_equal_ast('Are you calling the `MIN` function?')
+min_args = temp.check_field('args').has_equal_ast('Are you using using `MIN` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    min_call,
+    min_args,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+*** =type4: NormalExercise
+
+*** =key4: fabbc619c6
+*** =xp4: 20
+
+*** =instructions4
+Get the amount grossed by the best performing film.
 *** =solution4
 ```{sql}
 SELECT MAX(gross)
@@ -190,24 +355,133 @@ Ex().test_correct(check_result(), [
 ])
 ```
 
-*** =type5: NormalExercise
-*** =key5: e14c21bc81
-*** =xp5: 20
-*** =instructions5
-Get the amount made by the lowest grossing film.
 
-*** =solution5
-```{sql}
-SELECT MIN(gross)
-FROM films;
+--- type:TabExercise lang:sql xp:100 key:b44bd43288
+## SUM, AVG, MIN, MAX with WHERE
+
+*** =pre_exercise_code
+```{python}
+connect('postgresql', 'films')
+set_options(visible_tables = ['films'])
 ```
 
-*** =hint5
+*** =sample_code
+```{sql}
+```
+
+*** =type1: NormalExercise
+
+*** =key1: 80fd462ae1
+*** =xp1: 20
+
+*** =instructions1
+Use the `SUM` function to get the total amount grossed by all films made in the year 2000 or later.
+*** =solution1
+```{sql}
+SELECT SUM(gross)
+FROM films
+WHERE release_year >= 2000;
+```
+
+*** =hint1
 ```
 SELECT ___(___)
-FROM ___;
+FROM ___
+WHERE ___ >= ___;
 ```
-*** =sct5
+*** =sct1
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+sum_call = temp.check_field('name').has_equal_ast('Are you calling the `SUM` function?')
+sum_args = temp.check_field('args').has_equal_ast('Are you using using `SUM` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+where_release_year = where_clause.has_equal_ast(sql='release_year >= 2000', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    where_release_year,
+    sum_call,
+    sum_args,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+*** =type2: NormalExercise
+
+*** =key2: 7993b51268
+*** =xp2: 20
+
+*** =instructions2
+Get the average amount grossed by all films whose titles start with the letter 'A'.
+*** =solution2
+```{sql}
+SELECT AVG(gross)
+FROM films
+where title LIKE 'A%';
+```
+*** =hint2
+```
+SELECT ___(___)
+FROM ___
+WHERE ___ LIKE 'A%';
+```
+*** =sct2
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+avg_call = temp.check_field('name').has_equal_ast('Are you calling the `AVG` function?')
+avg_args = temp.check_field('args').has_equal_ast('Are you using using `AVG` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+left_like = where_clause.check_field('left').has_equal_ast('Are you using `title` with `LIKE`?')
+op_like = where_clause.check_field('op').has_equal_ast('Are you using the `LIKE` operator in your `WHERE` clause?')
+right_like = where_clause.check_field('right').has_equal_ast("Are you using `LIKE` with `'A%'`?")
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    left_like,
+    op_like,
+    right_like,
+    avg_call,
+    avg_args,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
+*** =type3: NormalExercise
+
+*** =key3: a03aeabbc6
+*** =xp3: 20
+
+*** =instructions3
+Get the amount grossed by the worst performing film in 1994.
+*** =solution3
+```{sql}
+SELECT MIN(gross)
+FROM films
+WHERE release_year = 1994;
+```
+*** =hint3
+```
+SELECT ___(___)
+FROM ___
+WHERE ___ = ___;
+```
+*** =sct3
 ```{python}
 sel = check_node('SelectStmt')
 
@@ -217,8 +491,13 @@ min_args = temp.check_field('args').has_equal_ast('Are you using using `MIN` on 
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
+where_clause = sel.check_field('where_clause')
+
+where_release_year = where_clause.has_equal_ast(sql='release_year = 1994', start='expression', exact=False, msg='Did you check the `release_year` correctly?')
+
 Ex().test_correct(check_result(), [
     from_clause,
+    where_release_year,
     min_call,
     min_args,
     test_has_columns(),
@@ -226,6 +505,56 @@ Ex().test_correct(check_result(), [
     test_error()
 ])
 ```
+
+*** =type4: NormalExercise
+
+*** =key4: fabbc619c6
+*** =xp4: 20
+
+*** =instructions4
+Get the amount grossed by the best performing film between 2000 and 2012.
+*** =solution4
+```{sql}
+SELECT MAX(gross)
+FROM films
+WHERE release_year BETWEEN 2000 AND 2012;
+```
+*** =hint4
+```
+SELECT ___(___)
+FROM ___
+WHERE ___ BETWEEN ___ AND ___;
+```
+
+*** =sct4
+```{python}
+sel = check_node('SelectStmt')
+
+temp = sel.check_node('Call')
+max_call = temp.check_field('name').has_equal_ast('Are you calling the `MAX` function?')
+max_call = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
+where_clause = sel.check_field('where_clause')
+
+between_left = where_clause.check_field('left').has_equal_ast('Are you using `release_year` with `BETWEEN`?')
+between_op1 = where_clause.check_field('right', 0).has_equal_ast('Check the first part of your `BETWEEN`!')
+between_op2 = where_clause.check_field('right', 1).has_equal_ast('Check the second part of your `BETWEEN`!')
+
+Ex().test_correct(check_result(), [
+    from_clause,
+    between_left,
+    between_op1,
+    between_op2,
+    max_call,
+    max_args,
+    test_has_columns(),
+    test_ncols(),
+    test_error()
+])
+```
+
 
 
 --- type:MultipleChoiceExercise lang:sql xp:50 skills:1 key:7b8b54b64d
