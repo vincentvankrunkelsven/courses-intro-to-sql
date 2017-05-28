@@ -1,6 +1,7 @@
 ---
 title       : Aggregate Functions
-description : Insert the chapter description here
+description : This chapter builds on the first two by teaching you how to use aggregate functions to gain useful insights from your data. Additionally, you'll learn about arithmetic in SQL, and how to use aliases to make your results more readable! 
+
 
 --- type:BulletExercise lang:sql xp:100 key:b883e7079f
 ## SUM, AVG, MIN, MAX
@@ -207,8 +208,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: f36bfe4f3a
-
+*** =key1: 80fd462ae1
 *** =xp1: 20
 
 *** =instructions1
@@ -246,8 +246,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: 741b21fdae
-
+*** =key2: 7993b51268
 *** =xp2: 20
 
 *** =instructions2
@@ -284,8 +283,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: 68bdc6bd87
-
+*** =key3: a03aeabbc6
 *** =xp3: 20
 
 *** =instructions3
@@ -322,8 +320,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 343a60bb74
-
+*** =key4: fabbc619c6
 *** =xp4: 20
 
 *** =instructions4
@@ -375,8 +372,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: 9fb38b9131
-
+*** =key1: 80fd462ae1
 *** =xp1: 20
 
 *** =instructions1
@@ -421,8 +417,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: 1a73f3eaa7
-
+*** =key2: 7993b51268
 *** =xp2: 20
 
 *** =instructions2
@@ -470,8 +465,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: cf4a64227a
-
+*** =key3: a03aeabbc6
 *** =xp3: 20
 
 *** =instructions3
@@ -515,8 +509,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 330e5a5c14
-
+*** =key4: fabbc619c6
 *** =xp4: 20
 
 *** =instructions4
