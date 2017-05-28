@@ -59,14 +59,16 @@ To get the total duration, you can use `SUM(duration)`
 ```{python}
 sel = check_node('SelectStmt')
 
-sum_call = sel.check_node('Call').has_equal_ast('Are you calling `SUM` correctly?')
+temp = sel.check_node('Call')
+sum_call = temp.check_field('name').has_equal_ast('Are you calling the `SUM` function?')
+sum_args = temp.check_field('args').has_equal_ast('Are you using using `SUM` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     sum_call,
-    sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    sum_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -89,14 +91,16 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-avg_call = sel.check_node('Call').has_equal_ast('Are you calling `AVG` correctly?')
+temp = sel.check_node('Call')
+avg_call = temp.check_field('name').has_equal_ast('Are you calling the `AVG` function?')
+avg_args = temp.check_field('args').has_equal_ast('Are you using using `AVG` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     avg_call,
-    sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    avg_col,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -119,14 +123,16 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
+temp = sel.check_node('Call')
+min_call = temp.check_field('name').has_equal_ast('Are you calling the `MIN` function?')
+min_args = temp.check_field('args').has_equal_ast('Are you using using `MIN` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     min_call,
-    sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    min_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -149,14 +155,16 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-max_call = sel.check_node('Call').has_equal_ast('Are you calling `MAX` correctly?')
+temp = sel.check_node('Call')
+max_call = temp.check_field('name').has_equal_ast('Are you calling the `MAX` function?')
+max_call = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     max_call,
-    sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    max_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -178,14 +186,16 @@ FROM films;
 ```{python}
 sel = check_node('SelectStmt')
 
-min_call = sel.check_node('Call').has_equal_ast('Are you calling `MIN` correctly?')
+temp = sel.check_node('Call')
+min_call = temp.check_field('name').has_equal_ast('Are you calling the `MIN` function?')
+min_args = temp.check_field('args').has_equal_ast('Are you using using `MIN` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
     from_clause,
     min_call,
-    sel.has_equal_ast('Is your `SELECT` statement correct?'),
+    min_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -299,7 +309,8 @@ set_options(visible_tables = ['films'])
 *** =xp1: 20
 
 *** =instructions1
-Get the title and net profit—the amount a film grossed, minus its budget—for all films. Alias the net profit as `net_profit`.
+Get the title and net profit (the amount a film grossed, minus its budget) for all films. Alias the net profit as `net_profit`.
+
 *** =solution1
 ```{sql}
 SELECT title, gross - budget AS net_profit
@@ -312,13 +323,28 @@ The net profit should be computed as `gross - budget`.
 ```{python}
 sel = check_node('SelectStmt')
 
-alias = test_column('net_profit', match='exact')
+title = test_column('title').has_equal_ast('Did you select the `title` column correctly?') 
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the net profit correctly?')
+alias = test_column('net_profit', match='exact', msg='Did you alias your result as `net_profit`?')
+
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr')
+
+left_eqn = alias_eqn.check_field('left').has_equal_ast('Are you using the `gross` column?')
+
+right_eqn = alias_eqn.check_field('right').has_equal_ast('Are you using the `budget` column?')
+
+op_eqn = alias_eqn.check_field('op').has_equal_ast('Are you subtracting `budget` from `gross`?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
+    from_clause,
     alias_eqn,
+    left_eqn,
+    op_eqn,
+    right_eqn,
     alias,
+    title,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -343,19 +369,28 @@ The duration in hours is `duration / 60.0`.
 *** =sct2
 ```{python}
 
-Ex().test_has_columns()
-Ex().test_ncols()
-sel = check_node('SelectStmt').has_equal_ast('Check your `SELECT` statement! Did you divide `duration` by `60` and alias the result as `duration_hours`?')
+sel = check_node('SelectStmt')
 
+title = test_column('title', msg='Did you select the `title` column correctly?')
+alias = test_column('duration_hours', match='exact', msg='Did you alias your result as `duration_hours`?')
 
-alias = test_column('duration_hours', match='exact')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the duration in hours correctly?')
+left_eqn = alias_eqn.check_field('left').has_equal_ast('Are you using the `duration` column?')
+
+right_eqn = alias_eqn.check_field('right').has_equal_ast('Are you dividing the `duration` column by `60.0`?')
+
+op_eqn = alias_eqn.check_field('op').has_equal_ast('Are you dividing by `60.0`?')
+
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    alias_eqn,
+    from_clause,
+    left_eqn,
+    op_eqn
+    right_eqn,
     alias,
-    sel,
+    title,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -378,7 +413,7 @@ FROM films;
 The average duration in hours is `AVG(duration) / 60.0`.
 *** =sct3
 ```{python}
-# TODO: come back to this with better solution
+# TODO: come back to this with better solution once sqlwhat is patched
 sel = check_node('SelectStmt')
 
 alias = test_column('avg_duration_hours', match='exact', msg='Did you alias your result as `avg_duration_hours`?')
@@ -388,7 +423,10 @@ avg2 = test_student_typed('AVG(duration / 60.0)', msg='Are you calling `AVG` cor
 
 avg_call = test_or(avg1, avg2)
 
+from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
+
 Ex().test_correct(check_result(), [
+    from_clause,
     avg_call,
     alias,
     test_has_columns(),
@@ -431,24 +469,34 @@ The percentage is calculated as `COUNT(deathdate) * 100.0 / COUNT(*)`.
 ```{python}
 sel = check_node('SelectStmt')
 
-alias = test_column('percentage_dead', match='exact')
+alias = test_column('percentage_dead', match='exact', msg='Did you alias your result as `percentage_dead`?')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the percentage of dead people correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr')
 
-count_call1 = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').has_equal_ast('Is your first `COUNT` call equation correct?')
+left_eqn = alias_eqn.check_node('BinaryExpr')
 
-count_call2 = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('right').has_equal_ast('Is your second `COUNT` call equation correct?')
+right_eqn = alias_eqn.check_node('Call').has_equal_ast('Are you dividing by `COUNT(*)`?')
 
-count_call = sel.check_node('AliasExpr').check_node('BinaryExpr').check_field('left').has_equal_ast('Are you calling `COUNT` correctly?')
+temp = left_eqn.check_field('left')
+
+count_call = temp.check_field('name').has_equal_ast('Are you using the `COUNT` function for the top of your fraction?')
+
+count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
+
+op_eqn = left_eqn.check_field('op').has_equal_ast('Are you multiplying `COUNT(deathdate)` by `100.00`?')
+
+right_left_eqn = left_eqn.check_field('right').has_equal_ast('Make sure to multiply the top by `100.0`!')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
 Ex().test_correct(check_result(), [
-    count_call1,
-    count_call2,
-    alias_eqn,
-    alias,
     from_clause,
+    count_call,
+    count_args,
+    op_eqn,
+    right_left_eqn,
+    right_eqn,
+    alias,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -475,13 +523,28 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-alias = test_column('difference', match='exact')
+alias = test_column('difference', match='exact', msg='Did you alias your result as `difference`?')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the difference correctly?')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr')
+
+left_eqn = alias_eqn.check_field('left')
+right_eqn = alias_eqn.check_field('right')
+
+max_call = left_eqn.check_field('name').has_equal_ast('Did you use `MAX` function to get the oldest film?')
+max_args = left_eqn.check_field('args').has_equal_ast('Are you using `MAX` on the right column?')
+
+min_call = right_eqn.check_field('name').has_equal_ast('Did you use the `MIN` function to get the newest film?')
+min_args = right_eqn.check_field('args').has_equal_ast('Are you using `MIN` on the right column?')
+
+op_eqn = alias_eqn.check_field('op').has_equal_ast('Are you subtracting the most recent year from the least recent year?')
 
 Ex().test_correct(check_result(), [
     from_clause,
-    alias_eqn,
+    max_call,
+    max_args,
+    op_eqn,
+    min_call,
+    min_args,
     alias,
     test_has_columns(),
     test_ncols(),
@@ -511,13 +574,38 @@ sel = check_node('SelectStmt')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
-alias = test_column('number_of_decades', match='exact')
+alias = test_column('number_of_decades', match='exact', msg='Did you alias your result as `number_of_decades`?')
 
-alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr').has_equal_ast('Are you calculating the exact number of decades correctly? Remember to use parentheses in the right places!')
+alias_eqn = sel.check_node('AliasExpr').check_node('BinaryExpr')
+
+left_eqn = alias_eqn.check_field('left')
+
+max_node = left_eqn.check_field('left')
+
+max_call = max_node.check_field('name').has_equal_ast('Did you use the `MAX` function to get the most recent year?')
+max_args = max_node.check_field('args').has_equal_ast('Did you use `MAX` on the right column?')
+
+min_node = left_eqn.check_field('right')
+
+min_call = min_node.check_field('name').has_equal_ast('Did you use the `MIN` function to get the least recent year?')
+min_args = min_node.check_field('args').has_equal_ast('Did you use `MIN` on the right column?')
+
+op_eqn = left_eqn.check_field('op').has_equal_ast('Are you subtracting the newest year from the oldest year?')
+
+other_op = alias_eqn.check_field('op').has_equal_ast("Don't forget to divide by `10.0`!")
+
+ten = alias_eqn.check_field('right').has_equal_ast('Did you divide by `10.0`?')
+
 
 Ex().test_correct(check_result(), [
     from_clause,
-    alias_eqn,
+    max_call,
+    max_args,
+    op_eqn,
+    min_call,
+    min_args,
+    other_op,
+    ten,
     alias,
     test_has_columns(),
     test_ncols(),
