@@ -176,7 +176,7 @@ sel = check_node('SelectStmt')
 
 temp = sel.check_node('Call')
 max_call = temp.check_field('name').has_equal_ast('Are you calling the `MAX` function?')
-max_call = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
+max_args = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -207,8 +207,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: 8a4f9249e2
-
+*** =key1: 80fd462ae1
 *** =xp1: 20
 
 *** =instructions1
@@ -246,8 +245,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: a6d298690b
-
+*** =key2: 7993b51268
 *** =xp2: 20
 
 *** =instructions2
@@ -284,8 +282,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: 782a54c1ea
-
+*** =key3: a03aeabbc6
 *** =xp3: 20
 
 *** =instructions3
@@ -322,8 +319,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 7aca6c427a
-
+*** =key4: fabbc619c6
 *** =xp4: 20
 
 *** =instructions4
@@ -345,7 +341,7 @@ sel = check_node('SelectStmt')
 
 temp = sel.check_node('Call')
 max_call = temp.check_field('name').has_equal_ast('Are you calling the `MAX` function?')
-max_call = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
+max_args = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -375,8 +371,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: 7dacb87404
-
+*** =key1: 80fd462ae1
 *** =xp1: 20
 
 *** =instructions1
@@ -421,8 +416,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: d6e9fc4c03
-
+*** =key2: 7993b51268
 *** =xp2: 20
 
 *** =instructions2
@@ -470,8 +464,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: f2d02fabb6
-
+*** =key3: a03aeabbc6
 *** =xp3: 20
 
 *** =instructions3
@@ -515,8 +508,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 2159a17419
-
+*** =key4: fabbc619c6
 *** =xp4: 20
 
 *** =instructions4

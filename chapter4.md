@@ -287,8 +287,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: a8ded9e877
-
+*** =key3:
 *** =xp3: 20
 
 *** =instructions3
@@ -438,8 +437,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: a1382419aa
-
+*** =key3:
 *** =xp3: 20
 
 *** =instructions3
@@ -963,7 +961,7 @@ SELECT release_year, MIN(gross)
 FROM films
 GROUP BY release_year;
 ```
-*** hint5
+*** =hint5
 ```
 SELECT ___, ___(___)
 FROM ___
@@ -1503,7 +1501,7 @@ second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_a
 
 having_clause = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
 
-avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
+avg_in_having = having_clause.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
 
 Ex().test_correct(check_result(), [
     group_by_clause,
@@ -1570,7 +1568,7 @@ second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_a
 
 having_clause = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
 
-avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
+avg_in_having = having_clause.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
 
 order_by = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
@@ -1640,7 +1638,7 @@ country = test_column('country', msg='Did you select the `country` column correc
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')
 group_by = sel.check_field('group_by_clause').has_equal_ast('Is your `GROUP BY` clause correct?')
-having = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
+having_clause = sel.check_field('having_clause').has_equal_ast('Is your `HAVING` clause correct?')
 order_by = sel.check_field('order_by_clause').has_equal_ast('Is your `ORDER BY` clause correct?')
 
 alias1 = test_column('avg_budget', match='exact', msg='Are you aliasing `avg_budget` correctly?')
@@ -1649,7 +1647,7 @@ alias2 = test_column('avg_box_office', match='exact', msg='Are you aliasing `avg
 first_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(budget))` correctly?')
 
 second_round = sel.check_node('AliasExpr', 0).check_node('Unshaped').has_equal_ast('Are you calling `ROUND(AVG(gross))` correctly?')
-avg_in_having = having.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
+avg_in_having = having_clause.check_node('Call').has_equal_ast('Are you correctly calling `AVG` on `budget` in your `HAVING` clause?')
 
 limit_clause = sel.check_field('limit_clause').has_equal_ast('Did you `LIMIT` the number of results to `5`?')
 
