@@ -207,7 +207,8 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: 80fd462ae1
+*** =key1: f36bfe4f3a
+
 *** =xp1: 20
 
 *** =instructions1
@@ -245,7 +246,8 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: 7993b51268
+*** =key2: 741b21fdae
+
 *** =xp2: 20
 
 *** =instructions2
@@ -282,7 +284,8 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: a03aeabbc6
+*** =key3: 68bdc6bd87
+
 *** =xp3: 20
 
 *** =instructions3
@@ -319,7 +322,8 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: fabbc619c6
+*** =key4: 343a60bb74
+
 *** =xp4: 20
 
 *** =instructions4
@@ -371,7 +375,8 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: 80fd462ae1
+*** =key1: 9fb38b9131
+
 *** =xp1: 20
 
 *** =instructions1
@@ -416,7 +421,8 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: 7993b51268
+*** =key2: 1a73f3eaa7
+
 *** =xp2: 20
 
 *** =instructions2
@@ -464,7 +470,8 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: a03aeabbc6
+*** =key3: cf4a64227a
+
 *** =xp3: 20
 
 *** =instructions3
@@ -508,7 +515,8 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: fabbc619c6
+*** =key4: 330e5a5c14
+
 *** =xp4: 20
 
 *** =instructions4
