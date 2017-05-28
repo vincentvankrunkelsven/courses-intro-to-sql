@@ -287,8 +287,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: 54137e3b04
-
+*** =key3:
 *** =xp3: 20
 
 *** =instructions3
@@ -438,8 +437,7 @@ Ex().test_correct(check_result(), [
 ```
 
 *** =type3: NormalExercise
-*** =key3: fd107bbb66
-
+*** =key3:
 *** =xp3: 20
 
 *** =instructions3
@@ -795,8 +793,8 @@ sel = check_node('SelectStmt')
 release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?')
 
 temp = sel.check_node('Call')
-count_call = temp.check_node('name').has_equal_ast('Did you use the `COUNT` function?')
-count_args = temp.check_node('args').has_equal_ast('Are you using `COUNT` on the right column?')
+count_call = temp.check_field('name').has_equal_ast('Did you use the `COUNT` function?')
+count_args = temp.check_field('args').has_equal_ast('Are you using `COUNT` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -839,8 +837,8 @@ sel = check_node('SelectStmt')
 release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?')
 
 temp = sel.check_node('Call')
-avg_call = temp.check_node('name').has_equal_ast('Did you use the `AVG` function?')
-avg_args = temp.check_node('args').has_equal_ast('Are you using `AVG` on the right column?')
+avg_call = temp.check_field('name').has_equal_ast('Did you use the `AVG` function?')
+avg_args = temp.check_field('args').has_equal_ast('Are you using `AVG` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -884,8 +882,8 @@ sel = check_node('SelectStmt')
 release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?')
 
 temp = sel.check_node('Call')
-max_call = temp.check_node('name').has_equal_ast('Did you use the `MAX` function?')
-max_args = temp.check_node('args').has_equal_ast('Are you using `MAX` on the right column?')
+max_call = temp.check_field('name').has_equal_ast('Did you use the `MAX` function?')
+max_args = temp.check_field('args').has_equal_ast('Are you using `MAX` on the right column?')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -976,8 +974,8 @@ sel = check_node('SelectStmt')
 release_year = test_column('release_year', msg='Did you select the `release_year` column correctly?')
 
 temp = sel.check_node('Call')
-min_call = temp.check_node('name').has_equal_ast('Did you use the `MIN` function?')
-min_args = temp.check_node('args').has_equal_ast('Are you using `MIN` on the right column?')
+min_call = temp.check_field('name').has_equal_ast('Did you use the `MIN` function?')
+min_args = temp.check_field('args').has_equal_ast('Are you using `MIN` on the right column?')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -1020,8 +1018,8 @@ sel = check_node('SelectStmt')
 language = test_column('language', msg='Did you select the `language` column correctly?')
 
 temp = sel.check_node('Call')
-sum_call = temp.check_node('name').has_equal_ast('Did you use the `SUM` function?')
-sum_args = temp.check_node('args').has_equal_ast('Are you using `SUM` on the right column?')
+sum_call = temp.check_field('name').has_equal_ast('Did you use the `SUM` function?')
+sum_args = temp.check_field('args').has_equal_ast('Are you using `SUM` on the right column?')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -1064,8 +1062,8 @@ sel = check_node('SelectStmt')
 country = test_column('country', msg='Did you select the `country` column correctly?')
 
 temp = sel.check_node('Call')
-sum_call = temp.check_node('name').has_equal_ast('Did you use the `SUM` function?')
-sum_args = temp.check_node('args').has_equal_ast('Are you using `SUM` on the right column?')
+sum_call = temp.check_field('name').has_equal_ast('Did you use the `SUM` function?')
+sum_args = temp.check_field('args').has_equal_ast('Are you using `SUM` on the right column?')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -1132,8 +1130,8 @@ release_year = test_column('release_year', msg='Did you select the `release_year
 country = test_column('country', msg='Did you select the `country` column correctly?')
 
 temp = sel.check_node('Call')
-max_call = temp.check_node('name').has_equal_ast('Did you use the `MAX` function?')
-max_args = temp.check_node('args').has_equal_ast('Are you using `MAX` on the right column?')
+max_call = temp.check_field('name').has_equal_ast('Did you use the `MAX` function?')
+max_args = temp.check_field('args').has_equal_ast('Are you using `MAX` on the right column?')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -1182,8 +1180,8 @@ release_year = test_column('release_year', msg='Did you select the `release_year
 country = test_column('country', msg='Did you select the `country` column correctly?')
 
 temp = sel.check_node('Call')
-min_call = temp.check_node('name').has_equal_ast('Did you use the `MIN` function?')
-min_args = temp.check_node('args').has_equal_ast('Are you using `MIN` on the right column?')
+min_call = temp.check_field('name').has_equal_ast('Did you use the `MIN` function?')
+min_args = temp.check_field('args').has_equal_ast('Are you using `MIN` on the right column?')
 
 from_clause = sel.check_field('where_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -1279,7 +1277,7 @@ Get the release year, budget and box office earnings for each film in the `films
 SELECT release_year, budget, gross
 FROM films;
 ```
-*** hint1
+*** =hint1
 ```
 SELECT ___, ___, ___
 FROM ___;
@@ -1635,7 +1633,7 @@ LIMIT 5;
 ```{python}
 sel = check_node('SelectStmt')
 
-country = test_column('title', msg='Did you select the `country` column correctly?')
+country = test_column('country', msg='Did you select the `country` column correctly?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 where_clause = sel.check_field('where_clause').has_equal_ast('Is your `WHERE` clause correct?')

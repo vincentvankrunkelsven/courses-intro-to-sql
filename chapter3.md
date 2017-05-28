@@ -108,7 +108,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     avg_call,
-    avg_col,
+    avg_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -207,8 +207,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: c7ba0b5448
-
+*** =key1: 80fd462ae1
 *** =xp1: 20
 
 *** =instructions1
@@ -246,8 +245,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: 864552ba51
-
+*** =key2: 7993b51268
 *** =xp2: 20
 
 *** =instructions2
@@ -275,7 +273,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     avg_call,
-    avg_col,
+    avg_args,
     test_has_columns(),
     test_ncols(),
     test_error()
@@ -284,8 +282,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: b7af8f68af
-
+*** =key3: a03aeabbc6
 *** =xp3: 20
 
 *** =instructions3
@@ -322,8 +319,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 7be4665ae6
-
+*** =key4: fabbc619c6
 *** =xp4: 20
 
 *** =instructions4
@@ -375,8 +371,7 @@ set_options(visible_tables = ['films'])
 
 *** =type1: NormalExercise
 
-*** =key1: 00c2294bb1
-
+*** =key1: 80fd462ae1
 *** =xp1: 20
 
 *** =instructions1
@@ -421,8 +416,7 @@ Ex().test_correct(check_result(), [
 
 *** =type2: NormalExercise
 
-*** =key2: 350f1fdc24
-
+*** =key2: 7993b51268
 *** =xp2: 20
 
 *** =instructions2
@@ -470,8 +464,7 @@ Ex().test_correct(check_result(), [
 
 *** =type3: NormalExercise
 
-*** =key3: 9b575024f7
-
+*** =key3: a03aeabbc6
 *** =xp3: 20
 
 *** =instructions3
@@ -515,8 +508,7 @@ Ex().test_correct(check_result(), [
 
 *** =type4: NormalExercise
 
-*** =key4: 7881e0631e
-
+*** =key4: fabbc619c6
 *** =xp4: 20
 
 *** =instructions4
@@ -540,7 +532,7 @@ sel = check_node('SelectStmt')
 
 temp = sel.check_node('Call')
 max_call = temp.check_field('name').has_equal_ast('Are you calling the `MAX` function?')
-max_call = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
+max_args = temp.check_field('args').has_equal_ast('Are you using using `MAX` on the right column?')
 
 from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` clause correct?')
 
@@ -757,7 +749,7 @@ from_clause = sel.check_field('from_clause').has_equal_ast('Is your `FROM` claus
 Ex().test_correct(check_result(), [
     from_clause,
     left_eqn,
-    op_eqn
+    op_eqn,
     right_eqn,
     alias,
     title,
